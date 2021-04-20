@@ -4,4 +4,4 @@ start backend
 php artisan serve
 
 start frontend
-npm run serve
+npm run watch
