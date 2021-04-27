@@ -1873,10 +1873,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      testMsg: 'Wenn es funktioniert ändert es sich gleich.'
+      testMsg: 'Wenn es funktioniert ändert es sich gleich.',
+      room: {
+        roomName: '',
+        roomMaxPersons: null
+      }
     };
   },
   methods: {
@@ -1889,6 +1899,17 @@ __webpack_require__.r(__webpack_exports__);
         return console.log(err);
       })["finally"](function () {
         return _this.loading = false;
+      });
+    },
+    createRoom: function createRoom(room) {
+      var _this2 = this;
+
+      this.axios.post('http://localhost:8000/api/room/create', room).then(function (response) {
+        return console.log(response);
+      })["catch"](function (err) {
+        return console.log(err);
+      })["finally"](function () {
+        return _this2.loading = false;
       });
     }
   }
@@ -37605,6 +37626,66 @@ var render = function() {
         }
       },
       [_vm._v("Teste mich")]
+    ),
+    _vm._v(" "),
+    _c("hr"),
+    _vm._v(" "),
+    _c("h1", [_vm._v("Raum erstellen")]),
+    _vm._v(" "),
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.room.roomName,
+          expression: "room.roomName"
+        }
+      ],
+      attrs: { type: "text" },
+      domProps: { value: _vm.room.roomName },
+      on: {
+        input: function($event) {
+          if ($event.target.composing) {
+            return
+          }
+          _vm.$set(_vm.room, "roomName", $event.target.value)
+        }
+      }
+    }),
+    _vm._v(" " + _vm._s(_vm.room.roomName) + "\n    "),
+    _c("br"),
+    _vm._v(" "),
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.room.roomMaxPersons,
+          expression: "room.roomMaxPersons"
+        }
+      ],
+      attrs: { type: "number" },
+      domProps: { value: _vm.room.roomMaxPersons },
+      on: {
+        input: function($event) {
+          if ($event.target.composing) {
+            return
+          }
+          _vm.$set(_vm.room, "roomMaxPersons", $event.target.value)
+        }
+      }
+    }),
+    _vm._v(" " + _vm._s(_vm.room.roomMaxPersons) + "\n    "),
+    _c(
+      "p",
+      {
+        on: {
+          click: function($event) {
+            return _vm.createRoom(_vm.room)
+          }
+        }
+      },
+      [_vm._v("Raum erstellen")]
     )
   ])
 }

@@ -10,6 +10,6 @@ class Room extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name'
+        'name', 'maxPersons'
     ];
 }
