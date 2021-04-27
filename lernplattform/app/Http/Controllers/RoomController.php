@@ -7,8 +7,15 @@ use App\Models\Room;
 
 class RoomController extends Controller
 {
-    public function test() {
-        return "Test funktioniert";
+
+    public function getAllRooms() {
+        $rooms = Room::get();
+        return $rooms;
+    }
+
+    public function getRoom($id) {
+        $room = Room::find($id);
+        return $room;
     }
 
 

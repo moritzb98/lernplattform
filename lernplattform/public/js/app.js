@@ -1877,12 +1877,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      testMsg: 'Wenn es funktioniert ändert es sich gleich.',
       room: {
         roomName: '',
         roomMaxPersons: null
@@ -1890,26 +1887,15 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    test: function test() {
-      var _this = this;
-
-      this.axios.get('http://localhost:8000/api/test').then(function (response) {
-        return console.log(response), _this.testMsg = response.data;
-      })["catch"](function (err) {
-        return console.log(err);
-      })["finally"](function () {
-        return _this.loading = false;
-      });
-    },
     createRoom: function createRoom(room) {
-      var _this2 = this;
+      var _this = this;
 
       this.axios.post('http://localhost:8000/api/room/create', room).then(function (response) {
         return console.log(response);
       })["catch"](function (err) {
         return console.log(err);
       })["finally"](function () {
-        return _this2.loading = false;
+        return _this.loading = false;
       });
     }
   }
@@ -37614,20 +37600,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("p", [_vm._v(_vm._s(_vm.testMsg))]),
-    _vm._v(" "),
-    _c(
-      "p",
-      {
-        on: {
-          click: function($event) {
-            return _vm.test()
-          }
-        }
-      },
-      [_vm._v("Teste mich")]
-    ),
-    _vm._v(" "),
     _c("hr"),
     _vm._v(" "),
     _c("h1", [_vm._v("Raum erstellen")]),

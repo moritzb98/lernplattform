@@ -20,9 +20,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::middleware('api')->group(function () {
-    Route::get('test', [RoomController::class, 'test']);
 
     // Rooms
     Route::post('/room/create', [RoomController::class, 'create']);
     Route::post('/room/update', [RoomController::class, 'update']);
+    Route::get('/rooms', [RoomController::class, 'getAllRooms']);
+    Route::get('/room/{id}', [RoomController::class, 'getRoom']);
 });
