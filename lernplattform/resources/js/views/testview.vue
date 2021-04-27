@@ -6,7 +6,13 @@
         <br>
         <input type="number" v-model="room.roomMaxPersons"> {{ room.roomMaxPersons }}
         <p @click="createRoom(room)">Raum erstellen</p>
+
+        <button class="mdc-button foo-button">
+  <div class="mdc-button__ripple"></div>
+  <span class="mdc-button__label">Button</span>
+</button>
     </div>
+
 </template>
 
 <script>

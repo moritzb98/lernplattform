@@ -1877,6 +1877,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -37619,7 +37625,7 @@ var render = function() {
         }
       }
     }),
-    _vm._v(" " + _vm._s(_vm.room.roomName) + "\n    "),
+    _vm._v(" " + _vm._s(_vm.room.roomName) + "\n        "),
     _c("br"),
     _vm._v(" "),
     _c("input", {
@@ -37642,7 +37648,7 @@ var render = function() {
         }
       }
     }),
-    _vm._v(" " + _vm._s(_vm.room.roomMaxPersons) + "\n    "),
+    _vm._v(" " + _vm._s(_vm.room.roomMaxPersons) + "\n        "),
     _c(
       "p",
       {
@@ -37653,10 +37659,23 @@ var render = function() {
         }
       },
       [_vm._v("Raum erstellen")]
-    )
+    ),
+    _vm._v(" "),
+    _vm._m(0)
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("button", { staticClass: "mdc-button foo-button" }, [
+      _c("div", { staticClass: "mdc-button__ripple" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "mdc-button__label" }, [_vm._v("Button")])
+    ])
+  }
+]
 render._withStripped = true
 
 
