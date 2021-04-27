@@ -24,4 +24,5 @@ Route::middleware('api')->group(function () {
 
     // Rooms
     Route::post('/room/create', [RoomController::class, 'create']);
+    Route::post('/room/update', [RoomController::class, 'update']);
 });

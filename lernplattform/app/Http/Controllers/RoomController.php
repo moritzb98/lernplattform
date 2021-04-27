@@ -17,7 +17,15 @@ class RoomController extends Controller
             'name' => $request['roomName'],
             'maxPersons' => $request['roomMaxPersons']
         ]);
-        return response()->json(['´success' => 'Raum erstellt.'], 200);
+        return response()->json(['´success' => 'Raum erfolgreich erstellt.'], 200);
+    }
+
+    public function update(Request $request) {
+        Room::where('id', $request['id'])->update([
+            'name' => $request['roomName'],
+            'maxPersons' => $request['roomMaxPersons']
+        ]);
+        return response()->json(['´success' => 'Raum erfolgreich bearbeitet.'], 200);
     }
 
 
