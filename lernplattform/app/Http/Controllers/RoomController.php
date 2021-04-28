@@ -13,9 +13,8 @@ class RoomController extends Controller
         return $rooms;
     }
 
-    public function getRoom($id) {
-        $room = Room::find($id);
-        return $room;
+    public function getRoom(Request $request) {
+        return null;
     }
 
 

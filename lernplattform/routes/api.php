@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\SecretController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,11 +20,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('api')->group(function () {
+Route::group(['middleware' => ['auth:sanctum']], function () {
 
     // Rooms
     Route::post('/room/create', [RoomController::class, 'create']);
     Route::post('/room/update', [RoomController::class, 'update']);
     Route::get('/rooms', [RoomController::class, 'getAllRooms']);
-    Route::get('/room/{id}', [RoomController::class, 'getRoom']);
+    Route::post('/room', [RoomController::class, 'getRoom']);
 });

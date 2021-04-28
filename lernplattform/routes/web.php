@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +20,5 @@ Route::get('{any}', function () {
 
 Auth::routes();
 
+Route::post('/registernormal', [AuthController::class, 'register']);
+Route::post('/logoutnormal', [AuthController::class, 'logout']);

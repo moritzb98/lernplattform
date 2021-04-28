@@ -7,6 +7,12 @@ import { routes } from './router';
 
 window.Vue = require('vue').default;
 
+window.axios = require('axios');
+
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+window.axios.defaults.withCredentials = true;
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

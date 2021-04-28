@@ -28,7 +28,7 @@
         },
         methods: {
             createRoom(room) {
-                this.axios.post('http://localhost:8000/api/room/create', room)
+                this.axios.post('http://127.0.0.1:8000/api/room/create', room)
                     .then(response => (
                         console.log(response)
                     ))
