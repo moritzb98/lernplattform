@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\SecretController;
+use App\Http\Controllers\FileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,4 +31,13 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/room/leave', [RoomController::class, 'leaveRoom']);
     Route::get('/rooms', [RoomController::class, 'getAllRooms']);
     Route::post('/room', [RoomController::class, 'getRoom']);
+
+    //Uploads
+    Route::get('/', [FileController::class, 'index']);
+    Route::post('/upload', [FileController::class, 'upload'])->name('upload');
+
 });
+
+
+
+

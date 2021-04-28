@@ -10,7 +10,7 @@ npm run watch
 
 open folder in terminal
 
-npm install
+npm install / npm install node-sass@4.14.1
 
 npm run watch
 
