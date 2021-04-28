@@ -21,6 +21,7 @@ window.axios.defaults.withCredentials = true;
 
 Vue.use(VueRouter);
 Vue.use(VueAxios, axios);
+Vue.component('file-upload-component', require('./components/FileUploadComponent.vue').default);
 
 const router = new VueRouter({
     mode: 'history',

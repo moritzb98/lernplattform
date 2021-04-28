@@ -1,6 +1,11 @@
 import testview from './views/testview.vue';
 import auth from './views/Auth.vue';
+<<<<<<< HEAD
 import styleguide from './views/styleguide.vue'
+=======
+import documents from './views/Documents.vue';
+import uploads from './components/FileUploadComponent.vue';
+>>>>>>> main
 
 export const routes = [
     {
@@ -17,6 +22,18 @@ export const routes = [
         name: 'styleguide',
         path: '/spa/style',
         component: styleguide
+    },
+
+    {
+        name: 'documentmanagement',
+        path: '/spa/documents',
+        component: documents
+    },
+
+    {
+        name: 'uploads',
+        path: '/spa/uploads',
+        component: uploads
     },
 
 ];
