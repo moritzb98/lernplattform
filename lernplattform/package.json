@@ -25,6 +25,9 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "@material/button": "^11.0.0",
+        "@material/card": "^11.0.0",
+        "@material/chips": "^11.0.0",
         "node-sass": "^4.14.1",
         "sass-loader": "^11.0.1",
         "vue-axios": "^3.2.4",
