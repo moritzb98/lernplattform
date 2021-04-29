@@ -54,10 +54,10 @@ class RoomController extends Controller
 
     public function delete(Request $request) {
         $userid = Auth::user()->id;
-
         $roomid = Room::where('id', $request['id'])->get('id');
+        $roomUserid = Room::where('user_id', $userid)->where('id', $roomid)->get('user_id');
 
-        if($room == $userid){
+        if($roomUserid == $userid){
             Room::where('id', $request['id'])->delete();
             return response()->json(['´success' => 'Raum erfolgreich bearbeitet.'], 200);
         }
