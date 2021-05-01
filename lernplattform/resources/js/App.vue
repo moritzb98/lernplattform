@@ -30,7 +30,7 @@
                     </div>
                 </router-link>
                 <router-link to="#">
-                    <div class="nav_item neumorph">
+                    <div class="nav_item neumorph" v-on:click="showNavDropUp">
                         <span class="material-icons">add</span>
                     </div>
                 </router-link>
@@ -44,6 +44,63 @@
                         <span class="material-icons">description</span>
                     </div>
                 </router-link>
+
+                <div id="js__nav_drop-up" class="nav_drop-up_wrapper">
+                    <div class="nav_drop-up neumorph">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col col-6 col-sm-4 mt-3">
+                                    <router-link to="/spa/Sammlung-erstellen">
+                                        <div class="card neumorph" v-on:click="showNavDropUp">
+                                            <img class="card_img" src="" alt="" />
+                                            <div class="card_title">Sammlung</div>
+                                        </div>
+                                    </router-link>
+                                </div>
+                                <div class="col col-6 col-sm-4 mt-3">
+                                    <router-link to="/spa/Karteikarten-erstellen">
+                                        <div class="card neumorph" v-on:click="showNavDropUp">
+                                            <img class="card_img" src="" alt="" />
+                                            <div class="card_title">Karteikarten</div>
+                                        </div>
+                                    </router-link>
+                                </div>
+                                <div class="col col-6 col-sm-4 mt-3">
+                                    <router-link to="/spa/Skript-erstellen">
+                                        <div class="card neumorph" v-on:click="showNavDropUp">
+                                            <img class="card_img" src="" alt="" />
+                                            <div class="card_title">Skript</div>
+                                        </div>
+                                    </router-link>
+                                </div>
+                                <div class="col col-6 col-sm-4 mt-3">
+                                    <router-link to="/spa/Kurs-erstellen">
+                                        <div class="card neumorph" v-on:click="showNavDropUp">
+                                            <img class="card_img" src="" alt="" />
+                                            <div class="card_title">Kurs</div>
+                                        </div>
+                                    </router-link>
+                                </div>
+                                <div class="col col-6 col-sm-4 mt-3">
+                                    <router-link to="/spa/Quiz-erstellen">
+                                        <div class="card neumorph" v-on:click="showNavDropUp">
+                                            <img class="card_img" src="" alt="" />
+                                            <div class="card_title">Quiz</div>
+                                        </div>
+                                    </router-link>
+                                </div>
+                                <div class="col col-6 col-sm-4 mt-3">
+                                    <router-link to="/spa/Lerngruppe-erstellen">
+                                        <div class="card neumorph" v-on:click="showNavDropUp">
+                                            <img class="card_img" src="" alt="" />
+                                            <div class="card_title">Lerngruppe</div>
+                                        </div>
+                                    </router-link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -66,6 +123,8 @@
         position: fixed;
         top: 0;
         left: 0;
+
+        z-index: 1900;
     }
 
     .header {
@@ -77,6 +136,33 @@
         font-family: 'Syncopate', sans-serif;
         font-weight: 700;
     }
+
+
+    /*
+    CARD
+    */
+
+    .card {
+        display: flex;
+        width: 100%;
+        padding: 15px;
+        border: none;
+        min-height: 100px;
+        height: 100%;
+        text-align: center;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .card_img {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .card_title {
+        color: #000;
+    }
+
 
 
 
@@ -122,7 +208,8 @@
     }
 
     .l_page-content {
-        margin-top: 62px;
+        padding-top: 62px;
+        height: 100vh;
     }
 
 
@@ -170,6 +257,8 @@
         position: fixed;
         bottom: 0;
         left: 0;
+
+        z-index: 1900;
     }
 
     .nav {
@@ -215,10 +304,38 @@
             2px 2px 8px #0e0e0e11;
     }
 
+    .nav_drop-up_wrapper {
+        position: absolute;
+        bottom: -400px;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        z-index: 1890;
+    }
+
+    .nav_drop-up {
+        width: 80%;
+        padding: 20px 0px;
+        border-radius: 20px;
+
+        z-index: 1890;
+    }
+
+    .nav_drop-up--active {
+        bottom: 100px;
+    }
 
 </style>
 
 <script>
     export default {
+        methods: {
+            showNavDropUp: function() {
+                var e = document.getElementById("js__nav_drop-up");
+                e.classList.toggle("nav_drop-up--active");
+            }
+        }
     }
 </script>

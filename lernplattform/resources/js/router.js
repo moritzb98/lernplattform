@@ -7,6 +7,14 @@ import uploads from './components/FileUploadComponent.vue';
 // Page Views Nav
 import Dashboard from './views/Dashboard.vue'
 import Lernmaterial from './views/Lernmaterial.vue'
+
+import CreateKurs from './views/CreateKurs.vue'
+import CreateKarteikarten from './views/CreateKarteikarten.vue'
+import CreateQuiz from './views/CreateQuiz.vue'
+import CreateSkript from './views/CreateSkript.vue'
+import CreateLerngruppe from './views/CreateLerngruppe.vue'
+import CreateSammlung from './views/CreateSammlung.vue'
+
 import Lerngruppen from './views/Lerngruppen.vue'
 import Newsfeed from './views/Newsfeed.vue'
 
@@ -25,6 +33,38 @@ export const routes = [
         path: '/spa/Lernmaterial',
         component: Lernmaterial
     },
+
+    {
+        name: 'CreateKurs',
+        path: '/spa/Kurs-erstellen',
+        component: CreateKurs
+    },
+    {
+        name: 'CreateKarteikarten',
+        path: '/spa/Karteikarten-erstellen',
+        component: CreateKarteikarten
+    },
+    {
+        name: 'CreateQuiz',
+        path: '/spa/Quiz-erstellen',
+        component: CreateQuiz
+    },
+    {
+        name: 'CreateSkript',
+        path: '/spa/Skript-erstellen',
+        component: CreateSkript
+    },
+    {
+        name: 'CreateLerngruppe',
+        path: '/spa/Lerngruppe-erstellen',
+        component: CreateLerngruppe
+    },
+    {
+        name: 'CreateSammlung',
+        path: '/spa/Sammlung-erstellen',
+        component: CreateSammlung
+    },
+
     {
         name: 'Lerngruppen',
         path: '/spa/Lerngruppen',
