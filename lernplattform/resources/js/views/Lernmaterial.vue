@@ -2,7 +2,7 @@
     <div>
         <!-- Header -->
         <div class="header">
-            header
+            Lernmaterial
         </div>
 
         <!-- Page Content -->

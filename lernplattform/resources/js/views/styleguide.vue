@@ -106,6 +106,14 @@
 </script>
 
 <style scoped>
+
+
+
+    /*
+        Navigation and Neumorph Basic Styles added to App.vue
+    */
+
+
     .mdc-button--raised{
         background: linear-gradient(to bottom right,white, #F1F1F1);
         height: 36px;

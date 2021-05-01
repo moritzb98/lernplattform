@@ -2,7 +2,7 @@
     <div>
         <!-- Header -->
         <div class="header">
-            header
+            Dein Dashboard
         </div>
 
         <!-- Page Content -->

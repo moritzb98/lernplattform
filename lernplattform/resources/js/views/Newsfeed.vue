@@ -2,7 +2,7 @@
     <div>
         <!-- Header -->
         <div class="header">
-            header
+            Mein Newsfeed
         </div>
 
         <!-- Page Content -->

@@ -2,12 +2,12 @@
     <div>
         <!-- Header -->
         <div class="header">
-            header
+            Meine Lerngruppen
         </div>
 
         <!-- Page Content -->
         <div class="page-content">
-            <h1>Dashboard</h1>
+            <h1>Lerngruppen</h1>
         </div>
     </div>
 </template>
