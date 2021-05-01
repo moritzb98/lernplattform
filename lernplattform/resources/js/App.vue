@@ -1,15 +1,23 @@
 <template>
     <div>
 
-        <!-- Header noch in Component auslagern -->
+        <!-- Header noch auslagern und dynamisch machen -->
+        <!-- Header -->
+        <div class="header_wrapper">
+            <div class="header">
+                <div class="header_title">
+                    Page Title
+                </div>
+            </div>
+        </div>
 
-        <!-- Header + Page Content -->
-        <div class="container">
+        <!-- Page Content -->
+        <div class="container l_page-content">
             <router-view> </router-view>
         </div>
 
         <!-- Navigation -->
-        <div class="nav-wrapper">
+        <div class="nav_wrapper">
             <div class="nav">
                 <router-link to="/spa/Dashboard">
                     <div class="nav_item neumorph">
@@ -42,6 +50,35 @@
 </template>
 
 <style>
+
+    /*
+    HEADER
+    */
+    /* noch in component auslagern */
+
+    .header_wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background-color: #F1F1F1;
+        padding: 15px 15px;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    .header {
+
+    }
+
+    .header_title {
+        font-size: 20px;
+        font-family: 'Syncopate', sans-serif;
+        font-weight: 700;
+    }
+
+
 
 /*
     ██████   █████  ███████ ██  ██████ 
@@ -84,6 +121,10 @@
             2px 2px 8px #0e0e0e11;
     }
 
+    .l_page-content {
+        margin-top: 62px;
+    }
+
 
     /* Utilities  */
 
@@ -119,12 +160,16 @@
     ██  ██ ██ ██   ██  ██  ██  
     ██   ████ ██   ██   ████    */
 
-    .nav-wrapper {
+    .nav_wrapper {
         width: 100%;
         display: flex;
         justify-content: center;
         background-color: #F1F1F1;
         padding: 25px 15px;
+
+        position: fixed;
+        bottom: 0;
+        left: 0;
     }
 
     .nav {
@@ -157,7 +202,7 @@
     }
 
     .nav .router-link-exact-active span {
-        color: red;
+
     }
 
     .nav .router-link-exact-active .nav_item {
