@@ -12,4 +12,8 @@ class RoomUsers extends Model
     protected $fillable = [
         'user_id', 'room_id'
     ];
+
+    public function user(){
+        return $this->belongsTo('App\User', 'user_id', 'id');
+    }
 }
