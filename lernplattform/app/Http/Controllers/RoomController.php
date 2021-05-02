@@ -92,6 +92,11 @@ class RoomController extends Controller
         return response()->json(['´success' => 'Raum erfolgreich verlassen.'], 200);
     }
 
+    public function getUsersInRoom(Request $request){
+        $roomid = $request['room_id'];
+        return RoomUsers::where('room_id', $roomid)->get();
+    }
+
 
 }
 
