@@ -22,7 +22,7 @@
                 </label>
 
                 <div class="headline-text-field">Interessen</div>
-                <div class="mdc-chip mdc-chip-filter" role="row">
+                <div @click="toggleChip()" class="mdc-chip mdc-chip-filter" role="row">
                     <div class="mdc-chip__ripple"></div>
                     <span role="gridcell">
                         <span role="button" tabindex="0" class="mdc-chip__primary-action">
@@ -137,6 +137,10 @@
         data() {
             return {
                 secrets:[],
+                formData:{
+                    email:'',
+                    password:'',
+                },
                 registerData:{
                     name: '',
                     email: '',
@@ -151,6 +155,7 @@
                 axios.get('/sanctum/csrf-cookie').then(response => {
                     axios.post('/login', this.formData).then(response => {
                         console.log(response);
+                        this.$router.push({ path: '/spa/Dashboard' })
                     });
                 });
             },
@@ -158,8 +163,14 @@
                 axios.get('/sanctum/csrf-cookie').then(response => {
                     axios.post('/registernormal', this.registerData).then(response => {
                         console.log(response);
+                        this.formData.email=this.registerData.email;
+                        this.formData.password=this.registerData.password;
+                        this.handleLogin();
                     });
                 });
+            },
+            toggleChip() {
+
             },
         }
     }

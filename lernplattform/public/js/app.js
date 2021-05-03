@@ -3099,6 +3099,10 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       secrets: [],
+      formData: {
+        email: '',
+        password: ''
+      },
       registerData: {
         name: '',
         email: '',
@@ -3115,6 +3119,10 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('/sanctum/csrf-cookie').then(function (response) {
         axios.post('/login', _this.formData).then(function (response) {
           console.log(response);
+
+          _this.$router.push({
+            path: '/spa/Dashboard'
+          });
         });
       });
     },
@@ -3124,9 +3132,14 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('/sanctum/csrf-cookie').then(function (response) {
         axios.post('/registernormal', _this2.registerData).then(function (response) {
           console.log(response);
+          _this2.formData.email = _this2.registerData.email;
+          _this2.formData.password = _this2.registerData.password;
+
+          _this2.handleLogin();
         });
       });
-    }
+    },
+    toggleChip: function toggleChip() {}
   }
 });
 
@@ -42321,7 +42334,23 @@ var render = function() {
           _vm._v("Interessen")
         ]),
         _vm._v(" "),
-        _vm._m(0),
+        _c(
+          "div",
+          {
+            staticClass: "mdc-chip mdc-chip-filter",
+            attrs: { role: "row" },
+            on: {
+              click: function($event) {
+                return _vm.toggleChip()
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "mdc-chip__ripple" }),
+            _vm._v(" "),
+            _vm._m(0)
+          ]
+        ),
         _vm._v(" "),
         _vm._m(1),
         _vm._v(" "),
@@ -42408,28 +42437,16 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "mdc-chip mdc-chip-filter", attrs: { role: "row" } },
-      [
-        _c("div", { staticClass: "mdc-chip__ripple" }),
-        _vm._v(" "),
-        _c("span", { attrs: { role: "gridcell" } }, [
-          _c(
-            "span",
-            {
-              staticClass: "mdc-chip__primary-action",
-              attrs: { role: "button", tabindex: "0" }
-            },
-            [
-              _c("span", { staticClass: "mdc-chip__text" }, [
-                _vm._v("Informatik")
-              ])
-            ]
-          )
-        ])
-      ]
-    )
+    return _c("span", { attrs: { role: "gridcell" } }, [
+      _c(
+        "span",
+        {
+          staticClass: "mdc-chip__primary-action",
+          attrs: { role: "button", tabindex: "0" }
+        },
+        [_c("span", { staticClass: "mdc-chip__text" }, [_vm._v("Informatik")])]
+      )
+    ])
   },
   function() {
     var _vm = this
