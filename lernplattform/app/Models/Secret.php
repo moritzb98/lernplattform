@@ -5,15 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class RoomUsers extends Model
+class Secret extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'user_id', 'room_id'
-    ];
+    protected $guarded = [];
 
     public function user(){
-        return $this->belongsTo('App\User', 'user_id', 'id');
+        return $this->belongsTo('App\Models\User');
     }
+
 }

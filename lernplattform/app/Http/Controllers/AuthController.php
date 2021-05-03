@@ -34,4 +34,8 @@ class AuthController extends Controller
         Auth::logout();
         return response()->json(['message' => 'Logged Out'], 200);
     }
+
+    public function getUser(Request $request){
+        return User::where('id', $request['user_id'])->get();
+    }
 }

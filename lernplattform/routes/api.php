@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\SecretController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
 
+    // User
+    Route::post('/user', [AuthController::class, 'getUser']);
+
     // Rooms
     Route::post('/room/create', [RoomController::class, 'create']);
     Route::post('/room/update', [RoomController::class, 'update']);
@@ -31,6 +35,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/room/leave', [RoomController::class, 'leaveRoom']);
     Route::get('/rooms', [RoomController::class, 'getAllRooms']);
     Route::post('/room', [RoomController::class, 'getRoom']);
+    Route::post('/room/users', [RoomController::class, 'getUsersInRoom']);
 
     //Uploads
     Route::get('/', [FileController::class, 'index']);
