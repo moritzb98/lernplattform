@@ -94,6 +94,7 @@
                     job:'',
                 },
                 interests:[{name: 'Informatik', selected:false},{name: 'Biologie', selected:false},{name: 'Chemie', selected:false}],
+                interestData:[],
 
             }
         },
@@ -107,17 +108,23 @@
                 });
             },
             handleRegister() {
-                axios.get('/sanctum/csrf-cookie').then(response => {
+                this.pushInterests();
+                /* axios.get('/sanctum/csrf-cookie').then(response => {
                     axios.post('/registernormal', this.registerData).then(response => {
                         console.log(response);
                         this.formData.email=this.registerData.email;
                         this.formData.password=this.registerData.password;
                         this.handleLogin();
                     });
-                });
+                }); */
             },
-            toggleChip(el) {
-                console.log(el);
+            pushInterests() {
+                for(var i = 0; i < this.interests.length; i++){
+                    if(this.interests[i].selected){
+                        this.interestData.push(this.interests[i].name);
+                    }
+                };
+                console.log(this.interestData);
             },
         }
     }

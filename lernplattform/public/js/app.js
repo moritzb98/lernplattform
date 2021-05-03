@@ -3550,7 +3550,8 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         name: 'Chemie',
         selected: false
-      }]
+      }],
+      interestData: []
     };
   },
   methods: {
@@ -3568,20 +3569,25 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     handleRegister: function handleRegister() {
-      var _this2 = this;
-
-      axios.get('/sanctum/csrf-cookie').then(function (response) {
-        axios.post('/registernormal', _this2.registerData).then(function (response) {
-          console.log(response);
-          _this2.formData.email = _this2.registerData.email;
-          _this2.formData.password = _this2.registerData.password;
-
-          _this2.handleLogin();
-        });
-      });
+      this.pushInterests();
+      /* axios.get('/sanctum/csrf-cookie').then(response => {
+          axios.post('/registernormal', this.registerData).then(response => {
+              console.log(response);
+              this.formData.email=this.registerData.email;
+              this.formData.password=this.registerData.password;
+              this.handleLogin();
+          });
+      }); */
     },
-    toggleChip: function toggleChip(el) {
-      console.log(el);
+    pushInterests: function pushInterests() {
+      for (var i = 0; i < this.interests.length; i++) {
+        if (this.interests[i].selected) {
+          this.interestData.push(this.interests[i].name);
+        }
+      }
+
+      ;
+      console.log(this.interestData);
     }
   }
 });
