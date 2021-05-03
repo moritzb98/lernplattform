@@ -40599,8 +40599,72 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function () {}
-var staticRenderFns = []
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _c("div", { staticClass: "row mb-3" }, [
+      _c(
+        "div",
+        { staticClass: "col" },
+        [
+          _c("router-link", { attrs: { to: "/spa/Lerngruppe-erstellen" } }, [
+            _c("button", { staticClass: "btn neumorph w-100 mb-3" }, [
+              _c("span", { staticClass: "btn_text mdc-button__label " }, [
+                _vm._v("Lerngruppe erstellen")
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "btn_icon material-icons" }, [
+                _vm._v("people")
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._l(_vm.rooms, function(room, index) {
+            return _c("div", { key: index })
+          })
+        ],
+        2
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row mb-3" }, [
+      _c("div", { staticClass: "col" }, [
+        _c("h1", [_vm._v("Alle Lerngruppen")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row mb-5" }, [
+      _c("div", { staticClass: "col-12" }, [
+        _c("button", { staticClass: "btn neumorph w-100" }, [
+          _c("span", { staticClass: "btn_text mdc-button__label " }, [
+            _vm._v("Lerngruppe finden")
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "btn_icon material-icons" }, [
+            _vm._v("people")
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
 
 
 

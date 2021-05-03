@@ -25,14 +25,14 @@
                     </button>
                 </router-link>
                 <div v-for="(room, index) in rooms" :key="index">
-                    <div class="neumorph card-grp mb-2">
+                    <!--<div class="neumorph card-grp mb-2">
                         {{room.name}}
                         <div class="card-grp_controls">
                             <div class="" @click="delete(room.id)">
                                 X
                             </div>
                         </div>
-                    </div>
+                    </div>-->
 
                     <!-- delete funzt nicht  -->
 
