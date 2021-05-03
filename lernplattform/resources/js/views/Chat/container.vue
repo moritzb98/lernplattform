@@ -1,22 +1,22 @@
-<!-- <template>
+<template>
         <div class="py-12">
             <div class="max-w-7xl mx-auto xm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <message-container />
-                    <input-message 
-                        : room="currentRoom"
+                    <input-message
+                        :room="currentRoom"
                         v-on:messagesent="getMessages()"/>
 
-                        
-                 
+
+
                 </div>
             </div>
-        </div>  
-   
+        </div>
+
 </template>
 
 <script>
-    
+
     import MessageContainer from './messageContainer.vue'
     import InputMessage from './inputMessage.vue'
 
@@ -30,7 +30,7 @@
             return {
                 chatRooms: [],
                 currentRoom: [],
-                messages: []
+                messages: [],
             }
         },
 
@@ -57,18 +57,17 @@
                 .catch( error => {
                     console.log( error );
                 })
-            }    
+            }
         },
         created() {
             this.getRooms();
        }
-       
+
     }
 
-    
-</script> 
+
+</script>
 
 
-            
---!> 
+
 
