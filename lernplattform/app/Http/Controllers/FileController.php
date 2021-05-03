@@ -8,7 +8,7 @@ use App\Models\FileUpload;
 class FileController extends Controller
 {
       public function index(){
-        return view('welcome');
+        return FileUpload::all();
       }
 
       public function upload(Request $request){
