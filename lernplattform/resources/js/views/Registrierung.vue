@@ -93,17 +93,27 @@
                     passwordConfirm: '',
                     job:'',
                 },
-                interests:[{name: 'Informatik', selected:false},{name: 'Biologie', selected:false},{name: 'Chemie', selected:false}],
+                interests:[],
                 interestData:[],
 
             }
+        },
+        mounted() {
+            // Get all Interests
+            axios.get('/api/interests/getall').then(response => {
+                for(var i=0; i<response.data.length; i++){
+                    console.log(response.data[i].name);
+                    this.interests.push({name: response.data[i].name, selected: false});
+                }
+            });
         },
         methods: {
             handleLogin() {
                 axios.get('/sanctum/csrf-cookie').then(response => {
                     axios.post('/login', this.formData).then(response => {
                         console.log(response);
-                        this.$router.push({ path: '/spa/Dashboard' })
+                        this.registerInterests();
+                        this.$router.push({ path: '/spa/Dashboard' });
                     });
                 });
             },
@@ -124,8 +134,12 @@
                         this.interestData.push(this.interests[i].name);
                     }
                 };
-                console.log(this.interestData);
             },
+            registerInterests() {
+                axios.post('/api/interests/send', this.interestData).then(response => {
+                    console.log(response);
+                });
+            }
         }
     }
 </script>

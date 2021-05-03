@@ -7,6 +7,7 @@ use App\Http\Controllers\SecretController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\InterestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,7 +44,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/upload', [FileController::class, 'upload'])->name('upload');
 
     //Chat
-
     Route::get('/chat', function () {
         return Inertia\Inertia::render('Chat/container');
     })->name('chat');
@@ -52,7 +52,12 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('chat/room/{roomId}/messages', [ChatController::class, 'messages']);
     Route::post('chat/room/{roomId}/message', [ChatController::class, 'newMessage']);
 
+
 });
+
+// Interests
+Route::get('/interests/getall' , [InterestController::class, 'getAllInterest']);
+Route::post('/interests/send' , [InterestController::class, 'sendToUser']);
 
 
 

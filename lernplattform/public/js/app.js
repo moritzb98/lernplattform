@@ -3238,9 +3238,48 @@ __webpack_require__.r(__webpack_exports__);
 /*!***********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Documents.vue?vue&type=script&lang=js& ***!
   \***********************************************************************************************************************************************************************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/resources/js/views/Documents.vue: Unexpected token (39:0)\n\n\u001b[0m \u001b[90m 37 |\u001b[39m         }\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 38 |\u001b[39m     }\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 39 |\u001b[39m }\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 40 |\u001b[39m\u001b[0m\n    at Parser._raise (/Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:776:17)\n    at Parser.raiseWithData (/Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:769:17)\n    at Parser.raise (/Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:737:17)\n    at Parser.unexpected (/Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:9736:16)\n    at Parser.parseExprAtom (/Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:11132:20)\n    at Parser.parseExprSubscripts (/Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:10709:23)\n    at Parser.parseUpdate (/Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:10689:21)\n    at Parser.parseMaybeUnary (/Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:10667:23)\n    at Parser.parseExprOps (/Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:10524:23)\n    at Parser.parseMaybeConditional (/Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:10498:23)\n    at Parser.parseMaybeAssign (/Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:10461:21)\n    at Parser.parseExpressionBase (/Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:10406:23)\n    at /Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:10400:39\n    at Parser.allowInAnd (/Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:12099:16)\n    at Parser.parseExpression (/Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:10400:17)\n    at Parser.parseStatementContent (/Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:12391:23)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      fileUploads: []
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    this.axios.get('http://127.0.0.1:8000/api/getFiles').then(function (response) {
+      _this.fileUploads = response.data;
+    });
+  }
+});
 
 /***/ }),
 
@@ -3493,44 +3532,52 @@ __webpack_require__.r(__webpack_exports__);
         passwordConfirm: '',
         job: ''
       },
-      interests: [{
-        name: 'Informatik',
-        selected: false
-      }, {
-        name: 'Biologie',
-        selected: false
-      }, {
-        name: 'Chemie',
-        selected: false
-      }],
+      interests: [],
       interestData: []
     };
   },
+  mounted: function mounted() {
+    var _this = this;
+
+    // Get all Interests
+    axios.get('/api/interests/getall').then(function (response) {
+      for (var i = 0; i < response.data.length; i++) {
+        console.log(response.data[i].name);
+
+        _this.interests.push({
+          name: response.data[i].name,
+          selected: false
+        });
+      }
+    });
+  },
   methods: {
     handleLogin: function handleLogin() {
-      var _this = this;
+      var _this2 = this;
 
       axios.get('/sanctum/csrf-cookie').then(function (response) {
-        axios.post('/login', _this.formData).then(function (response) {
+        axios.post('/login', _this2.formData).then(function (response) {
           console.log(response);
 
-          _this.$router.push({
+          _this2.registerInterests();
+
+          _this2.$router.push({
             path: '/spa/Dashboard'
           });
         });
       });
     },
     handleRegister: function handleRegister() {
-      var _this2 = this;
+      var _this3 = this;
 
       this.pushInterests();
       axios.get('/sanctum/csrf-cookie').then(function (response) {
-        axios.post('/registernormal', _this2.registerData).then(function (response) {
+        axios.post('/registernormal', _this3.registerData).then(function (response) {
           console.log(response);
-          _this2.formData.email = _this2.registerData.email;
-          _this2.formData.password = _this2.registerData.password;
+          _this3.formData.email = _this3.registerData.email;
+          _this3.formData.password = _this3.registerData.password;
 
-          _this2.handleLogin();
+          _this3.handleLogin();
         });
       });
     },
@@ -3542,7 +3589,11 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       ;
-      console.log(this.interestData);
+    },
+    registerInterests: function registerInterests() {
+      axios.post('/api/interests/send', this.interestData).then(function (response) {
+        console.log(response);
+      });
     }
   }
 });
