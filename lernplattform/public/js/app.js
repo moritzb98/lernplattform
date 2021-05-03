@@ -2705,7 +2705,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.rooms = response.data;
       });
     },
-    "delete": function _delete(id) {
+    deleteRoom: function deleteRoom(id) {
       this.axios.post('http://127.0.0.1:8000/api/room/delete/' + id).then(function (response) {
         return console.log(response);
       });
@@ -40811,7 +40811,23 @@ var render = function() {
                     _vm._s(room.name) +
                     "\n                    "
                 ),
-                _c("div", { staticClass: "card-grp_controls" })
+                _c("div", { staticClass: "card-grp_controls" }, [
+                  _c(
+                    "div",
+                    {
+                      on: {
+                        click: function($event) {
+                          return _vm.deleteRoom(this.room.id)
+                        }
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                            X\n                        "
+                      )
+                    ]
+                  )
+                ])
               ])
             ])
           })
