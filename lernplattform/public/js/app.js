@@ -2804,6 +2804,64 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Documents.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Documents.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      fileUploads: []
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get('./spa/upload').then(function (response) {
+      return _this.fileUploads = response.data;
+    });
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Lerngruppen.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Lerngruppen.vue?vue&type=script&lang=js& ***!
@@ -3488,6 +3546,7 @@ window.axios.defaults.withCredentials = true;
 vue__WEBPACK_IMPORTED_MODULE_4__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_5__.default);
 vue__WEBPACK_IMPORTED_MODULE_4__.default.use((vue_axios__WEBPACK_IMPORTED_MODULE_1___default()), (axios__WEBPACK_IMPORTED_MODULE_2___default()));
 vue__WEBPACK_IMPORTED_MODULE_4__.default.component('file-upload-component', __webpack_require__(/*! ./components/FileUploadComponent.vue */ "./resources/js/components/FileUploadComponent.vue").default);
+vue__WEBPACK_IMPORTED_MODULE_4__.default.component('file-view', __webpack_require__(/*! ./views/Documents.vue */ "./resources/js/views/Documents.vue").default);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_5__.default({
   mode: 'history',
   routes: _router__WEBPACK_IMPORTED_MODULE_3__.routes
@@ -3661,7 +3720,7 @@ var routes = [// Geändert in Drop-Up Nav?
   component: _views_Documents_vue__WEBPACK_IMPORTED_MODULE_3__.default
 }, {
   name: 'uploads',
-  path: '/spa/uploads',
+  path: '/spa/upload',
   component: _components_FileUploadComponent_vue__WEBPACK_IMPORTED_MODULE_4__.default
 }, {
   name: 'chat',
@@ -8129,7 +8188,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*\n    ██████   █████  ███████ ██  ██████ \n    ██   ██ ██   ██ ██      ██ ██      \n    ██████  ███████ ███████ ██ ██ \n    ██   ██ ██   ██      ██ ██ ██ \n    ██████  ██   ██ ███████ ██  ██████  */\nhtml {\n        font-family: 'Open Sans', sans-serif;\n}\nbody {\n        background-color: #F1F1F1;\n}\n\n\n    /* Basic Neumorph Styles for elements  */\n.neumorph {\n        background: linear-gradient(to bottom right,white, #F1F1F1);\n        border-radius: 20px;\n        box-shadow:\n            -5px -5px 13px #fff,\n            -1px -1px 6px #fff,\n            5px 5px 13px #0e0e0e40,\n            1px 1px 6px #0e0e0e40,\n            /* inset -1px -1px 6px #ffffffA0; */\n            inset 3px 3px 6px #0e0e0e11;\n}\n.neumorph--border {\n        border: double 1px transparent;\n        background-image: radial-gradient(white, white), radial-gradient(circle at top left,white,#777);\n        background-origin: border-box;\n        background-clip: content-box, border-box;\n}\n.neumorph--pressed {\n        background: linear-gradient(to bottom right, #F1F1F1, white);\n        box-shadow:\n            /* inset -5px -5px 13px #0e0e0e40, */\n            inset -2px -2px 8px #fff,\n            /* inset 5px 5px 13px #fff, */\n            inset 2px 2px 8px #0e0e0e40,\n            2px 2px 8px #0e0e0e11;\n}\n.neumorph--pressed--border {\n        border: double 2px transparent;\n        background-image: radial-gradient(white, white), radial-gradient(circle at top left,white,#777);\n        background-origin: border-box;\n        background-clip: content-box, border-box;\n        transition: .3s;\n}\n.l_page-content {\n        padding-top: 62px;\n        min-height: 100vh;\n}\n\n\n    /* Utilities  */\n.br--10 {\n        border-radius: 10px;\n}\n.br--20 {\n        border-radius: 20px;\n}\n.br--30 {\n        border-radius: 30px;\n}\n\n\n/*\n████████ ██    ██ ██████   ██████ \n   ██     ██  ██  ██   ██ ██    ██ \n   ██      ████   ██████  ██    ██ \n   ██       ██    ██      ██    ██ \n   ██       ██    ██       ██████  \n   */\n\n\n\n\n\n\n\n/*\n██ ███    ██ ██████  ██    ██ ████████ ███████ \n██ ████   ██ ██   ██ ██    ██    ██    ██      \n██ ██ ██  ██ ██████  ██    ██    ██    ███████ \n██ ██  ██ ██ ██      ██    ██    ██         ██ \n██ ██   ████ ██       ██████     ██    ███████ \n*/\n.input {\n        border-radius: 30px;\n        height: 50px;\n        outline: none;\n        padding-left: 5px;\n}\n.input:focus {\n        transition: .3s;\n        background-image: radial-gradient(white, white), radial-gradient(circle at top left,white,#222);\n}\n\n\n\n\n\n\n\n\n\n\n/*\n██████  ██    ██ ████████ ████████  ██████  ███    ██ ███████ \n██   ██ ██    ██    ██       ██    ██    ██ ████   ██ ██      \n██████  ██    ██    ██       ██    ██    ██ ██ ██  ██ ███████ \n██   ██ ██    ██    ██       ██    ██    ██ ██  ██ ██      ██ \n██████   ██████     ██       ██     ██████  ██   ████ ███████\n\n*/\n.btn {\n        display: flex;\n        flex-direction: row;\n        justify-content: center;\n        align-items: center;\n        padding: 12px 19px;\n        border-radius: 30px;\n}\n.btn:hover {\n        background: linear-gradient(to bottom right, #F1F1F1, white);\n        box-shadow:\n            inset -2px -2px 8px #fff,\n            inset 2px 2px 8px #0e0e0e40,\n            2px 2px 8px #0e0e0e11;\n}\n.btn_icon {\n        margin-left: 10px;\n        font-size: 20px;\n}\n.btn_text {\n        font-weight: 600;\n        text-transform: uppercase;\n        letter-spacing: 1px;\n        font-size: 15px;\n        margin: 0;\n}\n.btn--small {\n}\n.btn--big {\n}\n\n\n\n\n\n\n\n/*\n ██████  ██████  ███    ███ ██████   ██████  ███    ██ ███████ ███    ██ ████████ ███████ \n██      ██    ██ ████  ████ ██   ██ ██    ██ ████   ██ ██      ████   ██    ██    ██      \n██      ██    ██ ██ ████ ██ ██████  ██    ██ ██ ██  ██ █████   ██ ██  ██    ██    ███████ \n██      ██    ██ ██  ██  ██ ██      ██    ██ ██  ██ ██ ██      ██  ██ ██    ██         ██ \n ██████  ██████  ██      ██ ██       ██████  ██   ████ ███████ ██   ████    ██    ███████ \n*/\n\n/*\n  _   _\n | \\ | | __ ___   __\n |  \\| |/ _` \\ \\ / /\n | |\\  | (_| |\\ V /\n |_| \\_|\\__,_| \\_/\n\n*/\n.nav_wrapper {\n        width: 100%;\n        display: flex;\n        justify-content: center;\n        background-color: #F1F1F1;\n        padding: 25px 15px;\n\n        position: fixed;\n        bottom: 0;\n        left: 0;\n\n        z-index: 1900;\n}\n.nav {\n        transition: .3s;\n}\n.nav * {\n        transition: .3s;\n}\n.nav_item {\n        margin: 0px 10px;\n}\n.nav_item:hover {\n        text-decoration: none;\n}\n.nav_item span {\n        line-height: 100%;\n        padding: 15px;\n}\n.material-icons-outlined{\n        color: black;\n}\n.material-icons{\n        color: black;\n}\n.nav .router-link-exact-active span {\n}\n.nav .router-link-exact-active .nav_item {\n        background: linear-gradient(to bottom right, #F1F1F1, white);\n        box-shadow:\n            /* inset -5px -5px 13px #0e0e0e40, */\n            inset -2px -2px 8px #fff,\n            /* inset 5px 5px 13px #fff, */\n            inset 2px 2px 8px #0e0e0e40,\n            2px 2px 8px #0e0e0e11;\n}\n.nav_drop-up_wrapper {\n        position: absolute;\n        bottom: -400px;\n        left: 0;\n        width: 100%;\n        display: flex;\n        justify-content: center;\n\n        z-index: 1890;\n}\n.nav_drop-up {\n        width: 80%;\n        padding: 20px 0px;\n        border-radius: 20px;\n\n        z-index: 1890;\n}\n.nav_drop-up--active {\n        bottom: 100px;\n}\n\n\n\n  /* _   _                _\n | | | | ___  __ _  __| | ___ _ __\n | |_| |/ _ \\/ _` |/ _` |/ _ \\ '__|\n |  _  |  __/ (_| | (_| |  __/ |\n |_| |_|\\___|\\__,_|\\__,_|\\___|_|\n                                   */\n\n    /* noch in component auslagern */\n.header_wrapper {\n        width: 100%;\n        display: flex;\n        justify-content: center;\n        background-color: #F1F1F1;\n        padding: 15px 15px;\n\n        position: fixed;\n        top: 0;\n        left: 0;\n\n        z-index: 1900;\n}\n.header {\n}\n.header_title {\n        font-size: 20px;\n        font-family: 'Syncopate', sans-serif;\n        font-weight: 700;\n}\n\n\n\n/*\n  ____\n | __ )  __ _ _ __  _ __   ___ _ __\n |  _ \\ / _` | '_ \\| '_ \\ / _ \\ '__|\n | |_) | (_| | | | | | | |  __/ |\n |____/ \\__,_|_| |_|_| |_|\\___|_|    */\n\n/* Bannerelement, z.B. für die Erstellen-Dialoge */\n.banner {\n        padding: 35px 20px 20px 20px;\n}\n.banner_body {\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: row;\n}\n.banner_body .material-icons {\n        font-size: 42px;\n        margin-right: 15px;\n}\n.banner_body-img {\n}\n.banner_body-title {\n        font-weight: 600;\n}\n\n\n\n\n\n\n\n/*\n   ____ _           _     ____\n  / ___| |__   __ _| |_  | __ )  __ _ _ __  _ __   ___ _ __\n | |   | '_ \\ / _` | __| |  _ \\ / _` | '_ \\| '_ \\ / _ \\ '__|\n | |___| | | | (_| | |_  | |_) | (_| | | | | | | |  __/ |\n  \\____|_| |_|\\__,_|\\__| |____/ \\__,_|_| |_|_| |_|\\___|_|    */\n\n/* Bannerelement der Gruppen Chats */\n/* Noch nicht fertig */\n.banner-grp-chat {\n        background-image: \"/abc.jpg\";\n        width: 100%;\n        height: 200px;\n        background-color: red;\n\n        position: relative;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        margin-bottom: 25px;\n        padding: 0;\n}\n.banner-grp-chat_body {\n        position: absolute;\n        width: 100%;\n        height: 100%;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        z-index: 1;\n}\n.banner-grp-chat_body-title {\n        display: inline-block;\n        margin: 0;\n}\n\n\n/*\n   ____              _\n  / ___|__ _ _ __ __| |\n | |   / _` | '__/ _` |\n | |__| (_| | | | (_| |\n  \\____\\__,_|_|  \\__,_|\n                        */\n.card {\n        display: flex;\n        width: 100%;\n        padding: 15px;\n        border: none;\n        min-height: 100px;\n        height: 100%;\n        text-align: center;\n        flex-direction: column;\n        justify-content: flex-end;\n}\n.card_img {\n        width: 100%;\n        margin-bottom: 10px;\n}\n.card_title {\n        color: #000;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n\r\n\r\n/*\r\n    ██████   █████  ███████ ██  ██████ \r\n    ██   ██ ██   ██ ██      ██ ██      \r\n    ██████  ███████ ███████ ██ ██ \r\n    ██   ██ ██   ██      ██ ██ ██ \r\n    ██████  ██   ██ ███████ ██  ██████  */\nhtml {\r\n        font-family: 'Open Sans', sans-serif;\n}\nbody {\r\n        background-color: #F1F1F1;\n}\r\n\r\n\r\n    /* Basic Neumorph Styles for elements  */\n.neumorph {\r\n        background: linear-gradient(to bottom right,white, #F1F1F1);\r\n        border-radius: 20px;\r\n        box-shadow:\r\n            -5px -5px 13px #fff,\r\n            -1px -1px 6px #fff,\r\n            5px 5px 13px #0e0e0e40,\r\n            1px 1px 6px #0e0e0e40,\r\n            /* inset -1px -1px 6px #ffffffA0; */\r\n            inset 3px 3px 6px #0e0e0e11;\n}\n.neumorph--border {\r\n        border: double 1px transparent;\r\n        background-image: radial-gradient(white, white), radial-gradient(circle at top left,white,#777);\r\n        background-origin: border-box;\r\n        background-clip: content-box, border-box;\n}\n.neumorph--pressed {\r\n        background: linear-gradient(to bottom right, #F1F1F1, white);\r\n        box-shadow:\r\n            /* inset -5px -5px 13px #0e0e0e40, */\r\n            inset -2px -2px 8px #fff,\r\n            /* inset 5px 5px 13px #fff, */\r\n            inset 2px 2px 8px #0e0e0e40,\r\n            2px 2px 8px #0e0e0e11;\n}\n.neumorph--pressed--border {\r\n        border: double 2px transparent;\r\n        background-image: radial-gradient(white, white), radial-gradient(circle at top left,white,#777);\r\n        background-origin: border-box;\r\n        background-clip: content-box, border-box;\r\n        transition: .3s;\n}\n.l_page-content {\r\n        padding-top: 62px;\r\n        min-height: 100vh;\n}\r\n\r\n\r\n    /* Utilities  */\n.br--10 {\r\n        border-radius: 10px;\n}\n.br--20 {\r\n        border-radius: 20px;\n}\n.br--30 {\r\n        border-radius: 30px;\n}\r\n\r\n\r\n/*\r\n████████ ██    ██ ██████   ██████ \r\n   ██     ██  ██  ██   ██ ██    ██ \r\n   ██      ████   ██████  ██    ██ \r\n   ██       ██    ██      ██    ██ \r\n   ██       ██    ██       ██████  \r\n   */\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n/*\r\n██ ███    ██ ██████  ██    ██ ████████ ███████ \r\n██ ████   ██ ██   ██ ██    ██    ██    ██      \r\n██ ██ ██  ██ ██████  ██    ██    ██    ███████ \r\n██ ██  ██ ██ ██      ██    ██    ██         ██ \r\n██ ██   ████ ██       ██████     ██    ███████ \r\n*/\n.input {\r\n        border-radius: 30px;\r\n        height: 50px;\r\n        outline: none;\r\n        padding-left: 5px;\n}\n.input:focus {\r\n        transition: .3s;\r\n        background-image: radial-gradient(white, white), radial-gradient(circle at top left,white,#222);\n}\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n/*\r\n██████  ██    ██ ████████ ████████  ██████  ███    ██ ███████ \r\n██   ██ ██    ██    ██       ██    ██    ██ ████   ██ ██      \r\n██████  ██    ██    ██       ██    ██    ██ ██ ██  ██ ███████ \r\n██   ██ ██    ██    ██       ██    ██    ██ ██  ██ ██      ██ \r\n██████   ██████     ██       ██     ██████  ██   ████ ███████\r\n\r\n*/\n.btn {\r\n        display: flex;\r\n        flex-direction: row;\r\n        justify-content: center;\r\n        align-items: center;\r\n        padding: 12px 19px;\r\n        border-radius: 30px;\n}\n.btn:hover {\r\n        background: linear-gradient(to bottom right, #F1F1F1, white);\r\n        box-shadow:\r\n            inset -2px -2px 8px #fff,\r\n            inset 2px 2px 8px #0e0e0e40,\r\n            2px 2px 8px #0e0e0e11;\n}\n.btn_icon {\r\n        margin-left: 10px;\r\n        font-size: 20px;\n}\n.btn_text {\r\n        font-weight: 600;\r\n        text-transform: uppercase;\r\n        letter-spacing: 1px;\r\n        font-size: 15px;\r\n        margin: 0;\n}\n.btn--small {\n}\n.btn--big {\n}\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n/*\r\n ██████  ██████  ███    ███ ██████   ██████  ███    ██ ███████ ███    ██ ████████ ███████ \r\n██      ██    ██ ████  ████ ██   ██ ██    ██ ████   ██ ██      ████   ██    ██    ██      \r\n██      ██    ██ ██ ████ ██ ██████  ██    ██ ██ ██  ██ █████   ██ ██  ██    ██    ███████ \r\n██      ██    ██ ██  ██  ██ ██      ██    ██ ██  ██ ██ ██      ██  ██ ██    ██         ██ \r\n ██████  ██████  ██      ██ ██       ██████  ██   ████ ███████ ██   ████    ██    ███████ \r\n*/\r\n\r\n/*\r\n  _   _\r\n | \\ | | __ ___   __\r\n |  \\| |/ _` \\ \\ / /\r\n | |\\  | (_| |\\ V /\r\n |_| \\_|\\__,_| \\_/\r\n\r\n*/\n.nav_wrapper {\r\n        width: 100%;\r\n        display: flex;\r\n        justify-content: center;\r\n        background-color: #F1F1F1;\r\n        padding: 25px 15px;\r\n\r\n        position: fixed;\r\n        bottom: 0;\r\n        left: 0;\r\n\r\n        z-index: 1900;\n}\n.nav {\r\n        transition: .3s;\n}\n.nav * {\r\n        transition: .3s;\n}\n.nav_item {\r\n        margin: 0px 10px;\n}\n.nav_item:hover {\r\n        text-decoration: none;\n}\n.nav_item span {\r\n        line-height: 100%;\r\n        padding: 15px;\n}\n.material-icons-outlined{\r\n        color: black;\n}\n.material-icons{\r\n        color: black;\n}\n.nav .router-link-exact-active span {\n}\n.nav .router-link-exact-active .nav_item {\r\n        background: linear-gradient(to bottom right, #F1F1F1, white);\r\n        box-shadow:\r\n            /* inset -5px -5px 13px #0e0e0e40, */\r\n            inset -2px -2px 8px #fff,\r\n            /* inset 5px 5px 13px #fff, */\r\n            inset 2px 2px 8px #0e0e0e40,\r\n            2px 2px 8px #0e0e0e11;\n}\n.nav_drop-up_wrapper {\r\n        position: absolute;\r\n        bottom: -400px;\r\n        left: 0;\r\n        width: 100%;\r\n        display: flex;\r\n        justify-content: center;\r\n\r\n        z-index: 1890;\n}\n.nav_drop-up {\r\n        width: 80%;\r\n        padding: 20px 0px;\r\n        border-radius: 20px;\r\n\r\n        z-index: 1890;\n}\n.nav_drop-up--active {\r\n        bottom: 100px;\n}\r\n\r\n\r\n\r\n  /* _   _                _\r\n | | | | ___  __ _  __| | ___ _ __\r\n | |_| |/ _ \\/ _` |/ _` |/ _ \\ '__|\r\n |  _  |  __/ (_| | (_| |  __/ |\r\n |_| |_|\\___|\\__,_|\\__,_|\\___|_|\r\n                                   */\r\n\r\n    /* noch in component auslagern */\n.header_wrapper {\r\n        width: 100%;\r\n        display: flex;\r\n        justify-content: center;\r\n        background-color: #F1F1F1;\r\n        padding: 15px 15px;\r\n\r\n        position: fixed;\r\n        top: 0;\r\n        left: 0;\r\n\r\n        z-index: 1900;\n}\n.header {\n}\n.header_title {\r\n        font-size: 20px;\r\n        font-family: 'Syncopate', sans-serif;\r\n        font-weight: 700;\n}\r\n\r\n\r\n\r\n/*\r\n  ____\r\n | __ )  __ _ _ __  _ __   ___ _ __\r\n |  _ \\ / _` | '_ \\| '_ \\ / _ \\ '__|\r\n | |_) | (_| | | | | | | |  __/ |\r\n |____/ \\__,_|_| |_|_| |_|\\___|_|    */\r\n\r\n/* Bannerelement, z.B. für die Erstellen-Dialoge */\n.banner {\r\n        padding: 35px 20px 20px 20px;\n}\n.banner_body {\r\n        display: flex;\r\n        justify-content: center;\r\n        align-items: center;\r\n        flex-direction: row;\n}\n.banner_body .material-icons {\r\n        font-size: 42px;\r\n        margin-right: 15px;\n}\n.banner_body-img {\n}\n.banner_body-title {\r\n        font-weight: 600;\n}\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n/*\r\n   ____ _           _     ____\r\n  / ___| |__   __ _| |_  | __ )  __ _ _ __  _ __   ___ _ __\r\n | |   | '_ \\ / _` | __| |  _ \\ / _` | '_ \\| '_ \\ / _ \\ '__|\r\n | |___| | | | (_| | |_  | |_) | (_| | | | | | | |  __/ |\r\n  \\____|_| |_|\\__,_|\\__| |____/ \\__,_|_| |_|_| |_|\\___|_|    */\r\n\r\n/* Bannerelement der Gruppen Chats */\r\n/* Noch nicht fertig */\n.banner-grp-chat {\r\n        background-image: \"/abc.jpg\";\r\n        width: 100%;\r\n        height: 200px;\r\n        background-color: red;\r\n\r\n        position: relative;\r\n        display: flex;\r\n        justify-content: center;\r\n        align-items: center;\r\n        flex-direction: column;\r\n        margin-bottom: 25px;\r\n        padding: 0;\n}\n.banner-grp-chat_body {\r\n        position: absolute;\r\n        width: 100%;\r\n        height: 100%;\r\n        display: flex;\r\n        justify-content: center;\r\n        align-items: center;\r\n        flex-direction: column;\r\n        z-index: 1;\n}\n.banner-grp-chat_body-title {\r\n        display: inline-block;\r\n        margin: 0;\n}\r\n\r\n\r\n/*\r\n   ____              _\r\n  / ___|__ _ _ __ __| |\r\n | |   / _` | '__/ _` |\r\n | |__| (_| | | | (_| |\r\n  \\____\\__,_|_|  \\__,_|\r\n                        */\n.card {\r\n        display: flex;\r\n        width: 100%;\r\n        padding: 15px;\r\n        border: none;\r\n        min-height: 100px;\r\n        height: 100%;\r\n        text-align: center;\r\n        flex-direction: column;\r\n        justify-content: flex-end;\n}\n.card_img {\r\n        width: 100%;\r\n        margin-bottom: 10px;\n}\n.card_title {\r\n        color: #000;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -39777,15 +39836,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Documents_vue_vue_type_template_id_797cc8a9___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Documents.vue?vue&type=template&id=797cc8a9& */ "./resources/js/views/Documents.vue?vue&type=template&id=797cc8a9&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _Documents_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Documents.vue?vue&type=script&lang=js& */ "./resources/js/views/Documents.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 ;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__.default)(
-  script,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _Documents_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
   _Documents_vue_vue_type_template_id_797cc8a9___WEBPACK_IMPORTED_MODULE_0__.render,
   _Documents_vue_vue_type_template_id_797cc8a9___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -40208,6 +40269,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Dashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Dashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[__WEBPACK_IMPORT_KEY__]
 /* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Dashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default())); 
+
+/***/ }),
+
+/***/ "./resources/js/views/Documents.vue?vue&type=script&lang=js&":
+/*!*******************************************************************!*\
+  !*** ./resources/js/views/Documents.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Documents_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Documents.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Documents.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Documents_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
 
 /***/ }),
 
@@ -41780,18 +41857,52 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("h1", [_vm._v("Dokumente")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "card-body" }, [
+      _c(
+        "table",
+        {
+          staticClass: "table table-hover table-bordered",
+          attrs: { id: "app" }
+        },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.fileUploads, function(fileUpload) {
+              return _c("tr", { key: fileUpload.id }, [
+                _c("td", [_vm._v(" " + _vm._s(fileUpload.id) + " ")]),
+                _vm._v(" "),
+                _c("td", [_vm._v(" " + _vm._s(fileUpload.name) + " ")]),
+                _vm._v(" "),
+                _c("td", [_vm._v(" " + _vm._s(fileUpload.path) + " ")])
+              ])
+            }),
+            0
+          )
+        ]
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("h1", [_vm._v("Deine Dokumente")]),
-      _vm._v(" "),
-      _c("h1", [_vm._v("Uploads")]),
-      _c("h1", [_vm._v("Downloads")])
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("ID")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Pfad")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Action")])
+      ])
     ])
   }
 ]

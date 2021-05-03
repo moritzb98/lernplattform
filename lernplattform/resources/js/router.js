@@ -112,7 +112,7 @@ export const routes = [
     },
     {
         name: 'uploads',
-        path: '/spa/uploads',
+        path: '/spa/upload',
         component: uploads
     },
 
