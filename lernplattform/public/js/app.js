@@ -3238,57 +3238,9 @@ __webpack_require__.r(__webpack_exports__);
 /*!***********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Documents.vue?vue&type=script&lang=js& ***!
   \***********************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  data: function data() {
-    return {
-      fileUploads: []
-    };
-  },
-  created: function created() {
-    var _this = this;
-
-    axios.get('./spa/upload').then(function (response) {
-      return _this.fileUploads = response.data;
-    });
-  }
-});
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/resources/js/views/Documents.vue: Unexpected token (39:0)\n\n\u001b[0m \u001b[90m 37 |\u001b[39m         }\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 38 |\u001b[39m     }\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 39 |\u001b[39m }\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 40 |\u001b[39m\u001b[0m\n    at Parser._raise (/Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:776:17)\n    at Parser.raiseWithData (/Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:769:17)\n    at Parser.raise (/Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:737:17)\n    at Parser.unexpected (/Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:9736:16)\n    at Parser.parseExprAtom (/Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:11132:20)\n    at Parser.parseExprSubscripts (/Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:10709:23)\n    at Parser.parseUpdate (/Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:10689:21)\n    at Parser.parseMaybeUnary (/Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:10667:23)\n    at Parser.parseExprOps (/Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:10524:23)\n    at Parser.parseMaybeConditional (/Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:10498:23)\n    at Parser.parseMaybeAssign (/Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:10461:21)\n    at Parser.parseExpressionBase (/Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:10406:23)\n    at /Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:10400:39\n    at Parser.allowInAnd (/Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:12099:16)\n    at Parser.parseExpression (/Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:10400:17)\n    at Parser.parseStatementContent (/Users/moritzbanhardt/Studium/Mein Studium/Semester 6/WebTech/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:12391:23)");
 
 /***/ }),
 
@@ -3569,15 +3521,18 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     handleRegister: function handleRegister() {
+      var _this2 = this;
+
       this.pushInterests();
-      /* axios.get('/sanctum/csrf-cookie').then(response => {
-          axios.post('/registernormal', this.registerData).then(response => {
-              console.log(response);
-              this.formData.email=this.registerData.email;
-              this.formData.password=this.registerData.password;
-              this.handleLogin();
-          });
-      }); */
+      axios.get('/sanctum/csrf-cookie').then(function (response) {
+        axios.post('/registernormal', _this2.registerData).then(function (response) {
+          console.log(response);
+          _this2.formData.email = _this2.registerData.email;
+          _this2.formData.password = _this2.registerData.password;
+
+          _this2.handleLogin();
+        });
+      });
     },
     pushInterests: function pushInterests() {
       for (var i = 0; i < this.interests.length; i++) {
@@ -42264,52 +42219,35 @@ var render = function() {
   return _c("div", [
     _c("h1", [_vm._v("Dokumente")]),
     _vm._v(" "),
-    _c("div", { staticClass: "card-body" }, [
-      _c(
-        "table",
-        {
-          staticClass: "table table-hover table-bordered",
-          attrs: { id: "app" }
-        },
-        [
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
-            "tbody",
-            _vm._l(_vm.fileUploads, function(fileUpload) {
-              return _c("tr", { key: fileUpload.id }, [
-                _c("td", [_vm._v(" " + _vm._s(fileUpload.id) + " ")]),
-                _vm._v(" "),
-                _c("td", [_vm._v(" " + _vm._s(fileUpload.name) + " ")]),
-                _vm._v(" "),
-                _c("td", [_vm._v(" " + _vm._s(fileUpload.path) + " ")])
-              ])
-            }),
-            0
-          )
-        ]
-      )
-    ])
+    _c(
+      "div",
+      { staticClass: "card-body" },
+      [
+        _vm._l(_vm.fileUploads, function(fileUpload) {
+          return _c("div", { key: fileUpload.id }, [
+            _c("p", [_vm._v("ID: " + _vm._s(fileUpload.id) + " ")]),
+            _vm._v(" "),
+            _c("p", [_vm._v("Name: " + _vm._s(fileUpload.name) + " ")]),
+            _vm._v(" "),
+            _c("p", [_vm._v("Pfad: " + _vm._s(fileUpload.path) + " ")]),
+            _vm._v(" "),
+            _c(
+              "a",
+              { attrs: { download: "", href: "/upload/" + fileUpload.name } },
+              [_vm._v("Download: " + _vm._s(fileUpload.name))]
+            ),
+            _vm._v(" "),
+            _c("hr")
+          ])
+        }),
+        _vm._v(" "),
+        _c("hr")
+      ],
+      2
+    )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v("ID")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Name")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Pfad")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Action")])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

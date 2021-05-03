@@ -3,24 +3,15 @@
         <h1>Dokumente</h1>
 
     <div class="card-body">
-        <table class="table table-hover table-bordered" id="app">
-                            <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Pfad</th>
-                                <th>Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr v-for="fileUpload in fileUploads" :key="fileUpload.id">
-                                <td> {{ fileUpload.id }} </td>
-                                <td> {{ fileUpload.name }} </td>
-                                <td> {{ fileUpload.path }} </td>
 
-                            </tr>
-                            </tbody>
-                        </table>
+        <div v-for="fileUpload in fileUploads" :key="fileUpload.id">
+            <p>ID: {{ fileUpload.id }} </p>
+            <p>Name: {{ fileUpload.name }} </p>
+            <p>Pfad: {{ fileUpload.path }} </p>
+            <a download v-bind:href="'/upload/' + fileUpload.name">Download: {{ fileUpload.name }}</a>
+            <hr>
+        </div>
+        <hr>
     </div>
 
     </div>
@@ -34,15 +25,16 @@
 
         data(){
             return{
-                fileUploads: []
+                fileUploads: [],
             }
         },
+        mounted(){
+            this.axios.get('http://127.0.0.1:8000/api/getFiles')
+            .then(response=>{
+                this.fileUploads = response.data
+            });
 
-
-        created(){
-
-        axios.get('./spa/upload').then(response => this.fileUploads = response.data);
-        }
-
+        },
     }
+}
 </script>

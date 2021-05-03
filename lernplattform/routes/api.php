@@ -39,7 +39,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/room/users', [RoomController::class, 'getUsersInRoom']);
 
     //Uploads
-    Route::get('/', [FileController::class, 'index']);
+    Route::get('/getFiles', [FileController::class, 'index']);
     Route::post('/upload', [FileController::class, 'upload'])->name('upload');
 
     //Chat

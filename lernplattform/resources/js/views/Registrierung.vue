@@ -109,14 +109,14 @@
             },
             handleRegister() {
                 this.pushInterests();
-                /* axios.get('/sanctum/csrf-cookie').then(response => {
+                axios.get('/sanctum/csrf-cookie').then(response => {
                     axios.post('/registernormal', this.registerData).then(response => {
                         console.log(response);
                         this.formData.email=this.registerData.email;
                         this.formData.password=this.registerData.password;
                         this.handleLogin();
                     });
-                }); */
+                });
             },
             pushInterests() {
                 for(var i = 0; i < this.interests.length; i++){

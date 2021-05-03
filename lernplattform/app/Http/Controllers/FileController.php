@@ -8,7 +8,7 @@ use App\Models\FileUpload;
 class FileController extends Controller
 {
       public function index(){
-        return FileUpload::all();
+            return FileUpload::all();
       }
 
       public function upload(Request $request){
@@ -32,4 +32,5 @@ class FileController extends Controller
                 return response()->json(['success'=>'File uploaded successfully.']);
             }
        }
+
 }

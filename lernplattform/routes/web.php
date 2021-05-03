@@ -24,6 +24,3 @@ Auth::routes();
 Route::post('/registernormal', [AuthController::class, 'register']);
 Route::post('/logoutnormal', [AuthController::class, 'logout']);
 
-//Uploads
-Route::get('/', [FileController::class, 'index']);
-Route::post('/upload', [FileController::class, 'upload'])->name('upload');
