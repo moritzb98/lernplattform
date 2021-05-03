@@ -40626,7 +40626,16 @@ var render = function() {
           ]),
           _vm._v(" "),
           _vm._l(_vm.rooms, function(room, index) {
-            return _c("div", { key: index })
+            return _c("div", { key: index }, [
+              _c("div", { staticClass: "neumorph card-grp mb-2" }, [
+                _vm._v(
+                  "\n                    " +
+                    _vm._s(room.name) +
+                    "\n                    "
+                ),
+                _c("div", { staticClass: "card-grp_controls" })
+              ])
+            ])
           })
         ],
         2
