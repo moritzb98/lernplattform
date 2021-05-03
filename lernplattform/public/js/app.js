@@ -2379,6 +2379,436 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   methods: {
     showNavDropUp: function showNavDropUp() {
@@ -2919,12 +3349,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -2942,6 +3366,10 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('/sanctum/csrf-cookie').then(function (response) {
         axios.post('/login', _this.formData).then(function (response) {
           console.log(response);
+
+          _this.$router.push({
+            path: '/spa/Dashboard'
+          });
         });
       });
     }
@@ -3040,61 +3468,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -3109,7 +3482,17 @@ __webpack_require__.r(__webpack_exports__);
         password: '',
         passwordConfirm: '',
         job: ''
-      }
+      },
+      interests: [{
+        name: 'Informatik',
+        selected: false
+      }, {
+        name: 'Biologie',
+        selected: false
+      }, {
+        name: 'Chemie',
+        selected: false
+      }]
     };
   },
   methods: {
@@ -3139,7 +3522,9 @@ __webpack_require__.r(__webpack_exports__);
         });
       });
     },
-    toggleChip: function toggleChip() {}
+    toggleChip: function toggleChip(el) {
+      console.log(el);
+    }
   }
 });
 
@@ -8142,7 +8527,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*\n    ██████   █████  ███████ ██  ██████ \n    ██   ██ ██   ██ ██      ██ ██      \n    ██████  ███████ ███████ ██ ██ \n    ██   ██ ██   ██      ██ ██ ██ \n    ██████  ██   ██ ███████ ██  ██████  */\nhtml {\n        font-family: 'Open Sans', sans-serif;\n}\nbody {\n        background-color: #F1F1F1;\n}\n\n\n    /* Basic Neumorph Styles for elements  */\n.neumorph {\n        background: linear-gradient(to bottom right,white, #F1F1F1);\n        border-radius: 20px;\n        box-shadow:\n            -5px -5px 13px #fff,\n            -1px -1px 6px #fff,\n            5px 5px 13px #0e0e0e40,\n            1px 1px 6px #0e0e0e40,\n            /* inset -1px -1px 6px #ffffffA0; */\n            inset 3px 3px 6px #0e0e0e11;\n}\n.neumorph--border {\n        border: double 1px transparent;\n        background-image: radial-gradient(white, white), radial-gradient(circle at top left,white,#777);\n        background-origin: border-box;\n        background-clip: content-box, border-box;\n}\n.neumorph--pressed {\n        background: linear-gradient(to bottom right, #F1F1F1, white);\n        box-shadow:\n            /* inset -5px -5px 13px #0e0e0e40, */\n            inset -2px -2px 8px #fff,\n            /* inset 5px 5px 13px #fff, */\n            inset 2px 2px 8px #0e0e0e40,\n            2px 2px 8px #0e0e0e11;\n}\n.neumorph--pressed--border {\n        border: double 2px transparent;\n        background-image: radial-gradient(white, white), radial-gradient(circle at top left,white,#777);\n        background-origin: border-box;\n        background-clip: content-box, border-box;\n        transition: .3s;\n}\n.l_page-content {\n        padding-top: 62px;\n        min-height: 100vh;\n}\n\n\n    /* Utilities  */\n.br--10 {\n        border-radius: 10px;\n}\n.br--20 {\n        border-radius: 20px;\n}\n.br--30 {\n        border-radius: 30px;\n}\n\n\n/*\n████████ ██    ██ ██████   ██████ \n   ██     ██  ██  ██   ██ ██    ██ \n   ██      ████   ██████  ██    ██ \n   ██       ██    ██      ██    ██ \n   ██       ██    ██       ██████  \n   */\n\n\n\n\n\n\n\n/*\n██ ███    ██ ██████  ██    ██ ████████ ███████ \n██ ████   ██ ██   ██ ██    ██    ██    ██      \n██ ██ ██  ██ ██████  ██    ██    ██    ███████ \n██ ██  ██ ██ ██      ██    ██    ██         ██ \n██ ██   ████ ██       ██████     ██    ███████ \n*/\n.input {\n        border-radius: 30px;\n        height: 50px;\n        outline: none;\n        padding-left: 5px;\n}\n.input:focus {\n        transition: .3s;\n        background-image: radial-gradient(white, white), radial-gradient(circle at top left,white,#222);\n}\n\n\n\n\n\n\n\n\n\n\n/*\n██████  ██    ██ ████████ ████████  ██████  ███    ██ ███████ \n██   ██ ██    ██    ██       ██    ██    ██ ████   ██ ██      \n██████  ██    ██    ██       ██    ██    ██ ██ ██  ██ ███████ \n██   ██ ██    ██    ██       ██    ██    ██ ██  ██ ██      ██ \n██████   ██████     ██       ██     ██████  ██   ████ ███████\n\n*/\n.btn {\n        display: flex;\n        flex-direction: row;\n        justify-content: center;\n        align-items: center;\n        padding: 12px 19px;\n        border-radius: 30px;\n}\n.btn:hover {\n        background: linear-gradient(to bottom right, #F1F1F1, white);\n        box-shadow:\n            inset -2px -2px 8px #fff,\n            inset 2px 2px 8px #0e0e0e40,\n            2px 2px 8px #0e0e0e11;\n}\n.btn_icon {\n        margin-left: 10px;\n        font-size: 20px;\n}\n.btn_text {\n        font-weight: 600;\n        text-transform: uppercase;\n        letter-spacing: 1px;\n        font-size: 15px;\n        margin: 0;\n}\n.btn--small {\n}\n.btn--big {\n}\n\n\n\n\n\n\n\n/*\n ██████  ██████  ███    ███ ██████   ██████  ███    ██ ███████ ███    ██ ████████ ███████ \n██      ██    ██ ████  ████ ██   ██ ██    ██ ████   ██ ██      ████   ██    ██    ██      \n██      ██    ██ ██ ████ ██ ██████  ██    ██ ██ ██  ██ █████   ██ ██  ██    ██    ███████ \n██      ██    ██ ██  ██  ██ ██      ██    ██ ██  ██ ██ ██      ██  ██ ██    ██         ██ \n ██████  ██████  ██      ██ ██       ██████  ██   ████ ███████ ██   ████    ██    ███████ \n*/\n\n/*\n  _   _\n | \\ | | __ ___   __\n |  \\| |/ _` \\ \\ / /\n | |\\  | (_| |\\ V /\n |_| \\_|\\__,_| \\_/\n\n*/\n.nav_wrapper {\n        width: 100%;\n        display: flex;\n        justify-content: center;\n        background-color: #F1F1F1;\n        padding: 25px 15px;\n\n        position: fixed;\n        bottom: 0;\n        left: 0;\n\n        z-index: 1900;\n}\n.nav {\n        transition: .3s;\n}\n.nav * {\n        transition: .3s;\n}\n.nav_item {\n        margin: 0px 10px;\n}\n.nav_item:hover {\n        text-decoration: none;\n}\n.nav_item span {\n        line-height: 100%;\n        padding: 15px;\n}\n.material-icons-outlined{\n        color: black;\n}\n.material-icons{\n        color: black;\n}\n.nav .router-link-exact-active span {\n}\n.nav .router-link-exact-active .nav_item {\n        background: linear-gradient(to bottom right, #F1F1F1, white);\n        box-shadow:\n            /* inset -5px -5px 13px #0e0e0e40, */\n            inset -2px -2px 8px #fff,\n            /* inset 5px 5px 13px #fff, */\n            inset 2px 2px 8px #0e0e0e40,\n            2px 2px 8px #0e0e0e11;\n}\n.nav_drop-up_wrapper {\n        position: absolute;\n        bottom: -400px;\n        left: 0;\n        width: 100%;\n        display: flex;\n        justify-content: center;\n\n        z-index: 1890;\n}\n.nav_drop-up {\n        width: 80%;\n        padding: 20px 0px;\n        border-radius: 20px;\n\n        z-index: 1890;\n}\n.nav_drop-up--active {\n        bottom: 100px;\n}\n\n\n\n  /* _   _                _\n | | | | ___  __ _  __| | ___ _ __\n | |_| |/ _ \\/ _` |/ _` |/ _ \\ '__|\n |  _  |  __/ (_| | (_| |  __/ |\n |_| |_|\\___|\\__,_|\\__,_|\\___|_|\n                                   */\n\n    /* noch in component auslagern */\n.header_wrapper {\n        width: 100%;\n        display: flex;\n        justify-content: center;\n        background-color: #F1F1F1;\n        padding: 15px 15px;\n\n        position: fixed;\n        top: 0;\n        left: 0;\n\n        z-index: 1900;\n}\n.header {\n}\n.header_title {\n        font-size: 20px;\n        font-family: 'Syncopate', sans-serif;\n        font-weight: 700;\n}\n\n\n\n/*\n  ____\n | __ )  __ _ _ __  _ __   ___ _ __\n |  _ \\ / _` | '_ \\| '_ \\ / _ \\ '__|\n | |_) | (_| | | | | | | |  __/ |\n |____/ \\__,_|_| |_|_| |_|\\___|_|    */\n\n/* Bannerelement, z.B. für die Erstellen-Dialoge */\n.banner {\n        padding: 35px 20px 20px 20px;\n}\n.banner_body {\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: row;\n}\n.banner_body .material-icons {\n        font-size: 42px;\n        margin-right: 15px;\n}\n.banner_body-img {\n}\n.banner_body-title {\n        font-weight: 600;\n}\n\n\n\n\n\n\n\n/*\n   ____ _           _     ____\n  / ___| |__   __ _| |_  | __ )  __ _ _ __  _ __   ___ _ __\n | |   | '_ \\ / _` | __| |  _ \\ / _` | '_ \\| '_ \\ / _ \\ '__|\n | |___| | | | (_| | |_  | |_) | (_| | | | | | | |  __/ |\n  \\____|_| |_|\\__,_|\\__| |____/ \\__,_|_| |_|_| |_|\\___|_|    */\n\n/* Bannerelement der Gruppen Chats */\n/* Noch nicht fertig */\n.banner-grp-chat {\n        background-image: \"/abc.jpg\";\n        width: 100%;\n        height: 200px;\n        background-color: red;\n\n        position: relative;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        margin-bottom: 25px;\n        padding: 0;\n}\n.banner-grp-chat_body {\n        position: absolute;\n        width: 100%;\n        height: 100%;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        z-index: 1;\n}\n.banner-grp-chat_body-title {\n        display: inline-block;\n        margin: 0;\n}\n\n\n/*\n   ____              _\n  / ___|__ _ _ __ __| |\n | |   / _` | '__/ _` |\n | |__| (_| | | | (_| |\n  \\____\\__,_|_|  \\__,_|\n                        */\n.card {\n        display: flex;\n        width: 100%;\n        padding: 15px;\n        border: none;\n        min-height: 100px;\n        height: 100%;\n        text-align: center;\n        flex-direction: column;\n        justify-content: flex-end;\n}\n.card_img {\n        width: 100%;\n        margin-bottom: 10px;\n}\n.card_title {\n        color: #000;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*\n    ██████   █████  ███████ ██  ██████ \n    ██   ██ ██   ██ ██      ██ ██      \n    ██████  ███████ ███████ ██ ██ \n    ██   ██ ██   ██      ██ ██ ██ \n    ██████  ██   ██ ███████ ██  ██████  */\nhtml {\n        font-family: 'Open Sans', sans-serif;\n}\nbody {\n        background-color: #F1F1F1;\n}\n\n\n    /* Basic Neumorph Styles for elements  */\n.neumorph {\n        background: linear-gradient(to bottom right,white, #F1F1F1);\n        border-radius: 20px;\n        box-shadow:\n            -5px -5px 13px #fff,\n            -1px -1px 6px #fff,\n            5px 5px 13px #0e0e0e40,\n            1px 1px 6px #0e0e0e40,\n            /* inset -1px -1px 6px #ffffffA0; */\n            inset 3px 3px 6px #0e0e0e11;\n}\n.neumorph--border {\n        border: double 1px transparent;\n        background-image: radial-gradient(white, white), radial-gradient(circle at top left,white,#777);\n        background-origin: border-box;\n        background-clip: content-box, border-box;\n}\n.neumorph--pressed {\n        background: linear-gradient(to bottom right, #F1F1F1, white);\n        box-shadow:\n            /* inset -5px -5px 13px #0e0e0e40, */\n            inset -2px -2px 8px #fff,\n            /* inset 5px 5px 13px #fff, */\n            inset 2px 2px 8px #0e0e0e40,\n            2px 2px 8px #0e0e0e11;\n}\n.neumorph--pressed--border {\n        border: double 2px transparent;\n        background-image: radial-gradient(white, white), radial-gradient(circle at top left,white,#777);\n        background-origin: border-box;\n        background-clip: content-box, border-box;\n        transition: .3s;\n}\n.l_page-content {\n        padding-top: 62px;\n        min-height: 100vh;\n}\n\n\n    /* Utilities  */\n.br--10 {\n        border-radius: 10px;\n}\n.br--20 {\n        border-radius: 20px;\n}\n.br--30 {\n        border-radius: 30px;\n}\n\n\n/*\n████████ ██    ██ ██████   ██████ \n   ██     ██  ██  ██   ██ ██    ██ \n   ██      ████   ██████  ██    ██ \n   ██       ██    ██      ██    ██ \n   ██       ██    ██       ██████  \n   */\n\n\n\n\n\n\n\n/*\n██ ███    ██ ██████  ██    ██ ████████ ███████ \n██ ████   ██ ██   ██ ██    ██    ██    ██      \n██ ██ ██  ██ ██████  ██    ██    ██    ███████ \n██ ██  ██ ██ ██      ██    ██    ██         ██ \n██ ██   ████ ██       ██████     ██    ███████ \n*/\n.input {\n        border-radius: 30px;\n        height: 50px;\n        outline: none;\n        padding-left: 5px;\n}\n.input:focus {\n        transition: .3s;\n        background-image: radial-gradient(white, white), radial-gradient(circle at top left,white,#222);\n}\n\n\n\n\n\n\n\n\n\n\n/*\n██████  ██    ██ ████████ ████████  ██████  ███    ██ ███████ \n██   ██ ██    ██    ██       ██    ██    ██ ████   ██ ██      \n██████  ██    ██    ██       ██    ██    ██ ██ ██  ██ ███████ \n██   ██ ██    ██    ██       ██    ██    ██ ██  ██ ██      ██ \n██████   ██████     ██       ██     ██████  ██   ████ ███████\n\n*/\n.btn {\n        display: flex;\n        flex-direction: row;\n        justify-content: center;\n        align-items: center;\n        padding: 12px 19px;\n        border-radius: 30px;\n}\n.btn:hover {\n        background: linear-gradient(to bottom right, #F1F1F1, white);\n        box-shadow:\n            inset -2px -2px 8px #fff,\n            inset 2px 2px 8px #0e0e0e40,\n            2px 2px 8px #0e0e0e11;\n}\n.btn_icon {\n        margin-left: 10px;\n        font-size: 20px;\n}\n.btn_text {\n        font-weight: 600;\n        text-transform: uppercase;\n        letter-spacing: 1px;\n        font-size: 15px;\n        margin: 0;\n}\n.btn--small {\n}\n.btn--big {\n}\n\n\n\n\n\n\n\n/*\n ██████  ██████  ███    ███ ██████   ██████  ███    ██ ███████ ███    ██ ████████ ███████ \n██      ██    ██ ████  ████ ██   ██ ██    ██ ████   ██ ██      ████   ██    ██    ██      \n██      ██    ██ ██ ████ ██ ██████  ██    ██ ██ ██  ██ █████   ██ ██  ██    ██    ███████ \n██      ██    ██ ██  ██  ██ ██      ██    ██ ██  ██ ██ ██      ██  ██ ██    ██         ██ \n ██████  ██████  ██      ██ ██       ██████  ██   ████ ███████ ██   ████    ██    ███████ \n*/\n\n/*\n  _   _\n | \\ | | __ ___   __\n |  \\| |/ _` \\ \\ / /\n | |\\  | (_| |\\ V /\n |_| \\_|\\__,_| \\_/\n\n*/\n.nav_wrapper {\n        width: 100%;\n        display: flex;\n        justify-content: center;\n        background-color: #F1F1F1;\n        padding: 25px 15px;\n\n        position: fixed;\n        bottom: 0;\n        left: 0;\n\n        z-index: 1900;\n}\n.nav {\n        transition: .3s;\n}\n.nav * {\n        transition: .3s;\n}\n.nav_item {\n        margin: 0px 10px;\n}\n.nav_item:hover {\n        text-decoration: none;\n}\n.nav_item span {\n        line-height: 100%;\n        padding: 15px;\n}\n.material-icons-outlined{\n        color: black;\n}\n.material-icons{\n        color: black;\n}\n.nav .router-link-exact-active span {\n}\n.nav .router-link-exact-active .nav_item {\n        background: linear-gradient(to bottom right, #F1F1F1, white);\n        box-shadow:\n            /* inset -5px -5px 13px #0e0e0e40, */\n            inset -2px -2px 8px #fff,\n            /* inset 5px 5px 13px #fff, */\n            inset 2px 2px 8px #0e0e0e40,\n            2px 2px 8px #0e0e0e11;\n}\n.nav_drop-up_wrapper {\n        position: absolute;\n        bottom: -400px;\n        left: 0;\n        width: 100%;\n        display: flex;\n        justify-content: center;\n\n        z-index: 1890;\n}\n.nav_drop-up {\n        width: 80%;\n        padding: 20px 0px;\n        border-radius: 20px;\n\n        z-index: 1890;\n}\n.nav_drop-up--active {\n        bottom: 100px;\n}\n\n\n\n  /* _   _                _\n | | | | ___  __ _  __| | ___ _ __\n | |_| |/ _ \\/ _` |/ _` |/ _ \\ '__|\n |  _  |  __/ (_| | (_| |  __/ |\n |_| |_|\\___|\\__,_|\\__,_|\\___|_|\n                                   */\n\n    /* noch in component auslagern */\n.header_wrapper {\n        width: 100%;\n        display: flex;\n        justify-content: center;\n        background-color: #F1F1F1;\n        padding: 15px 15px;\n\n        position: fixed;\n        top: 0;\n        left: 0;\n\n        z-index: 1900;\n}\n.header {\n}\n.header_title {\n        font-size: 20px;\n        font-family: 'Syncopate', sans-serif;\n        font-weight: 700;\n}\n\n\n\n/*\n  ____\n | __ )  __ _ _ __  _ __   ___ _ __\n |  _ \\ / _` | '_ \\| '_ \\ / _ \\ '__|\n | |_) | (_| | | | | | | |  __/ |\n |____/ \\__,_|_| |_|_| |_|\\___|_|    */\n\n/* Bannerelement, z.B. für die Erstellen-Dialoge */\n.banner {\n        padding: 35px 20px 20px 20px;\n}\n.banner_body {\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: row;\n}\n.banner_body .material-icons {\n        font-size: 42px;\n        margin-right: 15px;\n}\n.banner_body-img {\n}\n.banner_body-title {\n        font-weight: 600;\n}\n\n\n\n\n\n\n\n/*\n   ____ _           _     ____\n  / ___| |__   __ _| |_  | __ )  __ _ _ __  _ __   ___ _ __\n | |   | '_ \\ / _` | __| |  _ \\ / _` | '_ \\| '_ \\ / _ \\ '__|\n | |___| | | | (_| | |_  | |_) | (_| | | | | | | |  __/ |\n  \\____|_| |_|\\__,_|\\__| |____/ \\__,_|_| |_|_| |_|\\___|_|    */\n\n/* Bannerelement der Gruppen Chats */\n/* Noch nicht fertig */\n.banner-grp-chat {\n        background-image: \"/abc.jpg\";\n        width: 100%;\n        height: 200px;\n        background-color: red;\n\n        position: relative;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        margin-bottom: 25px;\n        padding: 0;\n}\n.banner-grp-chat_body {\n        position: absolute;\n        width: 100%;\n        height: 100%;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        z-index: 1;\n}\n.banner-grp-chat_body-title {\n        display: inline-block;\n        margin: 0;\n}\n\n\n/*\n   ____              _\n  / ___|__ _ _ __ __| |\n | |   / _` | '__/ _` |\n | |__| (_| | | | (_| |\n  \\____\\__,_|_|  \\__,_|\n                        */\n.card {\n        display: flex;\n        width: 100%;\n        padding: 15px;\n        border: none;\n        min-height: 100px;\n        height: 100%;\n        text-align: center;\n        flex-direction: column;\n        justify-content: flex-end;\n}\n.card_img {\n        width: 100%;\n        margin-bottom: 10px;\n}\n.card_title {\n        color: #000;\n}\n\n/* Styleguide Klassen (Theresas CSS)*/\n.mdc-button--raised{\n        background: linear-gradient(to bottom right,white, #F1F1F1);\n        height: 36px;\n        width: 36px;\n        padding:0px;\n        box-shadow:\n        -5px -5px 13px #fff,\n        5px 5px 13px #0e0e0e40;\n}\n.material-icons-outlined{\n        color: black;\n}\n.material-icons{\n        color: black;\n}\n.mdc-card{\n        width: 45%;\n        height: 178px;\n        border: double 2px transparent;\n        border-radius: 28px;\n        background-image: radial-gradient(white, white), radial-gradient(circle at top left,white,#ED553B);\n        background-origin: border-box;\n        background-clip: content-box, border-box;\n        box-shadow:\n    -5px -5px 13px #fff,\n    5px 5px 13px #0e0e0e40;\n}\n.mdc-button--round{\n        border-radius: 40px;\n}\n.button-text{\n        color: #000000;\n        margin-right: 15px;\n        font-weight: bold;\n}\n.mdc-card--middle{\n        text-align: center;\n        display: flex;\n        justify-content: center;\n}\n.container--flex{\n        display: flex;\n        justify-content: space-between;\n        flex-wrap: wrap;\n}\n.card-icons--big{\n        font-size: 7em;\n        color: #ED553B;\n}\n.card-text--small{\n        font-size: 1.3em;\n}\n.mdc-card-newsfeed{\n        width: 100%;\n        height: 250px;\n}\n.card-newsfeed-top-container{\n        width: 100%;\n        display: flex;\n        height: 90px;\n}\n.card-newsfeed-top-icon-container{\n        width: 28%;\n        height: 90px;\n        background-color: #ED553B;\n        border-top-left-radius: 28px;\n        box-shadow: 0 0 1em #ED553B;\n}\n.material-icons--orange{\n        margin: auto;\n        color: #FFD7D1;\n        font-size: 4em;\n}\n.card-newsfeed-top-content-container{\n        width: 72%;\n        display: flex;\n        padding: 0.5em;\n        padding-left: 1.5em;\n        padding-right: 1.5em;\n        padding-bottom: 0px;\n        flex-direction: column;\n        height: 100%;\n        overflow: hidden;\n        justify-content: space-between;\n}\n.profil-picture-circle{\n        height: 20px;\n        width: 20px;\n        background-color: #bbb;\n        border-radius: 50%;\n        margin-right: 10px;\n}\n.card-user{\n        display: flex;\n        flex-wrap: nowrap;\n        align-items: center;\n        font-family: 'Open Sans', sans-serif;\n        font-weight:100;\n        text-transform: uppercase;\n}\n.card-newsfeed-type{\n\n        width: -webkit-fit-content;\n\n        width: -moz-fit-content;\n\n        width: fit-content;\n        padding: 5px;\n        background-color: #ED553B;\n        border-radius: 30%;\n        margin-right: 10px;\n}\n.mdc-chip--red{\n        height: 18px;\n        background: #ED553B;\n        color: white;\n        font-size: 0.8em;\n}\n.card-newsfeed-headline{\n        font-family: 'Open Sans', sans-serif;\n        font-weight: bold;\n        font-size: 1.2em;\n}\n.card-newsfeed-voting{\n        height: 120px;\n        width: 50px;\n        background: linear-gradient(to bottom right,white, #F1F1F1);\n        box-shadow:\n        -5px -5px 13px #fff,\n        5px 5px 13px #0e0e0e40;\n        border-radius: 22px;\n        display: flex;\n        flex-direction: column;\n        justify-content: space-between;\n}\n.card-newsfeed-bottom-container{\n        width: 100%;\n        display: flex;\n        height: 100%;\n}\n.card-newsfeed-bottom-voting-container{\n        width: 28%;\n        align-items: center;\n}\n.card-newsfeed-voting-option{\n        margin: auto;\n}\n.card-newsfeed-voting-option--border{\n        border-top: 1px solid white;\n        border-bottom: 1px solid white;\n        box-shadow: 0px 10px 5px #c2c2c240, 0px -10px 5px #c2c2c240;\n}\n.card-newsfeed-bottom-content-container{\n        width: 72%;\n        display: flex;\n        padding: 0.5em;\n        padding-left: 1.5em;\n        padding-right: 1.5em;\n        padding-bottom: 0px;\n        flex-direction: column;\n        height: 100%;\n        justify-content: space-between;\n        padding-bottom: 1.2em;\n}\n.card-newsfeed-text{\n}\n.card-newsfeed-data-container{\n        display: flex;\n        flex-wrap: nowrap;\n        justify-content: space-between;\n        color: #2D2D2D !important;\n}\n.card-newsfeed-data-saved{\n        font-family: 'Open Sans', sans-serif;\n        font-weight: 100;\n        font-size: 0.9em;\n}\n.card-newsfeed-data-separator{\n        font-size: 0.9em;\n}\n.card-newsfeed-data-date{\n        font-size: 0.9em;\n        color: #2D2D2D;\n}\n.card-newsfeed-icon-container{\n        display: flex;\n        flex-wrap: nowrap;\n        justify-content: flex-end;\n}\n.mdc-button--pressed{\n          box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2),\n            inset -6px -6px 10px 0 white,\n            12px 12px 24px 0 rgba(0, 0, 0, 0.2),\n            -12px -12px 24px 0 rgba(255, 255, 255, 0.5);\n            overflow: hidden;\n}\n.mdc-button-back{\n        border-radius: 35px;\n}\n.mdc-card-lernmaterial{\n        width: 100%;\n        height: 100%;\n}\n.card-lernmaterial-spacing{\n        padding: 1em;\n        display: flex;\n        flex-wrap: nowrap;\n        justify-content: space-between;\n}\n.card-lernmaterial-icon-container{\n        width: 45px;\n        height: 45px;\n        display: flex;\n        border-radius: 15px;\n        background-color: #ED553B;\n}\n.material-icons-lernmaterial{\n        margin: auto;\n        color: #ffffff;\n        font-size: 2.3em;\n}\n.card-lernmaterial-middle-column-container{\n        justify-content: space-between;\n}\n.mdc-chip-container{\n        height: 33%;\n}\n.mdc-chip-lernmaterial{\n        height: 18px;\n}\n.card-lernmaterial-date{\n        color: #717171;\n        font-size: 12px;\n        height:50%;\n}\n.card-lernmaterial-headline{\n        height: 33%;\n}\n.card-lernmateral-thumb{\n        height: 33%;\n        display: flex;\n        flex-wrap: nowrap;\n}\n.material-icons-outlined-space-right{\n        padding-right: 6px;\n}\n.card-lernmateral-thumbs-number{\n        font-size: 12px;\n}\n.card-lernmaterial-date-icon-container{\n        height: 50%;\n}\n.mdc-chip-filter{\n        box-shadow:\n        -5px -5px 13px #fff,\n        5px 5px 13px #0e0e0e40;\n        background: linear-gradient(to bottom right,white, #F1F1F1);\n        margin: 0.15em;\n        margin-bottom: 0.7em;\n}\n.text-field__input--modified{\n        background-color: transparent;\n         caret-color: black !important;\n         border-radius: 28px;\n         padding-left: 2px;\n}\n.text-field--modified{\n        border-radius: 28px;\n        box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2),\n        inset -6px -6px 10px 0 white,\n        12px 12px 24px 0 rgba(0, 0, 0, 0.2),\n        -12px -12px 24px 0 rgba(255, 255, 255, 0.5);\n        overflow: hidden;\n        height: 45px;\n        width: 100%;\n}\n.headline-text-field{\n        margin-top: 0.8em;\n}\n.button--big{\n        border-radius: 28px;\n        height: 50px;\n        width: 100%;\n        margin-top: 30px;\n        background: linear-gradient(to right,white, #F1F1F1);\n}\n.button-text{\n        text-transform: uppercase;\n        color: #212121;\n        font-size: 14px;\n}\n.list-items{\n        width: 100%;\n        height: 40px;\n        border-radius: 28px;\n        background: linear-gradient(to bottom right,white, #F1F1F1);\n        box-shadow:\n        -5px -5px 13px #fff,\n        5px 5px 13px #0e0e0e40;\n        display: flex;\n}\n.list-items{\n        font-size: 15px;\n        font-family: 'Open Sans', sans-serif;\n        justify-content: space-around;\n        align-items: center;\n}\n.mdc-radio__outer-circle-modified{\n        background: linear-gradient(to bottom right,white, #F1F1F1);\n        box-shadow:\n        -5px -5px 13px #fff,\n        5px 5px 13px #0e0e0e40;\n        border-color: transparent;\n        border: none;\n}\n.radio-button-label{\n        margin: auto 0;\n}\n.mdc-radio .mdc-radio__native-control:enabled:checked+.mdc-radio__background .mdc-radio__outer-circle{\n        box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2),\n            inset -6px -6px 10px 0 white,\n            12px 12px 24px 0 rgba(0, 0, 0, 0.2),\n            -12px -12px 24px 0 rgba(255, 255, 255, 0.5);\n            overflow: hidden;\n}\n.mdc-radio .mdc-radio__native-control:enabled:checked+.mdc-radio__background .mdc-radio__inner-circle{\n        border-color: #707070;\n        width: 1px;\n}\n.card-room-circle{\n        border-radius: 50%;\n        background: linear-gradient(to bottom right,white, #F1F1F1);\n        height: 50px;\n        width: 50px;\n        box-shadow:\n        -5px -5px 13px #fff,\n        5px 5px 13px #0e0e0e40;\n        display: flex;\n}\n.material-icons-outlined-room-icon{\n        font-size: 3em;\n        color: #ED553B;\n        margin: auto;\n}\n.card-room-container-name-number{\n        width: 100%;\n        height: 40px;\n        border-radius: 28px;\n        border: double 2px transparent;\n        background-image: radial-gradient(white, white), radial-gradient(circle at top left,white,#ED553B);\n        background-origin: border-box;\n        background-clip: content-box, border-box;\n        box-shadow:\n        -5px -5px 13px #fff,\n        5px 5px 13px #0e0e0e40;\n}\n.chippressed {\n          box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2),\n            inset -6px -6px 10px 0 white,\n            12px 12px 24px 0 rgba(0, 0, 0, 0.2),\n            -12px -12px 24px 0 rgba(255, 255, 255, 0.5);\n            overflow: hidden;\n}\n\n\n\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -8190,7 +8575,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.text-field--modified[data-v-12f5395a]{\n    background-color:white;\n    border-radius: 28px;\n    box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2),\n    inset -6px -6px 10px 0 white,\n    12px 12px 24px 0 rgba(0, 0, 0, 0.2),\n    -12px -12px 24px 0 rgba(255, 255, 255, 0.5);\n    overflow: hidden;\n    height: 45px;\n    width: 100%;\n}\n.headline-text-field[data-v-12f5395a]{\n    margin-top: 0.8em;\n}\n.button--big[data-v-12f5395a]{\n    border-radius: 28px;\n    height: 50px;\n    width: 100%;\n    margin-top: 30px;\n    background: linear-gradient(to right,white, #F1F1F1);\n}\n.button-text[data-v-12f5395a]{\n    text-transform: uppercase;\n    color: #212121;\n    font-size: 14px;\n    font-family: 'Open Sans', sans-serif;\n}\n.text-no-account[data-v-12f5395a]{\n    padding-top: 2em;\n    font-family: 'Open Sans', sans-serif;\n}\n.text-bold[data-v-12f5395a]{\n    font-weight: bold;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.text-no-account[data-v-12f5395a]{\n    padding-top: 2em;\n    font-family: 'Open Sans', sans-serif;\n    color: #212121;\n}\n.text-bold[data-v-12f5395a]{\n    font-weight: bold;\n    color: #212121;\n}\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -8214,7 +8599,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.text-field--modified[data-v-27cf56f6]{\n    background-color:white;\n    border-radius: 28px;\n    box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2),\n    inset -6px -6px 10px 0 white,\n    12px 12px 24px 0 rgba(0, 0, 0, 0.2),\n    -12px -12px 24px 0 rgba(255, 255, 255, 0.5);\n    overflow: hidden;\n    height: 45px;\n    width: 100%;\n}\n.button--big[data-v-27cf56f6]{\n    border-radius: 28px;\n    height: 50px;\n    width: 100%;\n    margin-top: 30px;\n    background: linear-gradient(to right,white, #F1F1F1);\n}\n.button-text[data-v-27cf56f6]{\n    text-transform: uppercase;\n    color: #212121;\n    font-size: 14px;\n    font-family: 'Open Sans', sans-serif;\n}\n.headline-text-field[data-v-27cf56f6]{\n    margin-top: 0.8em;\n}\n.mdc-chip-filter[data-v-27cf56f6]{\n    box-shadow:\n    -5px -5px 13px #fff,\n    5px 5px 13px #0e0e0e40;\n    background: linear-gradient(to bottom right,white, #F1F1F1);\n    margin: 0.15em;\n    margin-bottom: 0.7em;\n}\n.pressed[data-v-27cf56f6]{\n    box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2),\n        inset -6px -6px 10px 0 white,\n        12px 12px 24px 0 rgba(0, 0, 0, 0.2),\n        -12px -12px 24px 0 rgba(255, 255, 255, 0.5);\n        overflow: hidden;\n}\n.text-field__input--modified[data-v-27cf56f6]{\n    background-color: transparent;\n     caret-color: black;\n     border-radius: 28px;\n     padding-left: 2px;\n}\n.mdc-radio__outer-circle-modified[data-v-27cf56f6]{\n    background: linear-gradient(to bottom right,white, #F1F1F1);\n    box-shadow:\n    -5px -5px 13px #fff,\n    5px 5px 13px #0e0e0e40;\n    border-color: transparent;\n    border: none;\n}\n.mdc-radio__inner-circle-modified[data-v-27cf56f6]{\n    border-color: red;\n}\n.radio-button-label[data-v-27cf56f6]{\n    margin: auto 0;\n}\n.mdc-radio .mdc-radio__native-control:enabled:checked+.mdc-radio__background .mdc-radio__outer-circle[data-v-27cf56f6]{\n    box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2),\n        inset -6px -6px 10px 0 white,\n        12px 12px 24px 0 rgba(0, 0, 0, 0.2),\n        -12px -12px 24px 0 rgba(255, 255, 255, 0.5);\n        overflow: hidden;\n}\n.mdc-radio .mdc-radio__native-control:enabled:checked+.mdc-radio__background .mdc-radio__inner-circle[data-v-27cf56f6]{\n    border-color: #707070;\n    width: 1px;\n}\n.text-no-account[data-v-27cf56f6]{\n    padding-top: 2em;\n    font-family: 'Open Sans', sans-serif;\n}\n.text-bold[data-v-27cf56f6]{\n    font-weight: bold;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.text-no-account[data-v-27cf56f6]{\n    padding-top: 2em;\n    font-family: 'Open Sans', sans-serif;\n}\n.text-bold[data-v-27cf56f6]{\n    font-weight: bold;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -8238,7 +8623,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*\n    Navigation and Neumorph Basic Styles added to App.vue\n*/\n.mdc-button--raised[data-v-446c08aa]{\n    background: linear-gradient(to bottom right,white, #F1F1F1);\n    height: 36px;\n    width: 36px;\n    padding:0px;\n    box-shadow:\n    -5px -5px 13px #fff,\n    5px 5px 13px #0e0e0e40;\n}\n.material-icons-outlined[data-v-446c08aa]{\n    color: black;\n}\n.material-icons[data-v-446c08aa]{\n    color: black;\n}\n.mdc-card[data-v-446c08aa]{\n    width: 45%;\n    height: 178px;\n    border: double 2px transparent;\n    border-radius: 28px;\n    background-image: radial-gradient(white, white), radial-gradient(circle at top left,white,#ED553B);\n    background-origin: border-box;\n    background-clip: content-box, border-box;\n    box-shadow:\n-5px -5px 13px #fff,\n5px 5px 13px #0e0e0e40;\n}\n.mdc-button--round[data-v-446c08aa]{\n    border-radius: 40px;\n}\n.button-text[data-v-446c08aa]{\n    color: #000000;\n    margin-right: 15px;\n    margin:auto;\n}\n.mdc-card--middle[data-v-446c08aa]{\n    text-align: center;\n    display: flex;\n    justify-content: center;\n}\n.container--flex[data-v-446c08aa]{\n    display: flex;\n    justify-content: space-between;\n    flex-wrap: wrap;\n}\n.card-icons--big[data-v-446c08aa]{\n    font-size: 7em;\n    color: #ED553B;\n}\n.card-text--small[data-v-446c08aa]{\n    font-size: 1.3em;\n}\n.mdc-card-newsfeed[data-v-446c08aa]{\n    width: 100%;\n    height: 250px;\n}\n.card-newsfeed-top-container[data-v-446c08aa]{\n    width: 100%;\n    display: flex;\n    height: 90px;\n}\n.card-newsfeed-top-icon-container[data-v-446c08aa]{\n    width: 28%;\n    height: 90px;\n    background-color: #ED553B;\n    border-top-left-radius: 28px;\n    box-shadow: 0 0 1em #ED553B;\n}\n.material-icons--orange[data-v-446c08aa]{\n    margin: auto;\n    color: #FFD7D1;\n    font-size: 4em;\n}\n.card-newsfeed-top-content-container[data-v-446c08aa]{\n    width: 72%;\n    display: flex;\n    padding: 0.5em;\n    padding-left: 1.5em;\n    padding-right: 1.5em;\n    padding-bottom: 0px;\n    flex-direction: column;\n    height: 100%;\n    overflow: hidden;\n    justify-content: space-between;\n}\n.profil-picture-circle[data-v-446c08aa]{\n    height: 20px;\n    width: 20px;\n    background-color: #bbb;\n    border-radius: 50%;\n    margin-right: 10px;\n}\n.card-user[data-v-446c08aa]{\n    display: flex;\n    flex-wrap: nowrap;\n    align-items: center;\n    font-family: 'Open Sans', sans-serif;\n    font-weight:100;\n    text-transform: uppercase;\n}\n.card-newsfeed-type[data-v-446c08aa]{\n\n    width: -webkit-fit-content;\n\n    width: -moz-fit-content;\n\n    width: fit-content;\n    padding: 5px;\n    background-color: #ED553B;\n    border-radius: 30%;\n    margin-right: 10px;\n}\n.mdc-chip--red[data-v-446c08aa]{\n    height: 18px;\n    background: #ED553B;\n    color: white;\n    font-size: 0.8em;\n}\n.card-newsfeed-headline[data-v-446c08aa]{\n    font-family: 'Open Sans', sans-serif;\n    font-weight: bold;\n    font-size: 1.2em;\n}\n.card-newsfeed-voting[data-v-446c08aa]{\n    height: 120px;\n    width: 50px;\n    background: linear-gradient(to bottom right,white, #F1F1F1);\n    box-shadow:\n    -5px -5px 13px #fff,\n    5px 5px 13px #0e0e0e40;\n    border-radius: 22px;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n}\n.card-newsfeed-bottom-container[data-v-446c08aa]{\n    width: 100%;\n    display: flex;\n    height: 100%;\n}\n.card-newsfeed-bottom-voting-container[data-v-446c08aa]{\n    width: 28%;\n    align-items: center;\n}\n.card-newsfeed-voting-option[data-v-446c08aa]{\n    margin: auto;\n}\n.card-newsfeed-voting-option--border[data-v-446c08aa]{\n    border-top: 1px solid white;\n    border-bottom: 1px solid white;\n    box-shadow: 0px 10px 5px #c2c2c240, 0px -10px 5px #c2c2c240;\n}\n.card-newsfeed-bottom-content-container[data-v-446c08aa]{\n    width: 72%;\n    display: flex;\n    padding: 0.5em;\n    padding-left: 1.5em;\n    padding-right: 1.5em;\n    padding-bottom: 0px;\n    flex-direction: column;\n    height: 100%;\n    justify-content: space-between;\n    padding-bottom: 1.2em;\n}\n.card-newsfeed-text[data-v-446c08aa]{\n}\n.card-newsfeed-data-container[data-v-446c08aa]{\n    display: flex;\n    flex-wrap: nowrap;\n    justify-content: space-between;\n    color: #2D2D2D !important;\n}\n.card-newsfeed-data-saved[data-v-446c08aa]{\n    font-family: 'Open Sans', sans-serif;\n    font-weight: 100;\n    font-size: 0.9em;\n}\n.card-newsfeed-data-separator[data-v-446c08aa]{\n    font-size: 0.9em;\n}\n.card-newsfeed-data-date[data-v-446c08aa]{\n    font-size: 0.9em;\n    color: #2D2D2D;\n}\n.card-newsfeed-icon-container[data-v-446c08aa]{\n    display: flex;\n    flex-wrap: nowrap;\n    justify-content: flex-end;\n}\n.mdc-button--pressed[data-v-446c08aa]{\n      box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2),\n        inset -6px -6px 10px 0 white,\n        12px 12px 24px 0 rgba(0, 0, 0, 0.2),\n        -12px -12px 24px 0 rgba(255, 255, 255, 0.5);\n        overflow: hidden;\n}\n.mdc-button-back[data-v-446c08aa]{\n    border-radius: 35px;\n}\n.mdc-card-lernmaterial[data-v-446c08aa]{\n    width: 100%;\n    height: 100%;\n}\n.card-lernmaterial-spacing[data-v-446c08aa]{\n    padding: 1em;\n    display: flex;\n    flex-wrap: nowrap;\n    justify-content: space-between;\n}\n.card-lernmaterial-icon-container[data-v-446c08aa]{\n    width: 45px;\n    height: 45px;\n    display: flex;\n    border-radius: 15px;\n    background-color: #ED553B;\n}\n.material-icons-lernmaterial[data-v-446c08aa]{\n    margin: auto;\n    color: #ffffff;\n    font-size: 2.3em;\n}\n.card-lernmaterial-middle-column-container[data-v-446c08aa]{\n    justify-content: space-between;\n}\n.mdc-chip-container[data-v-446c08aa]{\n    height: 33%;\n}\n.mdc-chip-lernmaterial[data-v-446c08aa]{\n    height: 18px;\n}\n.card-lernmaterial-date[data-v-446c08aa]{\n    color: #717171;\n    font-size: 12px;\n    height:50%;\n}\n.card-lernmaterial-headline[data-v-446c08aa]{\n    height: 33%;\n}\n.card-lernmateral-thumb[data-v-446c08aa]{\n    height: 33%;\n    display: flex;\n    flex-wrap: nowrap;\n}\n.material-icons-outlined-space-right[data-v-446c08aa]{\n    padding-right: 6px;\n}\n.card-lernmateral-thumbs-number[data-v-446c08aa]{\n    font-size: 12px;\n}\n.card-lernmaterial-date-icon-container[data-v-446c08aa]{\n    height: 50%;\n}\n.mdc-chip-filter[data-v-446c08aa]{\n    box-shadow:\n    -5px -5px 13px #fff,\n    5px 5px 13px #0e0e0e40;\n    background: linear-gradient(to bottom right,white, #F1F1F1);\n    margin: 0.15em;\n    margin-bottom: 0.7em;\n}\n.text-field__input--modified[data-v-446c08aa]{\n    background-color: transparent;\n     caret-color: black;\n     border-radius: 28px;\n     padding-left: 2px;\n}\n.text-field--modified[data-v-446c08aa]{\n    background-color:white;\n    border-radius: 28px;\n    box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2),\n    inset -6px -6px 10px 0 white,\n    12px 12px 24px 0 rgba(0, 0, 0, 0.2),\n    -12px -12px 24px 0 rgba(255, 255, 255, 0.5);\n    overflow: hidden;\n    height: 45px;\n    width: 100%;\n}\n.headline-text-field[data-v-446c08aa]{\n    margin-top: 0.8em;\n}\n.button--big[data-v-446c08aa]{\n    border-radius: 28px;\n    height: 50px;\n    width: 100%;\n    margin-top: 30px;\n    background: linear-gradient(to right,white, #F1F1F1);\n}\n.button-text[data-v-446c08aa]{\n    text-transform: uppercase;\n    color: #212121;\n    font-size: 14px;\n}\n.list-items[data-v-446c08aa]{\n    width: 100%;\n    height: 40px;\n    border-radius: 28px;\n    background: linear-gradient(to bottom right,white, #F1F1F1);\n    box-shadow:\n    -5px -5px 13px #fff,\n    5px 5px 13px #0e0e0e40;\n    display: flex;\n}\n.list-items[data-v-446c08aa]{\n    font-size: 15px;\n    font-family: 'Open Sans', sans-serif;\n    justify-content: space-around;\n    align-items: center;\n}\n.mdc-radio__background-container[data-v-446c08aa]{\n}\n.mdc-radio__outer-circle-modified[data-v-446c08aa]{\n    background: linear-gradient(to bottom right,white, #F1F1F1);\n    box-shadow:\n    -5px -5px 13px #fff,\n    5px 5px 13px #0e0e0e40;\n    border-color: transparent;\n    border: none;\n}\n.mdc-radio__inner-circle-modified[data-v-446c08aa]{\n    border-color: red;\n}\n.radio-button-label[data-v-446c08aa]{\n    margin: auto 0;\n}\n.mdc-radio .mdc-radio__native-control:enabled:checked+.mdc-radio__background .mdc-radio__outer-circle[data-v-446c08aa]{\n    box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2),\n        inset -6px -6px 10px 0 white,\n        12px 12px 24px 0 rgba(0, 0, 0, 0.2),\n        -12px -12px 24px 0 rgba(255, 255, 255, 0.5);\n        overflow: hidden;\n}\n.mdc-radio .mdc-radio__native-control:enabled:checked+.mdc-radio__background .mdc-radio__inner-circle[data-v-446c08aa]{\n    border-color: #707070;\n    width: 1px;\n}\n.mdc-radio .mdc-radio__native-control:enabled:focus+.mdc-radio__background .mdc-radio__outer-circle[data-v-446c08aa]{\n}\n.mdc-radio .mdc-radio__native-control:enabled:active+.mdc-radio__background .mdc-radio__outer-circle[data-v-446c08aa]{\n}\n.card-room-container[data-v-446c08aa]{\n}\n.card-room-circle[data-v-446c08aa]{\n    border-radius: 50%;\n    background: linear-gradient(to bottom right,white, #F1F1F1);\n    height: 50px;\n    width: 50px;\n    box-shadow:\n    -5px -5px 13px #fff,\n    5px 5px 13px #0e0e0e40;\n    display: flex;\n}\n.material-icons-outlined-room-icon[data-v-446c08aa]{\n    font-size: 3em;\n    color: #ED553B;\n    margin: auto;\n}\n.card-room-container-name-number[data-v-446c08aa]{\n    width: 100%;\n    height: 40px;\n    border-radius: 28px;\n    border: double 2px transparent;\n    background-image: radial-gradient(white, white), radial-gradient(circle at top left,white,#ED553B);\n    background-origin: border-box;\n    background-clip: content-box, border-box;\n    box-shadow:\n    -5px -5px 13px #fff,\n    5px 5px 13px #0e0e0e40;\n}\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*\n    Navigation and Neumorph Basic Styles added to App.vue\n*/\n\n\n\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -41985,67 +42370,81 @@ var render = function() {
         }
       },
       [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.formData.email,
-              expression: "formData.email"
-            }
-          ],
-          attrs: { type: "email", name: "email" },
-          domProps: { value: _vm.formData.email },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.formData, "email", $event.target.value)
-            }
-          }
-        }),
-        _c("br"),
+        _c("div", { staticClass: "headline-text-field" }, [_vm._v("E-Mail")]),
         _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.formData.password,
-              expression: "formData.password"
-            }
-          ],
-          attrs: { type: "password", name: "password" },
-          domProps: { value: _vm.formData.password },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+        _c(
+          "label",
+          {
+            staticClass:
+              "mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified"
+          },
+          [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.formData.email,
+                  expression: "formData.email"
+                }
+              ],
+              staticClass: "mdc-text-field__input text-field__input--modified",
+              attrs: { type: "text", placeholder: "", "aria-label": "Label" },
+              domProps: { value: _vm.formData.email },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.formData, "email", $event.target.value)
+                }
               }
-              _vm.$set(_vm.formData, "password", $event.target.value)
-            }
-          }
-        }),
-        _c("br"),
+            })
+          ]
+        ),
         _vm._v(" "),
-        _c("button", { attrs: { type: "submit" } }, [_vm._v("Login")])
+        _c("div", { staticClass: "headline-text-field" }, [_vm._v("Passwort")]),
+        _vm._v(" "),
+        _c(
+          "label",
+          {
+            staticClass:
+              "mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified"
+          },
+          [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.formData.password,
+                  expression: "formData.password"
+                }
+              ],
+              staticClass: "mdc-text-field__input text-field__input--modified",
+              attrs: {
+                type: "password",
+                placeholder: "",
+                "aria-label": "Label"
+              },
+              domProps: { value: _vm.formData.password },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.formData, "password", $event.target.value)
+                }
+              }
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _vm._m(0)
       ]
     ),
     _vm._v(" "),
-    _c("h1", [_vm._v("Login")]),
-    _vm._v(" "),
-    _c("div", { staticClass: "headline-text-field" }, [_vm._v("E-Mail")]),
-    _vm._v(" "),
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "headline-text-field" }, [_vm._v("Passwort")]),
-    _vm._v(" "),
-    _vm._m(1),
-    _vm._v(" "),
-    _vm._m(2),
-    _vm._v(" "),
-    _vm._m(3)
+    _vm._m(1)
   ])
 }
 var staticRenderFns = [
@@ -42054,44 +42453,11 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "label",
-      {
-        staticClass:
-          "mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified"
-      },
-      [
-        _c("input", {
-          staticClass: "mdc-text-field__input text-field__input--modified",
-          attrs: { type: "text", placeholder: "", "aria-label": "Label" }
-        })
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "label",
-      {
-        staticClass:
-          "mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified"
-      },
-      [
-        _c("input", {
-          staticClass: "mdc-text-field__input text-field__input--modified",
-          attrs: { type: "text", placeholder: "", "aria-label": "Label" }
-        })
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
       "button",
-      { staticClass: "mdc-button mdc-button--raised button--big" },
+      {
+        staticClass: "mdc-button mdc-button--raised button--big",
+        attrs: { type: "submit" }
+      },
       [
         _c("span", { staticClass: "button-text" }, [_vm._v("Einloggen")]),
         _vm._v(" "),
@@ -42105,7 +42471,11 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "text-no-account" }, [
       _vm._v("Kein Account? "),
-      _c("span", { staticClass: "text-bold" }, [_vm._v("Jetzt registrieren")])
+      _c(
+        "a",
+        { staticClass: "text-bold", attrs: { href: "/spa/Registrierung" } },
+        [_vm._v("Jetzt registrieren")]
+      )
     ])
   }
 ]
@@ -42334,37 +42704,39 @@ var render = function() {
           _vm._v("Interessen")
         ]),
         _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "mdc-chip mdc-chip-filter",
-            attrs: { role: "row" },
-            on: {
-              click: function($event) {
-                return _vm.toggleChip()
+        _vm._l(_vm.interests, function(interest) {
+          return _c(
+            "div",
+            {
+              staticClass: "mdc-chip mdc-chip-filter",
+              class: { chippressed: interest.selected },
+              attrs: { role: "row" },
+              on: {
+                click: function($event) {
+                  return _vm.$set(interest, "selected", !interest.selected)
+                }
               }
-            }
-          },
-          [
-            _c("div", { staticClass: "mdc-chip__ripple" }),
-            _vm._v(" "),
-            _vm._m(0)
-          ]
-        ),
-        _vm._v(" "),
-        _vm._m(1),
-        _vm._v(" "),
-        _vm._m(2),
-        _vm._v(" "),
-        _vm._m(3),
-        _vm._v(" "),
-        _vm._m(4),
-        _vm._v(" "),
-        _vm._m(5),
-        _vm._v(" "),
-        _vm._m(6),
-        _vm._v(" "),
-        _vm._m(7),
+            },
+            [
+              _c("div", { staticClass: "mdc-chip__ripple" }),
+              _vm._v(" "),
+              _c("span", { attrs: { role: "gridcell" } }, [
+                _c(
+                  "span",
+                  {
+                    staticClass: "mdc-chip__primary-action",
+                    attrs: { role: "button", tabindex: "0" }
+                  },
+                  [
+                    _c("span", { staticClass: "mdc-chip__text" }, [
+                      _vm._v(_vm._s(interest.name))
+                    ])
+                  ]
+                )
+              ])
+            ]
+          )
+        }),
         _vm._v(" "),
         _c("div", { staticClass: "headline-text-field" }, [
           _vm._v("Aktuelle Tätigkeit")
@@ -42401,15 +42773,16 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        _vm._m(8),
+        _vm._m(0),
         _vm._v(" "),
-        _vm._m(9),
+        _vm._m(1),
         _vm._v(" "),
-        _vm._m(10)
-      ]
+        _vm._m(2)
+      ],
+      2
     ),
     _vm._v(" "),
-    _vm._m(11),
+    _vm._m(3),
     _vm._v(" "),
     _c("br"),
     _vm._v(" "),
@@ -42433,205 +42806,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { attrs: { role: "gridcell" } }, [
-      _c(
-        "span",
-        {
-          staticClass: "mdc-chip__primary-action",
-          attrs: { role: "button", tabindex: "0" }
-        },
-        [_c("span", { staticClass: "mdc-chip__text" }, [_vm._v("Informatik")])]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "mdc-chip mdc-chip-filter pressed",
-        attrs: { role: "row" }
-      },
-      [
-        _c("div", { staticClass: "mdc-chip__ripple" }),
-        _vm._v(" "),
-        _c("span", { attrs: { role: "gridcell" } }, [
-          _c(
-            "span",
-            {
-              staticClass: "mdc-chip__primary-action",
-              attrs: { role: "button", tabindex: "0" }
-            },
-            [
-              _c("span", { staticClass: "mdc-chip__text" }, [
-                _vm._v("Biologie")
-              ])
-            ]
-          )
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "mdc-chip mdc-chip-filter", attrs: { role: "row" } },
-      [
-        _c("div", { staticClass: "mdc-chip__ripple" }),
-        _vm._v(" "),
-        _c("span", { attrs: { role: "gridcell" } }, [
-          _c(
-            "span",
-            {
-              staticClass: "mdc-chip__primary-action",
-              attrs: { role: "button", tabindex: "0" }
-            },
-            [_c("span", { staticClass: "mdc-chip__text" }, [_vm._v("Chemie")])]
-          )
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "mdc-chip mdc-chip-filter", attrs: { role: "row" } },
-      [
-        _c("div", { staticClass: "mdc-chip__ripple" }),
-        _vm._v(" "),
-        _c("span", { attrs: { role: "gridcell" } }, [
-          _c(
-            "span",
-            {
-              staticClass: "mdc-chip__primary-action",
-              attrs: { role: "button", tabindex: "0" }
-            },
-            [_c("span", { staticClass: "mdc-chip__text" }, [_vm._v("Sport")])]
-          )
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "mdc-chip mdc-chip-filter", attrs: { role: "row" } },
-      [
-        _c("div", { staticClass: "mdc-chip__ripple" }),
-        _vm._v(" "),
-        _c("span", { attrs: { role: "gridcell" } }, [
-          _c(
-            "span",
-            {
-              staticClass: "mdc-chip__primary-action",
-              attrs: { role: "button", tabindex: "0" }
-            },
-            [
-              _c("span", { staticClass: "mdc-chip__text" }, [
-                _vm._v("Gesundheit")
-              ])
-            ]
-          )
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "mdc-chip mdc-chip-filter", attrs: { role: "row" } },
-      [
-        _c("div", { staticClass: "mdc-chip__ripple" }),
-        _vm._v(" "),
-        _c("span", { attrs: { role: "gridcell" } }, [
-          _c(
-            "span",
-            {
-              staticClass: "mdc-chip__primary-action",
-              attrs: { role: "button", tabindex: "0" }
-            },
-            [
-              _c("span", { staticClass: "mdc-chip__text" }, [
-                _vm._v("Ernährung")
-              ])
-            ]
-          )
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "mdc-chip mdc-chip-filter", attrs: { role: "row" } },
-      [
-        _c("div", { staticClass: "mdc-chip__ripple" }),
-        _vm._v(" "),
-        _c("span", { attrs: { role: "gridcell" } }, [
-          _c(
-            "span",
-            {
-              staticClass: "mdc-chip__primary-action",
-              attrs: { role: "button", tabindex: "0" }
-            },
-            [
-              _c("span", { staticClass: "mdc-chip__text" }, [
-                _vm._v("Mathematik")
-              ])
-            ]
-          )
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "mdc-chip mdc-chip-filter", attrs: { role: "row" } },
-      [
-        _c("div", { staticClass: "mdc-chip__ripple" }),
-        _vm._v(" "),
-        _c("span", { attrs: { role: "gridcell" } }, [
-          _c(
-            "span",
-            {
-              staticClass: "mdc-chip__primary-action",
-              attrs: { role: "button", tabindex: "0" }
-            },
-            [
-              _c("span", { staticClass: "mdc-chip__text" }, [
-                _vm._v("Englisch")
-              ])
-            ]
-          )
-        ])
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
