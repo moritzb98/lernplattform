@@ -20,11 +20,23 @@ import CreateSammlung from './views/CreateSammlung.vue'
 
 import Lerngruppen from './views/Lerngruppen.vue'
 import Newsfeed from './views/Newsfeed.vue'
+import Login from './views/Login.vue'
+import Registrierung from './views/Registrierung.vue'
 
 
 export const routes = [
 
     // Geändert in Drop-Up Nav?
+    {
+        name: 'Login',
+        path: '/spa/Login',
+        component: Login
+    },
+    {
+        name: 'Registrierung',
+        path: '/spa/Registrierung',
+        component: Registrierung
+    },
     {
         name: 'Dashboard',
         path: '/spa/Dashboard',

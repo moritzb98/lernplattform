@@ -265,6 +265,13 @@
 
             <br>
             <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
 
     </div>
 
@@ -330,6 +337,7 @@
     .button-text{
         color: #000000;
         margin-right: 15px;
+        margin:auto;
     }
 
     .mdc-card--middle{
@@ -591,6 +599,8 @@
         -5px -5px 13px #fff,
         5px 5px 13px #0e0e0e40;
         background: linear-gradient(to bottom right,white, #F1F1F1);
+        margin: 0.15em;
+        margin-bottom: 0.7em;
     }
 
     .text-field__input--modified{
@@ -609,20 +619,20 @@
         12px 12px 24px 0 rgba(0, 0, 0, 0.2),
         -12px -12px 24px 0 rgba(255, 255, 255, 0.5);
         overflow: hidden;
-        height: 40px;
+        height: 45px;
         width: 100%;
     }
 
     .headline-text-field{
-
+        margin-top: 0.8em;
     }
 
     .button--big{
         border-radius: 28px;
         height: 50px;
         width: 100%;
-        margin-top: 20px;
-         background: linear-gradient(to right,white, #F1F1F1);
+        margin-top: 30px;
+        background: linear-gradient(to right,white, #F1F1F1);
     }
 
     .button-text{
