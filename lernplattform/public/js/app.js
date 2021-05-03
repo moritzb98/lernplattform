@@ -2447,7 +2447,7 @@ __webpack_require__.r(__webpack_exports__);
       };
       var data = new FormData();
       data.append('file', this.file);
-      axios.post('/upload', data, config).then(function (res) {
+      axios.post('/api/upload', data, config).then(function (res) {
         existingObj.success = res.data.success;
       })["catch"](function (err) {
         existingObj.output = err;
@@ -2570,6 +2570,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -2585,11 +2586,15 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    test: function test() {
+      console.log(this.currentRoom);
+    },
     getRooms: function getRooms() {
       var _this = this;
 
-      axios.get('/chat/rooms').then(function (response) {
+      axios.get('/api/chat/rooms').then(function (response) {
         _this.chatRooms = response.data;
+        console.log(_this.response);
 
         _this.setRoom(response.data[0]);
       })["catch"](function (error) {
@@ -2603,7 +2608,7 @@ __webpack_require__.r(__webpack_exports__);
     getMessages: function getMessages() {
       var _this2 = this;
 
-      axios.get('/chat/room/' + this.currentRoom.id + '/messages').then(function (response) {
+      axios.get('/api/chat/room/' + this.currentRoom.id + '/messages').then(function (response) {
         _this2.messages = response.data;
       })["catch"](function (error) {
         console.log(error);
@@ -2664,7 +2669,7 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
-      axios.post('/chat/room/' + this.room.id + '/message', {
+      axios.post('/api/chat/room/' + this.room.id + '/message', {
         message: this.message
       }).then(function (response) {
         if (response.status == 201) {
@@ -40826,7 +40831,9 @@ var render = function() {
           })
         ],
         1
-      )
+      ),
+      _vm._v(" "),
+      _c("button", { on: { click: _vm.test } }, [_vm._v("tets")])
     ])
   ])
 }

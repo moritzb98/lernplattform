@@ -6,6 +6,7 @@ use App\Http\Controllers\RoomController;
 use App\Http\Controllers\SecretController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ChatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,7 +47,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/chat', function () {
         return Inertia\Inertia::render('Chat/container');
     })->name('chat');
-    
+
     Route::get('/chat/rooms' , [ChatController::class, 'rooms']);
     Route::get('chat/room/{roomId}/messages', [ChatController::class, 'messages']);
     Route::post('chat/room/{roomId}/message', [ChatController::class, 'newMessage']);

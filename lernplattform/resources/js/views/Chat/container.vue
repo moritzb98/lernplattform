@@ -5,11 +5,12 @@
                     <message-container />
                     <input-message
                         :room="currentRoom"
-                        v-on:messagesent="getMessages()"/>
+                        v-on:messagesent="getMessages()" />
 
 
 
                 </div>
+                <button @click="test">tets</button>
             </div>
         </div>
 
@@ -35,10 +36,15 @@
         },
 
         methods: {
+            test() {
+                console.log(this.currentRoom);
+            },
+
             getRooms() {
-                axios.get('/chat/rooms')
+                axios.get('/api/chat/rooms')
                 .then( response => {
                     this.chatRooms = response.data;
+                    console.log(this.response);
                     this.setRoom( response.data[0] );
                 })
                 .catch( error => {
@@ -50,7 +56,7 @@
                 this.getMessages();
             },
             getMessages(){
-                axios.get('/chat/room/' + this.currentRoom.id + '/messages')
+                axios.get('/api/chat/room/' + this.currentRoom.id + '/messages')
                 .then( response => {
                     this.messages = response.data;
                 })
