@@ -1,120 +1,121 @@
 <template>
     <div>
 
-       <!-- Register Form -->
-       <h1>Register</h1>
-       <form action="#" @submit.prevent="handleRegister">
-            <input type="text" name="name" v-model="registerData.name"><br>
-            <input type="email" name="email" v-model="registerData.email"><br>
-            <input type="password" name="password" v-model="registerData.password"><br>
-            <input type="password" name="password" v-model="registerData.passwordConfirm"><br>
-            <button type="submit">Register</button>
-       </form>
-
         <h1>Registrierung</h1>
             <div>* Pflichtfelder</div>
-            <div class="headline-text-field">E-Mail*</div>
-            <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
-                <input class="mdc-text-field__input text-field__input--modified" type="text" placeholder="" aria-label="Label">
-            </label>
-            <div class="headline-text-field">Passwort*</div>
-            <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
-                <input class="mdc-text-field__input text-field__input--modified" type="text" placeholder="" aria-label="Label">
-            </label>
+            <form action="#" @submit.prevent="handleRegister">
+                <div class="headline-text-field">E-Mail*</div>
+                <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
+                    <input v-model="registerData.email" class="mdc-text-field__input text-field__input--modified" type="email" placeholder="" aria-label="Label">
+                </label>
+                <div class="headline-text-field">Benutzername*</div>
+                <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
+                    <input v-model="registerData.name" class="mdc-text-field__input text-field__input--modified" type="text" placeholder="" aria-label="Label">
+                </label>
+                <div class="headline-text-field">Passwort*</div>
+                <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
+                    <input v-model="registerData.password" class="mdc-text-field__input text-field__input--modified" type="password" placeholder="" aria-label="Label">
+                </label>
+                <div class="headline-text-field">Passwort wiederholen*</div>
+                <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
+                    <input v-model="registerData.passwordConfirm" class="mdc-text-field__input text-field__input--modified" type="password" placeholder="" aria-label="Label">
+                </label>
 
-            <div class="headline-text-field">Interessen</div>
-            <div class="mdc-chip mdc-chip-filter" role="row">
-                <div class="mdc-chip__ripple"></div>
-                <span role="gridcell">
-                    <span role="button" tabindex="0" class="mdc-chip__primary-action">
-                        <span class="mdc-chip__text">Informatik</span>
+                <div class="headline-text-field">Interessen</div>
+                <div class="mdc-chip mdc-chip-filter" role="row">
+                    <div class="mdc-chip__ripple"></div>
+                    <span role="gridcell">
+                        <span role="button" tabindex="0" class="mdc-chip__primary-action">
+                            <span class="mdc-chip__text">Informatik</span>
+                        </span>
                     </span>
-                </span>
-            </div>
-            <div class="mdc-chip mdc-chip-filter pressed" role="row">
-                <div class="mdc-chip__ripple"></div>
-                <span role="gridcell">
-                    <span role="button" tabindex="0" class="mdc-chip__primary-action">
-                        <span class="mdc-chip__text">Biologie</span>
+                </div>
+                <div class="mdc-chip mdc-chip-filter pressed" role="row">
+                    <div class="mdc-chip__ripple"></div>
+                    <span role="gridcell">
+                        <span role="button" tabindex="0" class="mdc-chip__primary-action">
+                            <span class="mdc-chip__text">Biologie</span>
+                        </span>
                     </span>
-                </span>
-            </div>
-            <div class="mdc-chip mdc-chip-filter" role="row">
-                <div class="mdc-chip__ripple"></div>
-                <span role="gridcell">
-                    <span role="button" tabindex="0" class="mdc-chip__primary-action">
-                        <span class="mdc-chip__text">Chemie</span>
+                </div>
+                <div class="mdc-chip mdc-chip-filter" role="row">
+                    <div class="mdc-chip__ripple"></div>
+                    <span role="gridcell">
+                        <span role="button" tabindex="0" class="mdc-chip__primary-action">
+                            <span class="mdc-chip__text">Chemie</span>
+                        </span>
                     </span>
-                </span>
-            </div>
-            <div class="mdc-chip mdc-chip-filter" role="row">
-                <div class="mdc-chip__ripple"></div>
-                <span role="gridcell">
-                    <span role="button" tabindex="0" class="mdc-chip__primary-action">
-                        <span class="mdc-chip__text">Sport</span>
+                </div>
+                <div class="mdc-chip mdc-chip-filter" role="row">
+                    <div class="mdc-chip__ripple"></div>
+                    <span role="gridcell">
+                        <span role="button" tabindex="0" class="mdc-chip__primary-action">
+                            <span class="mdc-chip__text">Sport</span>
+                        </span>
                     </span>
-                </span>
-            </div>
-            <div class="mdc-chip mdc-chip-filter" role="row">
-                <div class="mdc-chip__ripple"></div>
-                <span role="gridcell">
-                    <span role="button" tabindex="0" class="mdc-chip__primary-action">
-                        <span class="mdc-chip__text">Gesundheit</span>
+                </div>
+                <div class="mdc-chip mdc-chip-filter" role="row">
+                    <div class="mdc-chip__ripple"></div>
+                    <span role="gridcell">
+                        <span role="button" tabindex="0" class="mdc-chip__primary-action">
+                            <span class="mdc-chip__text">Gesundheit</span>
+                        </span>
                     </span>
-                </span>
-            </div>
-            <div class="mdc-chip mdc-chip-filter" role="row">
-                <div class="mdc-chip__ripple"></div>
-                <span role="gridcell">
-                    <span role="button" tabindex="0" class="mdc-chip__primary-action">
-                        <span class="mdc-chip__text">Ernährung</span>
+                </div>
+                <div class="mdc-chip mdc-chip-filter" role="row">
+                    <div class="mdc-chip__ripple"></div>
+                    <span role="gridcell">
+                        <span role="button" tabindex="0" class="mdc-chip__primary-action">
+                            <span class="mdc-chip__text">Ernährung</span>
+                        </span>
                     </span>
-                </span>
-            </div>
-            <div class="mdc-chip mdc-chip-filter" role="row">
-                <div class="mdc-chip__ripple"></div>
-                <span role="gridcell">
-                    <span role="button" tabindex="0" class="mdc-chip__primary-action">
-                        <span class="mdc-chip__text">Mathematik</span>
+                </div>
+                <div class="mdc-chip mdc-chip-filter" role="row">
+                    <div class="mdc-chip__ripple"></div>
+                    <span role="gridcell">
+                        <span role="button" tabindex="0" class="mdc-chip__primary-action">
+                            <span class="mdc-chip__text">Mathematik</span>
+                        </span>
                     </span>
-                </span>
-            </div>
-            <div class="mdc-chip mdc-chip-filter" role="row">
-                <div class="mdc-chip__ripple"></div>
-                <span role="gridcell">
-                    <span role="button" tabindex="0" class="mdc-chip__primary-action">
-                        <span class="mdc-chip__text">Englisch</span>
+                </div>
+                <div class="mdc-chip mdc-chip-filter" role="row">
+                    <div class="mdc-chip__ripple"></div>
+                    <span role="gridcell">
+                        <span role="button" tabindex="0" class="mdc-chip__primary-action">
+                            <span class="mdc-chip__text">Englisch</span>
+                        </span>
                     </span>
-                </span>
-            </div>
-            <div class="headline-text-field">Aktuelle Tätigkeit</div>
-            <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
-                <input class="mdc-text-field__input text-field__input--modified" type="text" placeholder="" aria-label="Label">
-            </label>
+                </div>
+                <div class="headline-text-field">Aktuelle Tätigkeit</div>
+                <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
+                    <input v-model="registerData.job" class="mdc-text-field__input text-field__input--modified" type="text" placeholder="" aria-label="Label">
+                </label>
 
-            <div class="mdc-form-field">
-                <div class="mdc-radio">
-                    <input class="mdc-radio__native-control" type="radio" id="radio-1" name="radios" checked>
-                    <div class="mdc-radio__background mdc-radio__background-container">
-                        <div class="mdc-radio__outer-circle mdc-radio__outer-circle-modified"></div>
-                        <div class="mdc-radio__inner-circle mdc-radio__inner-circle-modified"></div>
+                <div class="mdc-form-field">
+                    <div class="mdc-radio">
+                        <input class="mdc-radio__native-control" type="radio" id="radio-1" name="radios" checked>
+                        <div class="mdc-radio__background mdc-radio__background-container">
+                            <div class="mdc-radio__outer-circle mdc-radio__outer-circle-modified"></div>
+                            <div class="mdc-radio__inner-circle mdc-radio__inner-circle-modified"></div>
+                        </div>
                     </div>
+                    <label class="radio-button-label" for="radio-1">Datenschutz bla</label>
                 </div>
-                <label class="radio-button-label" for="radio-1">Datenschutz bla</label>
-            </div>
-            <div class="mdc-form-field">
-                <div class="mdc-radio">
-                    <input class="mdc-radio__native-control" type="radio" id="radio-1" name="radios" checked>
-                    <div class="mdc-radio__background mdc-radio__background-container">
-                        <div class="mdc-radio__outer-circle mdc-radio__outer-circle-modified"></div>
-                        <div class="mdc-radio__inner-circle mdc-radio__inner-circle-modified"></div>
+                <div class="mdc-form-field">
+                    <div class="mdc-radio">
+                        <input class="mdc-radio__native-control" type="radio" id="radio-1" name="radios" checked>
+                        <div class="mdc-radio__background mdc-radio__background-container">
+                            <div class="mdc-radio__outer-circle mdc-radio__outer-circle-modified"></div>
+                            <div class="mdc-radio__inner-circle mdc-radio__inner-circle-modified"></div>
+                        </div>
                     </div>
+                    <label class="radio-button-label" for="radio-1">Datenschutz bla</label>
                 </div>
-                <label class="radio-button-label" for="radio-1">Datenschutz bla</label>
-            </div>
-            <button class="mdc-button mdc-button--raised button--big">
-                <span class="button-text">Registrieren</span> <span class="material-icons">chevron_right</span>
-            </button>
+                <button class="mdc-button mdc-button--raised button--big" type="submit">
+                    <span class="button-text">Registrieren</span> <span class="material-icons">chevron_right</span>
+                </button>
+        </form>
+
             <div class="text-no-account">Bereits einen Account? <span class="text-bold">Jetzt einloggen</span></div>
 
     <br>
@@ -136,15 +137,12 @@
         data() {
             return {
                 secrets:[],
-                formData:{
-                    email: '',
-                    password: '',
-                },
                 registerData:{
-                    name,
+                    name: '',
                     email: '',
                     password: '',
                     passwordConfirm: '',
+                    job:'',
                 },
             }
         },

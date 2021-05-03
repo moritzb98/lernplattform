@@ -3094,19 +3094,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       secrets: [],
-      formData: {
-        email: '',
-        password: ''
-      },
       registerData: {
-        name: name,
+        name: '',
         email: '',
         password: '',
-        passwordConfirm: ''
+        passwordConfirm: '',
+        job: ''
       }
     };
   },
@@ -42153,7 +42151,9 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("h1", [_vm._v("Register")]),
+    _c("h1", [_vm._v("Registrierung")]),
+    _vm._v(" "),
+    _c("div", [_vm._v("* Pflichtfelder")]),
     _vm._v(" "),
     _c(
       "form",
@@ -42167,141 +42167,220 @@ var render = function() {
         }
       },
       [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.registerData.name,
-              expression: "registerData.name"
-            }
-          ],
-          attrs: { type: "text", name: "name" },
-          domProps: { value: _vm.registerData.name },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.registerData, "name", $event.target.value)
-            }
-          }
-        }),
-        _c("br"),
+        _c("div", { staticClass: "headline-text-field" }, [_vm._v("E-Mail*")]),
         _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.registerData.email,
-              expression: "registerData.email"
-            }
-          ],
-          attrs: { type: "email", name: "email" },
-          domProps: { value: _vm.registerData.email },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+        _c(
+          "label",
+          {
+            staticClass:
+              "mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified"
+          },
+          [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.registerData.email,
+                  expression: "registerData.email"
+                }
+              ],
+              staticClass: "mdc-text-field__input text-field__input--modified",
+              attrs: { type: "email", placeholder: "", "aria-label": "Label" },
+              domProps: { value: _vm.registerData.email },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.registerData, "email", $event.target.value)
+                }
               }
-              _vm.$set(_vm.registerData, "email", $event.target.value)
-            }
-          }
-        }),
-        _c("br"),
+            })
+          ]
+        ),
         _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.registerData.password,
-              expression: "registerData.password"
-            }
-          ],
-          attrs: { type: "password", name: "password" },
-          domProps: { value: _vm.registerData.password },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+        _c("div", { staticClass: "headline-text-field" }, [
+          _vm._v("Benutzername*")
+        ]),
+        _vm._v(" "),
+        _c(
+          "label",
+          {
+            staticClass:
+              "mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified"
+          },
+          [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.registerData.name,
+                  expression: "registerData.name"
+                }
+              ],
+              staticClass: "mdc-text-field__input text-field__input--modified",
+              attrs: { type: "text", placeholder: "", "aria-label": "Label" },
+              domProps: { value: _vm.registerData.name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.registerData, "name", $event.target.value)
+                }
               }
-              _vm.$set(_vm.registerData, "password", $event.target.value)
-            }
-          }
-        }),
-        _c("br"),
+            })
+          ]
+        ),
         _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.registerData.passwordConfirm,
-              expression: "registerData.passwordConfirm"
-            }
-          ],
-          attrs: { type: "password", name: "password" },
-          domProps: { value: _vm.registerData.passwordConfirm },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+        _c("div", { staticClass: "headline-text-field" }, [
+          _vm._v("Passwort*")
+        ]),
+        _vm._v(" "),
+        _c(
+          "label",
+          {
+            staticClass:
+              "mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified"
+          },
+          [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.registerData.password,
+                  expression: "registerData.password"
+                }
+              ],
+              staticClass: "mdc-text-field__input text-field__input--modified",
+              attrs: {
+                type: "password",
+                placeholder: "",
+                "aria-label": "Label"
+              },
+              domProps: { value: _vm.registerData.password },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.registerData, "password", $event.target.value)
+                }
               }
-              _vm.$set(_vm.registerData, "passwordConfirm", $event.target.value)
-            }
-          }
-        }),
-        _c("br"),
+            })
+          ]
+        ),
         _vm._v(" "),
-        _c("button", { attrs: { type: "submit" } }, [_vm._v("Register")])
+        _c("div", { staticClass: "headline-text-field" }, [
+          _vm._v("Passwort wiederholen*")
+        ]),
+        _vm._v(" "),
+        _c(
+          "label",
+          {
+            staticClass:
+              "mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified"
+          },
+          [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.registerData.passwordConfirm,
+                  expression: "registerData.passwordConfirm"
+                }
+              ],
+              staticClass: "mdc-text-field__input text-field__input--modified",
+              attrs: {
+                type: "password",
+                placeholder: "",
+                "aria-label": "Label"
+              },
+              domProps: { value: _vm.registerData.passwordConfirm },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(
+                    _vm.registerData,
+                    "passwordConfirm",
+                    $event.target.value
+                  )
+                }
+              }
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "headline-text-field" }, [
+          _vm._v("Interessen")
+        ]),
+        _vm._v(" "),
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
+        _vm._m(2),
+        _vm._v(" "),
+        _vm._m(3),
+        _vm._v(" "),
+        _vm._m(4),
+        _vm._v(" "),
+        _vm._m(5),
+        _vm._v(" "),
+        _vm._m(6),
+        _vm._v(" "),
+        _vm._m(7),
+        _vm._v(" "),
+        _c("div", { staticClass: "headline-text-field" }, [
+          _vm._v("Aktuelle Tätigkeit")
+        ]),
+        _vm._v(" "),
+        _c(
+          "label",
+          {
+            staticClass:
+              "mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified"
+          },
+          [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.registerData.job,
+                  expression: "registerData.job"
+                }
+              ],
+              staticClass: "mdc-text-field__input text-field__input--modified",
+              attrs: { type: "text", placeholder: "", "aria-label": "Label" },
+              domProps: { value: _vm.registerData.job },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.registerData, "job", $event.target.value)
+                }
+              }
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _vm._m(8),
+        _vm._v(" "),
+        _vm._m(9),
+        _vm._v(" "),
+        _vm._m(10)
       ]
     ),
     _vm._v(" "),
-    _c("h1", [_vm._v("Registrierung")]),
-    _vm._v(" "),
-    _c("div", [_vm._v("* Pflichtfelder")]),
-    _vm._v(" "),
-    _c("div", { staticClass: "headline-text-field" }, [_vm._v("E-Mail*")]),
-    _vm._v(" "),
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "headline-text-field" }, [_vm._v("Passwort*")]),
-    _vm._v(" "),
-    _vm._m(1),
-    _vm._v(" "),
-    _c("div", { staticClass: "headline-text-field" }, [_vm._v("Interessen")]),
-    _vm._v(" "),
-    _vm._m(2),
-    _vm._v(" "),
-    _vm._m(3),
-    _vm._v(" "),
-    _vm._m(4),
-    _vm._v(" "),
-    _vm._m(5),
-    _vm._v(" "),
-    _vm._m(6),
-    _vm._v(" "),
-    _vm._m(7),
-    _vm._v(" "),
-    _vm._m(8),
-    _vm._v(" "),
-    _vm._m(9),
-    _vm._v(" "),
-    _c("div", { staticClass: "headline-text-field" }, [
-      _vm._v("Aktuelle Tätigkeit")
-    ]),
-    _vm._v(" "),
-    _vm._m(10),
-    _vm._v(" "),
     _vm._m(11),
-    _vm._v(" "),
-    _vm._m(12),
-    _vm._v(" "),
-    _vm._m(13),
-    _vm._v(" "),
-    _vm._m(14),
     _vm._v(" "),
     _c("br"),
     _vm._v(" "),
@@ -42325,42 +42404,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "label",
-      {
-        staticClass:
-          "mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified"
-      },
-      [
-        _c("input", {
-          staticClass: "mdc-text-field__input text-field__input--modified",
-          attrs: { type: "text", placeholder: "", "aria-label": "Label" }
-        })
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "label",
-      {
-        staticClass:
-          "mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified"
-      },
-      [
-        _c("input", {
-          staticClass: "mdc-text-field__input text-field__input--modified",
-          attrs: { type: "text", placeholder: "", "aria-label": "Label" }
-        })
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -42576,24 +42619,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "label",
-      {
-        staticClass:
-          "mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified"
-      },
-      [
-        _c("input", {
-          staticClass: "mdc-text-field__input text-field__input--modified",
-          attrs: { type: "text", placeholder: "", "aria-label": "Label" }
-        })
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "mdc-form-field" }, [
       _c("div", { staticClass: "mdc-radio" }, [
         _c("input", {
@@ -42670,7 +42695,10 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "button",
-      { staticClass: "mdc-button mdc-button--raised button--big" },
+      {
+        staticClass: "mdc-button mdc-button--raised button--big",
+        attrs: { type: "submit" }
+      },
       [
         _c("span", { staticClass: "button-text" }, [_vm._v("Registrieren")]),
         _vm._v(" "),

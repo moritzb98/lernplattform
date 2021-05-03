@@ -12,15 +12,17 @@ class AuthController extends Controller
     // Register function for sanctum
     public function register(Request $request) {
         $validatedData = $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:3',],
+            'job' => ['nullable','string', 'max:255'],
         ]);
 
         $user = User::create([
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => Hash::make($request['password'],),
+            'job' => $request['job'],
         ]);
 
         $accessToken = $user->createToken('cool_token')->accessToken;
