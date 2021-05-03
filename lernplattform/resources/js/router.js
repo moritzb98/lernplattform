@@ -3,8 +3,8 @@ import auth from './views/Auth.vue';
 import styleguide from './views/styleguide.vue'
 import documents from './views/Documents.vue';
 import uploads from './components/FileUploadComponent.vue';
-
-
+import container from './views/Chat/container.vue';
+ 
 export const routes = [
     {
         name: 'test',
@@ -33,5 +33,11 @@ export const routes = [
         path: '/spa/uploads',
         component: uploads
     },
+
+    {
+        name: 'chat',
+        path: '/spa/chat',
+        component: container
+    }
 
 ];

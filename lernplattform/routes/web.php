@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\ChatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,4 @@ Route::post('/logoutnormal', [AuthController::class, 'logout']);
 //Uploads
 Route::get('/', [FileController::class, 'index']);
 Route::post('/upload', [FileController::class, 'upload'])->name('upload');
+
