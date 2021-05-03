@@ -4,6 +4,9 @@ import VueAxios from 'vue-axios';
 import VueRouter from 'vue-router';
 import axios from 'axios';
 import { routes } from './router';
+import Vue from 'vue';
+
+
 
 window.Vue = require('vue').default;
 
