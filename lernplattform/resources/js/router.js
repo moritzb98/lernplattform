@@ -3,10 +3,8 @@ import auth from './views/Auth.vue';
 import styleguide from './views/styleguide.vue'
 import documents from './views/Documents.vue';
 import uploads from './components/FileUploadComponent.vue';
-<<<<<<< HEAD
+
 import container from './views/Chat/container.vue';
- 
-=======
 
 
 // Page Views Nav
@@ -24,8 +22,6 @@ import Lerngruppen from './views/Lerngruppen.vue'
 import Newsfeed from './views/Newsfeed.vue'
 
 
-
->>>>>>> main
 export const routes = [
 
     // Geändert in Drop-Up Nav?
