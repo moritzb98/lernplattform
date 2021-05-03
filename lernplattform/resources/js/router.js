@@ -4,8 +4,7 @@ import styleguide from './views/styleguide.vue'
 import documents from './views/Documents.vue';
 import uploads from './components/FileUploadComponent.vue';
 
-<<<<<<< HEAD
-=======
+
 // Page Views Nav
 import Dashboard from './views/Dashboard.vue'
 import Lernmaterial from './views/Lernmaterial.vue'
@@ -21,7 +20,6 @@ import Lerngruppen from './views/Lerngruppen.vue'
 import Newsfeed from './views/Newsfeed.vue'
 
 
->>>>>>> main
 
 export const routes = [
 
