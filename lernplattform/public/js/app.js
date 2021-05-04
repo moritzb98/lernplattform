@@ -3503,47 +3503,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      fileUploads: []
+      fileUploads: [],
+      myFileUploads: []
     };
   },
   mounted: function mounted() {
     var _this = this;
 
     this.axios.get('http://127.0.0.1:8000/api/getFiles').then(function (response) {
-      _this.fileUploads = response.data;
-    }); //const tabBar = new MDCTabBar(document.querySelector('.mdc-tab-bar'));
-
-    var tabBar = new mdc.tabBar.MDCTabBar(document.querySelector('.tab-bar'));
-    var contentEls = document.querySelectorAll('.content');
-    console.log(tabBar);
-    tabBar.listen('MDCTabBar:activated', function (event) {
-      // Hide currently-active content
-      console.log("Moritz ist cool");
-      document.querySelector('.content--active').classList.remove('content--active'); // Show content for newly-activated tab
-
-      contentEls[event.detail.index].classList.add('content--active');
+      _this.fileUploads = response.data.data;
+    });
+    this.axios.get('http://127.0.0.1:8000/api/getMyFiles').then(function (response) {
+      _this.myFileUploads = response.data.data;
     });
   },
   methods: {
@@ -49107,7 +49082,7 @@ var render = function() {
       _c(
         "button",
         {
-          staticClass: "mdc-button tab-button",
+          staticClass: "mdc-button tab-button tab-active",
           attrs: { id: "tab1" },
           on: {
             click: function($event) {
@@ -49138,16 +49113,20 @@ var render = function() {
       { staticClass: "content content--active", attrs: { id: "content1" } },
       _vm._l(_vm.fileUploads, function(fileUpload) {
         return _c("div", { key: fileUpload.id }, [
-          _c("p", [_vm._v("ID: " + _vm._s(fileUpload.id) + " ")]),
+          _c("p", [_vm._v("ID: " + _vm._s(fileUpload.data.id) + " ")]),
           _vm._v(" "),
-          _c("p", [_vm._v("Name: " + _vm._s(fileUpload.name) + " ")]),
+          _c("p", [_vm._v("Name: " + _vm._s(fileUpload.data.name) + " ")]),
           _vm._v(" "),
-          _c("p", [_vm._v("Pfad: " + _vm._s(fileUpload.path) + " ")]),
+          _c("p", [_vm._v("Pfad: " + _vm._s(fileUpload.data.path) + " ")]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v("Erstellt von: " + _vm._s(fileUpload.data.user_id.name))
+          ]),
           _vm._v(" "),
           _c(
             "a",
             { attrs: { download: "", href: "/upload/" + fileUpload.name } },
-            [_vm._v("Download: " + _vm._s(fileUpload.name))]
+            [_vm._v("Download: " + _vm._s(fileUpload.data.name))]
           ),
           _vm._v(" "),
           _c("hr")
@@ -49156,19 +49135,39 @@ var render = function() {
       0
     ),
     _vm._v(" "),
-    _vm._m(0)
+    _c(
+      "div",
+      { staticClass: "content", attrs: { id: "content2" } },
+      _vm._l(_vm.myFileUploads, function(myFileUpload) {
+        return _c("div", { key: myFileUpload.id }, [
+          _c("p", [_vm._v("ID: " + _vm._s(myFileUpload.data.id) + " ")]),
+          _vm._v(" "),
+          _c("p", [_vm._v("Name: " + _vm._s(myFileUpload.data.name) + " ")]),
+          _vm._v(" "),
+          _c("p", [_vm._v("Pfad: " + _vm._s(myFileUpload.data.path) + " ")]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v("Erstellt von: " + _vm._s(myFileUpload.data.user_id.name))
+          ]),
+          _vm._v(" "),
+          _c(
+            "a",
+            { attrs: { download: "", href: "/upload/" + myFileUpload.name } },
+            [_vm._v("Download: " + _vm._s(myFileUpload.data.name))]
+          ),
+          _vm._v(" "),
+          _c("hr")
+        ])
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c("br"),
+    _c("br"),
+    _c("br")
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content", attrs: { id: "content2" } }, [
-      _c("p", [_vm._v("Content two")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

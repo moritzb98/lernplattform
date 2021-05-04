@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Room;
 use App\Models\RoomUsers;
-use App\Http\Resources\UserCollection;
+use App\Http\Resources\UserRoomCollection;
 use Auth;
 
 class RoomController extends Controller
@@ -95,7 +95,7 @@ class RoomController extends Controller
 
     public function getUsersInRoom(Request $request){
         $roomid = $request['room_id'];
-        return new UserCollection(RoomUsers::where('room_id', $roomid)->get());
+        return new UserRoomCollection(RoomUsers::where('room_id', $roomid)->get());
     }
 
 

@@ -44,8 +44,10 @@ class User extends Authenticatable
     ];
 
     public function rooms(){
-        return $this->belongsToMany('App\RoomUsers');
+        return $this->belongsToMany('App\Models\RoomUsers');
     }
 
-
+    public function files(){
+        return $this->belongsToMany('App\Models\FileUpload');
+    }
 }

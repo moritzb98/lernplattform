@@ -42,6 +42,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     //Uploads
     Route::get('/getFiles', [FileController::class, 'index']);
     Route::post('/upload', [FileController::class, 'upload'])->name('upload');
+    Route::get('/getMyFiles', [FileController::class, 'showUserFiles']);
 
     //Chat
     Route::get('/chat', function () {
@@ -55,7 +56,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
 });
 
-// Interests
+// Interests - without Middleware
 Route::get('/interests/getall' , [InterestController::class, 'getAllInterest']);
 Route::post('/interests/send' , [InterestController::class, 'sendToUser']);
 
