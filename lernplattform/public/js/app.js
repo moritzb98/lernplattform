@@ -2875,6 +2875,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -8642,7 +8646,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.text-no-account[data-v-7c602e76]{\n        padding-top: 2em;\n        font-family: 'Open Sans', sans-serif;\n        color: #212121;\n}\n.text-bold[data-v-7c602e76]{\n        font-weight: bold;\n        color: #212121;\n}\n.h1[data-v-7c602e76]{\n        font-weight: bold;\n}\n.h2[data-v-7c602e76]{\n        font-size: 17;\n}\n.btn[data-v-7c602e76]{\n    font-size: 15px;\n    background-color: rgb(255, 255, 255);\n    border-color: rg (255, 255, 255);\n}\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.h2[data-v-7c602e76]{\nfloat: right;\n}\n.Pfeil[data-v-7c602e76]{\nfloat: left;\n}\n.form[data-v-7c602e76]{\n       background-color:#F1F1F1;\n}\n.btn[data-v-7c602e76]{\nfont-size: 15px;\nborder:1px solid rg (255, 255, 255);\nbackground-color:#F1F1F1;\n}\n\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -41597,44 +41601,44 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c("h2", [_vm._v(" Erstellen ")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "mdc-card mdc-card-lernmaterial" }, [
-        _c("div", { staticClass: "card-header" }, [_vm._v("Uploads")]),
+      _c("div", { staticClass: "col-md-8" }, [
+        _vm._m(0),
         _vm._v(" "),
         _vm._m(1),
         _vm._v(" "),
-        _c("div", { staticClass: "card-body" }, [
-          _vm.success != ""
-            ? _c("div", { staticClass: "alert alert-success" }, [
-                _vm._v(
-                  "\n                        " +
-                    _vm._s(_vm.success) +
-                    "\n                    "
-                )
-              ])
-            : _vm._e(),
+        _c("div", { staticClass: "container" }, [
+          _vm._m(2),
           _vm._v(" "),
-          _c(
-            "form",
-            {
-              attrs: { enctype: "multipart/form-data" },
-              on: { submit: _vm.formSubmit }
-            },
-            [
-              _c("input", {
-                staticClass: "form-control",
-                attrs: { type: "file" },
-                on: { change: _vm.onChange }
-              }),
-              _vm._v(" "),
-              _c("button", { staticClass: "btn btn-primary btn-block" }, [
-                _vm._v("Erstellen")
-              ])
-            ]
-          )
+          _c("div", { staticClass: "card-body" }, [
+            _vm.success != ""
+              ? _c("div", { staticClass: "alert alert-success" }, [
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(_vm.success) +
+                      "\n                    "
+                  )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c(
+              "form",
+              {
+                attrs: { enctype: "multipart/form-data" },
+                on: { submit: _vm.formSubmit }
+              },
+              [
+                _c("input", {
+                  staticClass: "form-control",
+                  attrs: { type: "file" },
+                  on: { change: _vm.onChange }
+                }),
+                _vm._v(" "),
+                _c("button", { staticClass: "btn btn-primary btn-block" }, [
+                  _vm._v("Datei hochladen")
+                ])
+              ]
+            )
+          ])
         ])
       ])
     ])
@@ -41645,7 +41649,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-8" }, [
+    return _c("div", { staticClass: "h2" }, [_c("h2", [_vm._v(" Erstellen ")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "Pfeil" }, [
       _c(
         "button",
         { staticClass: "mdc-button mdc-button--raised mdc-button-back" },
@@ -41661,49 +41671,41 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "mdc-form-field" }, [
-        _c("div", { staticClass: "mdc-radio" }, [
-          _c("input", {
-            staticClass: "mdc-radio__native-control",
-            attrs: {
-              type: "radio",
-              id: "radio-1",
-              name: "radios",
-              unchecked: ""
-            }
-          }),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
-                "mdc-radio__background mdc-radio__background-container"
-            },
-            [
-              _c("div", {
-                staticClass:
-                  "mdc-radio__outer-circle mdc-radio__outer-circle-modified"
-              }),
-              _vm._v(" "),
-              _c("div", {
-                staticClass:
-                  "mdc-radio__inner-circle mdc-radio__inner-circle-modified"
-              })
-            ]
-          )
-        ]),
+    return _c("div", { staticClass: "mdc-form-field" }, [
+      _c("div", { staticClass: "mdc-radio" }, [
+        _c("input", {
+          staticClass: "mdc-radio__native-control",
+          attrs: { type: "radio", id: "radio-1", name: "radios", unchecked: "" }
+        }),
         _vm._v(" "),
         _c(
-          "label",
-          { staticClass: "radio-button-label", attrs: { for: "radio-1" } },
+          "div",
+          {
+            staticClass: "mdc-radio__background mdc-radio__background-container"
+          },
           [
-            _vm._v(
-              " Hiermit bestätige ich dass ich \n            Wer gegen das Urheberrecht verstößt (z.B. Bilder oder Texte unerlaubt kopiert), macht sich gem. §§ 106 ff UrhG strafbar, wird zudem kostenpflichtig abgemahnt und muss Schadensersatz leisten (§ 97 UrhG)."
-            )
+            _c("div", {
+              staticClass:
+                "mdc-radio__outer-circle mdc-radio__outer-circle-modified"
+            }),
+            _vm._v(" "),
+            _c("div", {
+              staticClass:
+                "mdc-radio__inner-circle mdc-radio__inner-circle-modified"
+            })
           ]
         )
-      ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "label",
+        { staticClass: "radio-button-label", attrs: { for: "radio-1" } },
+        [
+          _vm._v(
+            " Hiermit bestätige ich dass die von mir geteilten\n            Dateien von mir stammen und ich nicht gegen das Urheberrecht verstoße."
+          )
+        ]
+      )
     ])
   }
 ]
