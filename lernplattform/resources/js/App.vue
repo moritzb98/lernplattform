@@ -39,57 +39,57 @@
                         <span class="material-icons">people</span>
                     </div>
                 </router-link>
-                <router-link to="/spa/Newsfeed">
+                <!-- <router-link to="/spa/Newsfeed">
                     <div class="nav_item neumorph">
                         <span class="material-icons">description</span>
                     </div>
-                </router-link>
+                </router-link> -->
 
                 <!-- Navigation Drop Up-->
                 <div id="js__nav_drop-up" class="nav_drop-up_wrapper">
                     <div class="nav_drop-up neumorph">
                         <div class="container">
                             <div class="row">
-                                <div class="col col-6 col-sm-4 mt-3">
+                                <!-- <div class="col col-6 col-sm-4 mt-3">
                                     <router-link to="/spa/Sammlung-erstellen">
                                         <div class="card neumorph" v-on:click="showNavDropUp">
                                             <img class="card_img" src="" alt="" />
                                             <div class="card_title">Sammlung</div>
                                         </div>
                                     </router-link>
-                                </div>
-                                <div class="col col-6 col-sm-4 mt-3">
+                                </div> -->
+                                <!-- <div class="col col-6 col-sm-4 mt-3">
                                     <router-link to="/spa/Karteikarten-erstellen">
                                         <div class="card neumorph" v-on:click="showNavDropUp">
                                             <img class="card_img" src="" alt="" />
                                             <div class="card_title">Karteikarten</div>
                                         </div>
                                     </router-link>
-                                </div>
+                                </div> -->
                                 <div class="col col-6 col-sm-4 mt-3">
                                     <router-link to="/spa/Skript-erstellen">
                                         <div class="card neumorph" v-on:click="showNavDropUp">
                                             <img class="card_img" src="" alt="" />
-                                            <div class="card_title">Skript</div>
+                                            <div class="card_title">Medien hochladen</div>
                                         </div>
                                     </router-link>
                                 </div>
-                                <div class="col col-6 col-sm-4 mt-3">
+                                <!-- <div class="col col-6 col-sm-4 mt-3">
                                     <router-link to="/spa/Kurs-erstellen">
                                         <div class="card neumorph" v-on:click="showNavDropUp">
                                             <img class="card_img" src="" alt="" />
                                             <div class="card_title">Kurs</div>
                                         </div>
                                     </router-link>
-                                </div>
-                                <div class="col col-6 col-sm-4 mt-3">
+                                </div> -->
+                                <!-- <div class="col col-6 col-sm-4 mt-3">
                                     <router-link to="/spa/Quiz-erstellen">
                                         <div class="card neumorph" v-on:click="showNavDropUp">
                                             <img class="card_img" src="" alt="" />
                                             <div class="card_title">Quiz</div>
                                         </div>
                                     </router-link>
-                                </div>
+                                </div> -->
                                 <div class="col col-6 col-sm-4 mt-3">
                                     <router-link to="/spa/Lerngruppe-erstellen">
                                         <div class="card neumorph" v-on:click="showNavDropUp">
@@ -315,6 +315,11 @@
     }
 
     .nav {
+        width: 100%;
+        max-width: 500px;
+        display: flex;
+        justify-content: space-evenly;
+
         transition: .3s;
     }
 
@@ -378,6 +383,17 @@
 
     .nav_drop-up--active {
         bottom: 100px;
+    }
+
+
+    @media only screen and (max-width: 400px) {
+        .nav_item {
+            margin: 0px 7px;
+        }
+
+        .nav .material-icons {
+            padding: 12px;
+        }
     }
 
 
@@ -529,6 +545,10 @@
     .card_title {
         color: #000;
     }
+
+
+
+
 
 /* Styleguide Klassen (Theresas CSS)*/
 .mdc-button--raised{
