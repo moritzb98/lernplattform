@@ -19,6 +19,8 @@ import CreateLerngruppe from './views/CreateLerngruppe.vue'
 import CreateSammlung from './views/CreateSammlung.vue'
 
 import Lerngruppen from './views/Lerngruppen.vue'
+import AlleLerngruppen from './views/AlleLerngruppen.vue'
+
 import Newsfeed from './views/Newsfeed.vue'
 import Login from './views/Login.vue'
 import Registrierung from './views/Registrierung.vue'
@@ -84,6 +86,12 @@ export const routes = [
         path: '/spa/Lerngruppen',
         component: Lerngruppen
     },
+    {
+        name: 'AlleLerngruppen',
+        path: '/spa/Lerngruppe-finden',
+        component: AlleLerngruppen
+    },
+
     {
         name: 'Newsfeed',
         path: '/spa/Newsfeed',
