@@ -28,6 +28,7 @@
         "@material/button": "^11.0.0",
         "@material/card": "^11.0.0",
         "@material/chips": "^11.0.0",
+        "@material/tab-bar": "^11.0.0",
         "laravel-echo": "^1.10.0",
         "node-sass": "^4.14.1",
         "pusher-js": "^7.0.3",
