@@ -13,8 +13,8 @@
                 @click="sendMessage()"
                 class="place-self-end bg-gray-500 hover: bg-blue-700 p-1 mt-1 rounded text-white">
                 Send
-            </button>
-        </div>
+            </button> 
+        </div> 
     </div>
 </template>
 
@@ -33,6 +33,8 @@ export default {
                 return;
             }
 
+            console.log(this.room);
+
             axios.post('/api/chat/room/' + this.room.id + '/message', {
                 message: this.message
             })
@@ -47,7 +49,7 @@ export default {
                 console.log( error );
             })
         }
-
+        
     }
 
 }
