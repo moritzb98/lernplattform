@@ -63,6 +63,7 @@
 
             <button @click="toggleTab('tab1', 'content1')" id="tab1" class="mdc-button tab-button">
                 <span class="button-text button-text--mittig">Alle Dateien</span>
+                </button>
             <button @click="toggleTab('tab1', 'content1')" id="tab1" class="mdc-button tab-button tab-active">
                 <span class="button-text">Alle Dateien</span>
 

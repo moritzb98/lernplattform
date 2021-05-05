@@ -3454,6 +3454,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -4470,8 +4471,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__.default({
   broadcaster: 'pusher',
-  key: "",
-  cluster: "mt1",
+  key: "6dd882b858b49e4e018e",
+  cluster: "eu",
   forceTLS: true
 });
 
@@ -49249,8 +49250,355 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function () {}
-var staticRenderFns = []
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("h1", [_vm._v("Meine Uploads")]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _vm._m(2),
+    _vm._v(" "),
+    _vm._m(3),
+    _vm._v(" "),
+    _vm._m(4),
+    _vm._v(" "),
+    _vm._m(5),
+    _vm._v(" "),
+    _vm._m(6),
+    _vm._v(" "),
+    _vm._m(7),
+    _vm._v(" "),
+    _vm._m(8),
+    _vm._v(" "),
+    _vm._m(9),
+    _vm._v(" "),
+    _c("div", { staticClass: "tab-bar" }, [
+      _c(
+        "button",
+        {
+          staticClass: "mdc-button tab-button",
+          attrs: { id: "tab1" },
+          on: {
+            click: function($event) {
+              return _vm.toggleTab("tab1", "content1")
+            }
+          }
+        },
+        [
+          _c("span", { staticClass: "button-text button-text--mittig" }, [
+            _vm._v("Alle Dateien")
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "mdc-button tab-button tab-active",
+          attrs: { id: "tab1" },
+          on: {
+            click: function($event) {
+              return _vm.toggleTab("tab1", "content1")
+            }
+          }
+        },
+        [_c("span", { staticClass: "button-text" }, [_vm._v("Alle Dateien")])]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "mdc-button tab-button",
+          attrs: { id: "tab2" },
+          on: {
+            click: function($event) {
+              return _vm.toggleTab("tab2", "content2")
+            }
+          }
+        },
+        [
+          _c("span", { staticClass: "button-text button-text--mittig" }, [
+            _vm._v("Meine Dateien")
+          ])
+        ]
+      )
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "content content--active", attrs: { id: "content1" } },
+      _vm._l(_vm.fileUploads, function(fileUpload) {
+        return _c("div", { key: fileUpload.id }, [
+          _c("p", [_vm._v("ID: " + _vm._s(fileUpload.data.id) + " ")]),
+          _vm._v(" "),
+          _c("p", [_vm._v("Name: " + _vm._s(fileUpload.data.name) + " ")]),
+          _vm._v(" "),
+          _c("p", [_vm._v("Pfad: " + _vm._s(fileUpload.data.path) + " ")]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v("Erstellt von: " + _vm._s(fileUpload.data.user_id.name))
+          ]),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              attrs: { download: "", href: "/upload/" + fileUpload.data.name }
+            },
+            [_vm._v("Download: " + _vm._s(fileUpload.data.name))]
+          ),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/documents/" + fileUpload.data.id } }, [
+            _vm._v("Details")
+          ]),
+          _vm._v(" "),
+          _c("hr")
+        ])
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "content", attrs: { id: "content2" } },
+      _vm._l(_vm.myFileUploads, function(myFileUpload) {
+        return _c("div", { key: myFileUpload.id }, [
+          _c("p", [_vm._v("ID: " + _vm._s(myFileUpload.data.id) + " ")]),
+          _vm._v(" "),
+          _c("p", [_vm._v("Name: " + _vm._s(myFileUpload.data.name) + " ")]),
+          _vm._v(" "),
+          _c("p", [_vm._v("Pfad: " + _vm._s(myFileUpload.data.path) + " ")]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v("Erstellt von: " + _vm._s(myFileUpload.data.user_id.name))
+          ]),
+          _vm._v(" "),
+          _c(
+            "a",
+            { attrs: { download: "", href: "/upload/" + myFileUpload.name } },
+            [_vm._v("Download: " + _vm._s(myFileUpload.data.name))]
+          ),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/mydocuments/" + myFileUpload.data.id } }, [
+            _vm._v("Details")
+          ]),
+          _vm._v(" "),
+          _c("hr")
+        ])
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c("br"),
+    _c("br"),
+    _c("br")
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c(
+        "div",
+        { staticClass: "mdc-chip mdc-chip-filter", attrs: { role: "row" } },
+        [
+          _c("div", { staticClass: "mdc-chip__ripple" }),
+          _vm._v(" "),
+          _c("span", { staticClass: "material-icons-outlined" }, [
+            _vm._v("filter_alt")
+          ]),
+          _vm._v(" "),
+          _c("span", { attrs: { role: "gridcell" } }, [
+            _c(
+              "span",
+              {
+                staticClass: "mdc-chip__primary-action",
+                attrs: { role: "button", tabindex: "0" }
+              },
+              [_c("span", { staticClass: "mdc-chip__text" }, [_vm._v("Alles")])]
+            )
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "mdc-chip mdc-chip-filter", attrs: { role: "row" } },
+        [
+          _c("div", { staticClass: "mdc-chip__ripple" }),
+          _vm._v(" "),
+          _c("span", { staticClass: "material-icons-outlined" }, [
+            _vm._v("sort")
+          ]),
+          _vm._v(" "),
+          _c("span", { attrs: { role: "gridcell" } }, [
+            _c(
+              "span",
+              {
+                staticClass: "mdc-chip__primary-action",
+                attrs: { role: "button", tabindex: "0" }
+              },
+              [
+                _c("span", { staticClass: "mdc-chip__text" }, [
+                  _vm._v("Sortieren")
+                ])
+              ]
+            )
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container-uploads" }, [
+      _c("div", { staticClass: "file-name-upload" }, [_vm._v("Java Syntax")]),
+      _vm._v(" "),
+      _c(
+        "span",
+        { staticClass: "material-icons-outlined upload-showmore-icon" },
+        [_vm._v("more_horiz")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container-uploads" }, [
+      _c("div", { staticClass: "file-name-upload" }, [
+        _vm._v("Vorlesungsskript Java Basics")
+      ]),
+      _vm._v(" "),
+      _c(
+        "span",
+        { staticClass: "material-icons-outlined upload-showmore-icon" },
+        [_vm._v("more_horiz")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container-uploads" }, [
+      _c("div", { staticClass: "file-name-upload" }, [
+        _vm._v("Java: Build To Do App Fast ")
+      ]),
+      _vm._v(" "),
+      _c(
+        "span",
+        { staticClass: "material-icons-outlined upload-showmore-icon" },
+        [_vm._v("more_horiz")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container-uploads" }, [
+      _c("div", { staticClass: "file-name-upload" }, [
+        _vm._v("Java: Build To bla")
+      ]),
+      _vm._v(" "),
+      _c(
+        "span",
+        { staticClass: "material-icons-outlined upload-showmore-icon" },
+        [_vm._v("more_horiz")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container-uploads" }, [
+      _c("div", { staticClass: "file-name-upload" }, [
+        _vm._v("Java: Build To bla")
+      ]),
+      _vm._v(" "),
+      _c(
+        "span",
+        { staticClass: "material-icons-outlined upload-showmore-icon" },
+        [_vm._v("more_horiz")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container-uploads" }, [
+      _c("div", { staticClass: "file-name-upload" }, [
+        _vm._v("Java: Build To bla")
+      ]),
+      _vm._v(" "),
+      _c(
+        "span",
+        { staticClass: "material-icons-outlined upload-showmore-icon" },
+        [_vm._v("more_horiz")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container-uploads" }, [
+      _c("div", { staticClass: "file-name-upload" }, [
+        _vm._v("Java: Build To bla")
+      ]),
+      _vm._v(" "),
+      _c(
+        "span",
+        { staticClass: "material-icons-outlined upload-showmore-icon" },
+        [_vm._v("more_horiz")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container-uploads" }, [
+      _c("div", { staticClass: "file-name-upload" }, [
+        _vm._v("Java: Build To bla")
+      ]),
+      _vm._v(" "),
+      _c(
+        "span",
+        { staticClass: "material-icons-outlined upload-showmore-icon" },
+        [_vm._v("more_horiz")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container-uploads" }, [
+      _c("div", { staticClass: "file-name-upload" }, [
+        _vm._v("Java: Build To bla")
+      ]),
+      _vm._v(" "),
+      _c(
+        "span",
+        { staticClass: "material-icons-outlined upload-showmore-icon" },
+        [_vm._v("more_horiz")]
+      )
+    ])
+  }
+]
+render._withStripped = true
 
 
 
