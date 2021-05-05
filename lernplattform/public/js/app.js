@@ -4752,8 +4752,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__.default({
   broadcaster: 'pusher',
-  key: "6dd882b858b49e4e018e",
-  cluster: "eu",
+  key: "",
+  cluster: "mt1",
   forceTLS: true
 });
 
@@ -9460,7 +9460,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.card-icons--new[data-v-3b877c3b]{\n    font-size: 7em;\n    color: #212121;\n}\n.container-link[data-v-3b877c3b]{\n    display: block;\n    width: 45%;\n    color: #212121;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.card-icons--new[data-v-3b877c3b]{\n    font-size: 7em;\n    color: #212121;\n}\n.container-link[data-v-3b877c3b]{\n    display: block;\n    width: 45%;\n    color: #212121;\n}\n.button-link[data-v-3b877c3b]{\n    text-decoration: none;\n    color: #212121;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -50558,35 +50558,39 @@ var staticRenderFns = [
       _c("h1", [_vm._v("Lernmaterial")]),
       _vm._v(" "),
       _c(
-        "button",
-        { staticClass: "mdc-button mdc-button--raised button--big" },
+        "a",
+        { staticClass: "button-link", attrs: { href: "/spa/documents" } },
         [
-          _c("span", { staticClass: "button-text" }, [_vm._v("Meine Uploads")]),
-          _vm._v(" "),
-          _c("span", { staticClass: "material-icons" }, [
-            _vm._v("chevron_right")
-          ])
+          _c(
+            "button",
+            { staticClass: "mdc-button mdc-button--raised button--big" },
+            [
+              _c("span", { staticClass: "button-text" }, [
+                _vm._v("Meine Uploads")
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "material-icons" }, [
+                _vm._v("chevron_right")
+              ])
+            ]
+          )
         ]
       ),
       _vm._v(" "),
       _c("div", { staticClass: "container--flex" }, [
-        _c(
-          "a",
-          { staticClass: "container-link", attrs: { href: "/spa/documents" } },
-          [
-            _c("div", { staticClass: "mdc-card mdc-card--new" }, [
-              _c(
-                "span",
-                { staticClass: "material-icons-outlined card-icons--new" },
-                [_vm._v("add")]
-              ),
-              _vm._v(" "),
-              _c("p", { staticClass: "card-text--small" }, [
-                _vm._v("Sammlung erstellen")
-              ])
+        _c("a", { staticClass: "container-link", attrs: { href: "" } }, [
+          _c("div", { staticClass: "mdc-card mdc-card--new" }, [
+            _c(
+              "span",
+              { staticClass: "material-icons-outlined card-icons--new" },
+              [_vm._v("add")]
+            ),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-text--small" }, [
+              _vm._v("Sammlung erstellen")
             ])
-          ]
-        ),
+          ])
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "mdc-card mdc-card--middle" }, [
           _c(
