@@ -24,9 +24,9 @@
         <div v-for="myFileUpload in myFileUploads" :key="myFileUpload.id">
             <div class="container-uploads">
                 <div class="file-name-upload">{{ myFileUpload.data.name }}</div>
-                <div>
-                    <p class="material-icons-outlined">delete</p>
-                    <p class="material-icons-outlined">file_download</p>
+                <div class="icon-container">
+                    <div class="material-icons-outlined icon--middle">delete</div>
+                    <div  class="material-icons-outlined icon--middle"><a download v-bind:href="'/upload/' + myFileUpload.data.name">file_download</a></div>
                 </div>
 
             </div>
@@ -180,4 +180,11 @@ import {MDCTabBar} from '@material/tab-bar';
         padding-right: 20px;
     }
 
+    .icon-container {
+        margin-right: 10px;
+    }
+
+    .icon--middle {
+        vertical-align: middle;
+    }
 </style>

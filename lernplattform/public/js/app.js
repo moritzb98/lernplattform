@@ -4723,8 +4723,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__.default({
   broadcaster: 'pusher',
-  key: "",
-  cluster: "mt1",
+  key: "6dd882b858b49e4e018e",
+  cluster: "eu",
   forceTLS: true
 });
 
@@ -9383,7 +9383,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.content[data-v-797cc8a9] {\n    display: none;\n}\n.content--active[data-v-797cc8a9] {\n    display: block;\n}\n.mdc-tab-scroller-overflow[data-v-797cc8a9]{\n    overflow: visible;\n}\n.tab-bar[data-v-797cc8a9]{\n    display: flex;\n}\n.tab-button[data-v-797cc8a9]{\n    background: linear-gradient(to bottom right,white, #F1F1F1);\n    height: 50px;\n    width: 100%;\n    padding:0px;\n    box-shadow:\n    -5px -5px 13px #fff,\n    5px 5px 13px #0e0e0e40;\n    border-radius: 0px;\n    margin-top: 20px;\n    margin-bottom: 20px;\n}\n.tab-active[data-v-797cc8a9]{\n    box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2),\n        inset -6px -6px 10px 0 white,\n        12px 12px 24px 0 rgba(0, 0, 0, 0.2),\n        -12px -12px 24px 0 rgba(255, 255, 255, 0.5);\n}\n.button-text--mittig[data-v-797cc8a9]{\n    margin: auto;\n}\n.container-uploads[data-v-797cc8a9]{\n    margin-top: 10px;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    width: 100%;\n    height: 40px;\n    border-radius: 28px;\n    border: double 2px transparent;\n    background-image: radial-gradient(white, white), radial-gradient(circle at top left,white,#ED553B);\n    background-origin: border-box;\n    background-clip: content-box, border-box;\n    box-shadow:\n    -5px -5px 13px #fff,\n    5px 5px 13px #0e0e0e40;\n}\n.file-name-upload[data-v-797cc8a9]{\n    padding-left: 2em;\n}\n.upload-showmore-icon[data-v-797cc8a9]{\n    padding-right: 20px;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.content[data-v-797cc8a9] {\n    display: none;\n}\n.content--active[data-v-797cc8a9] {\n    display: block;\n}\n.mdc-tab-scroller-overflow[data-v-797cc8a9]{\n    overflow: visible;\n}\n.tab-bar[data-v-797cc8a9]{\n    display: flex;\n}\n.tab-button[data-v-797cc8a9]{\n    background: linear-gradient(to bottom right,white, #F1F1F1);\n    height: 50px;\n    width: 100%;\n    padding:0px;\n    box-shadow:\n    -5px -5px 13px #fff,\n    5px 5px 13px #0e0e0e40;\n    border-radius: 0px;\n    margin-top: 20px;\n    margin-bottom: 20px;\n}\n.tab-active[data-v-797cc8a9]{\n    box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2),\n        inset -6px -6px 10px 0 white,\n        12px 12px 24px 0 rgba(0, 0, 0, 0.2),\n        -12px -12px 24px 0 rgba(255, 255, 255, 0.5);\n}\n.button-text--mittig[data-v-797cc8a9]{\n    margin: auto;\n}\n.container-uploads[data-v-797cc8a9]{\n    margin-top: 10px;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    width: 100%;\n    height: 40px;\n    border-radius: 28px;\n    border: double 2px transparent;\n    background-image: radial-gradient(white, white), radial-gradient(circle at top left,white,#ED553B);\n    background-origin: border-box;\n    background-clip: content-box, border-box;\n    box-shadow:\n    -5px -5px 13px #fff,\n    5px 5px 13px #0e0e0e40;\n}\n.file-name-upload[data-v-797cc8a9]{\n    padding-left: 2em;\n}\n.upload-showmore-icon[data-v-797cc8a9]{\n    padding-right: 20px;\n}\n.icon-container[data-v-797cc8a9] {\n    margin-right: 10px;\n}\n.icon--middle[data-v-797cc8a9] {\n    vertical-align: middle;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -49555,7 +49555,30 @@ var render = function() {
               _vm._v(_vm._s(myFileUpload.data.name))
             ]),
             _vm._v(" "),
-            _vm._m(1, true)
+            _c("div", { staticClass: "icon-container" }, [
+              _c(
+                "div",
+                { staticClass: "material-icons-outlined icon--middle" },
+                [_vm._v("delete")]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "material-icons-outlined icon--middle" },
+                [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        download: "",
+                        href: "/upload/" + myFileUpload.data.name
+                      }
+                    },
+                    [_vm._v("file_download")]
+                  )
+                ]
+              )
+            ])
           ])
         ])
       }),
@@ -49622,18 +49645,6 @@ var staticRenderFns = [
           ])
         ]
       )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("p", { staticClass: "material-icons-outlined" }, [_vm._v("delete")]),
-      _vm._v(" "),
-      _c("p", { staticClass: "material-icons-outlined" }, [
-        _vm._v("file_download")
-      ])
     ])
   }
 ]
