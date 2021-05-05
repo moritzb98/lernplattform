@@ -15,7 +15,7 @@
                 <p>Name: {{ fileUpload.data.name }} </p>
                 <p>Pfad: {{ fileUpload.data.path }} </p>
                 <p>Erstellt von: {{ fileUpload.data.user_id.name }}</p>
-                <a download v-bind:href="'/upload/' + fileUpload.name">Download: {{ fileUpload.data.name }}</a>
+                <a download v-bind:href="'/upload/' + fileUpload.data.name">Download: {{ fileUpload.data.name }}</a>
                 <hr>
             </div>
         </div>
