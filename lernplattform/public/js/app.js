@@ -3710,11 +3710,15 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       room: {
-        // hier daten definiern?
+        id: '',
         roomName: '',
         roomMaxPersons: null
       }
     };
+  },
+  mounted: function mounted() {
+    this.room.id = this.$route.params.id;
+    console.log(this.room.id);
   },
   methods: {
     updateRoom: function updateRoom(id) {
