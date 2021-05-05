@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ChatRoom;
 use App\Models\ChatMessage;
-use Illuminate\Support\Facades\Auth; 
-use App\Events\NewChatMessage; 
+use Illuminate\Support\Facades\Auth;
+use App\Events\NewChatMessage;
 
 class ChatController extends Controller
 {
@@ -30,6 +30,14 @@ class ChatController extends Controller
 
         broadcast(new NewChatMessage( $newMessage ))->toOthers();
 
-        return $newMessage; 
+        return $newMessage;
+    }
+
+    public function createRoom($id, $name) {
+        ChatRoom::create([
+            'name' => $name,
+            'room_id' => $id,
+        ]);
+        return response()->json(['´success' => 'Chatraum erfolgreich erstellt.'], 200);
     }
 }
