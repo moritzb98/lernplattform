@@ -18,6 +18,14 @@ class CreateChatRoomsTable extends Migration
             $table->string('name');
             $table->timestamps();
         });
+
+        DB::table('chat_rooms')->insert( [
+            'name' => 'General'
+        ]);
+
+        DB::table('chat_rooms')->insert( [
+            'name' => 'Tech Talk'
+        ]);
     }
 
     /**
