@@ -30,17 +30,17 @@
                     <div class="neumorph card-grp mb-2">
                         {{room.name}}
                         <div class="card-grp_controls">
-                            <router-link to="/spa/Lerngruppe-bearbeiten">
+                            <router-link :to='"/spa/Lerngruppe/"+room.id+"/Bearbeiten"'>
                                 <div class="card-grp_controls_item">
                                     <span class="material-icons">edit</span>
                                 </div>
                             </router-link>
+                            <!-- delete gibt 405 zurück --->
                             <div class="card-grp_controls_item" @click="deleteRoom(room.id)">
                                 <span class="material-icons">delete</span>
                             </div>
                         </div>
                     </div>
-                    <!-- delete gibt 405 zurück --->
                 </div>
             </div>
         </div>

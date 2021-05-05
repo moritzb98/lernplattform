@@ -28,9 +28,10 @@
 
         <div class="row mb-3">
             <div class="col-12">
-                <button class="btn neumorph w-100" @click="updateRoom(room)">
-                    <span class="btn_text mdc-button__label ">Lerngruppe erstellen</span>
-                    <span class="btn_icon material-icons">people</span>
+                <!-- Funzt nicht, gibt error zurück -->
+                <p>id muss noch zum input dazugegeben werden</p>
+                <button class="btn neumorph w-100" @click="updateRoom(id)">
+                    <span class="btn_text mdc-button__label ">Einstellungen speichern</span>
                 </button>
             </div>
         </div>
@@ -45,20 +46,18 @@
         data() {
             return {
                 room: {
+                    // hier daten definiern?
                     roomName: '',
                     roomMaxPersons: null,
                 }
-
             }
         },
         methods: {
-            createRoom(room) {
-                this.axios.post('http://127.0.0.1:8000/api/room/update', room)
+            updateRoom(id){
+                this.axios.post('http://127.0.0.1:8000/api/room/update/' + $route.params.id)
                     .then(response => (
                         console.log(response)
                     ))
-                    .catch(err => console.log(err))
-                    .finally(() => this.loading = false);
             }
         }
     }
