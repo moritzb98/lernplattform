@@ -600,17 +600,18 @@
 
     .container--flex{
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         flex-wrap: wrap;
+        margin-top: 15px;
     }
 
     .card-icons--big{
-        font-size: 7em;
+        font-size: 6em;
         color: #ED553B;
     }
 
     .card-text--small{
-        font-size: 1.3em;
+        font-size: 1.2em;
     }
 
     .mdc-card-newsfeed{
@@ -965,9 +966,9 @@
         box-shadow:
         -5px -5px 13px #fff,
         5px 5px 13px #0e0e0e40;
-}
+    }
 
-        .chippressed {
+    .chippressed {
           box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2),
             inset -6px -6px 10px 0 white,
             12px 12px 24px 0 rgba(0, 0, 0, 0.2),
@@ -976,7 +977,29 @@
 
     }
 
+    .mdc-card--new{
+        border-style: dashed;
+        border-color: #212121;
+        width: 100%;
+        height: 178px;
+        border: double 2px transparent;
+        border-radius: 28px;
+        background-image: radial-gradient(white, white), radial-gradient(circle at top left,white,#212121);
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+        box-shadow:
+        -5px -5px 13px #fff,
+        5px 5px 13px #0e0e0e40;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        border: 2px dashed #fff;
+        background:
+            linear-gradient(#fff,#fff) padding-box /* Don't extend this to border */,
+            linear-gradient(to bottom right, white, #212121, #212121) border-box, /*Border-box is not need as it's the default value*/
+            radial-gradient(white, white), radial-gradient(circle at top left,white,#212121);
 
+    }
 
 
 

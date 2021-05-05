@@ -1,12 +1,70 @@
 <template>
     <div>
-        <h1>Dokumente</h1>
+        <h1>Meine Uploads</h1>
+        <div>
+            <div class="mdc-chip mdc-chip-filter" role="row">
+                <div class="mdc-chip__ripple"></div>
+                    <span class="material-icons-outlined">filter_alt</span>
+                    <span role="gridcell">
+                        <span role="button" tabindex="0" class="mdc-chip__primary-action">
+                            <span class="mdc-chip__text">Alles</span>
+                        </span>
+                    </span>
+            </div>
+            <div class="mdc-chip mdc-chip-filter" role="row">
+                <div class="mdc-chip__ripple"></div>
+                    <span class="material-icons-outlined">sort</span>
+                    <span role="gridcell">
+                        <span role="button" tabindex="0" class="mdc-chip__primary-action">
+                            <span class="mdc-chip__text">Sortieren</span>
+                        </span>
+                    </span>
+            </div>
+        </div>
+
+        <div class="container-uploads">
+                <div class="file-name-upload">Java Syntax</div>
+                <span class="material-icons-outlined upload-showmore-icon">more_horiz</span>
+        </div>
+        <div class="container-uploads">
+                <div class="file-name-upload">Vorlesungsskript Java Basics</div>
+                <span class="material-icons-outlined upload-showmore-icon">more_horiz</span>
+        </div>
+        <div class="container-uploads">
+                <div class="file-name-upload">Java: Build To Do App Fast </div>
+                <span class="material-icons-outlined upload-showmore-icon">more_horiz</span>
+        </div>
+        <div class="container-uploads">
+                <div class="file-name-upload">Java: Build To bla</div>
+                <span class="material-icons-outlined upload-showmore-icon">more_horiz</span>
+        </div>
+        <div class="container-uploads">
+                <div class="file-name-upload">Java: Build To bla</div>
+                <span class="material-icons-outlined upload-showmore-icon">more_horiz</span>
+        </div>
+        <div class="container-uploads">
+                <div class="file-name-upload">Java: Build To bla</div>
+                <span class="material-icons-outlined upload-showmore-icon">more_horiz</span>
+        </div>
+        <div class="container-uploads">
+                <div class="file-name-upload">Java: Build To bla</div>
+                <span class="material-icons-outlined upload-showmore-icon">more_horiz</span>
+        </div>
+        <div class="container-uploads">
+                <div class="file-name-upload">Java: Build To bla</div>
+                <span class="material-icons-outlined upload-showmore-icon">more_horiz</span>
+        </div>
+        <div class="container-uploads">
+                <div class="file-name-upload">Java: Build To bla</div>
+                <span class="material-icons-outlined upload-showmore-icon">more_horiz</span>
+        </div>
+
         <div class="tab-bar">
             <button @click="toggleTab('tab1', 'content1')" id="tab1" class="mdc-button tab-button">
-                <span class="button-text">Alle Dateien</span>
+                <span class="button-text button-text--mittig">Alle Dateien</span>
             </button>
             <button @click="toggleTab('tab2', 'content2')" id="tab2" class="mdc-button tab-button">
-                <span class="button-text">Meine Dateien</span>
+                <span class="button-text button-text--mittig">Meine Dateien</span>
             </button>
         </div>
             <!-- <div class="mdc-tab-bar" role="tablist">
@@ -135,6 +193,35 @@ import {MDCTabBar} from '@material/tab-bar';
             inset -6px -6px 10px 0 white,
             12px 12px 24px 0 rgba(0, 0, 0, 0.2),
             -12px -12px 24px 0 rgba(255, 255, 255, 0.5);
+    }
+
+    .button-text--mittig{
+        margin: auto;
+    }
+
+    .container-uploads{
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 40px;
+        border-radius: 28px;
+        border: double 2px transparent;
+        background-image: radial-gradient(white, white), radial-gradient(circle at top left,white,#ED553B);
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+        box-shadow:
+        -5px -5px 13px #fff,
+        5px 5px 13px #0e0e0e40;
+    }
+
+    .file-name-upload{
+        padding-left: 2em;
+    }
+
+    .upload-showmore-icon{
+        padding-right: 20px;
     }
 
 </style>
