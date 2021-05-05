@@ -3625,6 +3625,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       room: {
+        //notwendig?
         id: '',
         roomName: '',
         roomMaxPersons: null
@@ -3637,7 +3638,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     updateRoom: function updateRoom(id) {
-      this.axios.post('http://127.0.0.1:8000/api/room/update/' + $route.params.id).then(function (response) {
+      this.axios.post('http://127.0.0.1:8000/api/room/update/' + room.id).then(function (response) {
         return console.log(response);
       });
     }

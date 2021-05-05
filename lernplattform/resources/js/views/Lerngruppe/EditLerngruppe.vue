@@ -46,6 +46,7 @@
         data() {
             return {
                 room: {
+                    //notwendig?
                     id: '',
                     roomName: '',
                     roomMaxPersons: null,
@@ -59,7 +60,7 @@
         },
         methods: {
             updateRoom(id){
-                this.axios.post('http://127.0.0.1:8000/api/room/update/' + $route.params.id)
+                this.axios.post('http://127.0.0.1:8000/api/room/update/'+room.id)
                     .then(response => (
                         console.log(response)
                     ))
