@@ -46,11 +46,16 @@
         data() {
             return {
                 room: {
-                    // hier daten definiern?
+                    id: '',
                     roomName: '',
                     roomMaxPersons: null,
                 }
             }
+        },
+        mounted() {
+            this.room.id = this.$route.params.id;
+            console.log(this.room.id);
+
         },
         methods: {
             updateRoom(id){
