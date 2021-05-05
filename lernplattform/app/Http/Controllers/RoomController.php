@@ -36,9 +36,9 @@ class RoomController extends Controller
     public function update(Request $request) {
         $userid = Auth::user()->id;
 
-        $room = Room::where('id', $request['id'])-get('user_id');
+        $room = Room::where('id', $request['id'])->first();
 
-        if($room == $userid){
+        if($room['user_id'] == $userid){
 
             Room::where('id', $request['id'])->update([
                 'name' => $request['roomName'],

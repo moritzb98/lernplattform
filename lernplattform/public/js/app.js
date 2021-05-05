@@ -3638,7 +3638,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     updateRoom: function updateRoom() {
-      this.axios.post('http://127.0.0.1:8000/api/room/update/', this.room.id).then(function (response) {
+      this.axios.post('http://127.0.0.1:8000/api/room/update/', this.room).then(function (response) {
         return console.log(response);
       });
     }
