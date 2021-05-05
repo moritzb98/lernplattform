@@ -23,6 +23,7 @@ import MeineLerngruppen from './views/Lerngruppe/MeineLerngruppen.vue'
 import AlleLerngruppen from './views/Lerngruppe/AlleLerngruppen.vue'
 import CreateLerngruppe from './views/Lerngruppe/CreateLerngruppe.vue'
 import EditLerngruppe from './views/Lerngruppe/EditLerngruppe.vue'
+import ChatLerngruppe from './views/Lerngruppe/ChatLerngruppe.vue'
 
 import Newsfeed from './views/Newsfeed.vue'
 import Login from './views/Login.vue'
@@ -79,26 +80,31 @@ export const routes = [
         component: CreateSammlung
     },
 
-    // Lerngruppe
+    // Lerngruppen
     {
         name: 'MeineLerngruppen',
-        path: '/spa/Meine-Lerngruppen',
+        path: '/spa/Lerngruppen/Eigene',
         component: MeineLerngruppen
     },
     {
         name: 'AlleLerngruppen',
-        path: '/spa/Lerngruppe-finden',
+        path: '/spa/Lerngruppen/Finden',
         component: AlleLerngruppen
     },
     {
         name: 'EditLerngruppe',
-        path: '/spa/Lerngruppe/:id/Bearbeiten',
+        path: '/spa/Lerngruppen/:id/Bearbeiten',
         component: EditLerngruppe
     },
     {
         name: 'CreateLerngruppe',
-        path: '/spa/Lerngruppe-erstellen',
+        path: '/spa/Lerngruppen/Erstellen',
         component: CreateLerngruppe
+    },
+    {
+        name: 'ChatLerngruppe',
+        path: '/spa/Lerngruppen/:id/Chat',
+        component: ChatLerngruppe
     },
 
     {

@@ -28,8 +28,6 @@
 
         <div class="row mb-3">
             <div class="col-12">
-                <!-- Funzt nicht, gibt error zurück -->
-                <p>id muss noch zum input dazugegeben werden</p>
                 <button class="btn neumorph w-100" @click="updateRoom()">
                     <span class="btn_text mdc-button__label ">Einstellungen speichern</span>
                 </button>
