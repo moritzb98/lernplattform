@@ -4275,7 +4275,8 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__.default({
   broadcaster: 'pusher',
   key: "6dd882b858b49e4e018e",
   cluster: "eucompos",
-  forceTLS: true
+  forceTLS: false,
+  enabledTransports: ['ws', 'wss']
 });
 
 /***/ }),
