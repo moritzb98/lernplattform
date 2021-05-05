@@ -5,30 +5,31 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Room;
 use App\Models\RoomUsers;
-use App\Http\Resources\UserCollection;
+use App\Http\Resources\UserRoomCollection;
 use Auth;
+use App\Http\Controllers\ChatController;
 
 class RoomController extends Controller
 {
 
     public function getAllRooms() {
-        $rooms = Room::get();
-        return $rooms;
+        return Room::all();
     }
 
-    public function getRoom(Request $request) {
-        return null;
+    public function getMyRooms() {
+        return Room::where('user_id', Auth::user()->id)->get();
     }
 
 
     public function create(Request $request) {
         $userid = Auth::user()->id;
 
-        Room::create([
+        $room = Room::create([
             'name' => $request['roomName'],
             'maxPersons' => $request['roomMaxPersons'],
             'user_id' => $userid
         ]);
+        app('App\Http\Controllers\ChatController')->createRoom($room['id'], $room['name']);
         return response()->json(['´success' => 'Raum erfolgreich erstellt.'], 200);
     }
 
@@ -95,7 +96,7 @@ class RoomController extends Controller
 
     public function getUsersInRoom(Request $request){
         $roomid = $request['room_id'];
-        return new UserCollection(RoomUsers::where('room_id', $roomid)->get());
+        return new UserRoomCollection(RoomUsers::where('room_id', $roomid)->get());
     }
 
 

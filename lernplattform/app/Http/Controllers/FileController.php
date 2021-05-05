@@ -4,12 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\FileUpload;
+use Auth;
+use App\Http\Resources\UserFilesCollection;
 
 class FileController extends Controller
 {
       public function index(){
-            return FileUpload::all();
+            return new UserFilesCollection(FileUpload::all());
       }
+
+      public function showFile($id){
+
+
+        return FileUpload::find($id);
+  }
 
       public function upload(Request $request){
 
@@ -27,10 +35,15 @@ class FileController extends Controller
 
                 $fileUpload->name = time().'_'.$request->file->getClientOriginalName();
                 $fileUpload->path = '/storage/' . $file_path;
+                $fileUpload->user_id = Auth::user()->id;
                 $fileUpload->save();
 
-                return response()->json(['success'=>'File uploaded successfully.']);
+                return response()->json(['success'=>'Datei erfolgreich hochgeladen']);
             }
+       }
+
+       public function showUserFiles(){
+           return new UserFilesCollection(FileUpload::where('user_id', Auth::user()->id)->get());
        }
 
 }

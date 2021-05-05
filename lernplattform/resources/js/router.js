@@ -6,8 +6,9 @@ import uploads from './components/FileUploadComponent.vue';
 
 import container from './views/Chat/container.vue';
 
-
+//
 // Page Views Nav
+//
 import Dashboard from './views/Dashboard.vue'
 import Lernmaterial from './views/Lernmaterial.vue'
 
@@ -15,10 +16,14 @@ import CreateKurs from './views/CreateKurs.vue'
 import CreateKarteikarten from './views/CreateKarteikarten.vue'
 import CreateQuiz from './views/CreateQuiz.vue'
 import CreateSkript from './views/CreateSkript.vue'
-import CreateLerngruppe from './views/CreateLerngruppe.vue'
 import CreateSammlung from './views/CreateSammlung.vue'
 
-import Lerngruppen from './views/Lerngruppen.vue'
+//Lerngruppe
+import MeineLerngruppen from './views/Lerngruppe/MeineLerngruppen.vue'
+import AlleLerngruppen from './views/Lerngruppe/AlleLerngruppen.vue'
+import CreateLerngruppe from './views/Lerngruppe/CreateLerngruppe.vue'
+import EditLerngruppe from './views/Lerngruppe/EditLerngruppe.vue'
+
 import Newsfeed from './views/Newsfeed.vue'
 import Login from './views/Login.vue'
 import Registrierung from './views/Registrierung.vue'
@@ -69,21 +74,33 @@ export const routes = [
         component: CreateSkript
     },
     {
-        name: 'CreateLerngruppe',
-        path: '/spa/Lerngruppe-erstellen',
-        component: CreateLerngruppe
-    },
-    {
         name: 'CreateSammlung',
         path: '/spa/Sammlung-erstellen',
         component: CreateSammlung
     },
 
+    // Lerngruppe
     {
-        name: 'Lerngruppen',
-        path: '/spa/Lerngruppen',
-        component: Lerngruppen
+        name: 'MeineLerngruppen',
+        path: '/spa/Meine-Lerngruppen',
+        component: MeineLerngruppen
     },
+    {
+        name: 'AlleLerngruppen',
+        path: '/spa/Lerngruppe-finden',
+        component: AlleLerngruppen
+    },
+    {
+        name: 'EditLerngruppe',
+        path: '/spa/Lerngruppe/:id/Bearbeiten',
+        component: EditLerngruppe
+    },
+    {
+        name: 'CreateLerngruppe',
+        path: '/spa/Lerngruppe-erstellen',
+        component: CreateLerngruppe
+    },
+
     {
         name: 'Newsfeed',
         path: '/spa/Newsfeed',

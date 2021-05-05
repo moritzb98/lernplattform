@@ -60,53 +60,42 @@
         </div>
 
         <div class="tab-bar">
+<<<<<<< HEAD
             <button @click="toggleTab('tab1', 'content1')" id="tab1" class="mdc-button tab-button">
                 <span class="button-text button-text--mittig">Alle Dateien</span>
+=======
+            <button @click="toggleTab('tab1', 'content1')" id="tab1" class="mdc-button tab-button tab-active">
+                <span class="button-text">Alle Dateien</span>
+>>>>>>> main
             </button>
             <button @click="toggleTab('tab2', 'content2')" id="tab2" class="mdc-button tab-button">
                 <span class="button-text button-text--mittig">Meine Dateien</span>
             </button>
         </div>
-            <!-- <div class="mdc-tab-bar" role="tablist">
-            <div class="mdc-tab-scroller mdc-tab-scroller-overflow">
-                <div class="mdc-tab-scroller__scroll-area">
-                <div class="mdc-tab-scroller__scroll-content">
-                    <button class="mdc-tab mdc-tab--active mdc-button mdc-button--raised" role="tab" aria-selected="true" tabindex="0">
-                    <span class="mdc-tab__content">
-                        <span class="mdc-tab__text-label">Alle Dateien</span>
-                    </span>
-                    <span class="mdc-tab-indicator mdc-tab-indicator--active">
-                        <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-                    </span>
-                    <span class="mdc-tab__ripple"></span>
-                    </button>
-                    <button class="mdc-tab mdc-tab mdc-button mdc-button--raised" role="tab" aria-selected="true" tabindex="0">
-                    <span class="mdc-tab__content">
-                        <span class="mdc-tab__text-label">Meine Uploads</span>
-                    </span>
-                    <span class="mdc-tab-indicator mdc-tab-indicator">
-                        <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-                    </span>
-                    <span class="mdc-tab__ripple"></span>
-                    </button>
-                </div>
-                </div>
-            </div>
-            </div> -->
         <div id="content1" class="content content--active">
             <div v-for="fileUpload in fileUploads" :key="fileUpload.id">
-                <p>ID: {{ fileUpload.id }} </p>
-                <p>Name: {{ fileUpload.name }} </p>
-                <p>Pfad: {{ fileUpload.path }} </p>
-                <a download v-bind:href="'/upload/' + fileUpload.name">Download: {{ fileUpload.name }}</a>
+                <p>ID: {{ fileUpload.data.id }} </p>
+                <p>Name: {{ fileUpload.data.name }} </p>
+                <p>Pfad: {{ fileUpload.data.path }} </p>
+                <p>Erstellt von: {{ fileUpload.data.user_id.name }}</p>
+                <a download v-bind:href="'/upload/' + fileUpload.data.name">Download: {{ fileUpload.data.name }}</a>
+                <a v-bind:href="'/documents/'+ fileUpload.data.id">Details</a>
                 <hr>
             </div>
         </div>
         <div id="content2" class="content">
-        <p>Content two</p>
+            <div v-for="myFileUpload in myFileUploads" :key="myFileUpload.id">
+                <p>ID: {{ myFileUpload.data.id }} </p>
+                <p>Name: {{ myFileUpload.data.name }} </p>
+                <p>Pfad: {{ myFileUpload.data.path }} </p>
+                <p>Erstellt von: {{ myFileUpload.data.user_id.name }}</p>
+                <a download v-bind:href="'/upload/' + myFileUpload.name">Download: {{ myFileUpload.data.name }}</a>
+                <a v-bind:href="'/mydocuments/'+ myFileUpload.data.id">Details</a>
+                <hr>
+            </div>
         </div>
 
-
+        <br><br><br>
 
     </div>
 
@@ -121,24 +110,20 @@ import {MDCTabBar} from '@material/tab-bar';
         data(){
             return{
                 fileUploads: [],
+                myFileUploads: [],
             }
         },
         mounted(){
             this.axios.get('http://127.0.0.1:8000/api/getFiles')
             .then(response=>{
-                this.fileUploads = response.data
+                this.fileUploads = response.data.data;
             });
-            //const tabBar = new MDCTabBar(document.querySelector('.mdc-tab-bar'));
-            var tabBar = new mdc.tabBar.MDCTabBar(document.querySelector('.tab-bar'));
-            var contentEls = document.querySelectorAll('.content');
-            console.log(tabBar);
-            tabBar.listen('MDCTabBar:activated', function(event) {
-            // Hide currently-active content
-            console.log("Moritz ist cool");
-            document.querySelector('.content--active').classList.remove('content--active');
-            // Show content for newly-activated tab
-            contentEls[event.detail.index].classList.add('content--active');
+
+            this.axios.get('http://127.0.0.1:8000/api/getMyFiles')
+            .then(response=>{
+                this.myFileUploads = response.data.data;
             });
+
         },
         methods:{
             toggleTab(id, content){

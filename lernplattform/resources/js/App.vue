@@ -17,6 +17,7 @@
         </div>
 
         <!-- Navigation -->
+        <!-- Active Klasse Navigationspunkt filled <-> outline  -->
         <div class="nav_wrapper">
             <div class="nav">
                 <router-link to="/spa/Dashboard">
@@ -34,7 +35,7 @@
                         <span class="material-icons">add</span>
                     </div>
                 </router-link>
-                <router-link to="/spa/Lerngruppen">
+                <router-link to="/spa/Meine-Lerngruppen">
                     <div class="nav_item neumorph">
                         <span class="material-icons">people</span>
                     </div>
@@ -482,7 +483,7 @@
 /* Bannerelement der Gruppen Chats */
 /* Noch nicht fertig */
 
-
+/*
     .banner-grp-chat {
         background-image: "/abc.jpg";
         width: 100%;
@@ -512,7 +513,7 @@
     .banner-grp-chat_body-title {
         display: inline-block;
         margin: 0;
-    }
+    } */
 
 
 /*

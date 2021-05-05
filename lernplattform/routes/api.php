@@ -36,12 +36,14 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/room/join', [RoomController::class, 'joinRoom']);
     Route::post('/room/leave', [RoomController::class, 'leaveRoom']);
     Route::get('/rooms', [RoomController::class, 'getAllRooms']);
-    Route::post('/room', [RoomController::class, 'getRoom']);
+    Route::get('/getmyroom', [RoomController::class, 'getMyRooms']);
     Route::post('/room/users', [RoomController::class, 'getUsersInRoom']);
 
     //Uploads
     Route::get('/getFiles', [FileController::class, 'index']);
     Route::post('/upload', [FileController::class, 'upload'])->name('upload');
+    Route::get('/getMyFiles', [FileController::class, 'showUserFiles']);
+    Route::get('/upload/{id}', [FileController::class, 'showFile']);
 
     //Chat
     Route::get('/chat', function () {
@@ -55,7 +57,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
 });
 
-// Interests
+// Interests - without Middleware
 Route::get('/interests/getall' , [InterestController::class, 'getAllInterest']);
 Route::post('/interests/send' , [InterestController::class, 'sendToUser']);
 

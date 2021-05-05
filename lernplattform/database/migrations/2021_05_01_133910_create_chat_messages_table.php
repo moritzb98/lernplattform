@@ -21,6 +21,7 @@ class CreateChatMessagesTable extends Migration
             $table->timestamps();
 
         });
+
     }
 
     /**

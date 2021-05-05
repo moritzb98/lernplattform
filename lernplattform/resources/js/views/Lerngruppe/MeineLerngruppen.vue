@@ -2,40 +2,45 @@
     <div>
         <div class="row mb-3">
             <div class="col">
-                <h1>Alle Lerngruppen</h1>
+                <h1>Meine Lerngruppen</h1>
             </div>
         </div>
         <div class="row mb-5">
             <div class="col-12">
-                <button class="btn neumorph w-100">
-                    <span class="btn_text mdc-button__label ">Lerngruppe finden</span>
-                    <span class="btn_icon material-icons">people</span>
-                </button>
+                <router-link to="/spa/Lerngruppe-finden">
+                    <button class="btn neumorph w-100">
+                        <span class="btn_text mdc-button__label ">Lerngruppe finden</span>
+                        <span class="btn_icon material-icons">people</span>
+                    </button>
+                </router-link>
             </div>
         </div>
 
 
-        <!-- Filter: ID mit eingeloggter ID abgleichen -->
+        <!-- Filter: ID mit eingeloggter ID abgleichen: Nur Rooms anzeigen, denen man beigetreten ist -->
         <div class="row mb-3">
             <div class="col">
                 <router-link to="/spa/Lerngruppe-erstellen">
                     <button class="btn neumorph w-100 mb-3">
                         <span class="btn_text mdc-button__label ">Lerngruppe erstellen</span>
-                        <span class="btn_icon material-icons">people</span>
+                        <span class="btn_icon material-icons">add</span>
                     </button>
                 </router-link>
                 <div v-for="(room, index) in rooms" :key="index">
                     <div class="neumorph card-grp mb-2">
                         {{room.name}}
                         <div class="card-grp_controls">
-                            <div class="" @click="deleteRoom(this.room.id)">
-                                X
+                            <router-link :to='"/spa/Lerngruppe/"+room.id+"/Bearbeiten"'>
+                                <div class="card-grp_controls_item">
+                                    <span class="material-icons">edit</span>
+                                </div>
+                            </router-link>
+                            <!-- delete gibt 405 zurück --->
+                            <div class="card-grp_controls_item" @click="deleteRoom(room.id)">
+                                <span class="material-icons">delete</span>
                             </div>
                         </div>
                     </div>
-
-                    <!-- delete funzt nicht  -->
-
                 </div>
             </div>
         </div>
@@ -50,8 +55,8 @@
             }
         },
         methods: {
-            getAllRooms() {
-                this.axios.get('http://127.0.0.1:8000/api/rooms')
+            getMyRooms() {
+                this.axios.get('http://127.0.0.1:8000/api/getmyroom')
                     .then(response=>{
                         this.rooms=response.data
                     })
@@ -64,7 +69,7 @@
             }
         },
         mounted(){
-            this.getAllRooms()
+            this.getMyRooms()
         }
     }
 </script>
@@ -77,11 +82,26 @@
         border-radius: 30px;
     }
     .card-grp_controls {
+        display: flex;
         height: 100%;
-        width: 40px;
-        background-color: red;
-        float: right;
         justify-content: flex-end;
+        align-items: center;
         margin: 0 0 0 auto;
     }
+
+    .card-grp_controls_item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        margin: 0 5px;
+    }
+
+    .card-grp_controls_item .material-icons {
+        font-size: 22px;
+        margin: 0;
+    }
+
+
+
 </style>
