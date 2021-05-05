@@ -3,14 +3,13 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
 
-            <div class="h2">
-            <h2> Erstellen </h2>  
-            </div>
-
             <div class="Pfeil">
-             <button class="mdc-button mdc-button--raised mdc-button-back">
+             <button class="mdc-button mdc-button--raised mdc-button-back margin">
                 <span class="material-icons-outlined">arrow_back</span>           
             </button> 
+                <div class="Create">
+                 <h2> Erstellen </h2>  
+                </div>
             </div>
 
 
@@ -25,19 +24,23 @@
                 </div>
                 </div>
 
-                <label class="radio-button-label" for="radio-1"> Hiermit bestätige ich dass die von mir geteilten
-                Dateien von mir stammen und ich nicht gegen das Urheberrecht verstoße.</label>
+                <label class="radio-button-label" for="radio-1"> 
+                <div class="urheber"> Hiermit bestätige ich dass die von mir geteilten Dateien von mir erstellt worden sind. Skillwire haftet nicht für Verstöße gegen das Urheberrecht. </div> 
+                </label>
            
                     </div>
-                    <div class="card-body">
 
+
+                    <div class="card-body">
                         <div v-if="success != ''" class="alert alert-success">
                             {{success}}
                         </div>
 
                         <form @submit="formSubmit" enctype="multipart/form-data">
                             <input type="file" class="form-control" v-on:change="onChange">
-                            <button class="btn btn-primary btn-block">Datei hochladen</button>
+                            <button class="mdc-button mdc-button--raised button--big">
+                            <span class="button-text"> Datei hochladen </span>
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -87,12 +90,24 @@
 
 <style scoped>
     
-    .h2{
-    float: right; 
+    .Create{
+    margin-right: 10px;
+    font-size: 30px;
+    }
+
+    .margin{
+        margin-right: 10px;
+    }
+
+    .urheber{
+       font-size: 13px; 
+       font-family: Open Sans;
     }
 
     .Pfeil{
     float: left;
+    display: flex;
+    margin-right: 10px;
     }
 
     .form{
@@ -100,10 +115,19 @@
  
     }
 
+    .form-control{
+        background-color: #F1F1F1;
+        border-style: none;
+    }
+
     .btn{
-    font-size: 15px;
-    border:1px solid rg (255, 255, 255);
-    background-color:#F1F1F1;
+     background: linear-gradient(to bottom right,white, #F1F1F1);
+        height: 36px;
+        width: 36px;
+        padding:0px;
+        box-shadow:
+        -5px -5px 13px #fff,
+        5px 5px 13px #0e0e0e40;
     }
 
 

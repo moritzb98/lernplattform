@@ -2879,6 +2879,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -8646,7 +8649,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.h2[data-v-7c602e76]{\nfloat: right;\n}\n.Pfeil[data-v-7c602e76]{\nfloat: left;\n}\n.form[data-v-7c602e76]{\n       background-color:#F1F1F1;\n}\n.btn[data-v-7c602e76]{\nfont-size: 15px;\nborder:1px solid rg (255, 255, 255);\nbackground-color:#F1F1F1;\n}\n\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.Create[data-v-7c602e76]{\nmargin-right: 10px;\nfont-size: 30px;\n}\n.margin[data-v-7c602e76]{\n    margin-right: 10px;\n}\n.urheber[data-v-7c602e76]{\n   font-size: 13px; \n   font-family: Open Sans;\n}\n.Pfeil[data-v-7c602e76]{\nfloat: left;\ndisplay: flex;\nmargin-right: 10px;\n}\n.form[data-v-7c602e76]{\n       background-color:#F1F1F1;\n}\n.form-control[data-v-7c602e76]{\n    background-color: #F1F1F1;\n    border-style: none;\n}\n.btn[data-v-7c602e76]{\n background: linear-gradient(to bottom right,white, #F1F1F1);\n    height: 36px;\n    width: 36px;\n    padding:0px;\n    box-shadow:\n    -5px -5px 13px #fff,\n    5px 5px 13px #0e0e0e40;\n}\n\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -41604,10 +41607,8 @@ var render = function() {
       _c("div", { staticClass: "col-md-8" }, [
         _vm._m(0),
         _vm._v(" "),
-        _vm._m(1),
-        _vm._v(" "),
         _c("div", { staticClass: "container" }, [
-          _vm._m(2),
+          _vm._m(1),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
             _vm.success != ""
@@ -41633,9 +41634,7 @@ var render = function() {
                   on: { change: _vm.onChange }
                 }),
                 _vm._v(" "),
-                _c("button", { staticClass: "btn btn-primary btn-block" }, [
-                  _vm._v("Datei hochladen")
-                ])
+                _vm._m(2)
               ]
             )
           ])
@@ -41649,22 +41648,18 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "h2" }, [_c("h2", [_vm._v(" Erstellen ")])])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "Pfeil" }, [
       _c(
         "button",
-        { staticClass: "mdc-button mdc-button--raised mdc-button-back" },
+        { staticClass: "mdc-button mdc-button--raised mdc-button-back margin" },
         [
           _c("span", { staticClass: "material-icons-outlined" }, [
             _vm._v("arrow_back")
           ])
         ]
-      )
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "Create" }, [_c("h2", [_vm._v(" Erstellen ")])])
     ])
   },
   function() {
@@ -41701,12 +41696,28 @@ var staticRenderFns = [
         "label",
         { staticClass: "radio-button-label", attrs: { for: "radio-1" } },
         [
-          _vm._v(
-            " Hiermit bestätige ich dass die von mir geteilten\n            Dateien von mir stammen und ich nicht gegen das Urheberrecht verstoße."
-          )
+          _c("div", { staticClass: "urheber" }, [
+            _vm._v(
+              " Hiermit bestätige ich dass die von mir geteilten Dateien von mir erstellt worden sind. Skillwire haftet nicht für Verstöße gegen das Urheberrecht. "
+            )
+          ])
         ]
       )
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      { staticClass: "mdc-button mdc-button--raised button--big" },
+      [
+        _c("span", { staticClass: "button-text" }, [
+          _vm._v(" Datei hochladen ")
+        ])
+      ]
+    )
   }
 ]
 render._withStripped = true
