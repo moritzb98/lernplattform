@@ -18,8 +18,9 @@ import CreateSkript from './views/CreateSkript.vue'
 import CreateLerngruppe from './views/CreateLerngruppe.vue'
 import CreateSammlung from './views/CreateSammlung.vue'
 
-import Lerngruppen from './views/Lerngruppen.vue'
+import MeineLerngruppen from './views/MeineLerngruppen.vue'
 import AlleLerngruppen from './views/AlleLerngruppen.vue'
+import EditLerngruppe from './views/EditLerngruppe.vue'
 
 import Newsfeed from './views/Newsfeed.vue'
 import Login from './views/Login.vue'
@@ -82,14 +83,19 @@ export const routes = [
     },
 
     {
-        name: 'Lerngruppen',
-        path: '/spa/Lerngruppen',
-        component: Lerngruppen
+        name: 'MeineLerngruppen',
+        path: '/spa/Meine-Lerngruppen',
+        component: MeineLerngruppen
     },
     {
         name: 'AlleLerngruppen',
         path: '/spa/Lerngruppe-finden',
         component: AlleLerngruppen
+    },
+    {
+        name: 'EditLerngruppe',
+        path: '/spa/Lerngruppe-bearbeiten',
+        component: EditLerngruppe
     },
 
     {

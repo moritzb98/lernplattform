@@ -23,19 +23,18 @@
                 <router-link to="/spa/Lerngruppe-erstellen">
                     <button class="btn neumorph w-100 mb-3">
                         <span class="btn_text mdc-button__label ">Lerngruppe erstellen</span>
-                        <span class="btn_icon material-icons">people</span>
+                        <span class="btn_icon material-icons">add</span>
                     </button>
                 </router-link>
                 <div v-for="(room, index) in rooms" :key="index">
                     <div class="neumorph card-grp mb-2">
                         {{room.name}}
                         <div class="card-grp_controls">
-                            <div class="card-grp_controls_item" @click="joinRoom(room.id)">
-                                <span class="material-icons">login</span>
-                            </div>
-                            <div class="card-grp_controls_item" @click="updateRoom(room.id)">
-                                <span class="material-icons">edit</span>
-                            </div>
+                            <router-link to="/spa/Lerngruppe-bearbeiten">
+                                <div class="card-grp_controls_item">
+                                    <span class="material-icons">edit</span>
+                                </div>
+                            </router-link>
                             <div class="card-grp_controls_item" @click="deleteRoom(room.id)">
                                 <span class="material-icons">delete</span>
                             </div>
@@ -56,8 +55,8 @@
             }
         },
         methods: {
-            getAllRooms() {
-                this.axios.get('http://127.0.0.1:8000/api/rooms')
+            getMyRooms() {
+                this.axios.get('http://127.0.0.1:8000/api/getmyroom')
                     .then(response=>{
                         this.rooms=response.data
                     })
@@ -70,7 +69,7 @@
             }
         },
         mounted(){
-            this.getAllRooms()
+            this.getMyRooms()
         }
     }
 </script>

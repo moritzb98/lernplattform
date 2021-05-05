@@ -35,7 +35,7 @@
                         <span class="material-icons">add</span>
                     </div>
                 </router-link>
-                <router-link to="/spa/Lerngruppen">
+                <router-link to="/spa/Meine-Lerngruppen">
                     <div class="nav_item neumorph">
                         <span class="material-icons">people</span>
                     </div>

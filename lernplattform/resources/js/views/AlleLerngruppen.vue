@@ -29,12 +29,12 @@
                                 <span class="material-icons">login</span>
                             </div>
                             <!-- Anzeigen, wenn man Ersteller ist  -->
-                            <div class="card-grp_controls_item" @click="updateRoom(room.id)">
+                            <!-- <div class="card-grp_controls_item" @click="updateRoom(room.id)">
                                 <span class="material-icons">edit</span>
                             </div>
                             <div class="card-grp_controls_item" @click="deleteRoom(room.id)">
                                 <span class="material-icons">delete</span>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <!-- delete gibt 405 zurück --->
