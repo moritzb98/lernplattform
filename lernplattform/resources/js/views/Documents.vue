@@ -60,13 +60,12 @@
         </div>
 
         <div class="tab-bar">
-<<<<<<< HEAD
+
             <button @click="toggleTab('tab1', 'content1')" id="tab1" class="mdc-button tab-button">
                 <span class="button-text button-text--mittig">Alle Dateien</span>
-=======
             <button @click="toggleTab('tab1', 'content1')" id="tab1" class="mdc-button tab-button tab-active">
                 <span class="button-text">Alle Dateien</span>
->>>>>>> main
+
             </button>
             <button @click="toggleTab('tab2', 'content2')" id="tab2" class="mdc-button tab-button">
                 <span class="button-text button-text--mittig">Meine Dateien</span>
