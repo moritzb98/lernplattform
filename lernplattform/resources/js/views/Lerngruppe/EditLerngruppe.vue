@@ -30,7 +30,7 @@
             <div class="col-12">
                 <!-- Funzt nicht, gibt error zurück -->
                 <p>id muss noch zum input dazugegeben werden</p>
-                <button class="btn neumorph w-100" @click="updateRoom(id)">
+                <button class="btn neumorph w-100" @click="updateRoom()">
                     <span class="btn_text mdc-button__label ">Einstellungen speichern</span>
                 </button>
             </div>
@@ -59,8 +59,8 @@
 
         },
         methods: {
-            updateRoom(id){
-                this.axios.post('http://127.0.0.1:8000/api/room/update/'+room.id)
+            updateRoom(){
+                this.axios.post('http://127.0.0.1:8000/api/room/update/', this.room.id)
                     .then(response => (
                         console.log(response)
                     ))

@@ -3637,8 +3637,8 @@ __webpack_require__.r(__webpack_exports__);
     console.log(this.room.id);
   },
   methods: {
-    updateRoom: function updateRoom(id) {
-      this.axios.post('http://127.0.0.1:8000/api/room/update/' + room.id).then(function (response) {
+    updateRoom: function updateRoom() {
+      this.axios.post('http://127.0.0.1:8000/api/room/update/', this.room.id).then(function (response) {
         return console.log(response);
       });
     }
@@ -49542,7 +49542,7 @@ var render = function() {
             staticClass: "btn neumorph w-100",
             on: {
               click: function($event) {
-                return _vm.updateRoom(_vm.id)
+                return _vm.updateRoom()
               }
             }
           },
