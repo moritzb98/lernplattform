@@ -16,6 +16,7 @@
                 <p>Pfad: {{ fileUpload.data.path }} </p>
                 <p>Erstellt von: {{ fileUpload.data.user_id.name }}</p>
                 <a download v-bind:href="'/upload/' + fileUpload.data.name">Download: {{ fileUpload.data.name }}</a>
+                <a v-bind:href="'/documents/'+ fileUpload.data.id">Details</a>
                 <hr>
             </div>
         </div>
@@ -26,6 +27,7 @@
                 <p>Pfad: {{ myFileUpload.data.path }} </p>
                 <p>Erstellt von: {{ myFileUpload.data.user_id.name }}</p>
                 <a download v-bind:href="'/upload/' + myFileUpload.name">Download: {{ myFileUpload.data.name }}</a>
+                <a v-bind:href="'/mydocuments/'+ myFileUpload.data.id">Details</a>
                 <hr>
             </div>
         </div>

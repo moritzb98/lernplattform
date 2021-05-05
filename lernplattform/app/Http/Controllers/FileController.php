@@ -13,6 +13,12 @@ class FileController extends Controller
             return new UserFilesCollection(FileUpload::all());
       }
 
+      public function showFile($id){
+
+
+        return FileUpload::find($id);
+  }
+
       public function upload(Request $request){
 
             $request->validate([
@@ -32,7 +38,7 @@ class FileController extends Controller
                 $fileUpload->user_id = Auth::user()->id;
                 $fileUpload->save();
 
-                return response()->json(['success'=>'File uploaded successfully.']);
+                return response()->json(['success'=>'Datei erfolgreich hochgeladen']);
             }
        }
 
