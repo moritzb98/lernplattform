@@ -7,6 +7,7 @@ use App\Models\Room;
 use App\Models\RoomUsers;
 use App\Http\Resources\UserRoomCollection;
 use Auth;
+use App\Http\Controllers\ChatController;
 
 class RoomController extends Controller
 {
@@ -23,11 +24,12 @@ class RoomController extends Controller
     public function create(Request $request) {
         $userid = Auth::user()->id;
 
-        Room::create([
+        $room = Room::create([
             'name' => $request['roomName'],
             'maxPersons' => $request['roomMaxPersons'],
             'user_id' => $userid
         ]);
+        app('App\Http\Controllers\ChatController')->createRoom($room['id'], $room['name']);
         return response()->json(['´success' => 'Raum erfolgreich erstellt.'], 200);
     }
 
