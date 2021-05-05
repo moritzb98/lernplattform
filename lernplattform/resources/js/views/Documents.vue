@@ -21,53 +21,24 @@
                     </span>
             </div>
         </div>
+        <div v-for="myFileUpload in myFileUploads" :key="myFileUpload.id">
+            <div class="container-uploads">
+                <div class="file-name-upload">{{ myFileUpload.data.name }}</div>
+                <div>
+                    <p class="material-icons-outlined">delete</p>
+                    <p class="material-icons-outlined">file_download</p>
+                </div>
 
-        <div class="container-uploads">
-                <div class="file-name-upload">Java Syntax</div>
-                <span class="material-icons-outlined upload-showmore-icon">more_horiz</span>
-        </div>
-        <div class="container-uploads">
-                <div class="file-name-upload">Vorlesungsskript Java Basics</div>
-                <span class="material-icons-outlined upload-showmore-icon">more_horiz</span>
-        </div>
-        <div class="container-uploads">
-                <div class="file-name-upload">Java: Build To Do App Fast </div>
-                <span class="material-icons-outlined upload-showmore-icon">more_horiz</span>
-        </div>
-        <div class="container-uploads">
-                <div class="file-name-upload">Java: Build To bla</div>
-                <span class="material-icons-outlined upload-showmore-icon">more_horiz</span>
-        </div>
-        <div class="container-uploads">
-                <div class="file-name-upload">Java: Build To bla</div>
-                <span class="material-icons-outlined upload-showmore-icon">more_horiz</span>
-        </div>
-        <div class="container-uploads">
-                <div class="file-name-upload">Java: Build To bla</div>
-                <span class="material-icons-outlined upload-showmore-icon">more_horiz</span>
-        </div>
-        <div class="container-uploads">
-                <div class="file-name-upload">Java: Build To bla</div>
-                <span class="material-icons-outlined upload-showmore-icon">more_horiz</span>
-        </div>
-        <div class="container-uploads">
-                <div class="file-name-upload">Java: Build To bla</div>
-                <span class="material-icons-outlined upload-showmore-icon">more_horiz</span>
-        </div>
-        <div class="container-uploads">
-                <div class="file-name-upload">Java: Build To bla</div>
-                <span class="material-icons-outlined upload-showmore-icon">more_horiz</span>
+            </div>
         </div>
 
-        <div class="tab-bar">
+
+
+        <!-- <div class="tab-bar">
 
             <button @click="toggleTab('tab1', 'content1')" id="tab1" class="mdc-button tab-button">
                 <span class="button-text button-text--mittig">Alle Dateien</span>
                 </button>
-            <button @click="toggleTab('tab1', 'content1')" id="tab1" class="mdc-button tab-button tab-active">
-                <span class="button-text">Alle Dateien</span>
-
-            </button>
             <button @click="toggleTab('tab2', 'content2')" id="tab2" class="mdc-button tab-button">
                 <span class="button-text button-text--mittig">Meine Dateien</span>
             </button>
@@ -93,7 +64,7 @@
                 <a v-bind:href="'/mydocuments/'+ myFileUpload.data.id">Details</a>
                 <hr>
             </div>
-        </div>
+        </div> -->
 
         <br><br><br>
 
