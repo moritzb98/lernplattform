@@ -3633,8 +3633,12 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
+    var _this = this;
+
     this.room.id = this.$route.params.id;
-    console.log(this.room.id);
+    this.axios.post('http://127.0.0.1:8000/api/room/get/' + this.room.id).then(function (response) {
+      return _this.room.roomName = response.data.name, _this.room.roomMaxPersons = response.data.maxPersons;
+    });
   },
   methods: {
     updateRoom: function updateRoom() {

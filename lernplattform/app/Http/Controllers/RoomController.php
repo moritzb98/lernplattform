@@ -20,6 +20,10 @@ class RoomController extends Controller
         return Room::where('user_id', Auth::user()->id)->get();
     }
 
+    public function getRoom($roomid) {
+        return Room::where('id', $roomid)->first();
+    }
+
 
     public function create(Request $request) {
         $userid = Auth::user()->id;

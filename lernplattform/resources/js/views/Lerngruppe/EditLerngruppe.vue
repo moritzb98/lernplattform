@@ -55,7 +55,12 @@
         },
         mounted() {
             this.room.id = this.$route.params.id;
-            console.log(this.room.id);
+
+            this.axios.post('http://127.0.0.1:8000/api/room/get/' + this.room.id)
+            .then(response => (
+                this.room.roomName = response.data.name,
+                this.room.roomMaxPersons = response.data.maxPersons
+            ))
 
         },
         methods: {
