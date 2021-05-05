@@ -17,6 +17,7 @@
         </div>
 
         <!-- Navigation -->
+        <!-- Active Klasse Navigationspunkt filled <-> outline  -->
         <div class="nav_wrapper">
             <div class="nav">
                 <router-link to="/spa/Dashboard">
@@ -482,7 +483,7 @@
 /* Bannerelement der Gruppen Chats */
 /* Noch nicht fertig */
 
-
+/*
     .banner-grp-chat {
         background-image: "/abc.jpg";
         width: 100%;
@@ -512,7 +513,7 @@
     .banner-grp-chat_body-title {
         display: inline-block;
         margin: 0;
-    }
+    } */
 
 
 /*

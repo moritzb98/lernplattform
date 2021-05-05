@@ -2,30 +2,25 @@
     <div>
         <div class="row mb-3">
             <div class="col">
-                <h1>Meine Lerngruppen</h1>
-            </div>
-        </div>
-        <div class="row mb-5">
-            <div class="col-12">
-                <router-link to="/spa/Lerngruppe-finden">
-                    <button class="btn neumorph w-100">
-                        <span class="btn_text mdc-button__label ">Lerngruppe finden</span>
-                        <span class="btn_icon material-icons">people</span>
-                    </button>
-                </router-link>
+                <h1>Lerngruppe finden</h1>
             </div>
         </div>
 
+        <div class="banner-grp-chat">
+            <div class="banner-grp-chat_body">
+                <div class="banner-grp-chat_body-title">
+                    <h2>Kategorie</h2>
+                </div>
+            </div>
+            <div class="banner-grp-chat_overlay"></div>
+        </div>
 
-        <!-- Filter: ID mit eingeloggter ID abgleichen: Nur Rooms anzeigen, denen man beigetreten ist -->
-        <div class="row mb-3">
-            <div class="col">
-                <router-link to="/spa/Lerngruppe-erstellen">
-                    <button class="btn neumorph w-100 mb-3">
-                        <span class="btn_text mdc-button__label ">Lerngruppe erstellen</span>
-                        <span class="btn_icon material-icons">people</span>
-                    </button>
-                </router-link>
+        <!-- Page vorher: Kategorie wählen -->
+
+        <!-- Filter, Sortierung  hinzufügen -->
+
+        <div class="row justify-content-center mb-3" style="margin-top: -30px;">
+            <div class="col-11">
                 <div v-for="(room, index) in rooms" :key="index">
                     <div class="neumorph card-grp mb-2">
                         {{room.name}}
@@ -33,6 +28,7 @@
                             <div class="card-grp_controls_item" @click="joinRoom(room.id)">
                                 <span class="material-icons">login</span>
                             </div>
+                            <!-- Anzeigen, wenn man Ersteller ist  -->
                             <div class="card-grp_controls_item" @click="updateRoom(room.id)">
                                 <span class="material-icons">edit</span>
                             </div>
@@ -76,6 +72,60 @@
 </script>
 
 <style>
+
+    .banner-grp-chat {
+        background-image: url("https://picsum.photos/200/300");
+        background-color: #cccccc;
+        width: 100%;
+        height: 200px;
+
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 25px;
+        padding: 0;
+    }
+
+    .banner-grp-chat_body {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 1;
+    }
+
+    .banner-grp-chat_body-title {
+        display: inline-block;
+        margin: 0;
+        margin-bottom: 20px;
+        font-weight: 700;
+        color: #fff;
+        text-shadow: 0px 3px 5px #000;
+    }
+
+    .banner-grp-chat_overlay {
+        width: 100%;
+        height: 40px;
+        border-radius: 40px 40px 0 0;
+        background-color: #f1f1f1;
+
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+
+
+
     .card-grp {
         display: flex;
         flex-direction: row;
