@@ -12,12 +12,11 @@ class RoomController extends Controller
 {
 
     public function getAllRooms() {
-        $rooms = Room::get();
-        return $rooms;
+        return Room::all();
     }
 
-    public function getRoom(Request $request) {
-        return null;
+    public function getMyRooms() {
+        return Room::where('user_id', Auth::user()->id)->get();
     }
 
 
