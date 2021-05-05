@@ -7,7 +7,7 @@
         </div>
         <div class="row mb-5">
             <div class="col-12">
-                <router-link to="/spa/Lerngruppe-finden">
+                <router-link to="/spa/Lerngruppen/Finden">
                     <button class="btn neumorph w-100">
                         <span class="btn_text mdc-button__label ">Lerngruppe finden</span>
                         <span class="btn_icon material-icons">people</span>
@@ -20,27 +20,29 @@
         <!-- Filter: ID mit eingeloggter ID abgleichen: Nur Rooms anzeigen, denen man beigetreten ist -->
         <div class="row mb-3">
             <div class="col">
-                <router-link to="/spa/Lerngruppe-erstellen">
-                    <button class="btn neumorph w-100 mb-3">
+                <router-link to="/spa/Lerngruppen/Erstellen">
+                    <button class="btn neumorph btn--dashed w-100 mb-3">
                         <span class="btn_text mdc-button__label ">Lerngruppe erstellen</span>
                         <span class="btn_icon material-icons">add</span>
                     </button>
                 </router-link>
                 <div v-for="(room, index) in rooms" :key="index">
-                    <div class="neumorph card-grp mb-2">
-                        {{room.name}}
-                        <div class="card-grp_controls">
-                            <router-link :to='"/spa/Lerngruppe/"+room.id+"/Bearbeiten"'>
-                                <div class="card-grp_controls_item">
-                                    <span class="material-icons">edit</span>
+                    <router-link :to='"/spa/Lerngruppen/"+room.id+"/Chat"'>
+                        <div class="neumorph card-small mb-2">
+                            {{room.name}}
+                            <div class="card-small_controls">
+                                <router-link :to='"/spa/Lerngruppen/"+room.id+"/Bearbeiten"'>
+                                    <div class="card-small_controls_item">
+                                        <span class="material-icons">edit</span>
+                                    </div>
+                                </router-link>
+                                <!-- delete gibt 405 zurück --->
+                                <div class="card-small_controls_item" @click="deleteRoom(room.id)">
+                                    <span class="material-icons">delete</span>
                                 </div>
-                            </router-link>
-                            <!-- delete gibt 405 zurück --->
-                            <div class="card-grp_controls_item" @click="deleteRoom(room.id)">
-                                <span class="material-icons">delete</span>
                             </div>
                         </div>
-                    </div>
+                    </router-link>
                 </div>
             </div>
         </div>
@@ -75,33 +77,5 @@
 </script>
 
 <style>
-    .card-grp {
-        display: flex;
-        flex-direction: row;
-        padding: 10px;
-        border-radius: 30px;
-    }
-    .card-grp_controls {
-        display: flex;
-        height: 100%;
-        justify-content: flex-end;
-        align-items: center;
-        margin: 0 0 0 auto;
-    }
-
-    .card-grp_controls_item {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        margin: 0 5px;
-    }
-
-    .card-grp_controls_item .material-icons {
-        font-size: 22px;
-        margin: 0;
-    }
-
-
 
 </style>

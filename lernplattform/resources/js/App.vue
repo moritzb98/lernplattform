@@ -35,7 +35,7 @@
                         <span class="material-icons">add</span>
                     </div>
                 </router-link>
-                <router-link to="/spa/Meine-Lerngruppen">
+                <router-link to="/spa/Lerngruppen/Eigene">
                     <div class="nav_item neumorph">
                         <span class="material-icons">people</span>
                     </div>
@@ -92,7 +92,7 @@
                                     </router-link>
                                 </div> -->
                                 <div class="col col-6 col-sm-4 mt-3">
-                                    <router-link to="/spa/Lerngruppe-erstellen">
+                                    <router-link to="/spa/Lerngruppen/Erstellen">
                                         <div class="card neumorph" v-on:click="showNavDropUp">
                                             <img class="card_img" src="" alt="" />
                                             <div class="card_title">Lerngruppe</div>
@@ -127,6 +127,9 @@
         background-color: #F1F1F1;
     }
 
+    body a {
+        color: #000;
+    }
 
     /* Basic Neumorph Styles for elements  */
 
@@ -278,7 +281,9 @@
     .btn--big {
     }
 
-
+    .btn--dashed {
+        border: dashed 1px #666;
+    }
 
 
 
@@ -481,14 +486,16 @@
   \____|_| |_|\__,_|\__| |____/ \__,_|_| |_|_| |_|\___|_|    */
 
 /* Bannerelement der Gruppen Chats */
-/* Noch nicht fertig */
 
-/*
     .banner-grp-chat {
-        background-image: "/abc.jpg";
+        background-image: url("https://picsum.photos/200/300");
+        background-color: #cccccc;
         width: 100%;
         height: 200px;
-        background-color: red;
+
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
 
         position: relative;
         display: flex;
@@ -513,7 +520,22 @@
     .banner-grp-chat_body-title {
         display: inline-block;
         margin: 0;
-    } */
+        margin-bottom: 20px;
+        font-weight: 700;
+        color: #fff;
+        text-shadow: 0px 3px 5px #000;
+    }
+
+    .banner-grp-chat_overlay {
+        width: 100%;
+        height: 40px;
+        border-radius: 40px 40px 0 0;
+        background-color: #f1f1f1;
+
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
 
 
 /*
@@ -546,6 +568,48 @@
     .card_title {
         color: #000;
     }
+
+
+
+/*
+
+   _____              _    _____                 _ _
+  / ____|            | |  / ____|               | | |
+ | |     __ _ _ __ __| | | (___  _ __ ___   __ _| | |
+ | |    / _` | '__/ _` |  \___ \| '_ ` _ \ / _` | | |
+ | |___| (_| | | | (_| |  ____) | | | | | | (_| | | |
+  \_____\__,_|_|  \__,_| |_____/|_| |_| |_|\__,_|_|_|
+                                                      */
+
+    .card-small {
+        display: flex;
+        flex-direction: row;
+        padding: 15px;
+        padding-left: 25px;
+        border-radius: 30px;
+    }
+
+    .card-small_controls {
+        display: flex;
+        height: 100%;
+        justify-content: flex-end;
+        align-items: center;
+        margin: 0 0 0 auto;
+    }
+
+    .card-small_controls_item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        margin: 0 5px;
+    }
+
+    .card-small_controls_item .material-icons {
+        font-size: 22px;
+        margin: 0;
+    }
+
 
 
 
