@@ -491,7 +491,7 @@
         background-image: url("https://picsum.photos/200/300");
         background-color: #cccccc;
         width: 100%;
-        height: 200px;
+        height: 100px;
 
         background-position: center;
         background-repeat: no-repeat;
