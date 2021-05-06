@@ -68,7 +68,7 @@
                                     </router-link>
                                 </div> -->
                                 <div class="col col-6 col-sm-4 mt-3">
-                                    <router-link to="/spa/Skript-erstellen">
+                                    <router-link to="/spa/upload">
                                         <div class="card neumorph" v-on:click="showNavDropUp">
                                             <img class="card_img" src="" alt="" />
                                             <div class="card_title">Medien hochladen</div>
