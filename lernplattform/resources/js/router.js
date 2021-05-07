@@ -28,6 +28,7 @@ import ChatLerngruppe from './views/Lerngruppe/ChatLerngruppe.vue'
 import Newsfeed from './views/Newsfeed.vue'
 import Login from './views/Login.vue'
 import Registrierung from './views/Registrierung.vue'
+import UploadDetail from './views/UploadDetail.vue'
 
 
 export const routes = [
@@ -142,6 +143,12 @@ export const routes = [
     {
         name: 'chat',
         path: '/spa/chat',
+        component: container
+    },
+
+    {
+        name: 'UploadDetail',
+        path: '/spa/Upload/:id',
         component: container
     }
 
