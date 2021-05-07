@@ -190,6 +190,10 @@
         border-radius: 30px;
     }
 
+    .v-toast {
+        z-index: 2000 !important;
+    }
+
 
 /*
 ████████ ██    ██ ██████   ██████ 

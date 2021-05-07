@@ -24,8 +24,13 @@ window.axios.defaults.withCredentials = true;
  */
 
 Vue.use(VueRouter);
-Vue.use(VueToast);
-let instance = Vue.$toast.open('You did it!');
+
+Vue.use(VueToast, {
+    // One of the options
+    position: 'bottom',
+    duration: 3000
+  })
+
 Vue.use(VueAxios, axios);
 Vue.component('file-upload-component', require('./components/FileUploadComponent.vue').default);
 Vue.component('file-view', require('./views/Documents.vue').default);
