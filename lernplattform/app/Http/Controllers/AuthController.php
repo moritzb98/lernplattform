@@ -16,6 +16,7 @@ class AuthController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:3',],
             'job' => ['nullable','string', 'max:255'],
+            'age' => ['nullable', 'integer' , 'between:1,120'],
         ]);
 
         $user = User::create([
@@ -23,6 +24,7 @@ class AuthController extends Controller
             'email' => $request['email'],
             'password' => Hash::make($request['password'],),
             'job' => $request['job'],
+            'age' => $request['age']
         ]);
 
         $accessToken = $user->createToken('cool_token')->accessToken;
