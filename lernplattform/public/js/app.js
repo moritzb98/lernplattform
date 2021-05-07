@@ -49548,7 +49548,7 @@ var render = function() {
         return _c("div", { key: myFileUpload.id }, [
           _c("div", { staticClass: "container-uploads" }, [
             _c("div", { staticClass: "file-name-upload" }, [
-              _vm._v(_vm._s(myFileUpload.data.name))
+              _vm._v(_vm._s(myFileUpload.data.displayname))
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "icon-container" }, [

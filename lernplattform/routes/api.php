@@ -45,6 +45,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/upload', [FileController::class, 'upload'])->name('upload');
     Route::get('/getMyFiles', [FileController::class, 'showUserFiles']);
     Route::get('/upload/{id}', [FileController::class, 'showFile']);
+    Route::post('/files/showInCollection', [FileController::class, 'showFilesInCollection']);
+    Route::post('/files/update', [FileController::class, 'update']);
 
     //Chat
     Route::get('/chat', function () {

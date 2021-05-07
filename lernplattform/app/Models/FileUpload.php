@@ -11,7 +11,8 @@ class FileUpload extends Model
     protected $fillable = [
         'name',
         'path',
-        'user_id'
+        'user_id',
+        'displayname',
     ];
 
     public function user(){

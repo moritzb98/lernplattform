@@ -43,7 +43,6 @@ class RoomController extends Controller
         $room = Room::where('id', $request['id'])->first();
 
         if($room['user_id'] == $userid){
-
             Room::where('id', $request['id'])->update([
                 'name' => $request['roomName'],
                 'maxPersons' => $request['roomMaxPersons'],

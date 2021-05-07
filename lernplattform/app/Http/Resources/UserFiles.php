@@ -20,6 +20,7 @@ class UserFiles extends JsonResource
                 "name" => $this->name,
                 "path" => $this->path,
                 'user_id' => $this->user,
+                'displayname' => $this->displayname,
             ],
         ];
     }
