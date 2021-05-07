@@ -48640,29 +48640,25 @@ var render = function() {
                       "div",
                       { staticClass: "col col-6 col-sm-4 mt-3" },
                       [
-                        _c(
-                          "router-link",
-                          { attrs: { to: "/spa/Skript-erstellen" } },
-                          [
-                            _c(
-                              "div",
-                              {
-                                staticClass: "card neumorph",
-                                on: { click: _vm.showNavDropUp }
-                              },
-                              [
-                                _c("img", {
-                                  staticClass: "card_img",
-                                  attrs: { src: "", alt: "" }
-                                }),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "card_title" }, [
-                                  _vm._v("Medien hochladen")
-                                ])
-                              ]
-                            )
-                          ]
-                        )
+                        _c("router-link", { attrs: { to: "/spa/upload" } }, [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "card neumorph",
+                              on: { click: _vm.showNavDropUp }
+                            },
+                            [
+                              _c("img", {
+                                staticClass: "card_img",
+                                attrs: { src: "", alt: "" }
+                              }),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "card_title" }, [
+                                _vm._v("Medien hochladen")
+                              ])
+                            ]
+                          )
+                        ])
                       ],
                       1
                     ),

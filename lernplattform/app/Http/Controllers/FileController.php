@@ -14,10 +14,8 @@ class FileController extends Controller
       }
 
       public function showFile($id){
-
-
         return FileUpload::find($id);
-  }
+    }
 
       public function upload(Request $request){
 

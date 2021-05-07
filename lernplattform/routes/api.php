@@ -55,7 +55,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('chat/room/{roomId}/messages', [ChatController::class, 'messages']);
     Route::post('chat/room/{roomId}/message', [ChatController::class, 'newMessage']);
 
-
+    //Collection
+    Route::post('/collection/create' , [CollectionController::class, 'create']);
 });
 
 // Interests - without Middleware
