@@ -12,4 +12,12 @@ class CollectionFiles extends Model
     protected $fillable = [
         'file_id', 'collection_id'
     ];
+
+    public function file(){
+        return $this->belongsTo('App\Models\FileUpload', 'file_id', 'id');
+    }
+
+    public function collection(){
+        return $this->belongsTo('App\Models\Collection', 'collection_id', 'id');
+    }
 }

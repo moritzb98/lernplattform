@@ -57,6 +57,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     //Collection
     Route::post('/collection/create' , [CollectionController::class, 'create']);
+    Route::post('/collection/addFile' , [CollectionController::class, 'addFile']);
 });
 
 // Interests - without Middleware

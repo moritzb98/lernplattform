@@ -17,4 +17,8 @@ class FileUpload extends Model
     public function user(){
         return $this->belongsTo('App\Models\User', 'user_id', 'id');
     }
+
+    public function collectionFiles(){
+        return $this->belongsToMany('App\Models\CollectionFiles');
+    }
 }

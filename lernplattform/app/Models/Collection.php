@@ -12,4 +12,8 @@ class Collection extends Model
     protected $fillable = [
         'name', 'user_id'
     ];
+
+    public function collectionFiles(){
+        return $this->belongsToMany('App\Models\CollectionFiles');
+    }
 }
