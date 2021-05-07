@@ -22,14 +22,15 @@
             </div>
         </div>
         <div v-for="myFileUpload in myFileUploads" :key="myFileUpload.id">
-            <div class="container-uploads">
-                <div class="file-name-upload">{{ myFileUpload.data.displayname }}</div>
-                <div class="icon-container">
-                    <div class="material-icons-outlined icon--middle">delete</div>
-                    <div  class="material-icons-outlined icon--middle"><a download v-bind:href="'/upload/' + myFileUpload.data.name">file_download</a></div>
+            <router-link :to='"/spa/documents/"+myFileUpload.data.id'>
+                <div class="container-uploads">
+                    <div class="file-name-upload">{{ myFileUpload.data.displayname }}</div>
+                    <div class="icon-container">
+                        <div class="material-icons-outlined icon--middle">delete</div>
+                        <div  class="material-icons-outlined icon--middle"><a download v-bind:href="'/upload/' + myFileUpload.data.name">file_download</a></div>
+                    </div>
                 </div>
-
-            </div>
+            </router-link>
         </div>
 
 

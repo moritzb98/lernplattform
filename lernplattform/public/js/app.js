@@ -3494,6 +3494,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -4338,6 +4339,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {};
@@ -4924,8 +4926,8 @@ var routes = [// Geändert in Drop-Up Nav?
   component: _views_Chat_container_vue__WEBPACK_IMPORTED_MODULE_5__.default
 }, {
   name: 'UploadDetail',
-  path: '/spa/Upload/:id',
-  component: _views_Chat_container_vue__WEBPACK_IMPORTED_MODULE_5__.default
+  path: '/spa/documents/:id',
+  component: _views_UploadDetail_vue__WEBPACK_IMPORTED_MODULE_21__.default
 }];
 
 /***/ }),
@@ -49694,38 +49696,49 @@ var render = function() {
       _vm._m(0),
       _vm._v(" "),
       _vm._l(_vm.myFileUploads, function(myFileUpload) {
-        return _c("div", { key: myFileUpload.id }, [
-          _c("div", { staticClass: "container-uploads" }, [
-            _c("div", { staticClass: "file-name-upload" }, [
-              _vm._v(_vm._s(myFileUpload.data.displayname))
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "icon-container" }, [
-              _c(
-                "div",
-                { staticClass: "material-icons-outlined icon--middle" },
-                [_vm._v("delete")]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "material-icons-outlined icon--middle" },
-                [
-                  _c(
-                    "a",
-                    {
-                      attrs: {
-                        download: "",
-                        href: "/upload/" + myFileUpload.data.name
-                      }
-                    },
-                    [_vm._v("file_download")]
-                  )
-                ]
-              )
-            ])
-          ])
-        ])
+        return _c(
+          "div",
+          { key: myFileUpload.id },
+          [
+            _c(
+              "router-link",
+              { attrs: { to: "/spa/documents/" + myFileUpload.data.id } },
+              [
+                _c("div", { staticClass: "container-uploads" }, [
+                  _c("div", { staticClass: "file-name-upload" }, [
+                    _vm._v(_vm._s(myFileUpload.data.displayname))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "icon-container" }, [
+                    _c(
+                      "div",
+                      { staticClass: "material-icons-outlined icon--middle" },
+                      [_vm._v("delete")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "material-icons-outlined icon--middle" },
+                      [
+                        _c(
+                          "a",
+                          {
+                            attrs: {
+                              download: "",
+                              href: "/upload/" + myFileUpload.data.name
+                            }
+                          },
+                          [_vm._v("file_download")]
+                        )
+                      ]
+                    )
+                  ])
+                ])
+              ]
+            )
+          ],
+          1
+        )
       }),
       _vm._v(" "),
       _c("br"),
@@ -51167,9 +51180,16 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [_c("h1", [_vm._v("Hallo")])])
+  }
+]
 render._withStripped = true
 
 

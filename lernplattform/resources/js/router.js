@@ -148,8 +148,8 @@ export const routes = [
 
     {
         name: 'UploadDetail',
-        path: '/spa/Upload/:id',
-        component: container
+        path: '/spa/documents/:id',
+        component: UploadDetail
     }
 
 ];
