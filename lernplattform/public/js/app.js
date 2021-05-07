@@ -4228,6 +4228,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -4241,7 +4245,8 @@ __webpack_require__.r(__webpack_exports__);
         email: '',
         password: '',
         passwordConfirm: '',
-        job: ''
+        job: '',
+        age: ''
       },
       interests: [],
       interestData: []
@@ -4723,8 +4728,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__.default({
   broadcaster: 'pusher',
-  key: "6dd882b858b49e4e018e",
-  cluster: "eu",
+  key: "",
+  cluster: "mt1",
   forceTLS: true
 });
 
@@ -50823,6 +50828,39 @@ var render = function() {
                     return
                   }
                   _vm.$set(_vm.registerData, "job", $event.target.value)
+                }
+              }
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "headline-text-field" }, [_vm._v("Alter")]),
+        _vm._v(" "),
+        _c(
+          "label",
+          {
+            staticClass:
+              "mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified"
+          },
+          [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.registerData.age,
+                  expression: "registerData.age"
+                }
+              ],
+              staticClass: "mdc-text-field__input text-field__input--modified",
+              attrs: { type: "text", placeholder: "", "aria-label": "Label" },
+              domProps: { value: _vm.registerData.age },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.registerData, "age", $event.target.value)
                 }
               }
             })
