@@ -129,6 +129,9 @@
                         console.log(response);
                         this.formData.email=this.registerData.email;
                         this.formData.password=this.registerData.password;
+                        Vue.$toast.success('Profile saved.', {
+                        // optional options Object
+                        });
                         this.handleLogin();
                     });
                 });

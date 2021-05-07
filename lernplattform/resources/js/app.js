@@ -5,7 +5,8 @@ import VueRouter from 'vue-router';
 import axios from 'axios';
 import { routes } from './router';
 import Vue from 'vue';
-
+import VueToast from 'vue-toast-notification';
+import 'vue-toast-notification/dist/theme-sugar.css';
 
 
 window.Vue = require('vue').default;
@@ -23,6 +24,8 @@ window.axios.defaults.withCredentials = true;
  */
 
 Vue.use(VueRouter);
+Vue.use(VueToast);
+let instance = Vue.$toast.open('You did it!');
 Vue.use(VueAxios, axios);
 Vue.component('file-upload-component', require('./components/FileUploadComponent.vue').default);
 Vue.component('file-view', require('./views/Documents.vue').default);
