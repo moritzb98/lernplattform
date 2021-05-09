@@ -8,6 +8,7 @@ use App\Http\Controllers\FileController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\InterestController;
+use App\Http\Controllers\API\AccessTokenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +61,9 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     //Collection
     Route::post('/collection/create' , [CollectionController::class, 'create']);
     Route::post('/collection/addFile' , [CollectionController::class, 'addFile']);
+
+    //Videochat
+    Route::get('access_token', [AccessTokenController::class, 'generate_token']);
 });
 
 // Interests - without Middleware
