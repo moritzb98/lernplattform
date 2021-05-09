@@ -4340,9 +4340,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
-    return {};
+    return {
+      file: {}
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get('/api/upload/' + this.$route.params.id).then(function (response) {
+      _this.file = response.data;
+    });
+    console.log(this.file);
   },
   methods: {}
 });
@@ -9462,7 +9474,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.content[data-v-797cc8a9] {\n    display: none;\n}\n.content--active[data-v-797cc8a9] {\n    display: block;\n}\n.mdc-tab-scroller-overflow[data-v-797cc8a9]{\n    overflow: visible;\n}\n.tab-bar[data-v-797cc8a9]{\n    display: flex;\n}\n.tab-button[data-v-797cc8a9]{\n    background: linear-gradient(to bottom right,white, #F1F1F1);\n    height: 50px;\n    width: 100%;\n    padding:0px;\n    box-shadow:\n    -5px -5px 13px #fff,\n    5px 5px 13px #0e0e0e40;\n    border-radius: 0px;\n    margin-top: 20px;\n    margin-bottom: 20px;\n}\n.tab-active[data-v-797cc8a9]{\n    box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2),\n        inset -6px -6px 10px 0 white,\n        12px 12px 24px 0 rgba(0, 0, 0, 0.2),\n        -12px -12px 24px 0 rgba(255, 255, 255, 0.5);\n}\n.button-text--mittig[data-v-797cc8a9]{\n    margin: auto;\n}\n.container-uploads[data-v-797cc8a9]{\n    margin-top: 10px;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    width: 100%;\n    height: 40px;\n    border-radius: 28px;\n    border: double 2px transparent;\n    background-image: radial-gradient(white, white), radial-gradient(circle at top left,white,#ED553B);\n    background-origin: border-box;\n    background-clip: content-box, border-box;\n    box-shadow:\n    -5px -5px 13px #fff,\n    5px 5px 13px #0e0e0e40;\n}\n.file-name-upload[data-v-797cc8a9]{\n    padding-left: 2em;\n}\n.upload-showmore-icon[data-v-797cc8a9]{\n    padding-right: 20px;\n}\n.icon-container[data-v-797cc8a9] {\n    margin-right: 10px;\n}\n.icon--middle[data-v-797cc8a9] {\n    vertical-align: middle;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.content[data-v-797cc8a9] {\n    display: none;\n}\n.content--active[data-v-797cc8a9] {\n    display: block;\n}\n.mdc-tab-scroller-overflow[data-v-797cc8a9]{\n    overflow: visible;\n}\n.tab-bar[data-v-797cc8a9]{\n    display: flex;\n}\n.tab-button[data-v-797cc8a9]{\n    background: linear-gradient(to bottom right,white, #F1F1F1);\n    height: 50px;\n    width: 100%;\n    padding:0px;\n    box-shadow:\n    -5px -5px 13px #fff,\n    5px 5px 13px #0e0e0e40;\n    border-radius: 0px;\n    margin-top: 20px;\n    margin-bottom: 20px;\n}\n.tab-active[data-v-797cc8a9]{\n    box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2),\n        inset -6px -6px 10px 0 white,\n        12px 12px 24px 0 rgba(0, 0, 0, 0.2),\n        -12px -12px 24px 0 rgba(255, 255, 255, 0.5);\n}\n.button-text--mittig[data-v-797cc8a9]{\n    margin: auto;\n}\n.container-uploads[data-v-797cc8a9]{\n    margin-top: 10px;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    width: 100%;\n    height: 40px;\n    border-radius: 28px;\n    border: double 2px transparent;\n    background-image: radial-gradient(white, white), radial-gradient(circle at top left,white,#ED553B);\n    background-origin: border-box;\n    background-clip: content-box, border-box;\n    box-shadow:\n    -5px -5px 13px #fff,\n    5px 5px 13px #0e0e0e40;\n}\n.file-name-upload[data-v-797cc8a9]{\n    padding-left: 2em;\n    white-space: nowrap;\n    max-width: 80%;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.upload-showmore-icon[data-v-797cc8a9]{\n    padding-right: 20px;\n}\n.icon-container[data-v-797cc8a9] {\n    margin-right: 10px;\n}\n.icon--middle[data-v-797cc8a9] {\n    vertical-align: middle;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -51180,16 +51192,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("h1", [_vm._v("Hallo")]),
+    _vm._v(" "),
+    _c("p", [_vm._v(_vm._s(_vm.file))]),
+    _vm._v(" "),
+    _c("p", [_vm._v(_vm._s(_vm.file.displayname))])
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("h1", [_vm._v("Hallo")])])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

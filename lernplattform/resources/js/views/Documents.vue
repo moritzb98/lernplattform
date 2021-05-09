@@ -175,6 +175,10 @@ import {MDCTabBar} from '@material/tab-bar';
 
     .file-name-upload{
         padding-left: 2em;
+        white-space: nowrap;
+        max-width: 80%;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .upload-showmore-icon{
