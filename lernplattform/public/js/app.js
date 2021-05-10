@@ -4342,6 +4342,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -51197,10 +51227,101 @@ var render = function() {
     _vm._v(" "),
     _c("p", [_vm._v(_vm._s(_vm.file))]),
     _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.file.displayname))])
+    _c("p", [_vm._v(_vm._s(_vm.file.displayname))]),
+    _vm._v(" "),
+    _c("div", { staticClass: "mdc-card mdc-card-lernmaterial" }, [
+      _c("div", { staticClass: "card-lernmaterial-spacing" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "card-lernmaterial-middle-column-container" },
+          [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-lernmaterial-headline" }, [
+              _vm._v(_vm._s(_vm.file.displayname))
+            ]),
+            _vm._v(" "),
+            _vm._m(2)
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", [
+          _c("div", { staticClass: "card-lernmaterial-date" }, [
+            _vm._v(_vm._s(_vm.file.created_at))
+          ]),
+          _vm._v(" "),
+          _vm._m(3)
+        ])
+      ])
+    ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-lernmaterial-icon-container" }, [
+      _c(
+        "span",
+        { staticClass: "material-icons material-icons-lernmaterial" },
+        [_vm._v("school")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mdc-chip-container" }, [
+      _c(
+        "div",
+        {
+          staticClass: "mdc-chip mdc-chip--red mdc-chip-lernmaterial",
+          attrs: { role: "row" }
+        },
+        [_c("span", { staticClass: "mdc-chip__text" }, [_vm._v("Skript")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-lernmateral-thumb" }, [
+      _c(
+        "span",
+        {
+          staticClass:
+            "material-icons-outlined material-icons-outlined-space-right"
+        },
+        [_vm._v("thumb_up")]
+      ),
+      _vm._v(" "),
+      _c("p", { staticClass: "card-lernmateral-thumbs-number" }, [
+        _vm._v("3174")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-lernmaterial-date-icon-container" }, [
+      _c("span", { staticClass: "material-icons-outlined" }, [
+        _vm._v("visibility")
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "material-icons-outlined" }, [
+        _vm._v("file_download")
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "material-icons-outlined" }, [_vm._v("send")])
+    ])
+  }
+]
 render._withStripped = true
 
 
