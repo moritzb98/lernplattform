@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\FileUpload;
 use Auth;
 use App\Http\Resources\UserFilesCollection;
+use App\Http\Resources\CollFilesCollection;
 use App\Models\CollectionFiles;
 
 class FileController extends Controller
@@ -59,5 +60,11 @@ class FileController extends Controller
             $files =  new CollFilesCollection(CollectionFiles::where('collection_id', $request['collection_id'])->get());
             return $files;
         }
+
+        public function showCollectionsToFile(Request $request){
+            $files =  new CollFilesCollection(CollectionFiles::where('file_id', $request['file_id'])->get());
+            return $files;
+        }
+
 
 }

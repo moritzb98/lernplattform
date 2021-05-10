@@ -37,6 +37,10 @@
                         </div>
                     </div>
                 </div>
+                <div>
+                    <hr>
+
+                </div>
             </div>
 
     </div>
@@ -54,8 +58,11 @@
         mounted(){
             axios.get('/api/upload/'+this.$route.params.id)
             .then(response=>{
-                console.log(response.data.test);
                 this.file = response.data;
+            });
+            axios.post('/api/files/showCollectionsToFile',this.$route.params.id)
+            .then(response=>{
+                console.log(response.data);
             });
         },
         methods: {

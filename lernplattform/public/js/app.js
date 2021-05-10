@@ -4411,6 +4411,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -4421,8 +4425,10 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     axios.get('/api/upload/' + this.$route.params.id).then(function (response) {
-      console.log(response.data.test);
       _this.file = response.data;
+    });
+    axios.post('/api/files/showCollectionsToFile', this.$route.params.id).then(function (response) {
+      console.log(response.data);
     });
   },
   methods: {}
@@ -4853,8 +4859,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__.default({
   broadcaster: 'pusher',
-  key: "6dd882b858b49e4e018e",
-  cluster: "eu",
+  key: "",
+  cluster: "mt1",
   forceTLS: true
 });
 
@@ -51336,7 +51342,9 @@ var render = function() {
           _vm._v(" "),
           _vm._m(3)
         ])
-      ])
+      ]),
+      _vm._v(" "),
+      _vm._m(4)
     ])
   ])
 }
@@ -51412,6 +51420,12 @@ var staticRenderFns = [
         [_vm._v("send")]
       )
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [_c("hr")])
   }
 ]
 render._withStripped = true
