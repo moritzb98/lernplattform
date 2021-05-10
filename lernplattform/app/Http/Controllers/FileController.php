@@ -63,6 +63,7 @@ class FileController extends Controller
 
         public function showCollectionsToFile(Request $request){
             $files =  new CollFilesCollection(CollectionFiles::where('file_id', $request['file_id'])->get());
+            dd($files);
             return $files;
         }
 

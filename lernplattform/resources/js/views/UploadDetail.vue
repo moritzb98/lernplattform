@@ -56,11 +56,13 @@
             }
         },
         mounted(){
+            this.file.id = this.$route.params.id;
             axios.get('/api/upload/'+this.$route.params.id)
             .then(response=>{
                 this.file = response.data;
             });
-            axios.post('/api/files/showCollectionsToFile',this.$route.params.id)
+
+            axios.post('/api/files/showCollectionsToFile',this.file)
             .then(response=>{
                 console.log(response.data);
             });
@@ -71,20 +73,4 @@
     }
 </script>
 
-<style scoped>
 
-.card-lernmaterial-middle-column-container{
-    overflow: hidden;
-    width: 50%;
-}
-
-.card-lernmaterial-icon-container{
-    min-width: 45px;
-    margin-right: 10px;
-}
-
-.card-lernmaterial-headline{
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-</style>
