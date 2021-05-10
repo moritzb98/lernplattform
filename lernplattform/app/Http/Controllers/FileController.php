@@ -7,6 +7,7 @@ use App\Models\FileUpload;
 use Spatie\Searchable\Search;
 use Auth;
 use App\Http\Resources\UserFilesCollection;
+use App\Http\Resources\CollFilesCollection;
 use App\Models\CollectionFiles;
 
 class FileController extends Controller
@@ -16,7 +17,9 @@ class FileController extends Controller
         }
 
         public function showFile($id){
-            return FileUpload::find($id);
+            $file = FileUpload::find($id);
+            $file->date = $file->created_at->format('d-m-Y');
+            return $file;
         }
 
         public function upload(Request $request){
@@ -58,5 +61,12 @@ class FileController extends Controller
             $files =  new CollFilesCollection(CollectionFiles::where('collection_id', $request['collection_id'])->get());
             return $files;
         }
+
+        public function showCollectionsToFile(Request $request){
+            $files =  new CollFilesCollection(CollectionFiles::where('file_id', $request['file_id'])->get());
+            dd($files);
+            return $files;
+        }
+
 
 }

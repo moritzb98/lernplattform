@@ -908,12 +908,30 @@
         padding-right: 6px;
     }
 
+    .card-lernmateral-thumbs-number-container{
+        position: relative;
+    }
+
+    .card-lernmaterial-last-column-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: right;
+    }
+
     .card-lernmateral-thumbs-number{
         font-size: 12px;
+        position: absolute;
+        margin: 0;
+        bottom: 0;
     }
 
     .card-lernmaterial-date-icon-container{
-        height: 50%;
+        height: auto;
+    }
+
+    .card-lernmaterial-date-icon{
+        vertical-align: bottom;
     }
 
     .mdc-chip-filter{
@@ -1044,6 +1062,21 @@
             -12px -12px 24px 0 rgba(255, 255, 255, 0.5);
             overflow: hidden;
 
+    }
+
+    .card-lernmaterial-middle-column-container{
+        overflow: hidden;
+        width: 50%;
+    }
+
+    .card-lernmaterial-icon-container{
+        min-width: 45px;
+        margin-right: 10px;
+    }
+
+    .card-lernmaterial-headline{
+        text-overflow: ellipsis;
+        overflow: hidden;
     }
 
     .mdc-card--new{

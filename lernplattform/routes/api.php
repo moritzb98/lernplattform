@@ -41,13 +41,14 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/getmyroom', [RoomController::class, 'getMyRooms']);
     Route::post('/room/users', [RoomController::class, 'getUsersInRoom']);
 
-    //Uploads
+    //Uploads + Files
     Route::get('/getFiles', [FileController::class, 'index']);
     Route::post('/upload', [FileController::class, 'upload'])->name('upload');
     Route::get('/getMyFiles', [FileController::class, 'showUserFiles']);
     Route::get('/upload/{id}', [FileController::class, 'showFile']);
     Route::post('/files/showInCollection', [FileController::class, 'showFilesInCollection']);
     Route::post('/files/update', [FileController::class, 'update']);
+    Route::post('/files/showCollectionsToFile', [FileController::class, 'showCollectionsToFile']);
 
     //Chat
     Route::get('/chat', function () {
