@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\SecretController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\SearchFileController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\InterestController;
@@ -60,6 +61,10 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     //Collection
     Route::post('/collection/create' , [CollectionController::class, 'create']);
     Route::post('/collection/addFile' , [CollectionController::class, 'addFile']);
+
+    //Search
+    Route::get('/search/upload', [SearchFileController::class, 'index']);
+
 });
 
 // Interests - without Middleware

@@ -30,6 +30,9 @@ import Login from './views/Login.vue'
 import Registrierung from './views/Registrierung.vue'
 import UploadDetail from './views/UploadDetail.vue'
 
+//Search
+import SearchUpload from './views/SearchUpload.vue'
+
 
 export const routes = [
 
@@ -130,7 +133,7 @@ export const routes = [
         component: styleguide
     },
     {
-        name: 'documentmanagement',
+   name: 'documentmanagement',
         path: '/spa/documents',
         component: documents
     },
@@ -150,6 +153,14 @@ export const routes = [
         name: 'UploadDetail',
         path: '/spa/documents/:id',
         component: UploadDetail
+    },
+
+    {
+        name: 'SearchUpload',
+        path: '/spa/search/upload',
+        component: SearchUpload
     }
+
+
 
 ];

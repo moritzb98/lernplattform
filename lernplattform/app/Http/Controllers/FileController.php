@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\FileUpload;
+use Spatie\Searchable\Search;
 use Auth;
 use App\Http\Resources\UserFilesCollection;
 use App\Models\CollectionFiles;
