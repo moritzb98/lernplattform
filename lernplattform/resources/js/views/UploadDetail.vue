@@ -22,8 +22,8 @@
                             <p class="card-lernmateral-thumbs-number">3174</p>
                         </div>
                     </div>
-                    <div>
-                        <div class="card-lernmaterial-date">{{file.created_at}}</div>
+                    <div class="card-lernmaterial-last-column-container">
+                        <div class="card-lernmaterial-date">{{file.date}}</div>
                         <div class="card-lernmaterial-date-icon-container">
                              <span class="material-icons-outlined">visibility</span>
                              <span class="material-icons-outlined">file_download</span>
@@ -48,12 +48,34 @@
         mounted(){
             axios.get('/api/upload/'+this.$route.params.id)
             .then(response=>{
+                console.log(response.data.test);
                 this.file = response.data;
             });
-            console.log(this.file);
         },
         methods: {
 
         }
     }
 </script>
+
+<style scoped>
+
+.card-lernmaterial-middle-column-container{
+    overflow: hidden;
+    width: 50%;
+}
+
+.card-lernmaterial-last-column-container{
+    text-align: right;
+}
+
+.card-lernmaterial-icon-container{
+    min-width: 45px;
+    margin-right: 10px;
+}
+
+.card-lernmaterial-headline{
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+</style>

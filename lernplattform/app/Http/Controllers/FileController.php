@@ -15,7 +15,9 @@ class FileController extends Controller
         }
 
         public function showFile($id){
-            return FileUpload::find($id);
+            $file = FileUpload::find($id);
+            $file->date = $file->created_at->format('d-m-Y');
+            return $file;
         }
 
         public function upload(Request $request){
