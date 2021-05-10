@@ -19,15 +19,21 @@
                         <div class="card-lernmaterial-headline">{{file.displayname}}</div>
                         <div class="card-lernmateral-thumb">
                             <span class="material-icons-outlined material-icons-outlined-space-right">thumb_up</span>
-                            <p class="card-lernmateral-thumbs-number">3174</p>
+                            <!-- Änderungen starten -->
+                            <div class="card-lernmateral-thumbs-number-container">
+                                <p class="card-lernmateral-thumbs-number">3174</p>
+                            </div>
+                            <!-- Änderungen enden -->
                         </div>
                     </div>
                     <div class="card-lernmaterial-last-column-container">
                         <div class="card-lernmaterial-date">{{file.date}}</div>
                         <div class="card-lernmaterial-date-icon-container">
-                             <span class="material-icons-outlined">visibility</span>
-                             <span class="material-icons-outlined">file_download</span>
-                             <span class="material-icons-outlined">send</span>
+                            <!-- Änderungen starten -->
+                                <span class="material-icons-outlined card-lernmaterial-date-icon">visibility</span>
+                                <span class="material-icons-outlined card-lernmaterial-date-icon">file_download</span>
+                                <span class="material-icons-outlined card-lernmaterial-date-icon">send</span>
+                            <!-- Änderungen enden -->
                         </div>
                     </div>
                 </div>
@@ -63,10 +69,6 @@
 .card-lernmaterial-middle-column-container{
     overflow: hidden;
     width: 50%;
-}
-
-.card-lernmaterial-last-column-container{
-    text-align: right;
 }
 
 .card-lernmaterial-icon-container{
