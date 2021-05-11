@@ -27,22 +27,44 @@
                     </button>
                 </router-link>
                 <div v-for="(room, index) in rooms" :key="index">
-                    <router-link :to='"/spa/Lerngruppen/"+room.id+"/Chat"'>
+                    <!-- <router-link :to='"/spa/Lerngruppen/"+room.id+"/Chat"'> -->
                         <div class="neumorph card-small mb-2">
                             {{room.name}}
-                            <div class="card-small_controls">
-                                <router-link :to='"/spa/Lerngruppen/"+room.id+"/Bearbeiten"'>
+                            <div class="card-small_controls" >
+
+                                <!-- CTA Zum Chat -->
+                                <router-link :to='"/spa/Lerngruppen/"+room.id+"/Chat"'>
                                     <div class="card-small_controls_item">
-                                        <span class="material-icons">edit</span>
+                                        <span class="material-icons">question_answer</span>
                                     </div>
                                 </router-link>
-                                <!-- delete gibt 405 zurück --->
-                                <div class="card-small_controls_item" @click="deleteRoom(room.id)">
-                                    <span class="material-icons">delete</span>
-                                </div>
+
+                                <!-- Optionen Menü -->
+                                <md-menu md-size="small">
+                                    <md-button md-menu-trigger class="card-small_dropdown">
+                                        <span class="material-icons">more_vert</span>
+                                    </md-button>
+
+                                    <md-menu-content>
+                                        <md-menu-item>
+                                            <router-link :to='"/spa/Lerngruppen/"+room.id+"/Bearbeiten"'>
+                                                <div class="card-small_controls_item">
+                                                    <span class="material-icons">edit</span> Bearbeiten
+                                                </div>
+                                            </router-link>
+                                        </md-menu-item>
+                                        <md-menu-item>
+                                            <!-- delete gibt 405 zurück --->
+                                            <div class="card-small_controls_item" @click="deleteRoom(room.id)">
+                                                <span class="material-icons">delete</span> Löschen
+                                            </div>
+                                        </md-menu-item>
+                                    </md-menu-content>
+                                </md-menu>
+
                             </div>
                         </div>
-                    </router-link>
+                    <!-- </router-link> -->
                 </div>
             </div>
         </div>
@@ -77,5 +99,6 @@
 </script>
 
 <style>
+
 
 </style>

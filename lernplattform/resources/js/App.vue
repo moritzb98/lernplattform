@@ -596,6 +596,7 @@
     .card-small_controls {
         display: flex;
         height: 100%;
+        max-height: 20px;
         justify-content: flex-end;
         align-items: center;
         margin: 0 0 0 auto;
@@ -613,6 +614,31 @@
         font-size: 22px;
         margin: 0;
     }
+
+
+
+
+/* Material io overwrite */
+
+.card-small_controls_item {
+    padding: 10px;
+    justify-content: flex-start;
+}
+
+.card-small_controls_item .material-icons{
+    /* margin-right: 10px; */
+}
+
+.md-menu-item .material-icons {
+    margin-right: 10px;
+}
+
+.card-small_dropdown {
+
+}
+
+
+
 
 
 
