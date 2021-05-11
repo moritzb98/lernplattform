@@ -618,27 +618,21 @@
 
 
 
-/* Material io overwrite */
+/* Material.io overwrite */
 
 .card-small_controls_item {
     padding: 10px;
     justify-content: flex-start;
-}
-
-.card-small_controls_item .material-icons{
-    /* margin-right: 10px; */
+    color: #000;
 }
 
 .md-menu-item .material-icons {
     margin-right: 10px;
 }
 
-.card-small_dropdown {
-
+.card-small_controls button {
+    min-width: 0px;
 }
-
-
-
 
 
 
@@ -715,8 +709,6 @@
 
     .card-text--small{
         font-size: 1.2em;
-        width: 85%;
-        margin: 0 auto
     }
 
     .mdc-card-newsfeed{
@@ -1137,11 +1129,6 @@
             linear-gradient(to bottom right, white, #212121, #212121) border-box, /*Border-box is not need as it's the default value*/
             radial-gradient(white, white), radial-gradient(circle at top left,white,#212121);
 
-    }
-
-    .button-link{
-        text-decoration: none;
-        color: #212121;
     }
 
 

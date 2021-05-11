@@ -41,11 +41,16 @@
 
                                 <!-- Optionen Menü -->
                                 <md-menu md-size="small">
-                                    <md-button md-menu-trigger class="card-small_dropdown">
+                                    <md-button md-menu-trigger class="card-small_dropdown-btn">
                                         <span class="material-icons">more_vert</span>
                                     </md-button>
 
-                                    <md-menu-content>
+                                    <md-menu-content class="card-small_dropdown">
+                                        <md-menu-item>
+                                            <div class="card-small_controls_item" @click="deleteRoom(room.id)">
+                                                <span class="material-icons">logout</span> Verlassen
+                                            </div>
+                                        </md-menu-item>
                                         <md-menu-item>
                                             <router-link :to='"/spa/Lerngruppen/"+room.id+"/Bearbeiten"'>
                                                 <div class="card-small_controls_item">
@@ -86,11 +91,12 @@
                     })
             },
             deleteRoom(id){
-                this.axios.post('http://127.0.0.1:8000/api/room/delete/' + id)
+                this.axios.post('http://127.0.0.1:8000/api/room/delete/')
+                // var data = {id=this.id}
                     .then(response => (
                         console.log(response)
                     ))
-            }
+            },
         },
         mounted(){
             this.getMyRooms()

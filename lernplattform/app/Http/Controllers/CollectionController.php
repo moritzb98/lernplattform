@@ -11,6 +11,7 @@ class CollectionController extends Controller
 {
     public function create(Request $request){
         $userid = Auth::user()->id;
+
         $collection = Collection::create([
             'name' => $request['name'],
             'user_id' => $userid
