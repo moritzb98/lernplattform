@@ -91,11 +91,12 @@
                     })
             },
             deleteRoom(id){
-                this.axios.post('http://127.0.0.1:8000/api/room/delete/' + id)
+                this.axios.post('http://127.0.0.1:8000/api/room/delete/')
+                // var data = {id=this.id}
                     .then(response => (
                         console.log(response)
                     ))
-            }
+            },
         },
         mounted(){
             this.getMyRooms()

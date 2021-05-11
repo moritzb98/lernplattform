@@ -4149,7 +4149,8 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     deleteRoom: function deleteRoom(id) {
-      this.axios.post('http://127.0.0.1:8000/api/room/delete/' + id).then(function (response) {
+      this.axios.post('http://127.0.0.1:8000/api/room/delete/') // var data = {id=this.id}
+      .then(function (response) {
         return console.log(response);
       });
     }
