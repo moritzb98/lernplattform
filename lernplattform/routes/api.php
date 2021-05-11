@@ -9,6 +9,7 @@ use App\Http\Controllers\SearchFileController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\InterestController;
+use App\Http\Controllers\CollectionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,6 +63,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     //Collection
     Route::post('/collection/create' , [CollectionController::class, 'create']);
     Route::post('/collection/addFile' , [CollectionController::class, 'addFile']);
+    Route::get('/collection/show' , [CollectionController::class, 'showMyCollections']);
 
     //Search
     Route::get('/search/upload', [SearchFileController::class, 'index']);

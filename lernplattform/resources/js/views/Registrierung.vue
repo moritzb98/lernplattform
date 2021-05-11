@@ -129,7 +129,7 @@
                         console.log(response);
                         this.formData.email=this.registerData.email;
                         this.formData.password=this.registerData.password;
-                        Vue.$toast.success('Regsitrierung erfolgreich', {});
+                        Vue.$toast.success('Registrierung erfolgreich', {});
                         this.handleLogin();
                     });
                 });

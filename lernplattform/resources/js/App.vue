@@ -671,6 +671,14 @@
     5px 5px 13px #0e0e0e40;
     }
 
+    .mdc-card--100{
+        width: 100%;
+    }
+
+    .mdc-card-container--45{
+        width: 45%;
+    }
+
     .mdc-button--round{
         border-radius: 40px;
     }
@@ -701,6 +709,8 @@
 
     .card-text--small{
         font-size: 1.2em;
+        width: 80%;
+        margin: 0 auto;
     }
 
     .mdc-card-newsfeed{
@@ -1121,6 +1131,11 @@
             linear-gradient(to bottom right, white, #212121, #212121) border-box, /*Border-box is not need as it's the default value*/
             radial-gradient(white, white), radial-gradient(circle at top left,white,#212121);
 
+    }
+
+    .button-link{
+        text-decoration: none;
+        color: #212121;
     }
 
 
