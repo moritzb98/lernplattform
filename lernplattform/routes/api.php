@@ -9,6 +9,7 @@ use App\Http\Controllers\SearchFileController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\InterestController;
+use App\Http\Controllers\CollectionController;
 
 /*
 |--------------------------------------------------------------------------

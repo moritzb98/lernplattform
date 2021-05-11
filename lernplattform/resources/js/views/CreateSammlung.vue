@@ -3,7 +3,6 @@
         <h1>Sammlung erstellen</h1>
     </div>
 </template>
-<<<<<<< HEAD
 
 
 
@@ -29,5 +28,3 @@
         }
     }
 </script>
-=======
->>>>>>> main

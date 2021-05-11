@@ -13,39 +13,12 @@
                     <span class="material-icons-outlined card-icons--new">add</span>
                     <p class="card-text--small">Sammlung erstellen</p>
                 </div>
-<<<<<<< HEAD
             </router-link>
             <div class="mdc-card-container--45" v-for="collection in collections" :key="collection.id">
                 <div class="mdc-card mdc-card--middle mdc-card--100">
                     <span class="material-icons-outlined card-icons--big">biotech</span>
                     <p class="card-text--small">{{collection.name}}</p>
                 </div>
-=======
-            </a>
-            <div class="mdc-card mdc-card--middle">
-                <span class="material-icons-outlined card-icons--big">biotech</span>
-                <p class="card-text--small">Python</p>
-            </div>
-        </div>
-        <div class="container--flex">
-            <div class="mdc-card mdc-card--middle">
-                <span class="material-icons-outlined card-icons--big">biotech</span>
-                <p class="card-text--small">Abitur Bio</p>
-            </div>
-            <div class="mdc-card mdc-card--middle">
-                <span class="material-icons-outlined card-icons--big">biotech</span>
-                <p class="card-text--small">Lorem</p>
-            </div>
-        </div>
-        <div class="container--flex">
-            <div class="mdc-card mdc-card--middle">
-                <span class="material-icons-outlined card-icons--big">biotech</span>
-                <p class="card-text--small">Lorem</p>
-            </div>
-            <div class="mdc-card mdc-card--middle">
-                <span class="material-icons-outlined card-icons--big">biotech</span>
-                <p class="card-text--small">Lorem</p>
->>>>>>> main
             </div>
         </div>
         <br>
@@ -56,7 +29,6 @@
     </div>
 </template>
 
-<<<<<<< HEAD
 <script>
     export default {
         data() {
@@ -76,8 +48,6 @@
     }
 </script>
 
-=======
->>>>>>> main
 <style scoped>
     .card-icons--new{
         font-size: 7em;
