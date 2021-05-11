@@ -41,11 +41,16 @@
 
                                 <!-- Optionen Menü -->
                                 <md-menu md-size="small">
-                                    <md-button md-menu-trigger class="card-small_dropdown">
+                                    <md-button md-menu-trigger class="card-small_dropdown-btn">
                                         <span class="material-icons">more_vert</span>
                                     </md-button>
 
-                                    <md-menu-content>
+                                    <md-menu-content class="card-small_dropdown">
+                                        <md-menu-item>
+                                            <div class="card-small_controls_item" @click="deleteRoom(room.id)">
+                                                <span class="material-icons">logout</span> Verlassen
+                                            </div>
+                                        </md-menu-item>
                                         <md-menu-item>
                                             <router-link :to='"/spa/Lerngruppen/"+room.id+"/Bearbeiten"'>
                                                 <div class="card-small_controls_item">

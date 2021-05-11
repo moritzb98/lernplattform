@@ -618,27 +618,21 @@
 
 
 
-/* Material io overwrite */
+/* Material.io overwrite */
 
 .card-small_controls_item {
     padding: 10px;
     justify-content: flex-start;
-}
-
-.card-small_controls_item .material-icons{
-    /* margin-right: 10px; */
+    color: #000;
 }
 
 .md-menu-item .material-icons {
     margin-right: 10px;
 }
 
-.card-small_dropdown {
-
+.card-small_controls button {
+    min-width: 0px;
 }
-
-
-
 
 
 

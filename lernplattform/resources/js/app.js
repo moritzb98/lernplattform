@@ -9,7 +9,7 @@ import VueToast from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-sugar.css';
 
 // VueMaterial
-import { MdMenu } from 'vue-material/dist/components'
+import { MdMenu, MdButton } from 'vue-material/dist/components'
 import 'vue-material/dist/vue-material.min.css'
 import 'vue-material/dist/theme/default.css'
 
@@ -42,6 +42,7 @@ Vue.component('file-view', require('./views/Documents.vue').default);
 
 // VueMaterial
 Vue.use(MdMenu)
+Vue.use(MdButton)
 
 const router = new VueRouter({
     mode: 'history',
