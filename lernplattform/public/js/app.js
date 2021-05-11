@@ -5121,8 +5121,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__.default({
   broadcaster: 'pusher',
-  key: "",
-  cluster: "mt1",
+  key: "6dd882b858b49e4e018e",
+  cluster: "eu",
   forceTLS: true
 });
 
@@ -9866,7 +9866,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.button-small[data-v-fa4c472a]{\n    width: 40%;\n    height: 35px;\n    justify-content: center;\n}\n.small-button-container[data-v-fa4c472a]{\n    display: flex;\n    flex-wrap: nowrap;\n    justify-content: center;\n    margin-top: 40px;\n}\n.button-icon-small[data-v-fa4c472a]{\n    margin-right: 10px;\n}\n.background-container[data-v-fa4c472a]{\n    z-index: -1;\n}\n.background[data-v-fa4c472a]{\n    width: 100%;\n    height: 120px;\n    background-color: #F1D2CD;\n    border-radius: 0px 0px 0px 30px;\n    display: flex;\n    flex-wrap: nowrap;\n    position: relative;\n}\n.fabriges-rechteck[data-v-fa4c472a]{\n    width: 100%;\n    height: 50px;\n    background-color: #F1D2CD;\n}\n.weißes-rechteck[data-v-fa4c472a]{\n    width: 100%;\n    height: 52px;\n    background-color: #F1F1F1;\n    border-radius: 0px 60px 0px 0px;\n}\n.überschrift-oberer-Bereich[data-v-fa4c472a]{\n    font-size: 1.5em;\n    color: #ED553B;\n    font-weight: bold;\n}\n.icon-für-oberen-Bereich[data-v-fa4c472a]{\n    font-size: 7em;\n    color: #F0A89B;\n    margin-bottom: -12px;\n    margin-left: 6px;\n    position: absolute;\n    bottom: 0;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.button-small[data-v-fa4c472a]{\n    width: 40%;\n    height: 35px;\n    justify-content: center;\n}\n.small-button-container[data-v-fa4c472a]{\n    display: flex;\n    flex-wrap: nowrap;\n    justify-content: center;\n    margin-top: 40px;\n}\n.button-icon-small[data-v-fa4c472a]{\n    margin-right: 10px;\n}\n.background-container[data-v-fa4c472a]{\n    width: 100vw;\n    margin-left: -16px;\n}\n.background[data-v-fa4c472a]{\n    width: 100%;\n    height: 120px;\n    background-color: #F1D2CD;\n    border-radius: 0px 0px 0px 30px;\n    display: flex;\n    flex-wrap: nowrap;\n    position: relative;\n}\n.fabriges-rechteck[data-v-fa4c472a]{\n    width: 100%;\n    height: 50px;\n    background-color: #F1D2CD;\n}\n.weißes-rechteck[data-v-fa4c472a]{\n    width: 100%;\n    height: 52px;\n    background-color: #F1F1F1;\n    border-radius: 0px 60px 0px 0px;\n}\n.überschrift-oberer-Bereich[data-v-fa4c472a]{\n    font-size: 1.5em;\n    color: #ED553B;\n    font-weight: bold;\n}\n.icon-für-oberen-Bereich[data-v-fa4c472a]{\n    font-size: 7em;\n    color: #F0A89B;\n    margin-bottom: -12px;\n    margin-left: 6px;\n    position: absolute;\n    bottom: 0;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

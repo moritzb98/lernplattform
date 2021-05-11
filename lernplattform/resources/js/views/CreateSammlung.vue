@@ -73,7 +73,8 @@
     }
 
     .background-container{
-        z-index: -1;
+        width: 100vw;
+        margin-left: -16px;
     }
 
     .background{
