@@ -28,4 +28,9 @@ class CollectionController extends Controller
 
         return response()->json(['´success' => 'Datei erfolgreich zur Sammlung hinzugefügt.'], 200);
     }
+
+    public function showMyCollections(){
+        $userid = Auth::user()->id;
+        return Collection::where('user_id', $userid)->get();
+    }
 }

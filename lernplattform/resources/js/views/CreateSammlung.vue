@@ -36,6 +36,8 @@
                 axios.post('/api/collection/create',this.collection)
                 .then(response=>{
                     console.log(response.data);
+                    Vue.$toast.success('Sammlung erfolgreich erstellt.', {});
+                    this.$router.push({ path: '/spa/Lernmaterial' });
                 });
             }
         }

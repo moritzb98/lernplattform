@@ -14,29 +14,11 @@
                     <p class="card-text--small">Sammlung erstellen</p>
                 </div>
             </router-link>
-            <div class="mdc-card mdc-card--middle">
-                <span class="material-icons-outlined card-icons--big">biotech</span>
-                <p class="card-text--small">Python</p>
-            </div>
-        </div>
-        <div class="container--flex">
-            <div class="mdc-card mdc-card--middle">
-                <span class="material-icons-outlined card-icons--big">biotech</span>
-                <p class="card-text--small">Abitur Bio</p>
-            </div>
-            <div class="mdc-card mdc-card--middle">
-                <span class="material-icons-outlined card-icons--big">biotech</span>
-                <p class="card-text--small">Lorem</p>
-            </div>
-        </div>
-        <div class="container--flex">
-            <div class="mdc-card mdc-card--middle">
-                <span class="material-icons-outlined card-icons--big">biotech</span>
-                <p class="card-text--small">Lorem</p>
-            </div>
-            <div class="mdc-card mdc-card--middle">
-                <span class="material-icons-outlined card-icons--big">biotech</span>
-                <p class="card-text--small">Lorem</p>
+            <div class="mdc-card-container--45" v-for="collection in collections" :key="collection.id">
+                <div class="mdc-card mdc-card--middle mdc-card--100">
+                    <span class="material-icons-outlined card-icons--big">biotech</span>
+                    <p class="card-text--small">{{collection.name}}</p>
+                </div>
             </div>
         </div>
         <br>
@@ -55,9 +37,9 @@
             }
         },
         mounted(){
-            axios.get('/api/upload/'+this.$route.params.id)
+            axios.get('/api/collection/show')
             .then(response=>{
-                this.file = response.data;
+                this.collections = response.data;
             });
         },
         methods: {

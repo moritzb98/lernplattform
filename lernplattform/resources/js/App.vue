@@ -677,6 +677,14 @@
     5px 5px 13px #0e0e0e40;
     }
 
+    .mdc-card--100{
+        width: 100%;
+    }
+
+    .mdc-card-container--45{
+        width: 45%;
+    }
+
     .mdc-button--round{
         border-radius: 40px;
     }

@@ -63,6 +63,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     //Collection
     Route::post('/collection/create' , [CollectionController::class, 'create']);
     Route::post('/collection/addFile' , [CollectionController::class, 'addFile']);
+    Route::get('/collection/show' , [CollectionController::class, 'showMyCollections']);
 
     //Search
     Route::get('/search/upload', [SearchFileController::class, 'index']);
