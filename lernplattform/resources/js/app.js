@@ -8,6 +8,11 @@ import Vue from 'vue';
 import VueToast from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-sugar.css';
 
+// VueMaterial
+import { MdMenu } from 'vue-material/dist/components'
+import 'vue-material/dist/vue-material.min.css'
+import 'vue-material/dist/theme/default.css'
+
 
 window.Vue = require('vue').default;
 
@@ -34,6 +39,9 @@ Vue.use(VueToast, {
 Vue.use(VueAxios, axios);
 Vue.component('file-upload-component', require('./components/FileUploadComponent.vue').default);
 Vue.component('file-view', require('./views/Documents.vue').default);
+
+// VueMaterial
+Vue.use(MdMenu)
 
 const router = new VueRouter({
     mode: 'history',
