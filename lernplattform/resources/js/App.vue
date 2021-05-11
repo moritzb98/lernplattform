@@ -707,6 +707,8 @@
 
     .card-text--small{
         font-size: 1.2em;
+        width: 85%;
+        margin: 0 auto
     }
 
     .mdc-card-newsfeed{

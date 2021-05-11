@@ -37,10 +37,13 @@
                         </div>
                     </div>
                 </div>
+                <div class="trennungsstrich-container">
+                    <hr class="trennungsstrich">
+                </div>
                 <div>
-                    <hr>
 
                 </div>
+
             </div>
 
     </div>
@@ -51,8 +54,8 @@
     export default {
         data() {
             return {
-                file:{}
-
+                file:{},
+                collections:[],
             }
         },
         mounted(){
@@ -73,4 +76,16 @@
     }
 </script>
 
+<style scoped>
+    .trennungsstrich-container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
 
+    .trennungsstrich{
+        width: 80%;
+    }
+
+
+</style>

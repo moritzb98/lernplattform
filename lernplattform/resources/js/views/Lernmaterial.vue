@@ -8,12 +8,12 @@
         </a>
 
         <div class="container--flex">
-            <a href="" class="container-link">
+            <router-link to="/spa/Sammlung-erstellen">
                <div class="mdc-card mdc-card--new">
                     <span class="material-icons-outlined card-icons--new">add</span>
                     <p class="card-text--small">Sammlung erstellen</p>
                 </div>
-            </a>
+            </router-link>
             <div class="mdc-card mdc-card--middle">
                 <span class="material-icons-outlined card-icons--big">biotech</span>
                 <p class="card-text--small">Python</p>
