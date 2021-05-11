@@ -9,7 +9,7 @@
 
         <div class="container--flex">
             <router-link to="/spa/Sammlung-erstellen">
-               <div class="mdc-card mdc-card--new">
+               <div class="mdc-card mdc-card--new button-link">
                     <span class="material-icons-outlined card-icons--new">add</span>
                     <p class="card-text--small">Sammlung erstellen</p>
                 </div>
@@ -47,6 +47,25 @@
     </div>
 </template>
 
+<script>
+    export default {
+        data() {
+            return {
+                collections:[],
+            }
+        },
+        mounted(){
+            axios.get('/api/upload/'+this.$route.params.id)
+            .then(response=>{
+                this.file = response.data;
+            });
+        },
+        methods: {
+
+        }
+    }
+</script>
+
 <style scoped>
     .card-icons--new{
         font-size: 7em;
@@ -59,8 +78,5 @@
         color: #212121;
     }
 
-    .button-link{
-        text-decoration: none;
-        color: #212121;
-    }
+
 </style>

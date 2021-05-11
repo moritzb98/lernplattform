@@ -112,6 +112,13 @@ class RoomController extends Controller
         return new UserRoomCollection(RoomUsers::where('room_id', $roomid)->get());
     }
 
+    public function getRoomsUserIsIn(){
+        $userid = Auth::user()->id;
+        return new UserRoomCollection(RoomUsers::where('user_id', $userid)->get());
+    }
+
+
+
 
 }
 

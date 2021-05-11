@@ -9,7 +9,7 @@ use App\Http\Controllers\SearchFileController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\InterestController;
-
+use App\Http\Controllers\CollectionController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -40,6 +40,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/rooms', [RoomController::class, 'getAllRooms']);
     Route::get('/getmyroom', [RoomController::class, 'getMyRooms']);
     Route::post('/room/users', [RoomController::class, 'getUsersInRoom']);
+    Route::get('/room/userIsIn', [RoomController::class, 'getRoomsUserIsIn']);
 
     //Uploads + Files
     Route::get('/getFiles', [FileController::class, 'index']);

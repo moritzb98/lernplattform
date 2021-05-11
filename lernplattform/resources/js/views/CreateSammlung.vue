@@ -5,10 +5,12 @@
         <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
             <input v-model="collection.name" type="text" class="mdc-text-field__input text-field__input--modified" placeholder="" aria-label="Label">
         </label>
-        <div class="list-items">
-            <div class="list-items-text">Abbrechen</div>
-            <span class="material-icons">add</span>
-        </div>
+        <router-link to="/spa/Lernmaterial">
+            <div class="list-items button-link">
+                <div class="list-items-text">Abbrechen</div>
+                <span class="material-icons">add</span>
+            </div>
+        </router-link>
         <div @click="createCollection()" class="list-items">
             <div class="list-items-text">Erstellen</div>
             <span class="material-icons">add</span>
@@ -31,7 +33,7 @@
 
         methods: {
             createCollection(){
-                axios.post('/api/files/showCollectionsToFile',this.collection)
+                axios.post('/api/collection/create',this.collection)
                 .then(response=>{
                     console.log(response.data);
                 });
