@@ -709,6 +709,8 @@
 
     .card-text--small{
         font-size: 1.2em;
+        width: 80%;
+        margin: 0 auto;
     }
 
     .mdc-card-newsfeed{
@@ -1129,6 +1131,11 @@
             linear-gradient(to bottom right, white, #212121, #212121) border-box, /*Border-box is not need as it's the default value*/
             radial-gradient(white, white), radial-gradient(circle at top left,white,#212121);
 
+    }
+
+    .button-link{
+        text-decoration: none;
+        color: #212121;
     }
 
 

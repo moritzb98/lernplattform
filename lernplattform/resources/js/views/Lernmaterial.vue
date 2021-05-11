@@ -8,8 +8,8 @@
         </a>
 
         <div class="container--flex">
-            <a href="" class="container-link">
-               <div class="mdc-card mdc-card--new">
+            <router-link to='/spa/Sammlung-erstellen' >
+               <div class="mdc-card mdc-card--new button-link">
                     <span class="material-icons-outlined card-icons--new">add</span>
                     <p class="card-text--small">Sammlung erstellen</p>
                 </div>
@@ -40,7 +40,9 @@
             axios.get('/api/collection/show')
             .then(response=>{
                 this.collections = response.data;
+                console.log(response.data);
             });
+
         },
         methods: {
 
@@ -60,8 +62,5 @@
         color: #212121;
     }
 
-    .button-link{
-        text-decoration: none;
-        color: #212121;
-    }
+
 </style>
