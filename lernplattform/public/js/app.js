@@ -4919,6 +4919,7 @@ vue__WEBPACK_IMPORTED_MODULE_9__.default.component('file-view', __webpack_requir
 
 vue__WEBPACK_IMPORTED_MODULE_9__.default.use(vue_material_dist_components__WEBPACK_IMPORTED_MODULE_6__.MdMenu);
 vue__WEBPACK_IMPORTED_MODULE_9__.default.use(vue_material_dist_components__WEBPACK_IMPORTED_MODULE_6__.MdButton);
+vue__WEBPACK_IMPORTED_MODULE_9__.default.use(vue_material_dist_components__WEBPACK_IMPORTED_MODULE_6__.MdList);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_10__.default({
   mode: 'history',
   routes: _router__WEBPACK_IMPORTED_MODULE_3__.routes
