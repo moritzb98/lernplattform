@@ -78,9 +78,9 @@ class RoomController extends Controller
     public function joinRoom($roomid) {
         $userid = Auth::user()->id;
         $persons = RoomsUsers::where('room_id', $roomid)->count();
-        $maxPersons = Room::where('id', $roomid)->get();
+        $maxPersons = Room::where('id', $roomid)->first();
 
-        if($persons < $maxPersons->maxPersons){
+        if($persons < $maxPersons['maxPersons']){
             RoomsUsers::create([
                 'user_id' => $userid,
                 'room_id' => $roomid

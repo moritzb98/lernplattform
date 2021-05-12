@@ -42,7 +42,7 @@
                             </div> -->
                         </div>
                     </div>
-                    <!-- delete gibt 405 zurück --->
+                    <!-- delete gibt 405 zurück -->
                 </div>
             </div>
         </div>
