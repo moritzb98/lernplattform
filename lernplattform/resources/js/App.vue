@@ -691,6 +691,7 @@
 
     .mdc-card-container--45{
         width: 45%;
+        margin-bottom: 15px;
     }
 
     .mdc-button--round{

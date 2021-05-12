@@ -10,8 +10,6 @@
                 <div class="weißes-rechteck"></div>
             </div>
         </div>
-
-        <h1>Sammlung erstellen</h1>
         <div class="headline-text-field">Name der Sammlung</div>
         <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
             <input v-model="collection.name" type="text" class="mdc-text-field__input text-field__input--modified " placeholder="" aria-label="Label">
@@ -104,13 +102,14 @@
         font-size: 1.5em;
         color: #ED553B;
         font-weight: bold;
+        margin: auto;
     }
 
     .icon-für-oberen-Bereich{
-        font-size: 7em;
+        font-size: 8em;
         color: #F0A89B;
-        margin-bottom: -12px;
-        margin-left: 6px;
+        margin-bottom: -14px;
+        margin-left: 4px;
         position: absolute;
         bottom: 0;
     }

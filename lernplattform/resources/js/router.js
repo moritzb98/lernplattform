@@ -17,6 +17,7 @@ import CreateKarteikarten from './views/CreateKarteikarten.vue'
 import CreateQuiz from './views/CreateQuiz.vue'
 import CreateSkript from './views/CreateSkript.vue'
 import CreateSammlung from './views/CreateSammlung.vue'
+import CollectionDetail from './views/CollectionDetail.vue'
 
 //Lerngruppe
 import MeineLerngruppen from './views/Lerngruppe/MeineLerngruppen.vue'
@@ -89,6 +90,12 @@ export const routes = [
         path: '/spa/Sammlung-erstellen',
         component: CreateSammlung
     },
+    {
+        name: 'CollectionDetail',
+        path: '/spa/Collection-detail/:id',
+        component: CollectionDetail
+    },
+
 
     // Lerngruppen
     {

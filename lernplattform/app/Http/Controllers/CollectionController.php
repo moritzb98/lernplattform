@@ -34,4 +34,9 @@ class CollectionController extends Controller
         $userid = Auth::user()->id;
         return Collection::where('user_id', $userid)->get();
     }
+
+    public function showCollectionDetails($id){
+        return Collection::where('id', $id)->first();
+    }
+
 }

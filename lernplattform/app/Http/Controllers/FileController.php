@@ -58,7 +58,7 @@ class FileController extends Controller
         }
 
         public function showFilesInCollection(Request $request){
-            $files =  new CollFilesCollection(CollectionFiles::where('collection_id', $request['collection_id'])->get());
+            $files =  new CollFilesCollection(CollectionFiles::where('collection_id', $request['id'])->get());
             return $files;
         }
 

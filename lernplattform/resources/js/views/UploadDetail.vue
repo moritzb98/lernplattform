@@ -1,10 +1,5 @@
 <template>
     <div>
-        <h1>Hallo</h1>
-        <p>{{file}}</p>
-        <p>{{file.displayname}}</p>
-            <!--In der Card sollte man denke ich auch noch sehen, in welchen Sammlungen man den Upload abgespeichert hat.
-            Geht das, @Moritz?-->
             <div class="mdc-card mdc-card-lernmaterial">
                 <div class="card-lernmaterial-spacing">
                     <div class="card-lernmaterial-icon-container">
@@ -37,9 +32,14 @@
                         </div>
                     </div>
                 </div>
-                <div>
+                <div class="strich-container">
                     <hr>
-
+                </div>
+                <div class="zugeordnete-Sammlungen-Container">
+                    <div class="zugeordnete-Sammlungen-Überschrift">Zugehörige Sammlungen:</div>
+                    <!--
+                    <div class="" v-for="collection in collections" :key="collection.id"></div>
+                     -->
                 </div>
             </div>
 
@@ -73,4 +73,22 @@
     }
 </script>
 
+<style scoped>
 
+    .strich-container{
+        width: 80%;
+        margin: auto;
+        margin-top: -1em;
+    }
+
+    .zugeordnete-Sammlungen-Container{
+        width: 80%;
+        margin: auto;
+    }
+
+    .zugeordnete-Sammlungen-Überschrift{
+        font-size: 1.1em;
+        font-weight: bold;
+    }
+
+</style>
