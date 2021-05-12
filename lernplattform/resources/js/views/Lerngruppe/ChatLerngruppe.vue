@@ -218,21 +218,22 @@
                 axios.get('/api/chat/room/' + this.currentRoom.id + '/messages')
                 .then( response => {
                     this.messages = response.data;
+                    this.scroll();
                 })
                 .catch( error => {
                     console.log( error );
                 })
+            },
+
+            scroll(){
+                var el = document.querySelectorAll(".chat_message-wrapper:last-child")[0];
+                if (el) {
+                    el.scrollIntoView({behavior: 'smooth'});
+                }
             }
         },
         created() {
             this.getRooms();
         },
-        mounted() {
-            // Funzt noch nicht
-            var chatDiv = document.getElementById("js__chat");
-            // alert(chatDiv);
-            chatDiv.scrollTop = chatDiv.scrollHeight;
-            // alert(chatDiv.scrollHeight);
-        }
     }
 </script>
