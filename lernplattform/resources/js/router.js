@@ -31,11 +31,17 @@ import Registrierung from './views/Registrierung.vue'
 import UploadDetail from './views/UploadDetail.vue'
 
 //Search
+import Suche from './views/Suche.vue'
 import SearchUpload from './views/SearchUpload.vue'
 
 
 export const routes = [
 
+    {
+        name: 'Suche',
+        path: '/spa/Suche',
+        component: Suche
+    },
     // Geändert in Drop-Up Nav?
     {
         name: 'Login',
