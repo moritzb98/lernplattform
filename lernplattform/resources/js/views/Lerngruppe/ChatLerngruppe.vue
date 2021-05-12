@@ -38,52 +38,16 @@
                         </button>
                     </div> -->
 
+
                     <!-- Chat -->
                     <div class="chat">
-
-                        <!-- Nachricht From Others -->
-                        <div class="chat_message-wrapper">
-                            <div class="chat_message chat_message--others">
-                                <div class="chat_message-autor">Roflcopter</div>
-                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, se
-                                <div class="chat_message-timestamp">21:42</div>
-                            </div>
-                        </div>
-
-                        <!-- Nachricht From Me -->
-                        <div class="chat_message-wrapper">
-                            <div class="chat_message chat_message--me">
-                                <div class="chat_message-autor">Max</div>
-                                    re et dolore magna aliquyam erat, sed dia
-                                <div class="chat_message-timestamp">21:42</div>
-                            </div>
-                        </div>
-
-                        <div class="chat_message-wrapper">
-                            <div class="chat_message chat_message--others">
-                                <div class="chat_message-autor">Roflcopter 60000</div>
-                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At ve
-                                <div class="chat_message-timestamp">21:42</div>
-                            </div>
-                        </div>
-
-                        <div class="chat_message-wrapper">
-                            <div class="chat_message chat_message--me">
-                                <div class="chat_message-autor">lss</div>
-                                    r sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                                <div class="chat_message-timestamp">21:42</div>
-                            </div>
-                        </div>
-
+                        <message-container :messages="messages" />
                     </div>
 
                     <!-- Nachrichten Optionen -->
-                    <div class="chat_controls">
-                        <input class="neumorph--pressed neumorph--pressed--border input w-100">
-                        <button class="neumorph chat_controls-send">
-                            <span class="material-icons">send</span>
-                        </button>
-                    </div>
+                    <input-message
+                        :room="currentRoom"
+                        v-on:messagesent="getMessages()" />
 
                 </div>
             </div>
@@ -196,6 +160,74 @@
 </style>
 
 <script>
+
+
+    import MessageContainer from '../Chat/messageContainer.vue'
+    import InputMessage from '../Chat/inputMessage.vue'
+    import ChatRoomSelection from '../Chat/chatRoomSelection.vue'
+
     export default {
+        components: {
+            MessageContainer,
+            InputMessage,
+            ChatRoomSelection
+        },
+
+       data: function () {
+            return {
+                chatRooms: [],
+                currentRoom: [],
+                messages: [],
+            }
+        },
+
+        watch: {
+            currentRoom(){
+                this.connect();
+            }
+        },
+
+        methods: {
+
+            connect() {
+                if( this.currentRoom.id ){
+                    let vm = this;
+                    this.getMessages();
+                    window.Echo.private("chat." + this.currentRoom.id )
+                    .listen('.message.new', e => {
+                        vm.getMessages();
+                    })
+                }
+            },
+
+            getRooms() {
+                axios.get('/api/chat/rooms')
+                .then( response => {
+                    this.chatRooms = response.data;
+                    console.log(this.response);
+                    this.setRoom( response.data[0] );
+                })
+                .catch( error => {
+                    console.log( error );
+                })
+            },
+            setRoom ( room ){
+                this.currentRoom = room;
+                this.getMessages();
+            },
+            getMessages(){
+                axios.get('/api/chat/room/' + this.currentRoom.id + '/messages')
+                .then( response => {
+                    this.messages = response.data;
+                })
+                .catch( error => {
+                    console.log( error );
+                })
+            }
+        },
+        created() {
+            this.getRooms();
+       }
+
     }
 </script>

@@ -1,6 +1,6 @@
 <template>
-   <!-- <app-layout> 
-        <template #header>
+   <app-layout>
+        <!-- <template header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 <chat-room-selection
                     v-if="currentRoom.id"
@@ -9,8 +9,8 @@
                     v-on:roomchanged="setRoom( $event )"
                 />
             </h2>
-        </template>
- -->
+        </template> -->
+
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto xm:px-6 lg:px-8">
@@ -20,11 +20,11 @@
                         :room="currentRoom"
                         v-on:messagesent="getMessages()" />
                 </div>
-                
+
             </div>
         </div>
-   <!-- </app-layout> --> 
-</template> 
+   </app-layout>
+</template>
 
 
 <script>
@@ -66,7 +66,7 @@
                     })
                 }
             },
-            
+
             getRooms() {
                 axios.get('/api/chat/rooms')
                 .then( response => {
