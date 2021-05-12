@@ -6,7 +6,7 @@
                 <div class="banner-grp-chat">
                     <div class="banner-grp-chat_body">
                         <div class="banner-grp-chat_body-title">
-                            <h2>Gruppenname</h2>
+                            <h2>{{currentRoom.name}}</h2>
                         </div>
                     </div>
                     <div class="banner-grp-chat_overlay"></div>
@@ -160,8 +160,6 @@
 </style>
 
 <script>
-
-
     import MessageContainer from '../Chat/messageContainer.vue'
     import InputMessage from '../Chat/inputMessage.vue'
     import ChatRoomSelection from '../Chat/chatRoomSelection.vue'
@@ -172,7 +170,6 @@
             InputMessage,
             ChatRoomSelection
         },
-
        data: function () {
             return {
                 chatRooms: [],
@@ -180,15 +177,12 @@
                 messages: [],
             }
         },
-
         watch: {
             currentRoom(){
                 this.connect();
             }
         },
-
         methods: {
-
             connect() {
                 if( this.currentRoom.id ){
                     let vm = this;
@@ -199,7 +193,6 @@
                     })
                 }
             },
-
             getRooms() {
                 axios.get('/api/chat/rooms')
                 .then( response => {
@@ -227,7 +220,9 @@
         },
         created() {
             this.getRooms();
-       }
-
+       },
+        mounted(){
+            this.getAllRooms()
+        }
     }
 </script>

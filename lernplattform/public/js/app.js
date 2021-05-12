@@ -3379,23 +3379,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['room'],
   data: function data() {
@@ -3462,15 +3445,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -3492,9 +3466,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
 //
 //
 //
@@ -4112,6 +4083,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.getRooms();
+  },
+  mounted: function mounted() {
+    this.getAllRooms();
   }
 });
 
@@ -50393,7 +50367,6 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {},
     _vm._l(_vm.messages, function(message, index) {
       return _c(
         "div",
@@ -50432,8 +50405,7 @@ var render = function() {
     _c("div", { staticClass: "chat_message-autor" }, [
       _vm._v(_vm._s(_vm.message.user.name))
     ]),
-    _vm._v("\n        " + _vm._s(_vm.message.message) + "\n        "),
-    _vm._v(" "),
+    _vm._v("\n        " + _vm._s(_vm.message.message) + "\n    "),
     _c("div", { staticClass: "chat_message-timestamp" }, [
       _vm._v(_vm._s(_vm._f("moment")(_vm.message.created_at, "HH:mm")))
     ])
@@ -51036,7 +51008,19 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._m(0),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col" }, [
+        _c("div", { staticClass: "banner-grp-chat" }, [
+          _c("div", { staticClass: "banner-grp-chat_body" }, [
+            _c("div", { staticClass: "banner-grp-chat_body-title" }, [
+              _c("h2", [_vm._v(_vm._s(_vm.currentRoom.name))])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "banner-grp-chat_overlay" })
+        ])
+      ])
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col" }, [
@@ -51066,26 +51050,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col" }, [
-        _c("div", { staticClass: "banner-grp-chat" }, [
-          _c("div", { staticClass: "banner-grp-chat_body" }, [
-            _c("div", { staticClass: "banner-grp-chat_body-title" }, [
-              _c("h2", [_vm._v("Gruppenname")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "banner-grp-chat_overlay" })
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
