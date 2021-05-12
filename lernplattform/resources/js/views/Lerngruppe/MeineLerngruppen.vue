@@ -59,8 +59,8 @@
                                             </router-link>
                                         </md-menu-item>
                                         <md-menu-item>
-                                            <!-- delete gibt 405 zurück --->
-                                            <div class="card-small_controls_item" @click="deleteRoom()">
+                                            <!-- delete gibt 405 zurück -->
+                                            <div class="card-small_controls_item" @click="deleteRoom(room.id)">
                                                 <span class="material-icons">delete</span> Löschen
                                             </div>
                                         </md-menu-item>
@@ -99,10 +99,10 @@
                         console.log(this.roomsUserIsIn);
                     })
             },
-            deleteRoom(){
-                this.axios.post('http://127.0.0.1:8000/api/room/delete/')
+            deleteRoom(id){
+                this.axios.post('http://127.0.0.1:8000/api/room/delete/' + id)
                     .then(response => (
-                        this.room.id = response.data.id,
+                        //this.room.id = response.data.id,
                         console.log(response)
                     ))
             },

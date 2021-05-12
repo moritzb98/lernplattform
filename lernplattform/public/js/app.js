@@ -4241,11 +4241,11 @@ __webpack_require__.r(__webpack_exports__);
         _this2.roomsUserIsIn = response.data, console.log(_this2.roomsUserIsIn);
       });
     },
-    deleteRoom: function deleteRoom() {
-      var _this3 = this;
-
-      this.axios.post('http://127.0.0.1:8000/api/room/delete/').then(function (response) {
-        return _this3.room.id = response.data.id, console.log(response);
+    deleteRoom: function deleteRoom(id) {
+      this.axios.post('http://127.0.0.1:8000/api/room/delete/' + id).then(function (response) {
+        return (//this.room.id = response.data.id,
+          console.log(response)
+        );
       });
     }
   },
@@ -51105,7 +51105,7 @@ var render = function() {
                                   staticClass: "card-small_controls_item",
                                   on: {
                                     click: function($event) {
-                                      return _vm.deleteRoom()
+                                      return _vm.deleteRoom(room.id)
                                     }
                                   }
                                 },
