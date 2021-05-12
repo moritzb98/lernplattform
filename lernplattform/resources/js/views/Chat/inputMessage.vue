@@ -5,7 +5,7 @@
                 type="text"
                 v-model="message"
                 @keyup.enter="sendMessage()"
-                placeholder="Say something..."
+                placeholder="Schreibe eine Nachricht..."
             >
         <button class="neumorph chat_controls-send" @click="sendMessage()" >
             <span class="material-icons">send</span>

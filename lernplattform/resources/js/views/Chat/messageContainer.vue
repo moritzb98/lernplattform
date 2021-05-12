@@ -13,11 +13,7 @@
     <div class="">
         <!-- Nachricht From Others -->
         <div class="chat_message-wrapper" v-for="(message, index) in messages" :key="index">
-            <div class="chat_message chat_message--others">
-                <div class="chat_message-autor">Roflcopter</div>
-                    <message-item :message="message" />
-                <div class="chat_message-timestamp">21:42</div>
-            </div>
+            <message-item :message="message" />
         </div>
 
         <!-- Nachricht From Me -->
