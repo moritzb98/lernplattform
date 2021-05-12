@@ -36,8 +36,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/room/update', [RoomController::class, 'update']);
     Route::post('/room/get/{roomid}', [RoomController::class, 'getRoom']);
     Route::post('/room/delete/{id}', [RoomController::class, 'delete']);
-    Route::post('/room/join', [RoomController::class, 'joinRoom']);
-    Route::post('/room/leave', [RoomController::class, 'leaveRoom']);
+    Route::post('/room/join/{roomid}', [RoomController::class, 'joinRoom']);
+    Route::post('/room/leave/{roomid}', [RoomController::class, 'leaveRoom']);
     Route::get('/rooms', [RoomController::class, 'getAllRooms']);
     Route::get('/getmyroom', [RoomController::class, 'getMyRooms']);
     Route::post('/room/users', [RoomController::class, 'getUsersInRoom']);
