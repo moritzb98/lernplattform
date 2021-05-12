@@ -26,6 +26,7 @@
                         <span class="btn_icon material-icons">add</span>
                     </button>
                 </router-link>
+                <p>von mir erstellt</p>
                 <div v-for="(room, index) in rooms" :key="index">
                     <!-- <router-link :to='"/spa/Lerngruppen/"+room.id+"/Chat"'> -->
                         <div class="neumorph card-small mb-2">
@@ -71,6 +72,53 @@
                         </div>
                     <!-- </router-link> -->
                 </div>
+
+
+                <p>beigetreten</p>
+                <div v-for="(roomUserIsIn, index) in roomsUserIsIn" :key="index">
+                    <div class="neumorph card-small mb-2">
+                        {{roomUserIsIn.name}}
+                        <div class="card-small_controls" >
+
+                            <!-- CTA Zum Chat -->
+                            <router-link :to='"/spa/Lerngruppen/"+room.id+"/Chat"'>
+                                <div class="card-small_controls_item">
+                                    <span class="material-icons">question_answer</span>
+                                </div>
+                            </router-link>
+
+                            <!-- Optionen Menü -->
+                            <md-menu md-size="small">
+                                <md-button md-menu-trigger class="card-small_dropdown-btn">
+                                    <span class="material-icons">more_vert</span>
+                                </md-button>
+
+                                <md-menu-content class="card-small_dropdown">
+                                    <md-menu-item>
+                                        <div class="card-small_controls_item" @click="leaveRoom(room.id)">
+                                            <span class="material-icons">logout</span> Verlassen
+                                        </div>
+                                    </md-menu-item>
+                                    <md-menu-item>
+                                        <router-link :to='"/spa/Lerngruppen/"+room.id+"/Bearbeiten"'>
+                                            <div class="card-small_controls_item">
+                                                <span class="material-icons">edit</span> Bearbeiten
+                                            </div>
+                                        </router-link>
+                                    </md-menu-item>
+                                    <md-menu-item>
+                                        <!-- delete gibt 405 zurück -->
+                                        <div class="card-small_controls_item" @click="deleteRoom(room.id)">
+                                            <span class="material-icons">delete</span> Löschen
+                                        </div>
+                                    </md-menu-item>
+                                </md-menu-content>
+                            </md-menu>
+
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
