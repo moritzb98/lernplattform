@@ -51044,7 +51044,7 @@ var render = function() {
                                   staticClass: "card-small_controls_item",
                                   on: {
                                     click: function($event) {
-                                      return _vm.deleteRoom(room.id)
+                                      return _vm.leaveRoom(room.id)
                                     }
                                   }
                                 },

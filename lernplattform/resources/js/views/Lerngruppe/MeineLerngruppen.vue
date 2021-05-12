@@ -47,7 +47,7 @@
 
                                     <md-menu-content class="card-small_dropdown">
                                         <md-menu-item>
-                                            <div class="card-small_controls_item" @click="deleteRoom(room.id)">
+                                            <div class="card-small_controls_item" @click="leaveRoom(room.id)">
                                                 <span class="material-icons">logout</span> Verlassen
                                             </div>
                                         </md-menu-item>
