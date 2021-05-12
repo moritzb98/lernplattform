@@ -39,10 +39,8 @@
                     </div> -->
 
 
-                    <!-- Chat -->
-                    <div class="chat">
-                        <message-container :messages="messages" />
-                    </div>
+                    <!-- Chat Nachrichten -->
+                    <message-container :messages="messages" />
 
                     <!-- Nachrichten Optionen -->
                     <input-message
@@ -220,9 +218,13 @@
         },
         created() {
             this.getRooms();
-       },
-        mounted(){
-            this.getAllRooms()
+        },
+        mounted() {
+            // Funzt noch nicht
+            var chatDiv = document.getElementById("js__chat");
+            // alert(chatDiv);
+            chatDiv.scrollTop = chatDiv.scrollHeight;
+            // alert(chatDiv.scrollHeight);
         }
     }
 </script>

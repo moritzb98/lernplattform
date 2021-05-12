@@ -3288,6 +3288,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -4022,8 +4023,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 
@@ -4085,7 +4084,10 @@ __webpack_require__.r(__webpack_exports__);
     this.getRooms();
   },
   mounted: function mounted() {
-    this.getAllRooms();
+    // Funzt noch nicht
+    var chatDiv = document.getElementById("js__chat"); // alert(chatDiv);
+
+    chatDiv.scrollTop = chatDiv.scrollHeight; // alert(chatDiv.scrollHeight);
   }
 });
 
@@ -50259,6 +50261,8 @@ var render = function() {
   return _c(
     "app-layout",
     [
+      _c("h1", [_vm._v("deprecated")]),
+      _vm._v(" "),
       _c("message-container", { attrs: { messages: _vm.messages } }),
       _vm._v(" "),
       _c("input-message", {
@@ -50367,6 +50371,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "chat", attrs: { id: "js__chat" } },
     _vm._l(_vm.messages, function(message, index) {
       return _c(
         "div",
@@ -51028,12 +51033,7 @@ var render = function() {
           "div",
           { staticClass: "chat_container" },
           [
-            _c(
-              "div",
-              { staticClass: "chat" },
-              [_c("message-container", { attrs: { messages: _vm.messages } })],
-              1
-            ),
+            _c("message-container", { attrs: { messages: _vm.messages } }),
             _vm._v(" "),
             _c("input-message", {
               attrs: { room: _vm.currentRoom },
