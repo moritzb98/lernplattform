@@ -8,6 +8,9 @@
                 <div class="header_title">
                     Page Title
                 </div>
+                <router-link to="/spa/Suche">
+                    <span class="material-icons header_search">search</span>
+                </router-link>
             </div>
         </div>
 
@@ -171,7 +174,7 @@
     }
 
     .l_page-content {
-        padding-top: 62px;
+        padding-top: 70px;
         min-height: 100vh;
     }
 
@@ -421,8 +424,9 @@
         width: 100%;
         display: flex;
         justify-content: center;
+        align-items: center;
         background-color: #F1F1F1;
-        padding: 15px 15px;
+        padding: 25px 15px;
 
         position: fixed;
         top: 0;
@@ -432,13 +436,23 @@
     }
 
     .header {
-
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
     }
 
     .header_title {
         font-size: 20px;
         font-family: 'Syncopate', sans-serif;
         font-weight: 700;
+    }
+
+    .header_search {
+        position: absolute;
+        padding: 15px;
+        top: 5px;
+        right: 15px;
     }
 
 
