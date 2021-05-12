@@ -3510,19 +3510,24 @@ __webpack_require__.r(__webpack_exports__);
     return {
       collection: {},
       filesToCollection: [],
-      allFiles: []
+      allFiles: [],
+      data: {
+        file_id: null,
+        collection_id: null
+      }
     };
   },
   mounted: function mounted() {
     var _this = this;
 
     this.collection.id = this.$route.params.id;
+    this.data.collection_id = this.collection.id;
     axios.get('/api/collection/show/' + this.$route.params.id).then(function (response) {
       _this.collection = response.data;
       console.log(response.data);
     });
     axios.post('/api/files/showInCollection', this.collection).then(function (response) {
-      _this.filesToCollection = response.data;
+      _this.filesToCollection = response.data.data;
       console.log(response.data);
     });
     axios.get('/api/getMyFiles').then(function (response) {
@@ -3531,12 +3536,10 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
-    assignFile: function assignFile(file) {
-      var _this2 = this;
-
-      axios.post('/api/collection/addFile', file).then(function (response) {
-        _this2.allFiles = response.data.data;
-        console.log(response.data);
+    assignFile: function assignFile(fileid) {
+      this.data.file_id = fileid;
+      axios.post('/api/collection/addFile', this.data).then(function (response) {
+        Vue.$toast.success('Datei erfolgreich zugeordnet', {});
       });
     }
   }
@@ -50428,7 +50431,7 @@ var render = function() {
         return _c(
           "div",
           { key: file.id, staticClass: "mdc-card-container--45" },
-          [_c("div", [_vm._v(_vm._s(file))])]
+          [_c("div", [_vm._v(_vm._s(file.data.file_id.displayname))])]
         )
       }),
       _vm._v(" "),
@@ -50446,7 +50449,7 @@ var render = function() {
               {
                 on: {
                   click: function($event) {
-                    return _vm.assignFile(file.data)
+                    return _vm.assignFile(file.data.id)
                   }
                 }
               },
