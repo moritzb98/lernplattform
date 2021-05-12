@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Room;
-use App\Models\RoomUsers;
+use App\Models\RoomsUsers;
 use App\Http\Resources\UserRoomCollection;
 use Auth;
 use App\Http\Controllers\ChatController;
@@ -109,12 +109,12 @@ class RoomController extends Controller
 
     public function getUsersInRoom(Request $request){
         $roomid = $request['room_id'];
-        return new UserRoomCollection(RoomUsers::where('room_id', $roomid)->get());
+        return new UserRoomCollection(RoomsUsers::where('room_id', $roomid)->get());
     }
 
     public function getRoomsUserIsIn(){
         $userid = Auth::user()->id;
-        return new UserRoomCollection(RoomUsers::where('user_id', $userid)->get());
+        return new UserRoomCollection(RoomsUsers::where('user_id', $userid)->get());
     }
 
 

@@ -80,21 +80,23 @@
     export default {
         data() {
             return {
-                rooms:[
-                ]
+                rooms:[],
+                roomsUserIsIn: [],
             }
         },
         methods: {
             getMyRooms() {
                 this.axios.get('http://127.0.0.1:8000/api/getmyroom')
                     .then(response=>{
-                        this.rooms=response.data
+                        this.rooms=response.data,
+                        console.log(this.rooms);
                     })
             },
             getRoomsUserIsIn() {
-                this.axios.get('http://127.0.0.1:8000/api/userIsIn')
+                this.axios.get('http://127.0.0.1:8000/api/room/userIsIn')
                     .then(response=>{
-                        this.rooms=response.data
+                        this.roomsUserIsIn=response.data,
+                        console.log(this.roomsUserIsIn);
                     })
             },
             deleteRoom(){
