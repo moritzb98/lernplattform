@@ -45,6 +45,8 @@ Vue.use(MdMenu)
 Vue.use(MdButton)
 Vue.use(MdList)
 
+Vue.use(require('vue-moment'));
+
 const router = new VueRouter({
     mode: 'history',
     routes: routes
