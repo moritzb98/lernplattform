@@ -41,15 +41,17 @@
 
                     <!-- Chat Nachrichten -->
                     <message-container :messages="messages" />
-
-                    <!-- Nachrichten Optionen -->
-                    <input-message
-                        :room="currentRoom"
-                        v-on:messagesent="getMessages()" />
-
                 </div>
             </div>
         </div>
+
+        <!-- Nachrichten Optionen -->
+        <div class="chat_controls_container">
+            <input-message
+                :room="currentRoom"
+                v-on:messagesent="getMessages()" />
+        </div>
+
     </div>
 </template>
 
@@ -76,16 +78,22 @@
         overflow-y: scroll;
     }
 
-    .chat_controls {
+    .chat_controls_container {
+        width: 100%;
         display: flex;
         position: absolute;
-        bottom: 0px;
+        bottom: 120px;
         left: 0px;
-        width: 100%;
-        height: 40px;
-
         z-index: 1;
+    }
 
+    .chat_controls {
+        position: relative;
+        display: flex;
+        width: 90%;
+        max-width: 500px;
+        height: 40px;
+        margin: 0 auto;
     }
 
     .chat_controls input {
@@ -99,7 +107,7 @@
         align-items: center;
         position: absolute;
         top: -7px;
-        right: 0;
+        right: 0px;
         border: none;
         padding: 15px;
     }

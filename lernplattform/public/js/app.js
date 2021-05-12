@@ -4023,6 +4023,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -10126,7 +10134,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.chat_container {\n    display: flex;\n    position: relative;\n    width: 100%;\n    height: 70vh;\n    padding: 15px 10px 40px 10px;\n    justify-content: center;\n    align-items: center;\n    margin-top: -60px;\n}\n.chat {\n    position: relative;\n    display: flex;\n    flex-direction: column;\n    width: 100%;\n    height: 100%;\n    overflow: hidden;\n    overflow-y: scroll;\n}\n.chat_controls {\n    display: flex;\n    position: absolute;\n    bottom: 0px;\n    left: 0px;\n    width: 100%;\n    height: 40px;\n\n    z-index: 1;\n}\n.chat_controls input {\n    border: none;\n    height: 40px;\n}\n.chat_controls-send {\n    display: flex;\n    align-items: center;\n    position: absolute;\n    top: -7px;\n    right: 0;\n    border: none;\n    padding: 15px;\n}\n.chat_subcontrols {\n    display: flex;\n    justify-content: flex-end;\n    align-items: center;\n    position: absolute;\n    top: 5px;\n    right: 20px;\n    width: 100%;\n    height: 40px;\n\n    z-index: 1;\n}\n.chat_subcontrols-item {\n    display: flex;\n    align-items: center;\n    padding: 5px;\n    border-radius: 12px;\n    margin-left: 10px;\n    border: none;\n}\n.chat_message-wrapper {\n    display: flex;\n    flex-direction: column;\n    width: 100%;\n    padding: 20px;\n}\n.chat_message {\n    width: 80%;\n}\n.chat_message-autor {\n    font-weight: 600;\n}\n.chat_message-timestamp {\n    font-size: 10px;\n    color: #777;\n}\n.chat_message--me {\n    margin-left: auto;\n}\n.chat_message--others {\n    margin-right: auto;\n}\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.chat_container {\n    display: flex;\n    position: relative;\n    width: 100%;\n    height: 70vh;\n    padding: 15px 10px 40px 10px;\n    justify-content: center;\n    align-items: center;\n    margin-top: -60px;\n}\n.chat {\n    position: relative;\n    display: flex;\n    flex-direction: column;\n    width: 100%;\n    height: 100%;\n    overflow: hidden;\n    overflow-y: scroll;\n}\n.chat_controls_container {\n    width: 100%;\n    display: flex;\n    position: absolute;\n    bottom: 120px;\n    left: 0px;\n    z-index: 1;\n}\n.chat_controls {\n    position: relative;\n    display: flex;\n    width: 90%;\n    max-width: 500px;\n    height: 40px;\n    margin: 0 auto;\n}\n.chat_controls input {\n    border: none;\n    height: 40px;\n}\n.chat_controls-send {\n    display: flex;\n    align-items: center;\n    position: absolute;\n    top: -7px;\n    right: 0px;\n    border: none;\n    padding: 15px;\n}\n.chat_subcontrols {\n    display: flex;\n    justify-content: flex-end;\n    align-items: center;\n    position: absolute;\n    top: 5px;\n    right: 20px;\n    width: 100%;\n    height: 40px;\n\n    z-index: 1;\n}\n.chat_subcontrols-item {\n    display: flex;\n    align-items: center;\n    padding: 5px;\n    border-radius: 12px;\n    margin-left: 10px;\n    border: none;\n}\n.chat_message-wrapper {\n    display: flex;\n    flex-direction: column;\n    width: 100%;\n    padding: 20px;\n}\n.chat_message {\n    width: 80%;\n}\n.chat_message-autor {\n    font-weight: 600;\n}\n.chat_message-timestamp {\n    font-size: 10px;\n    color: #777;\n}\n.chat_message--me {\n    margin-left: auto;\n}\n.chat_message--others {\n    margin-right: auto;\n}\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -51032,22 +51040,27 @@ var render = function() {
         _c(
           "div",
           { staticClass: "chat_container" },
-          [
-            _c("message-container", { attrs: { messages: _vm.messages } }),
-            _vm._v(" "),
-            _c("input-message", {
-              attrs: { room: _vm.currentRoom },
-              on: {
-                messagesent: function($event) {
-                  return _vm.getMessages()
-                }
-              }
-            })
-          ],
+          [_c("message-container", { attrs: { messages: _vm.messages } })],
           1
         )
       ])
-    ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "chat_controls_container" },
+      [
+        _c("input-message", {
+          attrs: { room: _vm.currentRoom },
+          on: {
+            messagesent: function($event) {
+              return _vm.getMessages()
+            }
+          }
+        })
+      ],
+      1
+    )
   ])
 }
 var staticRenderFns = []
