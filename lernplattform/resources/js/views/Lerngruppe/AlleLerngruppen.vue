@@ -63,12 +63,13 @@
                         this.rooms=response.data
                     })
             },
-            deleteRoom(id){
-                this.axios.post('http://127.0.0.1:8000/api/room/delete/' + id)
+            joinRoom(roomid){
+                this.axios.post('http://127.0.0.1:8000/api/room/join/' + roomid)
                     .then(response => (
+                        //this.room.id = response.data.id,
                         console.log(response)
                     ))
-            }
+            },
         },
         mounted(){
             this.getAllRooms()

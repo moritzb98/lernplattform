@@ -3744,9 +3744,11 @@ __webpack_require__.r(__webpack_exports__);
         _this.rooms = response.data;
       });
     },
-    deleteRoom: function deleteRoom(id) {
-      this.axios.post('http://127.0.0.1:8000/api/room/delete/' + id).then(function (response) {
-        return console.log(response);
+    joinRoom: function joinRoom(roomid) {
+      this.axios.post('http://127.0.0.1:8000/api/room/join/' + roomid).then(function (response) {
+        return (//this.room.id = response.data.id,
+          console.log(response)
+        );
       });
     }
   },
