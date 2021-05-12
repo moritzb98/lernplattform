@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FileController;
+use App\Http\Controllers\SearchFileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('{any}', function () {
     return view('app');
 })->where('any', '.*');
+
+Auth::routes();
+
+Route::post('/registernormal', [AuthController::class, 'register']);
+Route::post('/logoutnormal', [AuthController::class, 'logout']);
+
