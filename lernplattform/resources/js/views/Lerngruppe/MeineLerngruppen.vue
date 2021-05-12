@@ -60,7 +60,7 @@
                                         </md-menu-item>
                                         <md-menu-item>
                                             <!-- delete gibt 405 zurück --->
-                                            <div class="card-small_controls_item" @click="deleteRoom(room.id)">
+                                            <div class="card-small_controls_item" @click="deleteRoom()">
                                                 <span class="material-icons">delete</span> Löschen
                                             </div>
                                         </md-menu-item>
@@ -80,7 +80,8 @@
     export default {
         data() {
             return {
-                rooms:[]
+                rooms:[
+                ]
             }
         },
         methods: {
@@ -90,17 +91,24 @@
                         this.rooms=response.data
                     })
             },
-            deleteRoom(id){
+            getRoomsUserIsIn() {
+                this.axios.get('http://127.0.0.1:8000/api/userIsIn')
+                    .then(response=>{
+                        this.rooms=response.data
+                    })
+            },
+            deleteRoom(){
                 this.axios.post('http://127.0.0.1:8000/api/room/delete/')
-                // var data = {id=this.id}
                     .then(response => (
+                        this.room.id = response.data.id,
                         console.log(response)
                     ))
             },
         },
         mounted(){
             this.getMyRooms()
-        }
+            this.getRoomsUserIsIn()
+        },
     }
 </script>
 
