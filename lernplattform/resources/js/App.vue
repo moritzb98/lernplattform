@@ -796,7 +796,7 @@
         height: 18px;
         background: #ED553B;
         color: white;
-        font-size: 0.8em;
+        font-size: 0.85em;
     }
 
     .card-newsfeed-headline{
@@ -1151,6 +1151,25 @@
     .button-link{
         text-decoration: none;
         color: #212121;
+    }
+
+    .strich-container{
+        width: 80%;
+        margin: auto;
+    }
+
+    .zugeordnete-Sammlungen-Container{
+        width: 80%;
+        margin: auto;
+    }
+
+    .zugeordnete-Sammlungen-Überschrift{
+        font-size: 1.1em;
+        font-weight: bold;
+    }
+
+    .mdc-chip__text{
+        margin: auto;
     }
 
 

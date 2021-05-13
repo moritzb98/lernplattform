@@ -75,20 +75,6 @@
 
 <style scoped>
 
-    .strich-container{
-        width: 80%;
-        margin: auto;
-        margin-top: -1em;
-    }
 
-    .zugeordnete-Sammlungen-Container{
-        width: 80%;
-        margin: auto;
-    }
-
-    .zugeordnete-Sammlungen-Überschrift{
-        font-size: 1.1em;
-        font-weight: bold;
-    }
 
 </style>
