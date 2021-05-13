@@ -3548,24 +3548,46 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       collection: {},
       filesToCollection: [],
-      allFiles: []
+      allFiles: [],
+      data: {
+        file_id: null,
+        collection_id: null
+      }
     };
   },
   mounted: function mounted() {
     var _this = this;
 
     this.collection.id = this.$route.params.id;
+    this.data.collection_id = this.collection.id;
     axios.get('/api/collection/show/' + this.$route.params.id).then(function (response) {
       _this.collection = response.data;
       console.log(response.data);
     });
     axios.post('/api/files/showInCollection', this.collection).then(function (response) {
-      _this.filesToCollection = response.data;
+      _this.filesToCollection = response.data.data;
       console.log(response.data);
     });
     axios.get('/api/getMyFiles').then(function (response) {
@@ -3574,12 +3596,10 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
-    assignFile: function assignFile(file) {
-      var _this2 = this;
-
-      axios.post('/api/collection/addFile', file).then(function (response) {
-        _this2.allFiles = response.data.data;
-        console.log(response.data);
+    assignFile: function assignFile(fileid) {
+      this.data.file_id = fileid;
+      axios.post('/api/collection/addFile', this.data).then(function (response) {
+        Vue.$toast.success('Datei erfolgreich zugeordnet', {});
       });
     }
   }
@@ -50454,113 +50474,163 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "mdc-card mdc-card-lernmaterial" }, [
-      _c(
-        "div",
-        {
-          staticClass:
-            "card-lernmaterial-spacing card-lernmaterial-spacing-zweispaltig"
-        },
-        [
-          _vm._m(0),
+  return _c(
+    "div",
+    [
+      _vm._v("\n<<<<<<< HEAD\n            "),
+      _c("div", { staticClass: "mdc-card mdc-card-lernmaterial" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "card-lernmaterial-spacing card-lernmaterial-spacing-zweispaltig"
+          },
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "card-lernmaterial-middle-column-container card-lernmaterial-middle-column-container-zweispaltig"
+              },
+              [
+                _vm._m(1),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "card-lernmaterial-headline card-lernmaterial-headline-collection-detail"
+                  },
+                  [_vm._v(_vm._s(_vm.collection.name))]
+                )
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _vm._m(2),
+        _vm._v(" "),
+        _c("div", { staticClass: "unterer-Teil-Card-Detail-Sammlung" }, [
+          _c(
+            "div",
+            { staticClass: "zugeordnete-Sammlungen-Container" },
+            [
+              _c("div", { staticClass: "zugeordnete-Sammlungen-Überschrift" }, [
+                _vm._v("Zugeordnete Datein:")
+              ]),
+              _vm._v(" "),
+              _vm._l(_vm.filesToCollection, function(file) {
+                return _c(
+                  "div",
+                  {
+                    key: file.id,
+                    staticClass: "einzelne-zugeordnete-Sammlungen-Container"
+                  },
+                  [_c("div", [_vm._v(_vm._s(file))])]
+                )
+              })
+            ],
+            2
+          ),
+          _vm._v(" "),
+          _vm._m(3),
           _vm._v(" "),
           _c(
             "div",
-            {
-              staticClass:
-                "card-lernmaterial-middle-column-container card-lernmaterial-middle-column-container-zweispaltig"
-            },
+            { staticClass: "zugeordnete-Sammlungen-Container" },
             [
-              _vm._m(1),
+              _c("div", { staticClass: "zugeordnete-Sammlungen-Überschrift" }, [
+                _vm._v("Dateien zuordnen")
+              ]),
               _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "card-lernmaterial-headline card-lernmaterial-headline-collection-detail"
-                },
-                [_vm._v(_vm._s(_vm.collection.name))]
-              )
-            ]
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _vm._m(2),
-      _vm._v(" "),
-      _c("div", { staticClass: "unterer-Teil-Card-Detail-Sammlung" }, [
-        _c(
-          "div",
-          { staticClass: "zugeordnete-Sammlungen-Container" },
-          [
-            _c("div", { staticClass: "zugeordnete-Sammlungen-Überschrift" }, [
-              _vm._v("Zugeordnete Datein:")
-            ]),
-            _vm._v(" "),
-            _vm._l(_vm.filesToCollection, function(file) {
-              return _c(
-                "div",
-                {
-                  key: file.id,
-                  staticClass: "einzelne-zugeordnete-Sammlungen-Container"
-                },
-                [_c("div", [_vm._v(_vm._s(file))])]
-              )
-            })
-          ],
-          2
-        ),
-        _vm._v(" "),
-        _vm._m(3),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "zugeordnete-Sammlungen-Container" },
-          [
-            _c("div", { staticClass: "zugeordnete-Sammlungen-Überschrift" }, [
-              _vm._v("Dateien zuordnen")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "text-kursiv-dünn" }, [
-              _vm._v(
-                "Wähle Datein, die du der Sammlung " +
-                  _vm._s(_vm.collection.name) +
-                  " zuordnen möchtest:"
-              )
-            ]),
-            _vm._v(" "),
-            _vm._l(_vm.allFiles, function(file) {
-              return _c(
-                "div",
-                { key: file.id, staticClass: "nicht-zugeordnete-Container" },
-                [
-                  _c("div", [_vm._v(_vm._s(file.data.displayname))]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      on: {
-                        click: function($event) {
-                          return _vm.assignFile(file.data)
+              _c("div", { staticClass: "text-kursiv-dünn" }, [
+                _vm._v(
+                  "Wähle Datein, die du der Sammlung " +
+                    _vm._s(_vm.collection.name) +
+                    " zuordnen möchtest:"
+                )
+              ]),
+              _vm._v(" "),
+              _vm._l(_vm.allFiles, function(file) {
+                return _c(
+                  "div",
+                  { key: file.id, staticClass: "nicht-zugeordnete-Container" },
+                  [
+                    _c("div", [_vm._v(_vm._s(file.data.displayname))]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        on: {
+                          click: function($event) {
+                            return _vm.assignFile(file.data)
+                          }
                         }
-                      }
-                    },
-                    [
-                      _c("span", { staticClass: "material-icons-outlined" }, [
-                        _vm._v("add")
-                      ])
-                    ]
-                  )
-                ]
-              )
-            })
-          ],
-          2
+                      },
+                      [
+                        _c("span", { staticClass: "material-icons-outlined" }, [
+                          _vm._v("add")
+                        ])
+                      ]
+                    )
+                  ]
+                )
+              })
+            ],
+            2
+          )
+        ])
+      ]),
+      _vm._v("\n=======\n        "),
+      _c("h1", [_vm._v("Hallo")]),
+      _vm._v(" "),
+      _c("div", [_vm._v(_vm._s(_vm.collection))]),
+      _vm._v(" "),
+      _c("div", [_vm._v(_vm._s(_vm.collection.name))]),
+      _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
+      _c("div", [_vm._v("Schon zugeordnete:")]),
+      _vm._v(" "),
+      _vm._l(_vm.filesToCollection, function(file) {
+        return _c(
+          "div",
+          { key: file.id, staticClass: "mdc-card-container--45" },
+          [_c("div", [_vm._v(_vm._s(file.data.file_id.displayname))])]
         )
-      ])
-    ])
-  ])
+      }),
+      _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
+      _vm._l(_vm.allFiles, function(file) {
+        return _c(
+          "div",
+          { key: file.id, staticClass: "mdc-card-container--45" },
+          [
+            _c("div", [_vm._v(_vm._s(file.data.displayname))]),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                on: {
+                  click: function($event) {
+                    return _vm.assignFile(file.data.id)
+                  }
+                }
+              },
+              [_vm._v("plus")]
+            ),
+            _vm._v(" "),
+            _c("br")
+          ]
+        )
+      }),
+      _vm._v("\n>>>>>>> main\n    ")
+    ],
+    2
+  )
 }
 var staticRenderFns = [
   function() {

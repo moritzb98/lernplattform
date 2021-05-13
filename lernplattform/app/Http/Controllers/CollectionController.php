@@ -22,10 +22,15 @@ class CollectionController extends Controller
 
     public function addFile(Request $request){
 
-        $collectionFiles = CollectionFiles::create([
-            'file_id' => $request['file_id'],
-            'collection_id' => $request['collection_id']
-        ]);
+        $collectionFiles = CollectionFiles::updateOrCreate(
+            [
+                'file_id' => $request['file_id'],
+                'collection_id' => $request['collection_id']
+            ],
+            [
+                'file_id' => $request['file_id'],
+                'collection_id' => $request['collection_id']
+            ]);
 
         return response()->json(['´success' => 'Datei erfolgreich zur Sammlung hinzugefügt.'], 200);
     }
