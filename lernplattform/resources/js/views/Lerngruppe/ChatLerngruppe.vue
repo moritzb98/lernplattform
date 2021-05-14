@@ -224,7 +224,6 @@
                     console.log( error );
                 })
             },
-
             scroll(){
                 var el = document.querySelectorAll(".chat_message-wrapper:last-child")[0];
                 if (el) {
