@@ -1,4 +1,5 @@
 <template>
+<!-- nicht genutzt aktuell -->
 <div>
     <input type="text" placeholder="Suche nach einer Datei" v-model="query">
     <ul v-if="results.length > 0 && query">

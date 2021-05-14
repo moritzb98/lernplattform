@@ -1,16 +1,5 @@
 <template>
     <div>
-        <!-- Header -->
-        <!-- <div class="header_wrapper">
-            <div class="header">
-                <div class="header_title">
-                    {{title}}
-                </div>
-                <router-link to="/spa/Suche">
-                    <span class="material-icons header_search">search</span>
-                </router-link>
-            </div>
-        </div> -->
 
         <!-- Page Content -->
         <div class="container l_page-content">
@@ -453,23 +442,44 @@
     }
 
     .header {
+        width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        /* margin-left: auto; */
+    }
+
+    .header--search {
+        width: 80%;
+        margin-right: auto;
+    }
+
+    .header--back {
+        width: 80%;
+        margin-left: auto;
     }
 
     .header_title {
-        font-size: 20px;
+        font-size: 18px;
         font-family: 'Syncopate', sans-serif;
         font-weight: 700;
     }
 
     .header_search {
         position: absolute;
-        padding: 15px;
-        top: 5px;
+        padding: 12px;
+        top: 8px;
         right: 15px;
+        border-radius: 20px;
+    }
+
+    .header_back {
+        position: absolute;
+        padding: 12px;
+        top: 8px;
+        left: 15px;
+        border-radius: 20px;
     }
 
 

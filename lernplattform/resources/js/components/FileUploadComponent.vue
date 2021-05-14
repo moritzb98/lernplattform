@@ -1,14 +1,14 @@
 <template>
     <div>
-        <!-- Header -->
+        <!-- Header [Back] -->
         <div class="header_wrapper">
-            <div class="header">
+            <div class="header header--back">
+                <router-link to="/spa/Suche">
+                    <span class="material-icons neumorph header_back">arrow_back</span>
+                </router-link>
                 <div class="header_title">
                     {{title}}
                 </div>
-                <router-link to="/spa/Suche">
-                    <span class="material-icons header_search">search</span>
-                </router-link>
             </div>
         </div>
 
@@ -17,9 +17,6 @@
             <div class="col-md-8">
 
             <div class="Pfeil">
-             <button class="mdc-button mdc-button--raised mdc-button-back margin">
-                <span class="material-icons-outlined">arrow_back</span>
-            </button>
                 <div class="Create">
                  <h2> Datei </h2>
                 </div>
