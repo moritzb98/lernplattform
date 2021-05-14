@@ -1,6 +1,18 @@
 <template>
     <div>
-            <h1>Login</h1>
+        <!-- Header -->
+        <div class="header_wrapper">
+            <div class="header">
+                <div class="header_title">
+                    {{title}}
+                </div>
+                <router-link to="/spa/Suche">
+                    <span class="material-icons header_search">search</span>
+                </router-link>
+            </div>
+        </div>
+
+        <!-- Content  -->
             <form action="#" @submit.prevent="handleLogin">
                 <div class="headline-text-field">E-Mail</div>
                 <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
@@ -28,7 +40,8 @@
                 formData:{
                     email: '',
                     password: '',
-                }
+                },
+                title: "Login",
             }
         },
         methods: {

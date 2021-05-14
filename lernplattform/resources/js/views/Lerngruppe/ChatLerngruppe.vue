@@ -1,5 +1,15 @@
 <template>
     <div>
+        <!-- Header -->
+        <div class="header_wrapper">
+            <div class="header">
+                <div class="header_title">
+                    {{title}}
+                </div>
+            </div>
+        </div>
+
+        <!-- Content  -->
         <div class="row">
             <div class="col">
                 <!-- Kategorie Banner  -->
@@ -197,5 +207,10 @@
 
 <script>
     export default {
+        data() {
+            return {
+                title: "Lerngruppenchat"
+            }
+        }
     }
 </script>

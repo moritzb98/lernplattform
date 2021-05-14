@@ -1,6 +1,18 @@
 <template>
     <div>
-        <h1>Meine Uploads</h1>
+        <!-- Header -->
+        <div class="header_wrapper">
+            <div class="header">
+                <div class="header_title">
+                    {{title}}
+                </div>
+                <router-link to="/spa/Suche">
+                    <span class="material-icons header_search">search</span>
+                </router-link>
+            </div>
+        </div>
+
+        <!-- Content  -->
         <div>
             <div class="mdc-chip mdc-chip-filter" role="row">
                 <div class="mdc-chip__ripple"></div>
@@ -83,6 +95,7 @@ import {MDCTabBar} from '@material/tab-bar';
             return{
                 fileUploads: [],
                 myFileUploads: [],
+                title: "Meine Uploads",
             }
         },
         mounted(){

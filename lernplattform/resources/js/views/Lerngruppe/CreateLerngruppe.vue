@@ -1,5 +1,15 @@
 <template>
     <div>
+        <!-- Header -->
+        <div class="header_wrapper">
+            <div class="header">
+                <div class="header_title">
+                    {{title}}
+                </div>
+            </div>
+        </div>
+
+        <!-- Content -->
         <div class="row mb-5">
             <div class="col">
                 <div class="banner neumorph">
@@ -47,7 +57,8 @@
                 room: {
                     roomName: '',
                     roomMaxPersons: null,
-                }
+                },
+                title: "Erstellen"
 
             }
         },

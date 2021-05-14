@@ -1,5 +1,15 @@
 <template>
     <div>
+        <!-- Header -->
+        <div class="header_wrapper">
+            <div class="header">
+                <div class="header_title">
+                    {{title}}
+                </div>
+            </div>
+        </div>
+
+        <!-- Content -->
         <div class="row mb-5">
             <div class="col">
                 <div class="banner neumorph">
@@ -8,7 +18,7 @@
                             <span class="material-icons">people</span>
                         </div>
                         <div class="banner_body-title">
-                            <h2>Lerngruppe bearbeiten</h2>
+                            <h2>Bearbeiten</h2>
                         </div>
                     </div>
                 </div>
@@ -48,7 +58,8 @@
                     id: '',
                     roomName: '',
                     roomMaxPersons: null,
-                }
+                },
+                title: "Lerngruppe"
             }
         },
         mounted() {

@@ -1,18 +1,16 @@
 <template>
     <div>
-
-        <!-- Header noch auslagern und dynamisch machen -->
         <!-- Header -->
-        <div class="header_wrapper">
+        <!-- <div class="header_wrapper">
             <div class="header">
                 <div class="header_title">
-                    Page Title
+                    {{title}}
                 </div>
                 <router-link to="/spa/Suche">
                     <span class="material-icons header_search">search</span>
                 </router-link>
             </div>
-        </div>
+        </div> -->
 
         <!-- Page Content -->
         <div class="container l_page-content">
@@ -111,8 +109,27 @@
     </div>
 </template>
 
-<style>
 
+
+<script>
+
+
+    export default {
+        methods: {
+            showNavDropUp: function() {
+                var e = document.getElementById("js__nav_drop-up");
+                e.classList.toggle("nav_drop-up--active");
+            }
+        },
+        mounted() {
+            // this.title = updatedTitle;
+        }
+    }
+
+</script>
+
+
+<style>
 
 /*
     ██████   █████  ███████ ██  ██████ 
@@ -1175,15 +1192,3 @@
 
 
 </style>
-
-<script>
-    export default {
-        methods: {
-            showNavDropUp: function() {
-                var e = document.getElementById("js__nav_drop-up");
-                e.classList.toggle("nav_drop-up--active");
-            }
-        }
-    }
-
-</script>

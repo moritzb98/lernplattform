@@ -1,10 +1,18 @@
 <template>
     <div>
-        <div class="row mb-3">
-            <div class="col">
-                <h1>Meine Lerngruppen</h1>
+        <!-- Header -->
+        <div class="header_wrapper">
+            <div class="header">
+                <div class="header_title">
+                    {{title}}
+                </div>
+                <router-link to="/spa/Suche">
+                    <span class="material-icons header_search">search</span>
+                </router-link>
             </div>
         </div>
+
+        <!-- Content  -->
         <div class="row mb-5">
             <div class="col-12">
                 <router-link to="/spa/Lerngruppen/Finden">
@@ -80,7 +88,8 @@
     export default {
         data() {
             return {
-                rooms:[]
+                rooms:[],
+                title: "Meine Lerngruppen"
             }
         },
         methods: {
