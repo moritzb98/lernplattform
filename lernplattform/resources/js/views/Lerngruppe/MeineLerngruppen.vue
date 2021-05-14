@@ -74,10 +74,19 @@
                 </div>
 
 
+
+
+                <!--
+
+                    wie muss hier durch data geloopt werden?
+
+                -->
+
                 <p>beigetreten</p>
                 <div v-for="(roomUserIsIn, index) in roomsUserIsIn" :key="index">
                     <div class="neumorph card-small mb-2">
-                        {{roomUserIsIn.name}}
+
+                        {{roomUserIsIn.data.data.room_id.id}}
                         <div class="card-small_controls" >
 
                             <!-- CTA Zum Chat -->
