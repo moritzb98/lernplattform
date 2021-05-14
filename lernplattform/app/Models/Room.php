@@ -12,4 +12,8 @@ class Room extends Model
     protected $fillable = [
         'name', 'maxPersons', 'user_id'
     ];
+
+    public function roomUsers(){
+        return $this->belongsToMany('App\Models\RoomsUsers');
+    }
 }
