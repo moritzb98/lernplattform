@@ -14,7 +14,7 @@
             }
         },
         methods : {
-            getAccessToken : function () {
+           /*  getAccessToken : function () {
                 const _this = this
 
                 // Request a new token
@@ -80,7 +80,7 @@
             console.log('Video chat room loading...')
 
             this.getAccessToken()
-        }
+        } */
     }
 </script>
 
