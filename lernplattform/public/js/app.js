@@ -2761,22 +2761,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       fileUploads: [],
       myFileUploads: [],
-      title: "Meine Uploads"
+      title: "Meine Uploads",
+      editFileId: null
     };
   },
   mounted: function mounted() {
     var _this = this;
 
-    this.axios.get('http://127.0.0.1:8000/api/getFiles').then(function (response) {
+    this.axios.get('/api/getFiles').then(function (response) {
       _this.fileUploads = response.data.data;
     });
-    this.axios.get('http://127.0.0.1:8000/api/getMyFiles').then(function (response) {
+    this.axios.get('/api/getMyFiles').then(function (response) {
       _this.myFileUploads = response.data.data;
     });
   },
@@ -2792,8 +2799,18 @@ __webpack_require__.r(__webpack_exports__);
         document.getElementById('tab1').classList.remove('tab-active');
       }
     },
+    editFile: function editFile(id) {
+      this.editFileId = id;
+    },
+    saveFile: function saveFile(file) {
+      var _this2 = this;
+
+      this.axios.post('/api/files/update', file).then(function (response) {
+        return _this2.editFileId = null;
+      });
+    },
     deleteFile: function deleteFile(id) {
-      this.axios.post('http://127.0.0.1:8000/api/file/delete/') // var data = {id=this.id}
+      this.axios.post('/api/file/delete/') // var data = {id=this.id}
       .then(function (response) {
         return console.log(response);
       });
@@ -9368,7 +9385,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.content[data-v-797cc8a9] {\n    display: none;\n}\n.content--active[data-v-797cc8a9] {\n    display: block;\n}\n.mdc-tab-scroller-overflow[data-v-797cc8a9]{\n    overflow: visible;\n}\n.tab-bar[data-v-797cc8a9]{\n    display: flex;\n}\n.tab-button[data-v-797cc8a9]{\n    background: linear-gradient(to bottom right,white, #F1F1F1);\n    height: 50px;\n    width: 100%;\n    padding:0px;\n    box-shadow:\n    -5px -5px 13px #fff,\n    5px 5px 13px #0e0e0e40;\n    border-radius: 0px;\n    margin-top: 20px;\n    margin-bottom: 20px;\n}\n.tab-active[data-v-797cc8a9]{\n    box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2),\n        inset -6px -6px 10px 0 white,\n        12px 12px 24px 0 rgba(0, 0, 0, 0.2),\n        -12px -12px 24px 0 rgba(255, 255, 255, 0.5);\n}\n.button-text--mittig[data-v-797cc8a9]{\n    margin: auto;\n}\n.container-uploads[data-v-797cc8a9]{\n    margin-top: 10px;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    width: 100%;\n    height: 40px;\n    border-radius: 28px;\n    border: double 2px transparent;\n    background-image: radial-gradient(white, white), radial-gradient(circle at top left,white,#ED553B);\n    background-origin: border-box;\n    background-clip: content-box, border-box;\n    box-shadow:\n    -5px -5px 13px #fff,\n    5px 5px 13px #0e0e0e40;\n}\n.file-name-upload[data-v-797cc8a9]{\n    padding-left: 2em;\n    white-space: nowrap;\n    max-width: 72%;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.upload-showmore-icon[data-v-797cc8a9]{\n    padding-right: 20px;\n}\n.icon-container[data-v-797cc8a9] {\n    margin-right: 10px;\n}\n.icon--middle[data-v-797cc8a9] {\n    vertical-align: middle;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.content[data-v-797cc8a9] {\n    display: none;\n}\n.file-name-upload-link[data-v-797cc8a9]{\n    max-width: 72%;\n}\n.content--active[data-v-797cc8a9] {\n    display: block;\n}\n.mdc-tab-scroller-overflow[data-v-797cc8a9]{\n    overflow: visible;\n}\n.tab-bar[data-v-797cc8a9]{\n    display: flex;\n}\n.tab-button[data-v-797cc8a9]{\n    background: linear-gradient(to bottom right,white, #F1F1F1);\n    height: 50px;\n    width: 100%;\n    padding:0px;\n    box-shadow:\n    -5px -5px 13px #fff,\n    5px 5px 13px #0e0e0e40;\n    border-radius: 0px;\n    margin-top: 20px;\n    margin-bottom: 20px;\n}\n.tab-active[data-v-797cc8a9]{\n    box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2),\n        inset -6px -6px 10px 0 white,\n        12px 12px 24px 0 rgba(0, 0, 0, 0.2),\n        -12px -12px 24px 0 rgba(255, 255, 255, 0.5);\n}\n.button-text--mittig[data-v-797cc8a9]{\n    margin: auto;\n}\n.container-uploads[data-v-797cc8a9]{\n    margin-top: 10px;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    width: 100%;\n    height: 40px;\n    border-radius: 28px;\n    border: double 2px transparent;\n    background-image: radial-gradient(white, white), radial-gradient(circle at top left,white,#ED553B);\n    background-origin: border-box;\n    background-clip: content-box, border-box;\n    box-shadow:\n    -5px -5px 13px #fff,\n    5px 5px 13px #0e0e0e40;\n}\n.file-name-upload[data-v-797cc8a9]{\n    padding-left: 2em;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.upload-showmore-icon[data-v-797cc8a9]{\n    padding-right: 20px;\n}\n.icon-container[data-v-797cc8a9] {\n    margin-right: 10px;\n}\n.icon--middle[data-v-797cc8a9] {\n    vertical-align: middle;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -50296,55 +50313,105 @@ var render = function() {
       _vm._m(0),
       _vm._v(" "),
       _vm._l(_vm.myFileUploads, function(myFileUpload) {
-        return _c(
-          "div",
-          { key: myFileUpload.id },
-          [
-            _c(
-              "router-link",
-              { attrs: { to: "/spa/documents/" + myFileUpload.data.id } },
-              [
-                _c("div", { staticClass: "container-uploads" }, [
-                  _c("div", { staticClass: "file-name-upload" }, [
-                    _vm._v(_vm._s(myFileUpload.data.displayname))
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "icon-container" }, [
-                    _c(
+        return _c("div", { key: myFileUpload.id }, [
+          _c(
+            "div",
+            { staticClass: "container-uploads" },
+            [
+              myFileUpload.data.id === _vm.editFileId
+                ? _c("div", [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: myFileUpload.data.displayname,
+                          expression: "myFileUpload.data.displayname"
+                        }
+                      ],
+                      attrs: { type: "text" },
+                      domProps: { value: myFileUpload.data.displayname },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            myFileUpload.data,
+                            "displayname",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ])
+                : _c(
+                    "router-link",
+                    {
+                      staticClass: "file-name-upload-link",
+                      attrs: { to: "/spa/documents/" + myFileUpload.data.id }
+                    },
+                    [
+                      _c("div", { staticClass: "file-name-upload" }, [
+                        _vm._v(_vm._s(myFileUpload.data.displayname))
+                      ])
+                    ]
+                  ),
+              _vm._v(" "),
+              _c("div", { staticClass: "icon-container" }, [
+                myFileUpload.data.id === _vm.editFileId
+                  ? _c(
                       "div",
-                      { staticClass: "material-icons-outlined icon--middle" },
+                      {
+                        staticClass: "material-icons-outlined icon--middle",
+                        on: {
+                          click: function($event) {
+                            return _vm.saveFile(myFileUpload.data)
+                          }
+                        }
+                      },
+                      [_vm._v("save")]
+                    )
+                  : _c(
+                      "div",
+                      {
+                        staticClass: "material-icons-outlined icon--middle",
+                        on: {
+                          click: function($event) {
+                            return _vm.editFile(myFileUpload.data.id)
+                          }
+                        }
+                      },
                       [_vm._v("edit")]
                     ),
-                    _vm._v(" "),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "material-icons-outlined icon--middle" },
+                  [_vm._v("delete")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "material-icons-outlined icon--middle" },
+                  [
                     _c(
-                      "div",
-                      { staticClass: "material-icons-outlined icon--middle" },
-                      [_vm._v("delete")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "material-icons-outlined icon--middle" },
-                      [
-                        _c(
-                          "a",
-                          {
-                            attrs: {
-                              download: "",
-                              href: "/upload/" + myFileUpload.data.name
-                            }
-                          },
-                          [_vm._v("file_download")]
-                        )
-                      ]
+                      "a",
+                      {
+                        attrs: {
+                          download: "",
+                          href: "/upload/" + myFileUpload.data.name
+                        }
+                      },
+                      [_vm._v("file_download")]
                     )
-                  ])
-                ])
-              ]
-            )
-          ],
-          1
-        )
+                  ]
+                )
+              ])
+            ],
+            1
+          )
+        ])
       }),
       _vm._v(" "),
       _c("br"),
