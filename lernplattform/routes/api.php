@@ -9,7 +9,11 @@ use App\Http\Controllers\SearchFileController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\InterestController;
+<<<<<<< HEAD
 use App\Http\Controllers\CollectionController;
+=======
+use App\Http\Controllers\API\AccessTokenController;
+>>>>>>> videochat
 
 /*
 |--------------------------------------------------------------------------
@@ -63,12 +67,18 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     //Collection
     Route::post('/collection/create' , [CollectionController::class, 'create']);
     Route::post('/collection/addFile' , [CollectionController::class, 'addFile']);
+<<<<<<< HEAD
     Route::get('/collection/show' , [CollectionController::class, 'showMyCollections']);
     Route::get('/collection/show/{id}' , [CollectionController::class, 'showCollectionDetails']);
 
     //Search
     Route::get('/search/upload', [SearchFileController::class, 'index']);
 
+=======
+
+    //Videochat
+    Route::get('access_token', [AccessTokenController::class, 'generate_token']);
+>>>>>>> videochat
 });
 
 // Interests - without Middleware

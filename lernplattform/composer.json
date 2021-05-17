@@ -15,7 +15,11 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.2",
         "pusher/pusher-php-server": "~4.0",
+<<<<<<< HEAD
         "spatie/laravel-searchable": "^1.9"
+=======
+        "twilio/sdk": "^6.23"
+>>>>>>> videochat
     },
     "require-dev": {
         "facade/ignition": "^2.5",

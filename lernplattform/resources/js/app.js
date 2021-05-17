@@ -7,12 +7,16 @@ import { routes } from './router';
 import Vue from 'vue';
 import VueToast from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-sugar.css';
+<<<<<<< HEAD
 
 // VueMaterial
 import { MdMenu, MdButton, MdList } from 'vue-material/dist/components'
 import 'vue-material/dist/vue-material.min.css'
 import 'vue-material/dist/theme/default.css'
 
+=======
+import WebRTC from 'vue-webrtc'
+>>>>>>> videochat
 
 window.Vue = require('vue').default;
 
@@ -29,7 +33,7 @@ window.axios.defaults.withCredentials = true;
  */
 
 Vue.use(VueRouter);
-
+Vue.use(WebRTC);
 Vue.use(VueToast, {
     // One of the options
     position: 'bottom',
