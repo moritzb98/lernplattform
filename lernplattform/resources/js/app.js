@@ -15,6 +15,8 @@ import 'vue-material/dist/theme/default.css'
 
 import WebRTC from 'vue-webrtc'
 
+import store from './store'
+
 
 window.Vue = require('vue').default;
 
@@ -52,8 +54,32 @@ const router = new VueRouter({
     routes: routes
 });
 
+const checkLogin = (to, from, next) =>{
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+      if (!store.getters.isAuthenticated) {
+        next({path: '/spa/Login' })
+      } else {
+        next()
+      }
+
+    } else if (to.matched.some(record => record.meta.requiresVisitor)) {
+      if (store.getters.isAuthenticated) {
+        next({name: '/spa/Dashboard' })
+      } else {
+        next()
+      }
+
+    } else {
+      next()
+    }
+
+  }
+
+  store.dispatch('checkAuth');
+
 const app = new Vue({
     el: '#app',
+    store,
     router: router,
     render: h => h(App),
 });

@@ -43,7 +43,10 @@ export const routes = [
     {
         name: 'Suche',
         path: '/spa/Suche',
-        component: Suche
+        component: Suche,
+        meta: {
+            requiresAuth: true
+          }
     },
     // Geändert in Drop-Up Nav?
     {
@@ -59,43 +62,67 @@ export const routes = [
     {
         name: 'Dashboard',
         path: '/spa/Dashboard',
-        component: Dashboard
+        component: Dashboard,
+        meta: {
+            requiresAuth: true
+          }
     },
     {
         name: 'Lernmaterial',
         path: '/spa/Lernmaterial',
-        component: Lernmaterial
+        component: Lernmaterial,
+        meta: {
+            requiresAuth: true
+          }
     },
 
     {
         name: 'CreateKurs',
         path: '/spa/Kurs-erstellen',
-        component: CreateKurs
+        component: CreateKurs,
+        meta: {
+            requiresAuth: true
+          }
     },
     {
         name: 'CreateKarteikarten',
         path: '/spa/Karteikarten-erstellen',
-        component: CreateKarteikarten
+        component: CreateKarteikarten,
+        meta: {
+            requiresAuth: true
+          }
     },
     {
         name: 'CreateQuiz',
         path: '/spa/Quiz-erstellen',
-        component: CreateQuiz
+        component: CreateQuiz,
+        meta: {
+            requiresAuth: true
+          }
     },
     {
         name: 'CreateSkript',
         path: '/spa/Skript-erstellen',
-        component: CreateSkript
+        component: CreateSkript,
+        meta: {
+            requiresAuth: true
+          }
     },
     {
         name: 'CreateSammlung',
         path: '/spa/Sammlung-erstellen',
-        component: CreateSammlung
+        component: CreateSammlung,
+        meta: {
+            requiresAuth: true
+          }
     },
     {
         name: 'CollectionDetail',
         path: '/spa/Collection-detail/:id',
-        component: CollectionDetail
+        component: CollectionDetail,
+        meta: {
+            requiresAuth: true
+          }
     },
 
 
@@ -103,39 +130,60 @@ export const routes = [
     {
         name: 'MeineLerngruppen',
         path: '/spa/Lerngruppen/Eigene',
-        component: MeineLerngruppen
+        component: MeineLerngruppen,
+        meta: {
+            requiresAuth: true
+          }
     },
     {
         name: 'AlleLerngruppen',
         path: '/spa/Lerngruppen/Finden',
-        component: AlleLerngruppen
+        component: AlleLerngruppen,
+        meta: {
+            requiresAuth: true
+          }
     },
     {
         name: 'EditLerngruppe',
         path: '/spa/Lerngruppen/:id/Bearbeiten',
-        component: EditLerngruppe
+        component: EditLerngruppe,
+        meta: {
+            requiresAuth: true
+          }
     },
     {
         name: 'CreateLerngruppe',
         path: '/spa/Lerngruppen/Erstellen',
-        component: CreateLerngruppe
+        component: CreateLerngruppe,
+        meta: {
+            requiresAuth: true
+          }
     },
     {
         name: 'ChatLerngruppe',
         path: '/spa/Lerngruppen/:id/Chat',
-        component: ChatLerngruppe
+        component: ChatLerngruppe,
+        meta: {
+            requiresAuth: true
+          }
     },
 
     {
         name: 'Newsfeed',
         path: '/spa/Newsfeed',
-        component: Newsfeed
+        component: Newsfeed,
+        meta: {
+            requiresAuth: true
+          }
     },
 
     {
         name: 'test',
         path: '/spa/test',
-        component: testview
+        component: testview,
+        meta: {
+            requiresAuth: true
+          }
     },
     {
         name: 'auth',
@@ -145,35 +193,53 @@ export const routes = [
     {
         name: 'styleguide',
         path: '/spa/style',
-        component: styleguide
+        component: styleguide,
+        meta: {
+            requiresAuth: true
+          }
     },
     {
         name: 'documentmanagement',
         path: '/spa/documents',
-        component: documents
+        component: documents,
+        meta: {
+            requiresAuth: true
+          }
     },
     {
         name: 'uploads',
         path: '/spa/upload',
-        component: uploads
+        component: uploads,
+        meta: {
+            requiresAuth: true
+          }
     },
 
     {
         name: 'chat',
         path: '/spa/chat',
-        component: container
+        component: container,
+        meta: {
+            requiresAuth: true
+          }
     },
 
     {
         name: 'UploadDetail',
         path: '/spa/documents/:id',
-        component: UploadDetail
+        component: UploadDetail,
+        meta: {
+            requiresAuth: true
+          }
     },
 
     {
         name: 'SearchUpload',
         path: '/spa/search/upload',
-        component: SearchUpload
+        component: SearchUpload,
+        meta: {
+            requiresAuth: true
+          }
     }
 
 

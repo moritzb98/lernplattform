@@ -4469,11 +4469,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App.vue */ "./resources/js/App.vue");
 /* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-axios */ "./node_modules/vue-axios/dist/vue-axios.es5.js");
 /* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./router */ "./resources/js/router.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var vue_toast_notification__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-toast-notification */ "./node_modules/vue-toast-notification/dist/index.min.js");
 /* harmony import */ var vue_toast_notification__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue_toast_notification__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var vue_toast_notification_dist_theme_sugar_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-toast-notification/dist/theme-sugar.css */ "./node_modules/vue-toast-notification/dist/theme-sugar.css");
@@ -4486,6 +4486,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_material_dist_theme_default_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vue_material_dist_theme_default_css__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var vue_webrtc__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vue-webrtc */ "./node_modules/vue-webrtc/dist/index.js");
 /* harmony import */ var vue_webrtc__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(vue_webrtc__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./store */ "./resources/js/store.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
@@ -4501,6 +4502,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
+
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js").default;
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
@@ -4511,26 +4513,55 @@ window.axios.defaults.withCredentials = true;
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-vue__WEBPACK_IMPORTED_MODULE_10__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_11__.default);
-vue__WEBPACK_IMPORTED_MODULE_10__.default.use((vue_webrtc__WEBPACK_IMPORTED_MODULE_9___default()));
-vue__WEBPACK_IMPORTED_MODULE_10__.default.use((vue_toast_notification__WEBPACK_IMPORTED_MODULE_4___default()), {
+vue__WEBPACK_IMPORTED_MODULE_11__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_12__.default);
+vue__WEBPACK_IMPORTED_MODULE_11__.default.use((vue_webrtc__WEBPACK_IMPORTED_MODULE_9___default()));
+vue__WEBPACK_IMPORTED_MODULE_11__.default.use((vue_toast_notification__WEBPACK_IMPORTED_MODULE_4___default()), {
   // One of the options
   position: 'bottom',
   duration: 3000
 });
-vue__WEBPACK_IMPORTED_MODULE_10__.default.use((vue_axios__WEBPACK_IMPORTED_MODULE_1___default()), (axios__WEBPACK_IMPORTED_MODULE_2___default()));
-vue__WEBPACK_IMPORTED_MODULE_10__.default.component('file-upload-component', __webpack_require__(/*! ./components/FileUploadComponent.vue */ "./resources/js/components/FileUploadComponent.vue").default);
-vue__WEBPACK_IMPORTED_MODULE_10__.default.component('file-view', __webpack_require__(/*! ./views/Documents.vue */ "./resources/js/views/Documents.vue").default); // VueMaterial
+vue__WEBPACK_IMPORTED_MODULE_11__.default.use((vue_axios__WEBPACK_IMPORTED_MODULE_1___default()), (axios__WEBPACK_IMPORTED_MODULE_2___default()));
+vue__WEBPACK_IMPORTED_MODULE_11__.default.component('file-upload-component', __webpack_require__(/*! ./components/FileUploadComponent.vue */ "./resources/js/components/FileUploadComponent.vue").default);
+vue__WEBPACK_IMPORTED_MODULE_11__.default.component('file-view', __webpack_require__(/*! ./views/Documents.vue */ "./resources/js/views/Documents.vue").default); // VueMaterial
 
-vue__WEBPACK_IMPORTED_MODULE_10__.default.use(vue_material_dist_components__WEBPACK_IMPORTED_MODULE_6__.MdMenu);
-vue__WEBPACK_IMPORTED_MODULE_10__.default.use(vue_material_dist_components__WEBPACK_IMPORTED_MODULE_6__.MdButton);
-vue__WEBPACK_IMPORTED_MODULE_10__.default.use(vue_material_dist_components__WEBPACK_IMPORTED_MODULE_6__.MdList);
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_11__.default({
+vue__WEBPACK_IMPORTED_MODULE_11__.default.use(vue_material_dist_components__WEBPACK_IMPORTED_MODULE_6__.MdMenu);
+vue__WEBPACK_IMPORTED_MODULE_11__.default.use(vue_material_dist_components__WEBPACK_IMPORTED_MODULE_6__.MdButton);
+vue__WEBPACK_IMPORTED_MODULE_11__.default.use(vue_material_dist_components__WEBPACK_IMPORTED_MODULE_6__.MdList);
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_12__.default({
   mode: 'history',
   routes: _router__WEBPACK_IMPORTED_MODULE_3__.routes
 });
-var app = new vue__WEBPACK_IMPORTED_MODULE_10__.default({
+
+var checkLogin = function checkLogin(to, from, next) {
+  if (to.matched.some(function (record) {
+    return record.meta.requiresAuth;
+  })) {
+    if (!_store__WEBPACK_IMPORTED_MODULE_10__.default.getters.isAuthenticated) {
+      next({
+        path: '/spa/Login'
+      });
+    } else {
+      next();
+    }
+  } else if (to.matched.some(function (record) {
+    return record.meta.requiresVisitor;
+  })) {
+    if (_store__WEBPACK_IMPORTED_MODULE_10__.default.getters.isAuthenticated) {
+      next({
+        name: '/spa/Dashboard'
+      });
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
+};
+
+_store__WEBPACK_IMPORTED_MODULE_10__.default.dispatch('checkAuth');
+var app = new vue__WEBPACK_IMPORTED_MODULE_11__.default({
   el: '#app',
+  store: _store__WEBPACK_IMPORTED_MODULE_10__.default,
   router: router,
   render: function render(h) {
     return h(_App_vue__WEBPACK_IMPORTED_MODULE_0__.default);
@@ -4656,7 +4687,10 @@ __webpack_require__.r(__webpack_exports__);
 var routes = [{
   name: 'Suche',
   path: '/spa/Suche',
-  component: _views_Suche_vue__WEBPACK_IMPORTED_MODULE_23__.default
+  component: _views_Suche_vue__WEBPACK_IMPORTED_MODULE_23__.default,
+  meta: {
+    requiresAuth: true
+  }
 }, // Geändert in Drop-Up Nav?
 {
   name: 'Login',
@@ -4669,64 +4703,109 @@ var routes = [{
 }, {
   name: 'Dashboard',
   path: '/spa/Dashboard',
-  component: _views_Dashboard_vue__WEBPACK_IMPORTED_MODULE_6__.default
+  component: _views_Dashboard_vue__WEBPACK_IMPORTED_MODULE_6__.default,
+  meta: {
+    requiresAuth: true
+  }
 }, {
   name: 'Lernmaterial',
   path: '/spa/Lernmaterial',
-  component: _views_Lernmaterial_vue__WEBPACK_IMPORTED_MODULE_7__.default
+  component: _views_Lernmaterial_vue__WEBPACK_IMPORTED_MODULE_7__.default,
+  meta: {
+    requiresAuth: true
+  }
 }, {
   name: 'CreateKurs',
   path: '/spa/Kurs-erstellen',
-  component: _views_CreateKurs_vue__WEBPACK_IMPORTED_MODULE_8__.default
+  component: _views_CreateKurs_vue__WEBPACK_IMPORTED_MODULE_8__.default,
+  meta: {
+    requiresAuth: true
+  }
 }, {
   name: 'CreateKarteikarten',
   path: '/spa/Karteikarten-erstellen',
-  component: _views_CreateKarteikarten_vue__WEBPACK_IMPORTED_MODULE_9__.default
+  component: _views_CreateKarteikarten_vue__WEBPACK_IMPORTED_MODULE_9__.default,
+  meta: {
+    requiresAuth: true
+  }
 }, {
   name: 'CreateQuiz',
   path: '/spa/Quiz-erstellen',
-  component: _views_CreateQuiz_vue__WEBPACK_IMPORTED_MODULE_10__.default
+  component: _views_CreateQuiz_vue__WEBPACK_IMPORTED_MODULE_10__.default,
+  meta: {
+    requiresAuth: true
+  }
 }, {
   name: 'CreateSkript',
   path: '/spa/Skript-erstellen',
-  component: _views_CreateSkript_vue__WEBPACK_IMPORTED_MODULE_11__.default
+  component: _views_CreateSkript_vue__WEBPACK_IMPORTED_MODULE_11__.default,
+  meta: {
+    requiresAuth: true
+  }
 }, {
   name: 'CreateSammlung',
   path: '/spa/Sammlung-erstellen',
-  component: _views_CreateSammlung_vue__WEBPACK_IMPORTED_MODULE_12__.default
+  component: _views_CreateSammlung_vue__WEBPACK_IMPORTED_MODULE_12__.default,
+  meta: {
+    requiresAuth: true
+  }
 }, {
   name: 'CollectionDetail',
   path: '/spa/Collection-detail/:id',
-  component: _views_CollectionDetail_vue__WEBPACK_IMPORTED_MODULE_13__.default
+  component: _views_CollectionDetail_vue__WEBPACK_IMPORTED_MODULE_13__.default,
+  meta: {
+    requiresAuth: true
+  }
 }, // Lerngruppen
 {
   name: 'MeineLerngruppen',
   path: '/spa/Lerngruppen/Eigene',
-  component: _views_Lerngruppe_MeineLerngruppen_vue__WEBPACK_IMPORTED_MODULE_14__.default
+  component: _views_Lerngruppe_MeineLerngruppen_vue__WEBPACK_IMPORTED_MODULE_14__.default,
+  meta: {
+    requiresAuth: true
+  }
 }, {
   name: 'AlleLerngruppen',
   path: '/spa/Lerngruppen/Finden',
-  component: _views_Lerngruppe_AlleLerngruppen_vue__WEBPACK_IMPORTED_MODULE_15__.default
+  component: _views_Lerngruppe_AlleLerngruppen_vue__WEBPACK_IMPORTED_MODULE_15__.default,
+  meta: {
+    requiresAuth: true
+  }
 }, {
   name: 'EditLerngruppe',
   path: '/spa/Lerngruppen/:id/Bearbeiten',
-  component: _views_Lerngruppe_EditLerngruppe_vue__WEBPACK_IMPORTED_MODULE_17__.default
+  component: _views_Lerngruppe_EditLerngruppe_vue__WEBPACK_IMPORTED_MODULE_17__.default,
+  meta: {
+    requiresAuth: true
+  }
 }, {
   name: 'CreateLerngruppe',
   path: '/spa/Lerngruppen/Erstellen',
-  component: _views_Lerngruppe_CreateLerngruppe_vue__WEBPACK_IMPORTED_MODULE_16__.default
+  component: _views_Lerngruppe_CreateLerngruppe_vue__WEBPACK_IMPORTED_MODULE_16__.default,
+  meta: {
+    requiresAuth: true
+  }
 }, {
   name: 'ChatLerngruppe',
   path: '/spa/Lerngruppen/:id/Chat',
-  component: _views_Lerngruppe_ChatLerngruppe_vue__WEBPACK_IMPORTED_MODULE_18__.default
+  component: _views_Lerngruppe_ChatLerngruppe_vue__WEBPACK_IMPORTED_MODULE_18__.default,
+  meta: {
+    requiresAuth: true
+  }
 }, {
   name: 'Newsfeed',
   path: '/spa/Newsfeed',
-  component: _views_Newsfeed_vue__WEBPACK_IMPORTED_MODULE_19__.default
+  component: _views_Newsfeed_vue__WEBPACK_IMPORTED_MODULE_19__.default,
+  meta: {
+    requiresAuth: true
+  }
 }, {
   name: 'test',
   path: '/spa/test',
-  component: _views_testview_vue__WEBPACK_IMPORTED_MODULE_0__.default
+  component: _views_testview_vue__WEBPACK_IMPORTED_MODULE_0__.default,
+  meta: {
+    requiresAuth: true
+  }
 }, {
   name: 'auth',
   path: '/spa/auth',
@@ -4734,28 +4813,56 @@ var routes = [{
 }, {
   name: 'styleguide',
   path: '/spa/style',
-  component: _views_styleguide_vue__WEBPACK_IMPORTED_MODULE_2__.default
+  component: _views_styleguide_vue__WEBPACK_IMPORTED_MODULE_2__.default,
+  meta: {
+    requiresAuth: true
+  }
 }, {
   name: 'documentmanagement',
   path: '/spa/documents',
-  component: _views_Documents_vue__WEBPACK_IMPORTED_MODULE_3__.default
+  component: _views_Documents_vue__WEBPACK_IMPORTED_MODULE_3__.default,
+  meta: {
+    requiresAuth: true
+  }
 }, {
   name: 'uploads',
   path: '/spa/upload',
-  component: _components_FileUploadComponent_vue__WEBPACK_IMPORTED_MODULE_4__.default
+  component: _components_FileUploadComponent_vue__WEBPACK_IMPORTED_MODULE_4__.default,
+  meta: {
+    requiresAuth: true
+  }
 }, {
   name: 'chat',
   path: '/spa/chat',
-  component: _views_Chat_container_vue__WEBPACK_IMPORTED_MODULE_5__.default
+  component: _views_Chat_container_vue__WEBPACK_IMPORTED_MODULE_5__.default,
+  meta: {
+    requiresAuth: true
+  }
 }, {
   name: 'UploadDetail',
   path: '/spa/documents/:id',
-  component: _views_UploadDetail_vue__WEBPACK_IMPORTED_MODULE_22__.default
+  component: _views_UploadDetail_vue__WEBPACK_IMPORTED_MODULE_22__.default,
+  meta: {
+    requiresAuth: true
+  }
 }, {
   name: 'SearchUpload',
   path: '/spa/search/upload',
-  component: _views_SearchUpload_vue__WEBPACK_IMPORTED_MODULE_24__.default
+  component: _views_SearchUpload_vue__WEBPACK_IMPORTED_MODULE_24__.default,
+  meta: {
+    requiresAuth: true
+  }
 }];
+
+/***/ }),
+
+/***/ "./resources/js/store.js":
+/*!*******************************!*\
+  !*** ./resources/js/store.js ***!
+  \*******************************/
+/***/ (() => {
+
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/theresabrenner/Documents/Studium/6. Semester/Web Tech 5 - Scrum Projekt Mobile App/lernplattform/lernplattform/resources/js/store.js: Unexpected token, expected \"=>\" (16:13)\n\n\u001b[0m \u001b[90m 14 |\u001b[39m }\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 15 |\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 16 |\u001b[39m   \u001b[36masync\u001b[39m login({commit\u001b[33m,\u001b[39m dispatch}\u001b[33m,\u001b[39m credentials) {\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 17 |\u001b[39m     \u001b[36mawait\u001b[39m axios\u001b[33m.\u001b[39m\u001b[36mget\u001b[39m(\u001b[32m'/sanctum/csrf-cookie'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 18 |\u001b[39m     \u001b[36mconst\u001b[39m {data} \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m axios\u001b[33m.\u001b[39mpost(\u001b[32m\"/login\"\u001b[39m\u001b[33m,\u001b[39m credentials)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 19 |\u001b[39m     commit(\u001b[32m'setAuth'\u001b[39m\u001b[33m,\u001b[39m data)\u001b[33m;\u001b[39m\u001b[0m\n    at Parser._raise (/Users/theresabrenner/Documents/Studium/6. Semester/Web Tech 5 - Scrum Projekt Mobile App/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:776:17)\n    at Parser.raiseWithData (/Users/theresabrenner/Documents/Studium/6. Semester/Web Tech 5 - Scrum Projekt Mobile App/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:769:17)\n    at Parser.raise (/Users/theresabrenner/Documents/Studium/6. Semester/Web Tech 5 - Scrum Projekt Mobile App/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:737:17)\n    at Parser.unexpected (/Users/theresabrenner/Documents/Studium/6. Semester/Web Tech 5 - Scrum Projekt Mobile App/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:9736:16)\n    at Parser.expect (/Users/theresabrenner/Documents/Studium/6. Semester/Web Tech 5 - Scrum Projekt Mobile App/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:9722:28)\n    at Parser.parseAsyncArrowUnaryFunction (/Users/theresabrenner/Documents/Studium/6. Semester/Web Tech 5 - Scrum Projekt Mobile App/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:11146:10)\n    at Parser.parseExprAtom (/Users/theresabrenner/Documents/Studium/6. Semester/Web Tech 5 - Scrum Projekt Mobile App/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:10979:27)\n    at Parser.parseExprSubscripts (/Users/theresabrenner/Documents/Studium/6. Semester/Web Tech 5 - Scrum Projekt Mobile App/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:10709:23)\n    at Parser.parseUpdate (/Users/theresabrenner/Documents/Studium/6. Semester/Web Tech 5 - Scrum Projekt Mobile App/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:10689:21)\n    at Parser.parseMaybeUnary (/Users/theresabrenner/Documents/Studium/6. Semester/Web Tech 5 - Scrum Projekt Mobile App/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:10667:23)\n    at Parser.parseExprOps (/Users/theresabrenner/Documents/Studium/6. Semester/Web Tech 5 - Scrum Projekt Mobile App/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:10524:23)\n    at Parser.parseMaybeConditional (/Users/theresabrenner/Documents/Studium/6. Semester/Web Tech 5 - Scrum Projekt Mobile App/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:10498:23)\n    at Parser.parseMaybeAssign (/Users/theresabrenner/Documents/Studium/6. Semester/Web Tech 5 - Scrum Projekt Mobile App/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:10461:21)\n    at Parser.parseExpressionBase (/Users/theresabrenner/Documents/Studium/6. Semester/Web Tech 5 - Scrum Projekt Mobile App/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:10406:23)\n    at /Users/theresabrenner/Documents/Studium/6. Semester/Web Tech 5 - Scrum Projekt Mobile App/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:10400:39\n    at Parser.allowInAnd (/Users/theresabrenner/Documents/Studium/6. Semester/Web Tech 5 - Scrum Projekt Mobile App/lernplattform/lernplattform/node_modules/@babel/parser/lib/index.js:12099:16)");
 
 /***/ }),
 
