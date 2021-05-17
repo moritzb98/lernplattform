@@ -54,28 +54,51 @@ const router = new VueRouter({
     routes: routes
 });
 
-const checkLogin = (to, from, next) =>{
-    if (to.matched.some(record => record.meta.requiresAuth)) {
-      if (!store.getters.isAuthenticated) {
-        next({path: '/spa/Login' })
-      } else {
-        next()
-      }
+router.beforeEach(async (to, from, next) => {
+	if (to.matched.some(record => record.meta.requiresAuth)) {
+	  // this route requires auth, check if logged in
+	  // if not, redirect to login page.
+        if (store.state.user === null) {
+            if(await getUserData() === false){
+                next({
+                    path: '/spa/login',
+                });
+            }
+        }
 
-    } else if (to.matched.some(record => record.meta.requiresVisitor)) {
-      if (store.getters.isAuthenticated) {
-        next({name: '/spa/Dashboard' })
-      } else {
-        next()
-      }
+      /* if (store.state.user !== null) {
+        if(!await getUserData()){
+          next({
+            path: '/spa/dashboard',
+          });
+        }
+    } */
 
-    } else {
-      next()
-    }
+      /* if (typeof to.matched[0].meta.permission !== 'undefined') {
+          if(isUserGranted(to.matched[0].meta.permission)){
+            next();
+          } else {
+            next({
+              path: '/spa/404',
+            });
+          }
+      } */
+      next();
+	} else {
+	  next()
+	}
+});
 
-  }
-
-  store.dispatch('checkAuth');
+async function getUserData(){
+    return await axios.get('/api/authuser').then(async response => {
+        store.dispatch('setUser', {
+           user: response.data
+        });
+    })
+    .catch(error => {
+        return false;
+    });
+}
 
 const app = new Vue({
     el: '#app',
