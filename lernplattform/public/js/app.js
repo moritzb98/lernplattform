@@ -3548,23 +3548,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -3597,9 +3580,21 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     assignFile: function assignFile(fileid) {
+      var _this2 = this;
+
       this.data.file_id = fileid;
       axios.post('/api/collection/addFile', this.data).then(function (response) {
         Vue.$toast.success('Datei erfolgreich zugeordnet', {});
+
+        _this2.getData();
+      });
+    },
+    getData: function getData() {
+      var _this3 = this;
+
+      axios.post('/api/files/showInCollection', this.collection).then(function (response) {
+        _this3.filesToCollection = response.data.data;
+        console.log(response.data);
       });
     }
   }
@@ -3702,6 +3697,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
 //
 //
 //
@@ -10146,7 +10142,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.content[data-v-797cc8a9] {\n    display: none;\n}\n.content--active[data-v-797cc8a9] {\n    display: block;\n}\n.mdc-tab-scroller-overflow[data-v-797cc8a9]{\n    overflow: visible;\n}\n.tab-bar[data-v-797cc8a9]{\n    display: flex;\n}\n.tab-button[data-v-797cc8a9]{\n    background: linear-gradient(to bottom right,white, #F1F1F1);\n    height: 50px;\n    width: 100%;\n    padding:0px;\n    box-shadow:\n    -5px -5px 13px #fff,\n    5px 5px 13px #0e0e0e40;\n    border-radius: 0px;\n    margin-top: 20px;\n    margin-bottom: 20px;\n}\n.tab-active[data-v-797cc8a9]{\n    box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2),\n        inset -6px -6px 10px 0 white,\n        12px 12px 24px 0 rgba(0, 0, 0, 0.2),\n        -12px -12px 24px 0 rgba(255, 255, 255, 0.5);\n}\n.button-text--mittig[data-v-797cc8a9]{\n    margin: auto;\n}\n.container-uploads[data-v-797cc8a9]{\n    margin-top: 10px;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    width: 100%;\n    height: 40px;\n    border-radius: 28px;\n    border: double 2px transparent;\n    background-image: radial-gradient(white, white), radial-gradient(circle at top left,white,#ED553B);\n    background-origin: border-box;\n    background-clip: content-box, border-box;\n    box-shadow:\n    -5px -5px 13px #fff,\n    5px 5px 13px #0e0e0e40;\n}\n.file-name-upload[data-v-797cc8a9]{\n    padding-left: 2em;\n    white-space: nowrap;\n    max-width: 80%;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.upload-showmore-icon[data-v-797cc8a9]{\n    padding-right: 20px;\n}\n.icon-container[data-v-797cc8a9] {\n    margin-right: 10px;\n}\n.icon--middle[data-v-797cc8a9] {\n    vertical-align: middle;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.content[data-v-797cc8a9] {\n    display: none;\n}\n.content--active[data-v-797cc8a9] {\n    display: block;\n}\n.mdc-tab-scroller-overflow[data-v-797cc8a9]{\n    overflow: visible;\n}\n.tab-bar[data-v-797cc8a9]{\n    display: flex;\n}\n.tab-button[data-v-797cc8a9]{\n    background: linear-gradient(to bottom right,white, #F1F1F1);\n    height: 50px;\n    width: 100%;\n    padding:0px;\n    box-shadow:\n    -5px -5px 13px #fff,\n    5px 5px 13px #0e0e0e40;\n    border-radius: 0px;\n    margin-top: 20px;\n    margin-bottom: 20px;\n}\n.tab-active[data-v-797cc8a9]{\n    box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2),\n        inset -6px -6px 10px 0 white,\n        12px 12px 24px 0 rgba(0, 0, 0, 0.2),\n        -12px -12px 24px 0 rgba(255, 255, 255, 0.5);\n}\n.button-text--mittig[data-v-797cc8a9]{\n    margin: auto;\n}\n.container-uploads[data-v-797cc8a9]{\n    margin-top: 10px;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    width: 100%;\n    height: 40px;\n    border-radius: 28px;\n    border: double 2px transparent;\n    background-image: radial-gradient(white, white), radial-gradient(circle at top left,white,#ED553B);\n    background-origin: border-box;\n    background-clip: content-box, border-box;\n    box-shadow:\n    -5px -5px 13px #fff,\n    5px 5px 13px #0e0e0e40;\n}\n.file-name-upload[data-v-797cc8a9]{\n    padding-left: 2em;\n    white-space: nowrap;\n    max-width: 72%;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.upload-showmore-icon[data-v-797cc8a9]{\n    padding-right: 20px;\n}\n.icon-container[data-v-797cc8a9] {\n    margin-right: 10px;\n}\n.icon--middle[data-v-797cc8a9] {\n    vertical-align: middle;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -49782,6 +49778,37 @@ var render = function() {
                       "div",
                       { staticClass: "col col-6 col-sm-4 mt-3" },
                       [
+                        _c(
+                          "router-link",
+                          { attrs: { to: "/spa/Sammlung-erstellen" } },
+                          [
+                            _c(
+                              "div",
+                              {
+                                staticClass: "card neumorph",
+                                on: { click: _vm.showNavDropUp }
+                              },
+                              [
+                                _c("img", {
+                                  staticClass: "card_img",
+                                  attrs: { src: "", alt: "" }
+                                }),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "card_title" }, [
+                                  _vm._v("Sammlung")
+                                ])
+                              ]
+                            )
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col col-6 col-sm-4 mt-3" },
+                      [
                         _c("router-link", { attrs: { to: "/spa/upload" } }, [
                           _c(
                             "div",
@@ -50474,163 +50501,113 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _vm._v("\n<<<<<<< HEAD\n            "),
-      _c("div", { staticClass: "mdc-card mdc-card-lernmaterial" }, [
+  return _c("div", [
+    _c("div", { staticClass: "mdc-card mdc-card-lernmaterial" }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "card-lernmaterial-spacing card-lernmaterial-spacing-zweispaltig"
+        },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "card-lernmaterial-middle-column-container card-lernmaterial-middle-column-container-zweispaltig"
+            },
+            [
+              _vm._m(1),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "card-lernmaterial-headline card-lernmaterial-headline-collection-detail"
+                },
+                [_vm._v(_vm._s(_vm.collection.name))]
+              )
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _vm._m(2),
+      _vm._v(" "),
+      _c("div", { staticClass: "unterer-Teil-Card-Detail-Sammlung" }, [
         _c(
           "div",
-          {
-            staticClass:
-              "card-lernmaterial-spacing card-lernmaterial-spacing-zweispaltig"
-          },
+          { staticClass: "zugeordnete-Sammlungen-Container" },
           [
-            _vm._m(0),
+            _c("div", { staticClass: "zugeordnete-Sammlungen-Überschrift" }, [
+              _vm._v("Zugeordnete Datein:")
+            ]),
             _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "card-lernmaterial-middle-column-container card-lernmaterial-middle-column-container-zweispaltig"
-              },
-              [
-                _vm._m(1),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "card-lernmaterial-headline card-lernmaterial-headline-collection-detail"
-                  },
-                  [_vm._v(_vm._s(_vm.collection.name))]
-                )
-              ]
-            )
-          ]
+            _vm._l(_vm.filesToCollection, function(file) {
+              return _c(
+                "div",
+                {
+                  key: file.id,
+                  staticClass: "einzelne-zugeordnete-Sammlungen-Container"
+                },
+                [_c("div", [_vm._v(_vm._s(file.data.file_id.displayname))])]
+              )
+            })
+          ],
+          2
         ),
         _vm._v(" "),
-        _vm._m(2),
+        _vm._m(3),
         _vm._v(" "),
-        _c("div", { staticClass: "unterer-Teil-Card-Detail-Sammlung" }, [
-          _c(
-            "div",
-            { staticClass: "zugeordnete-Sammlungen-Container" },
-            [
-              _c("div", { staticClass: "zugeordnete-Sammlungen-Überschrift" }, [
-                _vm._v("Zugeordnete Datein:")
-              ]),
-              _vm._v(" "),
-              _vm._l(_vm.filesToCollection, function(file) {
-                return _c(
-                  "div",
-                  {
-                    key: file.id,
-                    staticClass: "einzelne-zugeordnete-Sammlungen-Container"
-                  },
-                  [_c("div", [_vm._v(_vm._s(file))])]
-                )
-              })
-            ],
-            2
-          ),
-          _vm._v(" "),
-          _vm._m(3),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "zugeordnete-Sammlungen-Container" },
-            [
-              _c("div", { staticClass: "zugeordnete-Sammlungen-Überschrift" }, [
-                _vm._v("Dateien zuordnen")
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "text-kursiv-dünn" }, [
-                _vm._v(
-                  "Wähle Datein, die du der Sammlung " +
-                    _vm._s(_vm.collection.name) +
-                    " zuordnen möchtest:"
-                )
-              ]),
-              _vm._v(" "),
-              _vm._l(_vm.allFiles, function(file) {
-                return _c(
-                  "div",
-                  { key: file.id, staticClass: "nicht-zugeordnete-Container" },
-                  [
-                    _c("div", [_vm._v(_vm._s(file.data.displayname))]),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        on: {
-                          click: function($event) {
-                            return _vm.assignFile(file.data)
-                          }
-                        }
-                      },
-                      [
-                        _c("span", { staticClass: "material-icons-outlined" }, [
-                          _vm._v("add")
-                        ])
-                      ]
-                    )
-                  ]
-                )
-              })
-            ],
-            2
-          )
-        ])
-      ]),
-      _vm._v("\n=======\n        "),
-      _c("h1", [_vm._v("Hallo")]),
-      _vm._v(" "),
-      _c("div", [_vm._v(_vm._s(_vm.collection))]),
-      _vm._v(" "),
-      _c("div", [_vm._v(_vm._s(_vm.collection.name))]),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c("div", [_vm._v("Schon zugeordnete:")]),
-      _vm._v(" "),
-      _vm._l(_vm.filesToCollection, function(file) {
-        return _c(
+        _c(
           "div",
-          { key: file.id, staticClass: "mdc-card-container--45" },
-          [_c("div", [_vm._v(_vm._s(file.data.file_id.displayname))])]
-        )
-      }),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _vm._l(_vm.allFiles, function(file) {
-        return _c(
-          "div",
-          { key: file.id, staticClass: "mdc-card-container--45" },
+          { staticClass: "zugeordnete-Sammlungen-Container" },
           [
-            _c("div", [_vm._v(_vm._s(file.data.displayname))]),
+            _c("div", { staticClass: "zugeordnete-Sammlungen-Überschrift" }, [
+              _vm._v("Dateien zuordnen")
+            ]),
             _vm._v(" "),
-            _c(
-              "div",
-              {
-                on: {
-                  click: function($event) {
-                    return _vm.assignFile(file.data.id)
-                  }
-                }
-              },
-              [_vm._v("plus")]
-            ),
+            _c("div", { staticClass: "text-kursiv-dünn" }, [
+              _vm._v(
+                "Wähle Datein, die du der Sammlung " +
+                  _vm._s(_vm.collection.name) +
+                  " zuordnen möchtest:"
+              )
+            ]),
             _vm._v(" "),
-            _c("br")
-          ]
+            _vm._l(_vm.allFiles, function(file) {
+              return _c(
+                "div",
+                { key: file.id, staticClass: "nicht-zugeordnete-Container" },
+                [
+                  _c("div", [_vm._v(_vm._s(file.data.displayname))]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      on: {
+                        click: function($event) {
+                          return _vm.assignFile(file.data)
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "material-icons-outlined" }, [
+                        _vm._v("add")
+                      ])
+                    ]
+                  )
+                ]
+              )
+            })
+          ],
+          2
         )
-      }),
-      _vm._v("\n>>>>>>> main\n    ")
-    ],
-    2
-  )
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -51009,6 +50986,12 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "icon-container" }, [
+                    _c(
+                      "div",
+                      { staticClass: "material-icons-outlined icon--middle" },
+                      [_vm._v("edit")]
+                    ),
+                    _vm._v(" "),
                     _c(
                       "div",
                       { staticClass: "material-icons-outlined icon--middle" },

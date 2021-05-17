@@ -54,14 +54,14 @@
                     <div class="nav_drop-up neumorph">
                         <div class="container">
                             <div class="row">
-                                <!-- <div class="col col-6 col-sm-4 mt-3">
+                                <div class="col col-6 col-sm-4 mt-3">
                                     <router-link to="/spa/Sammlung-erstellen">
                                         <div class="card neumorph" v-on:click="showNavDropUp">
                                             <img class="card_img" src="" alt="" />
                                             <div class="card_title">Sammlung</div>
                                         </div>
                                     </router-link>
-                                </div> -->
+                                </div>
                                 <!-- <div class="col col-6 col-sm-4 mt-3">
                                     <router-link to="/spa/Karteikarten-erstellen">
                                         <div class="card neumorph" v-on:click="showNavDropUp">

@@ -26,6 +26,7 @@
                 <div class="container-uploads">
                     <div class="file-name-upload">{{ myFileUpload.data.displayname }}</div>
                     <div class="icon-container">
+                        <div class="material-icons-outlined icon--middle">edit</div>
                         <div class="material-icons-outlined icon--middle">delete</div>
                         <div  class="material-icons-outlined icon--middle"><a download v-bind:href="'/upload/' + myFileUpload.data.name">file_download</a></div>
                     </div>
@@ -176,7 +177,7 @@ import {MDCTabBar} from '@material/tab-bar';
     .file-name-upload{
         padding-left: 2em;
         white-space: nowrap;
-        max-width: 80%;
+        max-width: 72%;
         overflow: hidden;
         text-overflow: ellipsis;
     }
