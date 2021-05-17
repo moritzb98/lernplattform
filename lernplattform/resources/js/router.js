@@ -36,6 +36,8 @@ import Suche from './views/Suche.vue'
 import SearchUpload from './views/SearchUpload.vue'
 
 
+
+
 export const routes = [
 
     {
@@ -146,7 +148,7 @@ export const routes = [
         component: styleguide
     },
     {
-   name: 'documentmanagement',
+        name: 'documentmanagement',
         path: '/spa/documents',
         component: documents
     },

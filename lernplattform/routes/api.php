@@ -10,6 +10,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\InterestController;
 use App\Http\Controllers\CollectionController;
+use App\Http\Controllers\API\AccessTokenController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -68,6 +70,9 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     //Search
     Route::get('/search/upload', [SearchFileController::class, 'index']);
+
+    //Videochat
+    Route::get('access_token', [AccessTokenController::class, 'generate_token']);
 
 });
 

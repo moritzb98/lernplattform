@@ -13,6 +13,8 @@ import { MdMenu, MdButton, MdList } from 'vue-material/dist/components'
 import 'vue-material/dist/vue-material.min.css'
 import 'vue-material/dist/theme/default.css'
 
+import WebRTC from 'vue-webrtc'
+
 
 window.Vue = require('vue').default;
 
@@ -29,7 +31,7 @@ window.axios.defaults.withCredentials = true;
  */
 
 Vue.use(VueRouter);
-
+Vue.use(WebRTC);
 Vue.use(VueToast, {
     // One of the options
     position: 'bottom',

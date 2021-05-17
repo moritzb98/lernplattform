@@ -1,14 +1,24 @@
 <template>
-    <div class="container">
+    <div>
+        <!-- Header [Back] -->
+        <div class="header_wrapper">
+            <div class="header header--back">
+                <router-link to="/spa/Suche">
+                    <span class="material-icons neumorph header_back">arrow_back</span>
+                </router-link>
+                <div class="header_title">
+                    {{title}}
+                </div>
+            </div>
+        </div>
+
+        <!-- Content  -->
         <div class="row justify-content-center">
             <div class="col-md-8">
 
             <div class="Pfeil">
-             <button class="mdc-button mdc-button--raised mdc-button-back margin">
-                <span class="material-icons-outlined">arrow_back</span>           
-            </button> 
                 <div class="Create">
-                 <h2> Erstellen </h2>  
+                 <h2> Datei </h2>
                 </div>
             </div>
 
@@ -24,10 +34,10 @@
                 </div>
                 </div>
 
-                <label class="radio-button-label" for="radio-1"> 
-                <div class="urheber"> Hiermit bestätige ich dass die von mir geteilten Dateien von mir erstellt worden sind. Skillwire haftet nicht für Verstöße gegen das Urheberrecht. </div> 
+                <label class="radio-button-label" for="radio-1">
+                <div class="urheber"> Hiermit bestätige ich dass die von mir geteilten Dateien von mir erstellt worden sind. Skillwire haftet nicht für Verstöße gegen das Urheberrecht. </div>
                 </label>
-           
+
                     </div>
 
 
@@ -55,7 +65,8 @@
             return {
                 name: '',
                 file: '',
-                success: ''
+                success: '',
+                title: "Upload"
             };
         },
         methods: {
@@ -89,7 +100,7 @@
 </script>
 
 <style scoped>
-    
+
     .Create{
     margin-right: 10px;
     font-size: 30px;
@@ -100,7 +111,7 @@
     }
 
     .urheber{
-       font-size: 13px; 
+       font-size: 13px;
        font-family: Open Sans;
     }
 
@@ -112,7 +123,7 @@
 
     .form{
            background-color:#F1F1F1;
- 
+
     }
 
     .form-control{

@@ -1,5 +1,15 @@
 <template>
-    <div class="container">
+    <div>
+        <!-- Header -->
+        <div class="header_wrapper">
+            <div class="header">
+                <div class="header_title">
+                    {{title}}
+                </div>
+            </div>
+        </div>
+
+        <!-- Content -->
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
@@ -19,6 +29,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 </template>
 
@@ -28,7 +39,8 @@
             return {
                 name: '',
                 file: '',
-                success: ''
+                success: '',
+                title: "Upload"
             };
         },
         methods: {

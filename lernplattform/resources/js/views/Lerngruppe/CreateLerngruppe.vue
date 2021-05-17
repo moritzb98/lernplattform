@@ -1,5 +1,18 @@
 <template>
     <div>
+        <!-- Header [Back] -->
+        <div class="header_wrapper">
+            <div class="header header--back">
+                <router-link to="/spa/Suche">
+                    <span class="material-icons neumorph header_back">arrow_back</span>
+                </router-link>
+                <div class="header_title">
+                    {{title}}
+                </div>
+            </div>
+        </div>
+
+        <!-- Content -->
         <div class="row mb-5">
             <div class="col">
                 <div class="banner neumorph">
@@ -47,7 +60,8 @@
                 room: {
                     roomName: '',
                     roomMaxPersons: null,
-                }
+                },
+                title: "Erstellen"
 
             }
         },

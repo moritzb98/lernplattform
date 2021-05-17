@@ -68,5 +68,13 @@ class FileController extends Controller
             return $files;
         }
 
+        public function delete(Request $request){
+            $userid = Auth::user()->id;
+
+            FileUpload::where('id', $request['id'])->delete();
+            return response()->json(['´success' => 'Raum erfolgreich bearbeitet.'], 200);
+
+        }
+
 
 }
