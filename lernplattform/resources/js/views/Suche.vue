@@ -1,5 +1,16 @@
 <template>
     <div>
+        <!-- Header [Back] -->
+        <div class="header_wrapper">
+            <div class="header header--back">
+                <router-link to="/spa/Suche">
+                    <span class="material-icons neumorph header_back">arrow_back</span>
+                </router-link>
+                <div class="header_title">
+                    {{title}}
+                </div>
+            </div>
+        </div>
 
         <!-- Search Input -->
         <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
@@ -36,7 +47,8 @@
         data(){
             return {
                 query: null,
-                results: []
+                results: [],
+                title: "Suche"
             };
         },
 

@@ -1,6 +1,18 @@
 <template>
     <div>
-        <h1>Meine Uploads</h1>
+        <!-- Header [Back] -->
+        <div class="header_wrapper">
+            <div class="header header--back">
+                <router-link to="/spa/Suche">
+                    <span class="material-icons neumorph header_back">arrow_back</span>
+                </router-link>
+                <div class="header_title">
+                    {{title}}
+                </div>
+            </div>
+        </div>
+
+        <!-- Content  -->
         <div>
             <div class="mdc-chip mdc-chip-filter" role="row">
                 <div class="mdc-chip__ripple"></div>
@@ -26,7 +38,7 @@
                 <div class="container-uploads">
                     <div class="file-name-upload">{{ myFileUpload.data.displayname }}</div>
                     <div class="icon-container">
-                        <div class="material-icons-outlined icon--middle">delete</div>
+                        <div class="material-icons-outlined icon--middle" @click="deleteFile(myFileUploads.id)">delete</div>
                         <div  class="material-icons-outlined icon--middle"><a download v-bind:href="'/upload/' + myFileUpload.data.name">file_download</a></div>
                     </div>
                 </div>
@@ -83,6 +95,7 @@ import {MDCTabBar} from '@material/tab-bar';
             return{
                 fileUploads: [],
                 myFileUploads: [],
+                title: "Meine Uploads",
             }
         },
         mounted(){
@@ -108,7 +121,14 @@ import {MDCTabBar} from '@material/tab-bar';
                 else{
                     document.getElementById('tab1').classList.remove('tab-active');
                 }
-            }
+            },
+            deleteFile(id){
+                this.axios.post('http://127.0.0.1:8000/api/file/delete/')
+                // var data = {id=this.id}
+                    .then(response => (
+                        console.log(response)
+                    ))
+            },
         }
     }
 

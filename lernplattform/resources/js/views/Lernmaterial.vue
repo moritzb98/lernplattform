@@ -1,6 +1,18 @@
 <template>
     <div>
-        <h1>Lernmaterial</h1>
+        <!-- Header [Search] -->
+        <div class="header_wrapper">
+            <div class="header header--search">
+                <div class="header_title">
+                    {{title}}
+                </div>
+                <router-link to="/spa/Suche">
+                    <span class="material-icons neumorph header_search">search</span>
+                </router-link>
+            </div>
+        </div>
+
+        <!-- Content  -->
         <a href="/spa/documents" class="button-link">
             <button class="mdc-button mdc-button--raised button--big">
                 <span class="button-text">Meine Uploads</span> <span class="material-icons">chevron_right</span>
@@ -36,6 +48,7 @@
         data() {
             return {
                 collections:[],
+                title: "Lernmaterial"
             }
         },
         mounted(){

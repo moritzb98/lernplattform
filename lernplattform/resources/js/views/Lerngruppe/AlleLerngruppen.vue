@@ -1,10 +1,18 @@
 <template>
     <div>
-        <div class="row mb-3">
-            <div class="col">
-                <h1>Lerngruppe finden</h1>
+        <!-- Header [Back] -->
+        <div class="header_wrapper">
+            <div class="header header--back">
+                <router-link to="/spa/Suche">
+                    <span class="material-icons neumorph header_back">arrow_back</span>
+                </router-link>
+                <div class="header_title">
+                    {{title}}
+                </div>
             </div>
         </div>
+
+        <!-- Content -->
 
         <!-- Kategorie Banner  -->
         <!-- <div class="banner-grp-chat">
@@ -53,7 +61,8 @@
     export default {
         data() {
             return {
-                rooms:[]
+                rooms:[],
+                title: "Lerngruppe finden"
             }
         },
         methods: {
