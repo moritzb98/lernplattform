@@ -15,6 +15,8 @@ import 'vue-material/dist/theme/default.css'
 
 import WebRTC from 'vue-webrtc'
 
+import store from './store'
+
 
 window.Vue = require('vue').default;
 
@@ -52,8 +54,55 @@ const router = new VueRouter({
     routes: routes
 });
 
+router.beforeEach(async (to, from, next) => {
+	if (to.matched.some(record => record.meta.requiresAuth)) {
+	  // this route requires auth, check if logged in
+	  // if not, redirect to login page.
+        if (store.state.user === null) {
+            if(await getUserData() === false){
+                next({
+                    path: '/spa/login',
+                });
+            }
+        }
+
+      /* if (store.state.user !== null) {
+        if(!await getUserData()){
+          next({
+            path: '/spa/dashboard',
+          });
+        }
+    } */
+
+      /* if (typeof to.matched[0].meta.permission !== 'undefined') {
+          if(isUserGranted(to.matched[0].meta.permission)){
+            next();
+          } else {
+            next({
+              path: '/spa/404',
+            });
+          }
+      } */
+      next();
+	} else {
+	  next()
+	}
+});
+
+async function getUserData(){
+    return await axios.get('/api/authuser').then(async response => {
+        store.dispatch('setUser', {
+           user: response.data
+        });
+    })
+    .catch(error => {
+        return false;
+    });
+}
+
 const app = new Vue({
     el: '#app',
+    store,
     router: router,
     render: h => h(App),
 });

@@ -13,8 +13,8 @@
                 accessToken: ''
             }
         },
-        methods : {
-           /*  getAccessToken : function () {
+        /*methods : {
+             getAccessToken : function () {
                 const _this = this
 
                 // Request a new token

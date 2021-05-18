@@ -1,6 +1,5 @@
 <template>
     <div>
-<<<<<<< HEAD
             <div class="mdc-card mdc-card-lernmaterial">
                 <div class="card-lernmaterial-spacing card-lernmaterial-spacing-zweispaltig">
                     <div class="card-lernmaterial-icon-container card-lernmaterial-icon-container-weiter-rechts">
@@ -22,7 +21,7 @@
                     <div class="zugeordnete-Sammlungen-Container">
                         <div class="zugeordnete-Sammlungen-Überschrift">Zugeordnete Datein:</div>
                         <div class="einzelne-zugeordnete-Sammlungen-Container" v-for="file in filesToCollection" :key="file.id">
-                            <div>{{file}}</div>
+                            <div>{{file.data.file_id.displayname}}</div>
                         </div>
                     </div>
                     <div class="strich-container">
@@ -39,22 +38,6 @@
                 </div>
 
             </div>
-=======
-        <h1>Hallo</h1>
-        <div>{{collection}}</div>
-        <div>{{collection.name}}</div>
-        <hr>
-        <div>Schon zugeordnete:</div>
-        <div class="mdc-card-container--45" v-for="file in filesToCollection" :key="file.id">
-            <div>{{file.data.file_id.displayname}}</div>
-        </div>
-        <hr>
-        <div class="mdc-card-container--45" v-for="file in allFiles" :key="file.id">
-            <div>{{file.data.displayname}}</div>
-            <div @click="assignFile(file.data.id)">plus</div>
-            <br>
-        </div>
->>>>>>> main
     </div>
 </template>
 
@@ -96,6 +79,14 @@
                 axios.post('/api/collection/addFile', this.data)
                 .then(response=>{
                     Vue.$toast.success('Datei erfolgreich zugeordnet', {});
+                    this.getData();
+                });
+            },
+            getData(){
+                axios.post('/api/files/showInCollection', this.collection)
+                .then(response=>{
+                    this.filesToCollection = response.data.data;
+                    console.log(response.data)
                 });
             }
         }

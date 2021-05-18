@@ -34,15 +34,22 @@
             </div>
         </div>
         <div v-for="myFileUpload in myFileUploads" :key="myFileUpload.id">
-            <router-link :to='"/spa/documents/"+myFileUpload.data.id'>
+
                 <div class="container-uploads">
-                    <div class="file-name-upload">{{ myFileUpload.data.displayname }}</div>
+                    <div v-if="myFileUpload.data.id === editFileId">
+                            <input class="" type="text" v-model="myFileUpload.data.displayname">
+                        </div>
+                        <router-link :to='"/spa/documents/"+myFileUpload.data.id' class="file-name-upload-link" v-else>
+                        <div class="file-name-upload">{{ myFileUpload.data.displayname }}</div>
+                    </router-link>
                     <div class="icon-container">
-                        <div class="material-icons-outlined icon--middle" @click="deleteFile(myFileUploads.id)">delete</div>
+                        <div v-if="myFileUpload.data.id === editFileId" @click="saveFile(myFileUpload.data)" class="material-icons-outlined icon--middle">save</div>
+                        <div v-else @click="editFile(myFileUpload.data.id)" class="material-icons-outlined icon--middle">edit</div>
+                        <div class="material-icons-outlined icon--middle">delete</div>
                         <div  class="material-icons-outlined icon--middle"><a download v-bind:href="'/upload/' + myFileUpload.data.name">file_download</a></div>
                     </div>
                 </div>
-            </router-link>
+
         </div>
 
 
@@ -96,15 +103,16 @@ import {MDCTabBar} from '@material/tab-bar';
                 fileUploads: [],
                 myFileUploads: [],
                 title: "Meine Uploads",
+                editFileId: null,
             }
         },
         mounted(){
-            this.axios.get('http://127.0.0.1:8000/api/getFiles')
+            this.axios.get('/api/getFiles')
             .then(response=>{
                 this.fileUploads = response.data.data;
             });
 
-            this.axios.get('http://127.0.0.1:8000/api/getMyFiles')
+            this.axios.get('/api/getMyFiles')
             .then(response=>{
                 this.myFileUploads = response.data.data;
             });
@@ -122,8 +130,17 @@ import {MDCTabBar} from '@material/tab-bar';
                     document.getElementById('tab1').classList.remove('tab-active');
                 }
             },
+            editFile(id){
+                this.editFileId = id;
+            },
+            saveFile(file){
+                this.axios.post('/api/files/update', file)
+                    .then(response => (
+                        this.editFileId = null
+                    ))
+            },
             deleteFile(id){
-                this.axios.post('http://127.0.0.1:8000/api/file/delete/')
+                this.axios.post('/api/file/delete/')
                 // var data = {id=this.id}
                     .then(response => (
                         console.log(response)
@@ -138,6 +155,10 @@ import {MDCTabBar} from '@material/tab-bar';
 <style scoped>
     .content {
         display: none;
+    }
+
+    .file-name-upload-link{
+        max-width: 72%;
     }
 
     .content--active {
@@ -196,7 +217,6 @@ import {MDCTabBar} from '@material/tab-bar';
     .file-name-upload{
         padding-left: 2em;
         white-space: nowrap;
-        max-width: 80%;
         overflow: hidden;
         text-overflow: ellipsis;
     }
