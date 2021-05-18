@@ -20,12 +20,18 @@
         </a>
 
         <div class="container--flex">
+<<<<<<< Updated upstream
             <router-link to='/spa/Sammlung-erstellen' >
                <div class="mdc-card mdc-card--new button-link">
+=======
+            <router-link to="/spa/Sammlung-erstellen">
+               <div class="mdc-card mdc-card--new">
+>>>>>>> Stashed changes
                     <span class="material-icons-outlined card-icons--new">add</span>
                     <p class="card-text--small">Sammlung erstellen</p>
                 </div>
             </router-link>
+<<<<<<< Updated upstream
             <div class="mdc-card-container--45" v-for="collection in collections" :key="collection.id">
                 <router-link :to='"/spa/Collection-detail/"+collection.id'>
                     <div class="mdc-card mdc-card--middle mdc-card--100">
@@ -33,6 +39,31 @@
                         <p class="card-text--small">{{collection.name}}</p>
                     </div>
                 </router-link>
+=======
+            <div class="mdc-card mdc-card--middle">
+                <span class="material-icons-outlined card-icons--big">biotech</span>
+                <p class="card-text--small">Python</p>
+            </div>
+        </div>
+        <div class="container--flex">
+            <div class="mdc-card mdc-card--middle">
+                <span class="material-icons-outlined card-icons--big">biotech</span>
+                <p class="card-text--small">Abitur Bio</p>
+            </div>
+            <div class="mdc-card mdc-card--middle">
+                <span class="material-icons-outlined card-icons--big">biotech</span>
+                <p class="card-text--small">Lorem</p>
+            </div>
+        </div>
+        <div class="container--flex">
+            <div class="mdc-card mdc-card--middle">
+                <span class="material-icons-outlined card-icons--big">biotech</span>
+                <p class="card-text--small">Lorem</p>
+            </div>
+            <div class="mdc-card mdc-card--middle">
+                <span class="material-icons-outlined card-icons--big">biotech</span>
+                <p class="card-text--small">Lorem</p>
+>>>>>>> Stashed changes
             </div>
         </div>
         <br>

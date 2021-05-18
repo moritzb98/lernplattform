@@ -32,6 +32,7 @@
                         </div>
                     </div>
                 </div>
+<<<<<<< Updated upstream
                 <div class="strich-container">
                     <hr>
                 </div>
@@ -40,7 +41,15 @@
                     <!--
                     <div class="" v-for="collection in collections" :key="collection.id"></div>
                      -->
+=======
+                <div class="trennungsstrich-container">
+                    <hr class="trennungsstrich">
                 </div>
+                <div>
+
+>>>>>>> Stashed changes
+                </div>
+
             </div>
 
     </div>
@@ -51,8 +60,8 @@
     export default {
         data() {
             return {
-                file:{}
-
+                file:{},
+                collections:[],
             }
         },
         mounted(){
@@ -74,7 +83,19 @@
 </script>
 
 <style scoped>
+<<<<<<< Updated upstream
 
+=======
+    .trennungsstrich-container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .trennungsstrich{
+        width: 80%;
+    }
+>>>>>>> Stashed changes
 
 
 </style>

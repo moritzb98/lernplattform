@@ -751,8 +751,13 @@
 
     .card-text--small{
         font-size: 1.2em;
+<<<<<<< Updated upstream
         width: 80%;
         margin: 0 auto;
+=======
+        width: 85%;
+        margin: 0 auto
+>>>>>>> Stashed changes
     }
 
     .mdc-card-newsfeed{

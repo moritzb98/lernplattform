@@ -1,5 +1,6 @@
 <template>
     <div>
+<<<<<<< Updated upstream
         <!-- Header [Back] -->
         <div class="header_wrapper">
             <div class="header header--back">
@@ -42,6 +43,27 @@
     </div>
 </template>
 
+=======
+        <h1>Sammlung erstellen</h1>
+        <div class="headline-text-field">Name der Sammlung</div>
+        <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
+            <input v-model="collection.name" type="text" class="mdc-text-field__input text-field__input--modified" placeholder="" aria-label="Label">
+        </label>
+        <div class="list-items">
+            <div class="list-items-text">Abbrechen</div>
+            <span class="material-icons">add</span>
+        </div>
+        <div @click="createCollection()" class="list-items">
+            <div class="list-items-text">Erstellen</div>
+            <span class="material-icons">add</span>
+        </div>
+
+    </div>
+</template>
+
+
+
+>>>>>>> Stashed changes
 <script>
     export default {
         data() {
@@ -49,22 +71,32 @@
                 collection:{
                     name:"",
                 },
+<<<<<<< Updated upstream
                 title: "Erstellen"
+=======
+>>>>>>> Stashed changes
             }
         },
 
         methods: {
             createCollection(){
+<<<<<<< Updated upstream
                 axios.post('/api/collection/create',this.collection)
                 .then(response=>{
                     console.log(response.data);
                     Vue.$toast.success('Sammlung erfolgreich erstellt.', {});
                     this.$router.push({ path: '/spa/Lernmaterial' });
+=======
+                axios.post('/api/files/showCollectionsToFile',this.collection)
+                .then(response=>{
+                    console.log(response.data);
+>>>>>>> Stashed changes
                 });
             }
         }
     }
 </script>
+<<<<<<< Updated upstream
 
 <style scoped>
     .button-small{
@@ -129,3 +161,5 @@
     }
 
 </style>
+=======
+>>>>>>> Stashed changes
