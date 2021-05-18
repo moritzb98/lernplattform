@@ -52,6 +52,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/files/showInCollection', [FileController::class, 'showFilesInCollection']);
     Route::post('/files/update', [FileController::class, 'update']);
     Route::post('/files/showCollectionsToFile', [FileController::class, 'showCollectionsToFile']);
+    Route::post('/files/delete', [FileController::class, 'delete']);
 
     //Chat
     Route::get('/chat', function () {

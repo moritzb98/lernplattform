@@ -142,6 +142,8 @@
                         this.formData.password=this.registerData.password;
                         Vue.$toast.success('Registrierung erfolgreich', {});
                         this.handleLogin();
+                    }).catch(error => {
+                        Vue.$toast.error('Registrierung fehlgeschlagen', {});
                     });
                 });
             },

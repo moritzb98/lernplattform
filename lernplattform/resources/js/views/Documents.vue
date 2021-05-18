@@ -45,46 +45,12 @@
                     <div class="icon-container">
                         <div v-if="myFileUpload.data.id === editFileId" @click="saveFile(myFileUpload.data)" class="material-icons-outlined icon--middle">save</div>
                         <div v-else @click="editFile(myFileUpload.data.id)" class="material-icons-outlined icon--middle">edit</div>
-                        <div class="material-icons-outlined icon--middle">delete</div>
+                        <div @click="deleteFile(myFileUpload.data)" class="material-icons-outlined icon--middle">delete</div>
                         <div  class="material-icons-outlined icon--middle"><a download v-bind:href="'/upload/' + myFileUpload.data.name">file_download</a></div>
                     </div>
                 </div>
 
         </div>
-
-
-
-        <!-- <div class="tab-bar">
-
-            <button @click="toggleTab('tab1', 'content1')" id="tab1" class="mdc-button tab-button">
-                <span class="button-text button-text--mittig">Alle Dateien</span>
-                </button>
-            <button @click="toggleTab('tab2', 'content2')" id="tab2" class="mdc-button tab-button">
-                <span class="button-text button-text--mittig">Meine Dateien</span>
-            </button>
-        </div>
-        <div id="content1" class="content content--active">
-            <div v-for="fileUpload in fileUploads" :key="fileUpload.id">
-                <p>ID: {{ fileUpload.data.id }} </p>
-                <p>Name: {{ fileUpload.data.name }} </p>
-                <p>Pfad: {{ fileUpload.data.path }} </p>
-                <p>Erstellt von: {{ fileUpload.data.user_id.name }}</p>
-                <a download v-bind:href="'/upload/' + fileUpload.data.name">Download: {{ fileUpload.data.name }}</a>
-                <a v-bind:href="'/documents/'+ fileUpload.data.id">Details</a>
-                <hr>
-            </div>
-        </div>
-        <div id="content2" class="content">
-            <div v-for="myFileUpload in myFileUploads" :key="myFileUpload.id">
-                <p>ID: {{ myFileUpload.data.id }} </p>
-                <p>Name: {{ myFileUpload.data.name }} </p>
-                <p>Pfad: {{ myFileUpload.data.path }} </p>
-                <p>Erstellt von: {{ myFileUpload.data.user_id.name }}</p>
-                <a download v-bind:href="'/upload/' + myFileUpload.name">Download: {{ myFileUpload.data.name }}</a>
-                <a v-bind:href="'/mydocuments/'+ myFileUpload.data.id">Details</a>
-                <hr>
-            </div>
-        </div> -->
 
         <br><br><br>
 
@@ -119,17 +85,6 @@ import {MDCTabBar} from '@material/tab-bar';
 
         },
         methods:{
-            toggleTab(id, content){
-                document.getElementById(id).classList.add('tab-active');
-                document.querySelector('.content--active').classList.remove('content--active');
-                document.getElementById(content).classList.add('content--active');
-                if(id=='tab1'){
-                    document.getElementById('tab2').classList.remove('tab-active');
-                }
-                else{
-                    document.getElementById('tab1').classList.remove('tab-active');
-                }
-            },
             editFile(id){
                 this.editFileId = id;
             },
@@ -139,12 +94,15 @@ import {MDCTabBar} from '@material/tab-bar';
                         this.editFileId = null
                     ))
             },
-            deleteFile(id){
-                this.axios.post('/api/file/delete/')
-                // var data = {id=this.id}
-                    .then(response => (
-                        console.log(response)
-                    ))
+            deleteFile(file){
+                this.axios.post('/api/files/delete/', file)
+                    .then(response => {
+                        for(var i=0; i<this.myFileUploads.length; i++){
+                            if(this.myFileUploads[i].data.id===file.id){
+                                this.myFileUploads.splice(i, 1);
+                            }
+                        }
+                    })
             },
         }
     }

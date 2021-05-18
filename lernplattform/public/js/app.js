@@ -2744,40 +2744,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -2799,17 +2765,6 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
-    toggleTab: function toggleTab(id, content) {
-      document.getElementById(id).classList.add('tab-active');
-      document.querySelector('.content--active').classList.remove('content--active');
-      document.getElementById(content).classList.add('content--active');
-
-      if (id == 'tab1') {
-        document.getElementById('tab2').classList.remove('tab-active');
-      } else {
-        document.getElementById('tab1').classList.remove('tab-active');
-      }
-    },
     editFile: function editFile(id) {
       this.editFileId = id;
     },
@@ -2820,10 +2775,15 @@ __webpack_require__.r(__webpack_exports__);
         return _this2.editFileId = null;
       });
     },
-    deleteFile: function deleteFile(id) {
-      this.axios.post('/api/file/delete/') // var data = {id=this.id}
-      .then(function (response) {
-        return console.log(response);
+    deleteFile: function deleteFile(file) {
+      var _this3 = this;
+
+      this.axios.post('/api/files/delete/', file).then(function (response) {
+        for (var i = 0; i < _this3.myFileUploads.length; i++) {
+          if (_this3.myFileUploads[i].data.id === file.id) {
+            _this3.myFileUploads.splice(i, 1);
+          }
+        }
       });
     }
   }
@@ -3836,6 +3796,8 @@ __webpack_require__.r(__webpack_exports__);
           Vue.$toast.success('Registrierung erfolgreich', {});
 
           _this3.handleLogin();
+        })["catch"](function (error) {
+          Vue.$toast.error('Registrierung fehlgeschlagen', {});
         });
       });
     },
@@ -4722,8 +4684,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__.default({
   broadcaster: 'pusher',
-  key: "6dd882b858b49e4e018e",
-  cluster: "eu",
+  key: "",
+  cluster: "mt1",
   forceTLS: true
 });
 
@@ -51393,7 +51355,14 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "material-icons-outlined icon--middle" },
+                  {
+                    staticClass: "material-icons-outlined icon--middle",
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteFile(myFileUpload.data)
+                      }
+                    }
+                  },
                   [_vm._v("delete")]
                 ),
                 _vm._v(" "),
