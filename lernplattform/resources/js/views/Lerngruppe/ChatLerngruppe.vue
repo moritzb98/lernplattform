@@ -55,6 +55,85 @@
     </div>
 </template>
 
+
+<script>
+    import MessageContainer from '../Chat/messageContainer.vue'
+    import InputMessage from '../Chat/inputMessage.vue'
+    import ChatRoomSelection from '../Chat/chatRoomSelection.vue'
+
+    export default {
+        components: {
+            MessageContainer,
+            InputMessage,
+            ChatRoomSelection
+        },
+       data: function () {
+            return {
+                chatRooms: [],
+                currentRoom: [],
+                messages: [],
+                urlId: this.$route.params.id
+            }
+        },
+        watch: {
+            currentRoom(){
+                this.connect();
+            }
+        },
+        methods: {
+            connect() {
+                if( this.currentRoom.id ){
+                    let vm = this;
+                    this.getMessages();
+                    window.Echo.private("chat." + this.currentRoom.id )
+                    .listen('.message.new', e => {
+                        vm.getMessages();
+                    })
+                }
+            },
+            getRooms() {
+                axios.get('/api/chat/rooms')
+                .then( response => {
+                    this.chatRooms = response.data;
+                    console.log(response.data);
+                    for (var i = 0; i < response.data.length; i++) {
+                       if (response.data[i].id == this.urlId) {
+                            this.setRoom( response.data[i] );
+                       }
+                    }
+                })
+                .catch( error => {
+                    console.log( error );
+                })
+            },
+            setRoom ( room ){
+                this.currentRoom = room;
+                this.getMessages();
+            },
+            getMessages(){
+                axios.get('/api/chat/room/' + this.currentRoom.id + '/messages')
+                .then( response => {
+                    this.messages = response.data;
+                    this.scroll();
+                })
+                .catch( error => {
+                    console.log( error );
+                })
+            },
+            scroll(){
+                var el = document.querySelectorAll(".chat_message-wrapper:last-child")[0];
+                if (el) {
+                    el.scrollIntoView({behavior: 'smooth'});
+                }
+            }
+        },
+        created() {
+            this.getRooms();
+        },
+    }
+</script>
+
+
 <style>
 
     .chat_container {
@@ -164,75 +243,3 @@
 
 
 </style>
-
-<script>
-    import MessageContainer from '../Chat/messageContainer.vue'
-    import InputMessage from '../Chat/inputMessage.vue'
-    import ChatRoomSelection from '../Chat/chatRoomSelection.vue'
-
-    export default {
-        components: {
-            MessageContainer,
-            InputMessage,
-            ChatRoomSelection
-        },
-       data: function () {
-            return {
-                chatRooms: [],
-                currentRoom: [],
-                messages: [],
-            }
-        },
-        watch: {
-            currentRoom(){
-                this.connect();
-            }
-        },
-        methods: {
-            connect() {
-                if( this.currentRoom.id ){
-                    let vm = this;
-                    this.getMessages();
-                    window.Echo.private("chat." + this.currentRoom.id )
-                    .listen('.message.new', e => {
-                        vm.getMessages();
-                    })
-                }
-            },
-            getRooms() {
-                axios.get('/api/chat/rooms')
-                .then( response => {
-                    this.chatRooms = response.data;
-                    console.log(this.response);
-                    this.setRoom( response.data[0] );
-                })
-                .catch( error => {
-                    console.log( error );
-                })
-            },
-            setRoom ( room ){
-                this.currentRoom = room;
-                this.getMessages();
-            },
-            getMessages(){
-                axios.get('/api/chat/room/' + this.currentRoom.id + '/messages')
-                .then( response => {
-                    this.messages = response.data;
-                    this.scroll();
-                })
-                .catch( error => {
-                    console.log( error );
-                })
-            },
-            scroll(){
-                var el = document.querySelectorAll(".chat_message-wrapper:last-child")[0];
-                if (el) {
-                    el.scrollIntoView({behavior: 'smooth'});
-                }
-            }
-        },
-        created() {
-            this.getRooms();
-        },
-    }
-</script>

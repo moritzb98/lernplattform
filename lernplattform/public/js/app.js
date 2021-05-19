@@ -3922,115 +3922,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -4044,7 +3935,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       chatRooms: [],
       currentRoom: [],
-      messages: []
+      messages: [],
+      urlId: this.$route.params.id
     };
   },
   watch: {
@@ -4067,9 +3959,13 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/api/chat/rooms').then(function (response) {
         _this.chatRooms = response.data;
-        console.log(_this.response);
+        console.log(response.data);
 
-        _this.setRoom(response.data[0]);
+        for (var i = 0; i < response.data.length; i++) {
+          if (response.data[i].id == _this.urlId) {
+            _this.setRoom(response.data[i]);
+          }
+        }
       })["catch"](function (error) {
         console.log(error);
       });
