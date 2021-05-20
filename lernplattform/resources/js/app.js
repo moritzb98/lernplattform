@@ -49,6 +49,14 @@ Vue.use(MdMenu)
 Vue.use(MdButton)
 Vue.use(MdList)
 
+// VueMoment
+const moment = require('moment')
+require('moment/locale/de')
+Vue.use(require('vue-moment'), {
+    moment
+})
+
+
 const router = new VueRouter({
     mode: 'history',
     routes: routes

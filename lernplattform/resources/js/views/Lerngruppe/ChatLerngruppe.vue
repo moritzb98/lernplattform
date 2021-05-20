@@ -19,7 +19,7 @@
                 <div class="banner-grp-chat">
                     <div class="banner-grp-chat_body">
                         <div class="banner-grp-chat_body-title">
-                            <h2>Gruppenname</h2>
+                            <h2>{{currentRoom.name}}</h2>
                         </div>
                     </div>
                     <div class="banner-grp-chat_overlay"></div>
@@ -51,58 +51,101 @@
                         </button>
                     </div> -->
 
-                    <!-- Chat -->
-                    <div class="chat">
 
-                        <!-- Nachricht From Others -->
-                        <div class="chat_message-wrapper">
-                            <div class="chat_message chat_message--others">
-                                <div class="chat_message-autor">Roflcopter</div>
-                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, se
-                                <div class="chat_message-timestamp">21:42</div>
-                            </div>
-                        </div>
-
-                        <!-- Nachricht From Me -->
-                        <div class="chat_message-wrapper">
-                            <div class="chat_message chat_message--me">
-                                <div class="chat_message-autor">Max</div>
-                                    re et dolore magna aliquyam erat, sed dia
-                                <div class="chat_message-timestamp">21:42</div>
-                            </div>
-                        </div>
-
-                        <div class="chat_message-wrapper">
-                            <div class="chat_message chat_message--others">
-                                <div class="chat_message-autor">Roflcopter 60000</div>
-                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At ve
-                                <div class="chat_message-timestamp">21:42</div>
-                            </div>
-                        </div>
-
-                        <div class="chat_message-wrapper">
-                            <div class="chat_message chat_message--me">
-                                <div class="chat_message-autor">lss</div>
-                                    r sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                                <div class="chat_message-timestamp">21:42</div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!-- Nachrichten Optionen -->
-                    <div class="chat_controls">
-                        <input class="neumorph--pressed neumorph--pressed--border input w-100">
-                        <button class="neumorph chat_controls-send">
-                            <span class="material-icons">send</span>
-                        </button>
-                    </div>
-
+                    <!-- Chat Nachrichten -->
+                    <message-container :messages="messages" />
                 </div>
             </div>
         </div>
+
+        <!-- Nachrichten Optionen -->
+        <div class="chat_controls_container">
+            <input-message
+                :room="currentRoom"
+                v-on:messagesent="getMessages()" />
+        </div>
+
     </div>
 </template>
+
+
+<script>
+    import MessageContainer from '../Chat/messageContainer.vue'
+    import InputMessage from '../Chat/inputMessage.vue'
+    import ChatRoomSelection from '../Chat/chatRoomSelection.vue'
+
+    export default {
+        components: {
+            MessageContainer,
+            InputMessage,
+            ChatRoomSelection
+        },
+       data: function () {
+            return {
+                chatRooms: [],
+                currentRoom: [],
+                messages: [],
+                urlId: this.$route.params.id
+            }
+        },
+        watch: {
+            currentRoom(){
+                this.connect();
+            }
+        },
+        methods: {
+            connect() {
+                if( this.currentRoom.id ){
+                    let vm = this;
+                    this.getMessages();
+                    window.Echo.private("chat." + this.currentRoom.id )
+                    .listen('.message.new', e => {
+                        vm.getMessages();
+                    })
+                }
+            },
+            getRooms() {
+                axios.get('/api/chat/rooms')
+                .then( response => {
+                    this.chatRooms = response.data;
+                    console.log(response.data);
+                    for (var i = 0; i < response.data.length; i++) {
+                       if (response.data[i].id == this.urlId) {
+                            this.setRoom( response.data[i] );
+                       }
+                    }
+                })
+                .catch( error => {
+                    console.log( error );
+                })
+            },
+            setRoom ( room ){
+                this.currentRoom = room;
+                this.getMessages();
+            },
+            getMessages(){
+                axios.get('/api/chat/room/' + this.currentRoom.id + '/messages')
+                .then( response => {
+                    this.messages = response.data;
+                    this.scroll();
+                })
+                .catch( error => {
+                    console.log( error );
+                })
+            },
+            scroll(){
+                var el = document.querySelectorAll(".chat_message-wrapper:last-child")[0];
+                if (el) {
+                    el.scrollIntoView({behavior: 'smooth'});
+                }
+            }
+        },
+        created() {
+            this.getRooms();
+        },
+    }
+</script>
+
 
 <style>
 
@@ -127,16 +170,22 @@
         overflow-y: scroll;
     }
 
-    .chat_controls {
+    .chat_controls_container {
+        width: 100%;
         display: flex;
         position: absolute;
-        bottom: 0px;
+        bottom: 120px;
         left: 0px;
-        width: 100%;
-        height: 40px;
-
         z-index: 1;
+    }
 
+    .chat_controls {
+        position: relative;
+        display: flex;
+        width: 90%;
+        max-width: 500px;
+        height: 40px;
+        margin: 0 auto;
     }
 
     .chat_controls input {
@@ -150,7 +199,7 @@
         align-items: center;
         position: absolute;
         top: -7px;
-        right: 0;
+        right: 0px;
         border: none;
         padding: 15px;
     }
@@ -207,13 +256,3 @@
 
 
 </style>
-
-<script>
-    export default {
-        data() {
-            return {
-                title: "Lerngruppenchat"
-            }
-        }
-    }
-</script>
