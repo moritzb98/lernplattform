@@ -95,19 +95,19 @@ class RoomController extends Controller
     }
 
     public function leaveRoom($roomid){
-        $userid = Auth::user()->id;
-        $roomUserid = Room::where('user_id', $userid)->where('id', $roomid)->get();
 
-        if($roomid->user_id !== $userid){
+        $userid = Auth::user()->id;
+        $room = Room::where('user_id', $userid)->where('id', $roomid)->get();
+
+        // dd($room["user_id"]);
+        dd(isset($room["user_id"]));
+
+        if(!isset($room->userid)){
             RoomsUsers::where('room_id', $roomid)->where('user_id', $userid)->delete();
             return response()->json(['´success' => 'Raum erfolgreich verlassen.'], 200);
-        }
-        else
-        {
+        }else{
             return response()->json(['error' => 'Du hast diesen Raum  erstellt und darfst ihn somit nicht verlassen'], 403);
         }
-
-
     }
 
     public function getUsersInRoom(Request $request){

@@ -137,10 +137,10 @@
             },
             leaveRoom(roomid){
                 this.axios.post('http://127.0.0.1:8000/api/room/leave/' + roomid)
-                    console.log(roomid)
                     .then(response => (
                         console.log(response)
                     ))
+                    console.log(roomid)
             },
         },
         mounted(){

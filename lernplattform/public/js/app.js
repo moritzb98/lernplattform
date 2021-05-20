@@ -4278,10 +4278,10 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     leaveRoom: function leaveRoom(roomid) {
-      this.axios.post('http://127.0.0.1:8000/api/room/leave/' + roomid);
-      console.log(roomid).then(function (response) {
+      this.axios.post('http://127.0.0.1:8000/api/room/leave/' + roomid).then(function (response) {
         return console.log(response);
       });
+      console.log(roomid);
     }
   },
   mounted: function mounted() {
