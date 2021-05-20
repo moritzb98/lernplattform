@@ -131,15 +131,19 @@
             },
             deleteRoom(id){
                 this.axios.post('http://127.0.0.1:8000/api/room/delete/' + id)
-                    .then(response => (
-                        console.log(response)
-                    ))
+                    .then(response => {
+                        console.log(response);
+                        Vue.$toast.error('Lerngruppe erfolgreich gelöscht.', {});
+                        this.$router.go();
+                    })
             },
             leaveRoom(roomid){
                 this.axios.post('http://127.0.0.1:8000/api/room/leave/' + roomid)
-                    .then(response => (
-                        console.log(response)
-                    ))
+                    .then(response => {
+                        console.log(response);
+                        Vue.$toast.success('Lerngruppe erfolgreich verlassen.', {});
+                        this.$router.go();
+                    })
                     console.log(roomid)
             },
         },

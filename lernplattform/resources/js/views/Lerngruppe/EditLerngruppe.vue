@@ -64,10 +64,12 @@
         methods: {
             updateRoom(){
                 this.axios.post('http://127.0.0.1:8000/api/room/update/', this.room)
-                    .then(response => (
-                        console.log(response)
-                    ))
-            }
+                    .then(response => {
+                        console.log(response);
+                        Vue.$toast.success('Lerngruppe erfolgreich bearbeitet.', {});
+                        this.$router.push({ path: '/spa/Lerngruppen/Eigene' });
+                    });
+            },
         }
     }
 </script>

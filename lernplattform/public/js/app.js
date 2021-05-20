@@ -3746,9 +3746,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     joinRoom: function joinRoom(roomid) {
       this.axios.post('http://127.0.0.1:8000/api/room/join/' + roomid).then(function (response) {
-        return (//this.room.id = response.data.id,
-          console.log(response)
-        );
+        //this.room.id = response.data.id,
+        console.log(response);
+        Vue.$toast.success('Lerngruppe erfolgreich beigetreten.', {});
       });
     }
   },
@@ -4038,7 +4038,12 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.axios.post('http://127.0.0.1:8000/api/room/create', room).then(function (response) {
-        return console.log(response);
+        console.log(response);
+        Vue.$toast.success('Lerngruppe erfolgreich erstellt.', {});
+
+        _this.$router.push({
+          path: '/spa/Lerngruppen/Eigene'
+        });
       })["catch"](function (err) {
         return console.log(err);
       })["finally"](function () {
@@ -4123,8 +4128,15 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     updateRoom: function updateRoom() {
+      var _this2 = this;
+
       this.axios.post('http://127.0.0.1:8000/api/room/update/', this.room).then(function (response) {
-        return console.log(response);
+        console.log(response);
+        Vue.$toast.success('Lerngruppe erfolgreich bearbeitet.', {});
+
+        _this2.$router.push({
+          path: '/spa/Lerngruppen/Eigene'
+        });
       });
     }
   }
@@ -4273,13 +4285,23 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     deleteRoom: function deleteRoom(id) {
+      var _this3 = this;
+
       this.axios.post('http://127.0.0.1:8000/api/room/delete/' + id).then(function (response) {
-        return console.log(response);
+        console.log(response);
+        Vue.$toast.error('Lerngruppe erfolgreich gelöscht.', {});
+
+        _this3.$router.go();
       });
     },
     leaveRoom: function leaveRoom(roomid) {
+      var _this4 = this;
+
       this.axios.post('http://127.0.0.1:8000/api/room/leave/' + roomid).then(function (response) {
-        return console.log(response);
+        console.log(response);
+        Vue.$toast.success('Lerngruppe erfolgreich verlassen.', {});
+
+        _this4.$router.go();
       });
       console.log(roomid);
     }
