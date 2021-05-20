@@ -28,7 +28,7 @@
             </router-link>
             <div class="mdc-card-container--45" v-for="collection in collections" :key="collection.id">
                 <router-link :to='"/spa/Collection-detail/"+collection.id'>
-                    <div class="mdc-card mdc-card--middle mdc-card--100">
+                    <div class="router-text mdc-card mdc-card--middle mdc-card--100">
                         <span class="material-icons-outlined card-icons--big">biotech</span>
                         <p class="card-text--small">{{collection.name}}</p>
                     </div>

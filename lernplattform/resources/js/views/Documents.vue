@@ -36,17 +36,17 @@
         <div v-for="myFileUpload in myFileUploads" :key="myFileUpload.id">
 
                 <div class="container-uploads">
-                    <div v-if="myFileUpload.data.id === editFileId">
-                            <input class="" type="text" v-model="myFileUpload.data.displayname">
+                    <div class="cursor" v-if="myFileUpload.data.id === editFileId">
+                            <input class="input-feld" type="text" v-model="myFileUpload.data.displayname" autofocus>
                         </div>
-                        <router-link :to='"/spa/documents/"+myFileUpload.data.id' class="file-name-upload-link" v-else>
+                        <router-link :to='"/spa/documents/"+myFileUpload.data.id' class="file-name-upload-link router-text" v-else>
                         <div class="file-name-upload">{{ myFileUpload.data.displayname }}</div>
                     </router-link>
                     <div class="icon-container">
                         <div v-if="myFileUpload.data.id === editFileId" @click="saveFile(myFileUpload.data)" class="material-icons-outlined icon--middle">save</div>
                         <div v-else @click="editFile(myFileUpload.data.id)" class="material-icons-outlined icon--middle">edit</div>
                         <div @click="deleteFile(myFileUpload.data)" class="material-icons-outlined icon--middle">delete</div>
-                        <div  class="material-icons-outlined icon--middle"><a download v-bind:href="'/upload/' + myFileUpload.data.name">file_download</a></div>
+                        <div  class="material-icons-outlined icon--middle"><a class="a-text" download v-bind:href="'/upload/' + myFileUpload.data.name">file_download</a></div>
                     </div>
                 </div>
 
@@ -190,4 +190,44 @@ import {MDCTabBar} from '@material/tab-bar';
     .icon--middle {
         vertical-align: middle;
     }
+
+    .input-feld{
+        margin-left: 23px;
+        padding-left: 5px;
+        border: 0.3px solid rgb(170, 170, 170);
+        border-radius: 11px;
+        width: 100%;
+    }
+
+     .input-feld:focus{
+         border-radius: 11px;
+         border: 0.3px solid #015FCC;
+         outline: none;
+     }
+
+     .cursor {
+	position: relative;
+}
+.cursor	i {
+	position: absolute;
+	width: 1px;
+	height: 80%;
+	background-color: gray;
+	left: 5px;
+	top: 10%;
+	animation-name: blink;
+	animation-duration: 800ms;
+	animation-iteration-count: infinite;
+	opacity: 1;
+}
+
+.cursor input:focus + i {
+	display: none;
+}
+
+@keyframes blink {
+	from { opacity: 1; }
+	to { opacity: 0; }
+}
+
 </style>

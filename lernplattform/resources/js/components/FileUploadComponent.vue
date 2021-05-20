@@ -22,8 +22,6 @@
                 </div>
             </div>
 
-
-
         <div class="container">
             <div class="mdc-form-field">
                 <div class="mdc-radio">
@@ -37,15 +35,10 @@
                 <label class="radio-button-label" for="radio-1">
                 <div class="urheber"> Hiermit bestätige ich dass die von mir geteilten Dateien von mir erstellt worden sind. Skillwire haftet nicht für Verstöße gegen das Urheberrecht. </div>
                 </label>
-
-                    </div>
+            </div>
 
 
                     <div class="card-body">
-                        <div v-if="success != ''" class="alert alert-success">
-                            {{success}}
-                        </div>
-
                         <form @submit="formSubmit" enctype="multipart/form-data">
                             <input type="file" class="form-control" v-on:change="onChange">
                             <button class="mdc-button mdc-button--raised button--big">
@@ -88,16 +81,22 @@
 
                 axios.post('/api/upload', data, config)
                     .then(function (res) {
-                        existingObj.success = res.data.success;
+
+                        Vue.$toast.success('Datei erfolgreich hochgeladen', {});
+
                     })
                     .catch(function (err) {
-                        existingObj.output = err;
+                        Vue.$toast.error('Beim Hochladen ist etwas schief gegangen :(', {});
                     });
+                    this.$router.push({ path: '/spa/documents' });
             }
         }
     }
 
 </script>
+
+
+
 
 <style scoped>
 

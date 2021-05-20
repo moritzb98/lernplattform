@@ -28,11 +28,10 @@
             <input v-model="collection.name" type="text" class="mdc-text-field__input text-field__input--modified " placeholder="" aria-label="Label">
         </label>
         <div class="small-button-container">
-            <router-link to="/spa/Lernmaterial">
-                <div class="list-items button-link button-small">
+            <router-link class="button-small list-items button-link router-text" to="/spa/Lernmaterial">
                     <span class="material-icons-outlined button-icon-small">close</span>
                     <div class="list-items-text">Abbrechen</div>
-                </div>
+
             </router-link>
             <div @click="createCollection()" class="list-items button-small">
                 <span class="material-icons-outlined button-icon-small">check</span>
@@ -76,7 +75,7 @@
     .small-button-container{
         display: flex;
         flex-wrap: nowrap;
-        justify-content: center;
+        justify-content: space-around;
         margin-top: 40px;
     }
 

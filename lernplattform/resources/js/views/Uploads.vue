@@ -14,13 +14,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">Erstellen</div>
-
                     <div class="card-body">
-
-                        <div v-if="success != ''" class="alert alert-success">
-                            {{success}}
-                        </div>
-
                         <form @submit="formSubmit" enctype="multipart/form-data">
                             <input type="file" class="form-control" v-on:change="onChange">
                             <button class="btn btn-primary btn-block">Upload</button>
@@ -62,13 +56,14 @@
 
                 axios.post('/api/upload', data, config)
                     .then(function (res) {
-                        existingObj.success = res.data.success;
+                        Vue.$toast.success('Datei erfolgreich', {});
                     })
                     .catch(function (err) {
-                        existingObj.output = err;
+                        Vue.$toast.error('Beim Hochladen ist etwas schief gegangen :(', {});
                     });
             }
         }
     }
 
 </script>
+

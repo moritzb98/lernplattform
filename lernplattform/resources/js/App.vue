@@ -1176,7 +1176,7 @@
     }
 
     .button-link{
-        text-decoration: none;
+        text-decoration: none !important;
         color: #212121;
     }
 
@@ -1197,6 +1197,18 @@
 
     .mdc-chip__text{
         margin: auto;
+    }
+
+    .router-text div, p{
+        color: #212121;
+    }
+
+    a button span{
+        text-decoration: none !important;
+    }
+
+    .a-text{
+        color: #212121 !important;
     }
 
 
