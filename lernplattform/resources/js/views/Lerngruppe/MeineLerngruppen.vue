@@ -17,7 +17,6 @@
         </div>
 
 
-        <!-- Filter: ID mit eingeloggter ID abgleichen: Nur Rooms anzeigen, denen man beigetreten ist -->
         <div class="row mb-3">
             <div class="col">
                 <router-link to="/spa/Lerngruppen/Erstellen">
@@ -26,9 +25,7 @@
                         <span class="btn_icon material-icons">add</span>
                     </button>
                 </router-link>
-                <p>von mir erstellt</p>
                 <div v-for="(room, index) in rooms" :key="index">
-                    <!-- <router-link :to='"/spa/Lerngruppen/"+room.id+"/Chat"'> -->
                         <div class="neumorph card-small mb-2">
                             {{room.name}}
                             <div class="card-small_controls" >
@@ -60,7 +57,6 @@
                                             </router-link>
                                         </md-menu-item>
                                         <md-menu-item>
-                                            <!-- delete gibt 405 zurück -->
                                             <div class="card-small_controls_item" @click="deleteRoom(room.id)">
                                                 <span class="material-icons">delete</span> Löschen
                                             </div>
@@ -70,27 +66,16 @@
 
                             </div>
                         </div>
-                    <!-- </router-link> -->
                 </div>
 
-
-
-
-                <!--
-
-                    wie muss hier durch data geloopt werden?
-
-                -->
-
-                <p>beigetreten</p>
                 <div v-for="(roomUserIsIn, index) in roomsUserIsIn" :key="index">
                     <div class="neumorph card-small mb-2">
 
-                        {{roomUserIsIn.data.data.room_id.id}}
+                        {{roomUserIsIn.data.room_id.name}}
                         <div class="card-small_controls" >
 
                             <!-- CTA Zum Chat -->
-                            <router-link :to='"/spa/Lerngruppen/"+room.id+"/Chat"'>
+                            <router-link :to='"/spa/Lerngruppen/"+roomUserIsIn.data.room_id.id+"/Chat"'>
                                 <div class="card-small_controls_item">
                                     <span class="material-icons">question_answer</span>
                                 </div>
@@ -104,21 +89,8 @@
 
                                 <md-menu-content class="card-small_dropdown">
                                     <md-menu-item>
-                                        <div class="card-small_controls_item" @click="leaveRoom(room.id)">
+                                        <div class="card-small_controls_item" @click="leaveRoom(roomUserIsIn.data.room_id.id)">
                                             <span class="material-icons">logout</span> Verlassen
-                                        </div>
-                                    </md-menu-item>
-                                    <md-menu-item>
-                                        <router-link :to='"/spa/Lerngruppen/"+room.id+"/Bearbeiten"'>
-                                            <div class="card-small_controls_item">
-                                                <span class="material-icons">edit</span> Bearbeiten
-                                            </div>
-                                        </router-link>
-                                    </md-menu-item>
-                                    <md-menu-item>
-                                        <!-- delete gibt 405 zurück -->
-                                        <div class="card-small_controls_item" @click="deleteRoom(room.id)">
-                                            <span class="material-icons">delete</span> Löschen
                                         </div>
                                     </md-menu-item>
                                 </md-menu-content>
@@ -152,14 +124,21 @@
             getRoomsUserIsIn() {
                 this.axios.get('http://127.0.0.1:8000/api/room/userIsIn')
                     .then(response=>{
-                        this.roomsUserIsIn=response.data,
+                        this.roomsUserIsIn=response.data.data,
                         console.log(this.roomsUserIsIn);
+                        // console.log("test" ,response.data.data);
                     })
             },
             deleteRoom(id){
                 this.axios.post('http://127.0.0.1:8000/api/room/delete/' + id)
                     .then(response => (
-                        //this.room.id = response.data.id,
+                        console.log(response)
+                    ))
+            },
+            leaveRoom(roomid){
+                this.axios.post('http://127.0.0.1:8000/api/room/leave/' + roomid)
+                    console.log(roomid)
+                    .then(response => (
                         console.log(response)
                     ))
             },

@@ -4250,34 +4250,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -4297,14 +4269,18 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       this.axios.get('http://127.0.0.1:8000/api/room/userIsIn').then(function (response) {
-        _this2.roomsUserIsIn = response.data, console.log(_this2.roomsUserIsIn);
+        _this2.roomsUserIsIn = response.data.data, console.log(_this2.roomsUserIsIn); // console.log("test" ,response.data.data);
       });
     },
     deleteRoom: function deleteRoom(id) {
       this.axios.post('http://127.0.0.1:8000/api/room/delete/' + id).then(function (response) {
-        return (//this.room.id = response.data.id,
-          console.log(response)
-        );
+        return console.log(response);
+      });
+    },
+    leaveRoom: function leaveRoom(roomid) {
+      this.axios.post('http://127.0.0.1:8000/api/room/leave/' + roomid);
+      console.log(roomid).then(function (response) {
+        return console.log(response);
       });
     }
   },
@@ -51050,8 +51026,6 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c("p", [_vm._v("von mir erstellt")]),
-          _vm._v(" "),
           _vm._l(_vm.rooms, function(room, index) {
             return _c("div", { key: index }, [
               _c("div", { staticClass: "neumorph card-small mb-2" }, [
@@ -51195,14 +51169,12 @@ var render = function() {
             ])
           }),
           _vm._v(" "),
-          _c("p", [_vm._v("beigetreten")]),
-          _vm._v(" "),
           _vm._l(_vm.roomsUserIsIn, function(roomUserIsIn, index) {
             return _c("div", { key: index }, [
               _c("div", { staticClass: "neumorph card-small mb-2" }, [
                 _vm._v(
                   "\n\n                    " +
-                    _vm._s(roomUserIsIn.data.data.room_id.id) +
+                    _vm._s(roomUserIsIn.data.room_id.name) +
                     "\n                    "
                 ),
                 _c(
@@ -51213,7 +51185,10 @@ var render = function() {
                       "router-link",
                       {
                         attrs: {
-                          to: "/spa/Lerngruppen/" + _vm.room.id + "/Chat"
+                          to:
+                            "/spa/Lerngruppen/" +
+                            roomUserIsIn.data.room_id.id +
+                            "/Chat"
                         }
                       },
                       [
@@ -51253,7 +51228,9 @@ var render = function() {
                                   staticClass: "card-small_controls_item",
                                   on: {
                                     click: function($event) {
-                                      return _vm.leaveRoom(_vm.room.id)
+                                      return _vm.leaveRoom(
+                                        roomUserIsIn.data.room_id.id
+                                      )
                                     }
                                   }
                                 },
@@ -51265,66 +51242,6 @@ var render = function() {
                                   ),
                                   _vm._v(
                                     " Verlassen\n                                    "
-                                  )
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "md-menu-item",
-                              [
-                                _c(
-                                  "router-link",
-                                  {
-                                    attrs: {
-                                      to:
-                                        "/spa/Lerngruppen/" +
-                                        _vm.room.id +
-                                        "/Bearbeiten"
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass: "card-small_controls_item"
-                                      },
-                                      [
-                                        _c(
-                                          "span",
-                                          { staticClass: "material-icons" },
-                                          [_vm._v("edit")]
-                                        ),
-                                        _vm._v(
-                                          " Bearbeiten\n                                        "
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c("md-menu-item", [
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "card-small_controls_item",
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.deleteRoom(_vm.room.id)
-                                    }
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "span",
-                                    { staticClass: "material-icons" },
-                                    [_vm._v("delete")]
-                                  ),
-                                  _vm._v(
-                                    " Löschen\n                                    "
                                   )
                                 ]
                               )
