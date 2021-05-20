@@ -3,9 +3,7 @@
         <!-- Header [Back] -->
         <div class="header_wrapper">
             <div class="header header--back">
-                <router-link to="/spa/Suche">
-                    <span class="material-icons neumorph header_back">arrow_back</span>
-                </router-link>
+                <span class="material-icons neumorph header_back" @click="$router.go(-1)">arrow_back</span>
                 <div class="header_title">
                     {{title}}
                 </div>
@@ -85,7 +83,8 @@
                 chatRooms: [],
                 currentRoom: [],
                 messages: [],
-                urlId: this.$route.params.id
+                urlId: this.$route.params.id,
+                title: "Lerngruppe"
             }
         },
         watch: {
