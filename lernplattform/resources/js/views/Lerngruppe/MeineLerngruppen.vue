@@ -143,8 +143,10 @@
                         console.log(response);
                         Vue.$toast.success('Lerngruppe erfolgreich verlassen.', {});
                         this.$router.go();
+                    }).catch(err => {
+                        Vue.$toast.info(err.response.data.error, {});
                     })
-                    console.log(roomid)
+
             },
         },
         mounted(){
