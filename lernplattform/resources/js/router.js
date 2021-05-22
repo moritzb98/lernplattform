@@ -35,7 +35,8 @@ import UploadDetail from './views/UploadDetail.vue'
 import Suche from './views/Suche.vue'
 import SearchUpload from './views/SearchUpload.vue'
 
-
+//Quiz
+import QuizKategorie from './views/QuizKategorie.vue'
 
 
 export const routes = [
@@ -240,7 +241,17 @@ export const routes = [
         meta: {
             requiresAuth: true
           }
-    }
+    },
+
+    //Quiz
+    {
+        name: 'QuizKategorie',
+        path: '/spa/quizkategorie',
+        component: QuizKategorie,
+        meta: {
+            requiresAuth: true
+          }
+    },
 
 
 
