@@ -3703,6 +3703,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -4790,8 +4806,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__.default({
   broadcaster: 'pusher',
-  key: "6dd882b858b49e4e018e",
-  cluster: "eu",
+  key: "",
+  cluster: "mt1",
   forceTLS: true
 });
 
@@ -9850,7 +9866,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.background-container[data-v-33871edb]{\n        width: 100vw;\n        margin-left: -16px;\n}\n.background[data-v-33871edb]{\n        width: 100%;\n        height: 120px;\n        background-color: #F1D2CD;\n        border-radius: 0px 0px 0px 30px;\n        display: flex;\n        flex-wrap: nowrap;\n        position: relative;\n}\n.fabriges-rechteck[data-v-33871edb]{\n        width: 100%;\n        height: 50px;\n        background-color: #F1D2CD;\n}\n.weißes-rechteck[data-v-33871edb]{\n        width: 100%;\n        height: 52px;\n        background-color: #F1F1F1;\n        border-radius: 0px 60px 0px 0px;\n}\n.überschrift-oberer-Bereich[data-v-33871edb]{\n        font-size: 1.5em;\n        color: #ED553B;\n        font-weight: bold;\n        margin: auto;\n        max-width: 80%;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.background-container[data-v-33871edb]{\n        width: 100vw;\n        margin-left: -16px;\n}\n.background[data-v-33871edb]{\n        width: 100%;\n        height: 120px;\n        background-color: #F1D2CD;\n        border-radius: 0px 0px 0px 30px;\n        display: flex;\n        flex-wrap: nowrap;\n        position: relative;\n}\n.fabriges-rechteck[data-v-33871edb]{\n        width: 100%;\n        height: 50px;\n        background-color: #F1D2CD;\n}\n.weißes-rechteck[data-v-33871edb]{\n        width: 100%;\n        height: 52px;\n        background-color: #F1F1F1;\n        border-radius: 0px 60px 0px 0px;\n}\n.überschrift-oberer-Bereich[data-v-33871edb]{\n        font-size: 1.5em;\n        color: #ED553B;\n        font-weight: bold;\n        margin: auto;\n        max-width: 80%;\n        line-height: 25px;\n}\n.abstand-weg[data-v-33871edb]{\n        margin-top: 0px;\n}\n.button--small[data-v-33871edb]{\n        height: 40px;\n        width: 75%;\n}\n.button-link--mittig[data-v-33871edb]{\n        display: flex;\n        justify-content: center;\n}\n.kategorie-container[data-v-33871edb]{\n        flex-wrap: nowrap;\n        display: flex;\n        align-items: center;\n        position: relative;\n}\n.kategorie-icon-container[data-v-33871edb]{\n        border-radius: 22px;\n        height: 75px;\n        width: 75px;\n        background: linear-gradient(to bottom right,white, #F1F1F1);\n        box-shadow: -5px -5px 13px #fff, 5px 5px 13px #0e0e0e40;\n        text-align: center;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        z-index: 2;\n}\n.quiz-kategorie-icon[data-v-33871edb]{\n        font-size: 3.2em;\n        margin: auto;\n}\n.quiz-kategorie-container[data-v-33871edb]{\n        border-radius: 22px;\n        height: 65px;\n        width: 100%;\n        background: linear-gradient(to bottom right,white, #F1F1F1);\n        box-shadow: -5px -5px 13px #fff, 5px 5px 13px #0e0e0e40;\n        text-align: center;\n        position: absolute;\n}\n.play-now-text[data-v-33871edb]{\n        font-style: italic;\n        color: #474747;\n        font-size: 0.8em;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -74529,13 +74545,35 @@ var render = function() {
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
       _vm._l(_vm.categorieNames, function(category) {
         return _c(
           "div",
           { key: _vm.categorieNames.name },
           [
             _c("router-link", { attrs: { to: "/spa/quiz/" + category } }, [
-              _vm._v("\n            " + _vm._s(category) + "\n        ")
+              _c("div", { staticClass: "kategorie-container" }, [
+                _c("div", { staticClass: "kategorie-icon-container" }, [
+                  _c(
+                    "span",
+                    {
+                      staticClass: "material-icons-outlined quiz-kategorie-icon"
+                    },
+                    [_vm._v("biotech")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "quiz-kategorie-container" }, [
+                  _c("div", [_vm._v(_vm._s(category))]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "play-now-text" }, [
+                    _vm._v("Jetzt spielen")
+                  ])
+                ])
+              ])
             ]),
             _vm._v(" "),
             _c("br")
@@ -74563,6 +74601,36 @@ var staticRenderFns = [
         _c("div", { staticClass: "weißes-rechteck" })
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "button-link button-link--mittig",
+        attrs: { href: "/spa/documents" }
+      },
+      [
+        _c(
+          "button",
+          {
+            staticClass:
+              "mdc-button mdc-button--raised button--big button--small abstand-weg"
+          },
+          [
+            _c("span", { staticClass: "button-text" }, [
+              _vm._v("Meine Auszeichnungen")
+            ]),
+            _vm._v(" "),
+            _c("span", { staticClass: "material-icons" }, [
+              _vm._v("military_tech")
+            ])
+          ]
+        )
+      ]
+    )
   }
 ]
 render._withStripped = true

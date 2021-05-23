@@ -49,6 +49,11 @@ class QuizSeeder extends Seeder
             ],
             [
                 'question_id' => 1,
+                'answer' => 'Es ist 7',
+                'is_correct' => false
+            ],
+            [
+                'question_id' => 1,
                 'answer' => 'Es ist 10',
                 'is_correct' => true
             ],
@@ -73,8 +78,18 @@ class QuizSeeder extends Seeder
                 'is_correct' => true
             ],
             [
+                'question_id' => 2,
+                'answer' => 'Zrölf',
+                'is_correct' => false
+            ],
+            [
                 'question_id' => 3,
                 'answer' => 'Safe 2',
+                'is_correct' => false
+            ],
+            [
+                'question_id' => 3,
+                'answer' => 'Safe -7',
                 'is_correct' => false
             ],
             [

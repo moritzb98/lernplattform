@@ -17,7 +17,7 @@ class CategorySeeder extends Seeder
         $categories = [
             [
                 'name' => 'Biologie',
-                'color' => '00bb2d',
+                'color' => '#58AB69',
             ],
             [
                 'name' => 'Chemie',

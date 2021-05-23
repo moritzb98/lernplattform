@@ -19,9 +19,25 @@
         </div>
 
         <!-- Content -->
+        <a href="/spa/documents" class="button-link button-link--mittig">
+            <button class="mdc-button mdc-button--raised button--big button--small abstand-weg">
+                <span class="button-text">Meine Auszeichnungen</span> <span class="material-icons">military_tech</span>
+            </button>
+        </a>
+        <br>
+
         <div v-for="category in categorieNames" :key="categorieNames.name">
             <router-link :to='"/spa/quiz/"+category'>
-                {{ category }}
+                <div class="kategorie-container">
+                    <div class="kategorie-icon-container">
+                        <span class="material-icons-outlined quiz-kategorie-icon">biotech</span>
+                    </div>
+                    <div class="quiz-kategorie-container">
+                        <div>{{category}}</div>
+                        <div class="play-now-text">Jetzt spielen</div>
+                    </div>
+                </div>
+
             </router-link>
             <br>
         </div>
@@ -89,6 +105,62 @@
         font-weight: bold;
         margin: auto;
         max-width: 80%;
+        line-height: 25px;
+    }
+
+    .abstand-weg{
+        margin-top: 0px;
+    }
+
+    .button--small{
+        height: 40px;
+        width: 75%;
+    }
+
+    .button-link--mittig{
+        display: flex;
+        justify-content: center;
+    }
+
+    .kategorie-container{
+        flex-wrap: nowrap;
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    .kategorie-icon-container{
+        border-radius: 22px;
+        height: 75px;
+        width: 75px;
+        background: linear-gradient(to bottom right,white, #F1F1F1);
+        box-shadow: -5px -5px 13px #fff, 5px 5px 13px #0e0e0e40;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2;
+    }
+
+    .quiz-kategorie-icon{
+        font-size: 3.2em;
+        margin: auto;
+    }
+
+    .quiz-kategorie-container{
+        border-radius: 22px;
+        height: 65px;
+        width: 100%;
+        background: linear-gradient(to bottom right,white, #F1F1F1);
+        box-shadow: -5px -5px 13px #fff, 5px 5px 13px #0e0e0e40;
+        text-align: center;
+        position: absolute;
+    }
+
+    .play-now-text{
+        font-style: italic;
+        color: #474747;
+        font-size: 0.8em;
     }
 
 </style>
