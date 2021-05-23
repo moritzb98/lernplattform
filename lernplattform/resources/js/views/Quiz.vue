@@ -11,7 +11,7 @@
     export default {
         data() {
             return {
-                quizId: this.$route.params.quizId,
+                quizId: this.$route.params.quizid,
                 questionId: this.$route.params.questionid,
             }
         },
