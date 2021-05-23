@@ -3614,7 +3614,11 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       quizId: this.$route.params.quizid,
+<<<<<<< HEAD
       questions: []
+=======
+      questionId: this.$route.params.questionid
+>>>>>>> main
     };
   },
   mounted: function mounted() {
