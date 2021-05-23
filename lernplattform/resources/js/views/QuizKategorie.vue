@@ -20,7 +20,9 @@
 
         <!-- Content -->
         <div v-for="category in categorieNames" :key="categorieNames.name">
-            {{ category }}
+            <router-link :to='"/spa/quiz/"+category'>
+                {{ category }}
+            </router-link>
             <br>
         </div>
     </div>
@@ -31,12 +33,12 @@
         data() {
             return {
                 categorieNames: [],
+
             }
         },
         mounted(){
             axios.get('/api/categories/quiz')
             .then(response=>{
-                console.log(response.data.data);
                 let quizzes = response.data.data;
                 for(var i=0; i< quizzes.length; i++){
                     if(!this.categorieNames.includes(quizzes[i].data.category_id.name)){

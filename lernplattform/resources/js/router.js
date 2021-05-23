@@ -37,6 +37,8 @@ import SearchUpload from './views/SearchUpload.vue'
 
 //Quiz
 import QuizKategorie from './views/QuizKategorie.vue'
+import QuizDetail from './views/QuizDetail.vue'
+import Quiz from './views/Quiz.vue'
 
 
 export const routes = [
@@ -248,6 +250,22 @@ export const routes = [
         name: 'QuizKategorie',
         path: '/spa/quizkategorie',
         component: QuizKategorie,
+        meta: {
+            requiresAuth: true
+          }
+    },
+    {
+        name: 'QuizDetail',
+        path: '/spa/quiz/:category',
+        component: QuizDetail,
+        meta: {
+            requiresAuth: true
+          }
+    },
+    {
+        name: 'QuizDetail',
+        path: '/spa/quiz/:category/:quizid/:questionid',
+        component: QuizDetail,
         meta: {
             requiresAuth: true
           }

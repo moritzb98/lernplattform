@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Quiz;
+use App\Models\Category;
 use App\Http\Resources\QuizCollection;
 
 class QuizController extends Controller
@@ -12,5 +13,17 @@ class QuizController extends Controller
         $quizzes = new QuizCollection(Quiz::all());
 
         return $quizzes;
+    }
+
+    public function getQuiz($category){
+        $categoryObject = Category::where('name', $category)->first();
+        $quizzes = Quiz::where('category_id', $categoryObject['id'])->get();
+
+        return $quizzes;
+    }
+
+    public function showAnswers($quizid){
+        dd($quizid);
+        return $quizid;
     }
 }
