@@ -3606,7 +3606,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      quizId: this.$route.params.quizId,
+      quizId: this.$route.params.quizid,
       questionId: this.$route.params.questionid
     };
   },

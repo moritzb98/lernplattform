@@ -17,95 +17,95 @@ class CategorySeeder extends Seeder
         $categories = [
             [
                 'name' => 'Biologie',
-                'color' => '#58AB69',
+                'color' => '#479D59',
             ],
             [
                 'name' => 'Chemie',
-                'color' => '00bb2d',
+                'color' => '#008FCC',
             ],
             [
                 'name' => 'Deutsch',
-                'color' => '00bb2d',
+                'color' => '#BF7A67',
             ],
             [
                 'name' => 'Englisch',
-                'color' => '00bb2d',
+                'color' => '#FFCE5C',
             ],
             [
                 'name' => 'Erdkunde',
-                'color' => '00bb2d',
+                'color' => '#2593A6',
             ],
             [
                 'name' => 'Französisch',
-                'color' => '00bb2d',
+                'color' => '#464FBC',
             ],
             [
                 'name' => 'Geschichte',
-                'color' => '00bb2d',
+                'color' => '#E67448',
             ],
             [
                 'name' => 'Gesundheit',
-                'color' => '00bb2d',
+                'color' => '#6FB7FF',
             ],
             [
                 'name' => 'Informatik',
-                'color' => '00bb2d',
+                'color' => '#3D5282',
             ],
             [
                 'name' => 'Kunst',
-                'color' => '00bb2d',
+                'color' => '#A0513D',
             ],
             [
                 'name' => 'Latein',
-                'color' => '00bb2d',
+                'color' => '#F08080',
             ],
             [
                 'name' => 'Mathematik',
-                'color' => '00bb2d',
+                'color' => '#E05858',
             ],
             [
                 'name' => 'Medien und Kommunikation',
-                'color' => '00bb2d',
+                'color' => '#8DA887',
             ],
             [
                 'name' => 'Medizin',
-                'color' => '00bb2d',
+                'color' => '#E8DCCA',
             ],
             [
                 'name' => 'Musik',
-                'color' => '00bb2d',
+                'color' => '#BD45B4',
             ],
             [
                 'name' => 'Pyhsik',
-                'color' => '00bb2d',
+                'color' => '#B0DAF5',
             ],
             [
                 'name' => 'Sport',
-                'color' => '00bb2d',
+                'color' => '#505050',
             ],
             [
                 'name' => 'Unternehmertum',
-                'color' => '00bb2d',
+                'color' => '#0D6277',
             ],
             [
                 'name' => 'Weitere Sprachen',
-                'color' => '00bb2d',
+                'color' => '#F5930E',
             ],
             [
                 'name' => 'Wirtschaft',
-                'color' => '00bb2d',
+                'color' => '#61A397',
             ],
             [
                 'name' => 'Ernährung',
-                'color' => '00bb2d',
+                'color' => '#48BA00',
             ],
             [
                 'name' => 'Gestaltung',
-                'color' => '00bb2d',
+                'color' => '#374B54',
             ],
             [
                 'name' => 'Sonstiges',
-                'color' => '00bb2d',
+                'color' => '#8E86BC',
             ],
         ];
 
