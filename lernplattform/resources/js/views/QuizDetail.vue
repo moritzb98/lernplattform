@@ -3,7 +3,7 @@
         <h1>Quizdetail - {{ category }}</h1>
         <!-- Content -->
         <div v-for="quiz in quizzes" :key="quiz.name">
-            <router-link :to='"/spa/quiz/"+category+"/"+quiz.id+"/0"'>
+            <router-link :to='"/spa/quiz/"+category+"/"+quiz.id'>
                 {{ quiz.name }}
             </router-link>
             <br>
@@ -17,6 +17,7 @@
             return {
                 quizzes: [],
                 category: this.$route.params.category,
+                questionId: null,
             }
         },
         mounted(){

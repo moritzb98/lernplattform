@@ -264,7 +264,7 @@ export const routes = [
     },
     {
         name: 'QuizDetail',
-        path: '/spa/quiz/:category/:quizid/:questionid',
+        path: '/spa/quiz/:category/:quizid',
         component: Quiz,
         meta: {
             requiresAuth: true

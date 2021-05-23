@@ -3603,16 +3603,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       quizId: this.$route.params.quizid,
+<<<<<<< HEAD
+      questions: []
+=======
       questionId: this.$route.params.questionid
+>>>>>>> main
     };
   },
   mounted: function mounted() {
-    console.log("QuizId: ", this.quizId);
-    console.log("QuestionId: ", this.questionId);
+    var _this = this;
+
+    axios.get('/api/quiz/questions/' + this.quizId).then(function (response) {
+      console.log("Rückgabe: ", response.data);
+      _this.questions = response.data;
+    });
   },
   methods: {}
 });
@@ -3647,7 +3662,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       quizzes: [],
-      category: this.$route.params.category
+      category: this.$route.params.category,
+      questionId: null
     };
   },
   mounted: function mounted() {
@@ -4806,8 +4822,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__.default({
   broadcaster: 'pusher',
-  key: "",
-  cluster: "mt1",
+  key: "6dd882b858b49e4e018e",
+  cluster: "eu",
   forceTLS: true
 });
 
@@ -5071,7 +5087,7 @@ var routes = [{
   }
 }, {
   name: 'QuizDetail',
-  path: '/spa/quiz/:category/:quizid/:questionid',
+  path: '/spa/quiz/:category/:quizid',
   component: _views_Quiz_vue__WEBPACK_IMPORTED_MODULE_27__.default,
   meta: {
     requiresAuth: true
@@ -74435,16 +74451,46 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    [
+      _c("h1", [_vm._v("Quiz - ")]),
+      _vm._v(" "),
+      _vm._l(_vm.questions, function(question, index) {
+        return _c(
+          "div",
+          { key: question.id },
+          [
+            _vm._v(
+              "\n        Frage " +
+                _vm._s(index + 1) +
+                ":  " +
+                _vm._s(question.question)
+            ),
+            _c("br"),
+            _vm._v(" "),
+            _vm._l(question.answers, function(answer, index) {
+              return _c("div", { key: answer.id }, [
+                _vm._v(
+                  "\n            Antwort " +
+                    _vm._s(index + 1) +
+                    ": " +
+                    _vm._s(answer.answer) +
+                    "\n        "
+                )
+              ])
+            }),
+            _vm._v(" "),
+            _c("br")
+          ],
+          2
+        )
+      })
+    ],
+    2
+  )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("h1", [_vm._v("Quiz - ")])])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -74479,11 +74525,7 @@ var render = function() {
           [
             _c(
               "router-link",
-              {
-                attrs: {
-                  to: "/spa/quiz/" + _vm.category + "/" + quiz.id + "/0"
-                }
-              },
+              { attrs: { to: "/spa/quiz/" + _vm.category + "/" + quiz.id } },
               [_vm._v("\n            " + _vm._s(quiz.name) + "\n        ")]
             ),
             _vm._v(" "),
