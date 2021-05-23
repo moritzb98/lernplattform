@@ -3616,11 +3616,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
-    return {};
+    return {
+      categorieNames: []
+    };
   },
-  mounted: function mounted() {},
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get('/api/categories/quiz').then(function (response) {
+      console.log(response.data.data);
+      var quizzes = response.data.data;
+
+      for (var i = 0; i < quizzes.length; i++) {
+        console.log(quizzes[i].data.category_id.name);
+
+        if (!_this.categorieNames.includes(quizzes[i].data.category_id.name)) {
+          _this.categorieNames.push(quizzes[i].data.category_id.name);
+        }
+      }
+    });
+  },
   methods: {}
 });
 
@@ -74156,30 +74179,41 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "header_wrapper" }, [
-      _c("div", { staticClass: "header header--back" }, [
-        _c(
-          "span",
-          {
-            staticClass: "material-icons neumorph header_back",
-            on: {
-              click: function($event) {
-                return _vm.$router.go(-1)
+  return _c(
+    "div",
+    [
+      _c("div", { staticClass: "header_wrapper" }, [
+        _c("div", { staticClass: "header header--back" }, [
+          _c(
+            "span",
+            {
+              staticClass: "material-icons neumorph header_back",
+              on: {
+                click: function($event) {
+                  return _vm.$router.go(-1)
+                }
               }
-            }
-          },
-          [_vm._v("arrow_back")]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "header_title" }, [
-          _vm._v("\n                Quiz Kategorien\n            ")
+            },
+            [_vm._v("arrow_back")]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "header_title" }, [
+            _vm._v("\n                Quiz Kategorien\n            ")
+          ])
         ])
-      ])
-    ]),
-    _vm._v(" "),
-    _vm._m(0)
-  ])
+      ]),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._l(_vm.categorieNames, function(category) {
+        return _c("div", { key: _vm.categorieNames.name }, [
+          _vm._v("\n        " + _vm._s(category) + "\n        "),
+          _c("br")
+        ])
+      })
+    ],
+    2
+  )
 }
 var staticRenderFns = [
   function() {

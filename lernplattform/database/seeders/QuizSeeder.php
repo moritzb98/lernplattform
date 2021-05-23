@@ -14,10 +14,20 @@ class QuizSeeder extends Seeder
      */
     public function run()
     {
-        // Create Quiz
+        // Create Quizzes
         DB::table('quiz')->insert( [
             'category_id' => 2,
             'name' => 'Testquiz'
+        ]);
+
+        DB::table('quiz')->insert( [
+            'category_id' => 2,
+            'name' => 'Test2'
+        ]);
+
+        DB::table('quiz')->insert( [
+            'category_id' => 1,
+            'name' => 'Test3'
         ]);
 
         // Create Questions

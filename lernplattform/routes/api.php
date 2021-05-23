@@ -11,6 +11,7 @@ use App\Http\Controllers\ChatController;
 use App\Http\Controllers\InterestController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\API\AccessTokenController;
+use App\Http\Controllers\QuizController;
 
 
 /*
@@ -75,6 +76,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     //Videochat
     Route::get('access_token', [AccessTokenController::class, 'generate_token']);
 
+    //Quiz
+    Route::get('categories/quiz', [QuizController::class, 'getAllCategoriesQuizzesAreIn']);
 });
 
 // Interests - without Middleware

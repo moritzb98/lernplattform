@@ -17,6 +17,12 @@
                 <div class="weißes-rechteck"></div>
             </div>
         </div>
+
+        <!-- Content -->
+        <div v-for="category in categorieNames" :key="categorieNames.name">
+            {{ category }}
+            <br>
+        </div>
     </div>
 </template>
 
@@ -24,10 +30,21 @@
     export default {
         data() {
             return {
-
+                categorieNames: [],
             }
         },
         mounted(){
+            axios.get('/api/categories/quiz')
+            .then(response=>{
+                console.log(response.data.data);
+                let quizzes = response.data.data;
+                for(var i=0; i< quizzes.length; i++){
+                    console.log(quizzes[i].data.category_id.name);
+                    if(!this.categorieNames.includes(quizzes[i].data.category_id.name)){
+                        this.categorieNames.push(quizzes[i].data.category_id.name);
+                    }
+                }
+            });
 
         },
         methods:{
