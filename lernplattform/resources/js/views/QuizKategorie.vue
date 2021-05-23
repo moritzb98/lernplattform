@@ -39,7 +39,6 @@
                 console.log(response.data.data);
                 let quizzes = response.data.data;
                 for(var i=0; i< quizzes.length; i++){
-                    console.log(quizzes[i].data.category_id.name);
                     if(!this.categorieNames.includes(quizzes[i].data.category_id.name)){
                         this.categorieNames.push(quizzes[i].data.category_id.name);
                     }

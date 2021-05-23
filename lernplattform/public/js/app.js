@@ -3636,8 +3636,6 @@ __webpack_require__.r(__webpack_exports__);
       var quizzes = response.data.data;
 
       for (var i = 0; i < quizzes.length; i++) {
-        console.log(quizzes[i].data.category_id.name);
-
         if (!_this.categorieNames.includes(quizzes[i].data.category_id.name)) {
           _this.categorieNames.push(quizzes[i].data.category_id.name);
         }
