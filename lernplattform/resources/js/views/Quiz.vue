@@ -3,7 +3,14 @@
         <h1>Quiz - </h1>
 
         <!-- Content -->
+        <div v-for="question, index in questions" :key="question.id">
+            Frage {{index + 1}}:  {{question.question}}<br>
+            <div v-for="answer, index in question.answers" :key="answer.id">
+                Antwort {{index + 1}}: {{answer.answer}}
+            </div>
 
+            <br>
+        </div>
     </div>
 </template>
 
@@ -12,15 +19,19 @@
         data() {
             return {
                 quizId: this.$route.params.quizid,
-                questionId: this.$route.params.questionid,
+                questions: [],
             }
         },
         mounted(){
-            console.log("QuizId: ", this.quizId);
-            console.log("QuestionId: ", this.questionId);
+            axios.get('/api/quiz/questions/' + this.quizId)
+            .then(response=>{
+                console.log("Rückgabe: ", response.data);
+                this.questions = response.data;
+            });
+
+
         },
         methods:{
-
         }
     }
 </script>

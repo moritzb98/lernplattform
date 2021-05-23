@@ -79,7 +79,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     //Quiz
     Route::get('categories/quiz', [QuizController::class, 'getAllCategoriesQuizzesAreIn']);
     Route::get('quiz/{category}', [QuizController::class, 'getQuiz']);
-    Route::get('quiz/{quizid}', [QuizController::class, 'showAnswers']);
+    Route::get('quiz/questions/{quizid}', [QuizController::class, 'getQuestion']);
 });
 
 // Interests - without Middleware

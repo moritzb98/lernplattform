@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Quiz;
 use App\Models\Category;
+use App\Models\Question;
+use App\Models\Answer;
 use App\Http\Resources\QuizCollection;
 
 class QuizController extends Controller
@@ -22,8 +24,16 @@ class QuizController extends Controller
         return $quizzes;
     }
 
-    public function showAnswers($quizid){
-        dd($quizid);
-        return $quizid;
+    public function getQuestion($quizid){
+        $questions = Question::where('quiz_id', $quizid)->get();
+
+        for($i=0; $i<count($questions);$i++){
+            $questions[$i]['answers'] = Answer::where('question_id', $questions[$i]['id'])->get();
+        }
+        return $questions;
+    }
+
+    public function showAnswers($questionid){
+        return Answer::where('question_id', $questionid)->get();
     }
 }
