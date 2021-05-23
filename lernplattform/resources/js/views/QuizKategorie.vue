@@ -155,6 +155,11 @@
         box-shadow: -5px -5px 13px #fff, 5px 5px 13px #0e0e0e40;
         text-align: center;
         position: absolute;
+        border: double 2px transparent;
+        border-radius: 28px;
+        background-image: radial-gradient(white, white), radial-gradient(circle at top left,white,#ED553B);
+        background-origin: border-box;
+        background-clip: content-box, border-box;
     }
 
     .play-now-text{
