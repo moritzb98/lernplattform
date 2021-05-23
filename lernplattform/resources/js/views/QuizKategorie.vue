@@ -26,7 +26,7 @@
         </a>
         <br>
 
-        <div v-for="category in categorieNames" :key="categorieNames.name">
+        <div class="router-text" v-for="category in categorieNames" :key="categorieNames.name">
             <router-link :to='"/spa/quiz/"+category'>
                 <div class="kategorie-container">
                     <div class="kategorie-icon-container">
@@ -49,7 +49,6 @@
         data() {
             return {
                 categorieNames: [],
-
             }
         },
         mounted(){

@@ -1211,6 +1211,59 @@
         color: #212121 !important;
     }
 
+    /*Klassen für Oberen Bereich */
+    .background-container{
+        width: 100vw;
+        margin-left: -16px;
+    }
+
+    .background{
+        width: 100%;
+        height: 120px;
+        background-color: #F1D2CD;
+        border-radius: 0px 0px 0px 30px;
+        display: flex;
+        flex-wrap: nowrap;
+        position: relative;
+    }
+
+    .fabriges-rechteck{
+        width: 100%;
+        height: 50px;
+        background-color: #F1D2CD;
+    }
+
+    .weißes-rechteck{
+        width: 100%;
+        height: 52px;
+        background-color: #F1F1F1;
+        border-radius: 0px 60px 0px 0px;
+    }
+
+    .überschrift-oberer-Bereich{
+        font-size: 1.5em;
+        color: #ED553B;
+        font-weight: bold;
+        margin: auto;
+        max-width: 80%;
+        line-height: 25px;
+    }
+
+    .icon-für-oberen-Bereich{
+        font-size: 8em;
+        color: #F0A89B;
+        margin-bottom: -14px;
+        margin-left: 4px;
+        position: absolute;
+        bottom: 0;
+    }
+
+    .unterüberschrift-oberer-bereich{
+        font-size: 0.8em;
+        font-weight: lighter;
+        line-height: 25px;
+        color: #f39989;
+    }
 
 
 </style>
