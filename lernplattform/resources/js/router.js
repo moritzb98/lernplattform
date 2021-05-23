@@ -265,7 +265,7 @@ export const routes = [
     {
         name: 'QuizDetail',
         path: '/spa/quiz/:category/:quizid/:questionid',
-        component: QuizDetail,
+        component: Quiz,
         meta: {
             requiresAuth: true
           }

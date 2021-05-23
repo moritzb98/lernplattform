@@ -5056,7 +5056,7 @@ var routes = [{
 }, {
   name: 'QuizDetail',
   path: '/spa/quiz/:category/:quizid/:questionid',
-  component: _views_QuizDetail_vue__WEBPACK_IMPORTED_MODULE_26__.default,
+  component: _views_Quiz_vue__WEBPACK_IMPORTED_MODULE_27__.default,
   meta: {
     requiresAuth: true
   }
