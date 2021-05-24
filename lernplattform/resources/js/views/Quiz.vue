@@ -15,7 +15,7 @@
                 <span class="material-icons-outlined icon-für-oberen-Bereich">biotech</span>
                 <div class="überschrift-oberer-Bereich" >
                     {{ category }}
-                    <div class="unterüberschrift-oberer-bereich">Frage 02/15</div>
+                    <div class="unterüberschrift-oberer-bereich">Frage {{ currentQuestion }}/{{ questions.length }}</div>
                 </div>
             </div>
             <div class="fabriges-rechteck">
@@ -24,20 +24,32 @@
         </div>
 
         <!-- Content -->
+        <p v-if="!started" @click="startQuiz()">Starte das Quiz</p>
         <div v-for="question, index in questions" :key="question.id">
-            <div class="fragen-container">
+            <div class="fragen-container hide" :id='"frage"+question.id' ref="test">
                 <div class="frage">
                     Frage {{index + 1}}:  {{question.question}}<br>
                 </div>
-                <div class="antwort-container" v-for="answer, index in question.answers" :key="answer.id">
-                    <div class="antwort-optionen-buchstaben">
-                        A
+                <div v-for="answer, index in question.answers" :key="answer.id">
+                    <div v-if="!answered" class="antwort-container" @click="sendAnswer(answer, question.answers)">
+                        <p class="antwort-optionen-buchstaben" :class='"answer"+answer.id'>
+                            A
+                        </p>
+                        <p class="antwort-optionen" :class='"answer"+answer.id'>
+                            Antwort {{index + 1}}: {{answer.answer}}
+                        </p>
                     </div>
-                    <div class="antwort-optionen">
-                        Antwort {{index + 1}}: {{answer.answer}}
+                    <div v-else class="antwort-container">
+                        <p class="antwort-optionen-buchstaben" :class='"answer"+answer.id'>
+                            A
+                        </p>
+                        <p class="antwort-optionen" :class='"answer"+answer.id'>
+                            Antwort {{index + 1}}: {{answer.answer}}
+                        </p>
                     </div>
                 </div>
-                <div class="überspringen">überspringen</div>
+                <div v-if="!answered" @click="skipQuestion()" class="überspringen">überspringen</div>
+                <div v-else @click="nextQuestion()" class="überspringen">Nächste Frage</div>
             </div>
             <br>
         </div>
@@ -55,22 +67,59 @@
                 quizId: this.$route.params.quizid,
                 questions: [],
                 category: this.$route.params.category,
+                answered: false,
+                currentQuestion: 1,
+                started: false,
             }
         },
         mounted(){
             axios.get('/api/quiz/questions/' + this.quizId)
             .then(response=>{
-                console.log("Rückgabe: ", response.data);
                 this.questions = response.data;
             });
 
-           axios.get('/api/quiz/' + this.category)
-            .then(response=>{
-                this.quizzes = response.data;
-            });
 
         },
         methods:{
+            startQuiz(){
+                this.started = true;
+                document.getElementById("frage"+this.currentQuestion).classList.remove('hide');
+            },
+            sendAnswer(answer, allAnswers){
+                // set answer status to true -> user cannot answer anymore
+                this.answered = true;
+                // get clicked DOM-Elements
+                let clickedAnswers = document.getElementsByClassName('answer'+answer.id);
+
+                // check answer
+                if(answer.is_correct){
+                    // color green if answer was right
+                    for(var i=0; i<clickedAnswers.length; i++){
+                        clickedAnswers[i].classList.add('correct');
+                    };
+                }else{
+                    // color red if answer was wrong
+                    for(var i=0; i<clickedAnswers.length; i++){
+                        clickedAnswers[i].classList.add('wrong');
+                    };
+
+                    // search for correct answers and get DOM-Elements
+                    let correctAnswers;
+                    for(var i =0; i<allAnswers.length; i++){
+                        if(allAnswers[i].is_correct){
+                            correctAnswers = document.getElementsByClassName('answer'+allAnswers[i].id);
+                        }
+                    }
+
+                    // color correct answer green
+                    for(var i=0; i<correctAnswers.length; i++){
+                        correctAnswers[i].classList.add('correct');
+                    };
+                }
+
+            },
+            nextQuestion(){
+            }
         }
     }
 </script>
@@ -83,6 +132,10 @@
         padding: 20px;
         background: linear-gradient(to bottom right,white, #F1F1F1);
         box-shadow: -5px -5px 13px #fff, 5px 5px 13px #0e0e0e40;
+    }
+
+    .hide{
+        display: none;
     }
 
     .antwort-container{
@@ -132,6 +185,14 @@
         color: #212121;
         text-align: center;
         margin-top: 10px;
+    }
+
+    .correct{
+        background: green;
+    }
+
+    .wrong{
+        background: red;
     }
 
 
