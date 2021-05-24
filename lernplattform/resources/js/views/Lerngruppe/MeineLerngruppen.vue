@@ -141,7 +141,7 @@
                 this.axios.post('http://127.0.0.1:8000/api/room/leave/' + roomid)
                     .then(response => {
                         console.log(response);
-                        Vue.$toast.success('Lerngruppe erfolgreich verlassen.', {});
+                        // Vue.$toast.success('Lerngruppe erfolgreich verlassen.', {});
                         this.$router.go();
                     }).catch(err => {
                         Vue.$toast.info(err.response.data.error, {});
