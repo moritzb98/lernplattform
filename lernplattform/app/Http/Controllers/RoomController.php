@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Room;
-use App\Models\RoomUsers;
+use App\Models\RoomsUsers;
+use App\Models\ChatRoom;
 use App\Http\Resources\UserRoomCollection;
 use Auth;
 use App\Http\Controllers\ChatController;
@@ -57,14 +58,16 @@ class RoomController extends Controller
 
     }
 
-    public function delete(Request $request) {
-        $userid = Auth::user()->id;
-        $roomid = Room::where('id', $request['id'])->get('id');
-        $roomUserid = Room::where('user_id', $userid)->where('id', $roomid)->get('user_id');
+    public function delete($id) {
 
-        if($roomUserid == $userid){
-            Room::where('id', $request['id'])->delete();
-            return response()->json(['´success' => 'Raum erfolgreich bearbeitet.'], 200);
+        $userid = Auth::user()->id;
+        $room = Room::where('id', $id)->first();
+
+        if($room->user_id == $userid){
+            ChatRoom::where('room_id', $id)->delete();
+            RoomsUsers::where('room_id', $id)->delete();
+            Room::where('id', $id)->delete();
+            return response()->json(['´success' => 'Raum erfolgreich gelöscht.'], 200);
         }
         else
         {
@@ -72,15 +75,15 @@ class RoomController extends Controller
         }
     }
 
-    public function joinRoom(Request $request) {
+    public function joinRoom($roomid) {
         $userid = Auth::user()->id;
-        $persons = RoomUsers::where('room_id', $request['room_id'])->count();
-        $maxPersons = Room::where('id', $request['room_id'])->get('maxPersons');
+        $persons = RoomsUsers::where('room_id', $roomid)->count();
+        $maxPersons = Room::where('id', $roomid)->first();
 
-        if($persons < $maxPersons){
-            RoomUsers::create([
+        if($persons < $maxPersons['maxPersons']){
+            RoomsUsers::create([
                 'user_id' => $userid,
-                'room_id' => $request['room_id']
+                'room_id' => $roomid
             ]);
             return response()->json(['´success' => 'Raum erfolgreich beigetreten.'], 200);
         }
@@ -91,26 +94,32 @@ class RoomController extends Controller
 
     }
 
-    public function leaveRoom(Request $request){
+    public function leaveRoom($roomid){
+
         $userid = Auth::user()->id;
-        $roomid = Room::where('id', $request['id'])->get('id');
-        $roomUserid = Room::where('user_id', $userid)->where('id', $roomid)->get('user_id');
-        if($roomUserid !== $userid){
-            Room::where('id', $request['id'])->delete();
+        $room = Room::where('user_id', $userid)->where('id', $roomid)->get();
+
+        // dd($room["user_id"]);
+        // dd(isset($room["user_id"]));
+
+        if(!isset($room->userid)){
+            RoomsUsers::where('room_id', $roomid)->where('user_id', $userid)->delete();
             return response()->json(['´success' => 'Raum erfolgreich verlassen.'], 200);
-        }
-        else
-        {
+        }else{
             return response()->json(['error' => 'Du hast diesen Raum  erstellt und darfst ihn somit nicht verlassen'], 403);
         }
-
-
     }
 
     public function getUsersInRoom(Request $request){
         $roomid = $request['room_id'];
-        return new UserRoomCollection(RoomUsers::where('room_id', $roomid)->get());
+        return new UserRoomCollection(RoomsUsers::where('room_id', $roomid)->get());
     }
+
+    public function getRoomsUserIsIn(){
+        $userid = Auth::user()->id;
+        return new UserRoomCollection(RoomsUsers::where('user_id', $userid)->get());
+    }
+
 
 
 }

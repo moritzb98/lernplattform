@@ -16,9 +16,7 @@ class UserRoom extends JsonResource
     {
         return [
             'data' => [
-                "id" => $this->id,
-                "name" => $this->name,
-                "maxPersons" => $this->maxPersons,
+                "room_id" => $this->room,
                 'user_id' => $this->user,
             ],
         ];

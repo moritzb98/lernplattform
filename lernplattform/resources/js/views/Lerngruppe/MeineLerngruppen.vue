@@ -25,7 +25,6 @@
         </div>
 
 
-        <!-- Filter: ID mit eingeloggter ID abgleichen: Nur Rooms anzeigen, denen man beigetreten ist -->
         <div class="row mb-3">
             <div class="col">
                 <router-link to="/spa/Lerngruppen/Erstellen">
@@ -35,7 +34,6 @@
                     </button>
                 </router-link>
                 <div v-for="(room, index) in rooms" :key="index">
-                    <!-- <router-link :to='"/spa/Lerngruppen/"+room.id+"/Chat"'> -->
                         <div class="neumorph card-small mb-2">
                             {{room.name}}
                             <div class="card-small_controls" >
@@ -55,7 +53,7 @@
 
                                     <md-menu-content class="card-small_dropdown">
                                         <md-menu-item>
-                                            <div class="card-small_controls_item" @click="deleteRoom(room.id)">
+                                            <div class="card-small_controls_item" @click="leaveRoom(room.id)">
                                                 <span class="material-icons">logout</span> Verlassen
                                             </div>
                                         </md-menu-item>
@@ -67,7 +65,6 @@
                                             </router-link>
                                         </md-menu-item>
                                         <md-menu-item>
-                                            <!-- delete gibt 405 zurück --->
                                             <div class="card-small_controls_item" @click="deleteRoom(room.id)">
                                                 <span class="material-icons">delete</span> Löschen
                                             </div>
@@ -77,8 +74,40 @@
 
                             </div>
                         </div>
-                    <!-- </router-link> -->
                 </div>
+
+                <div v-for="(roomUserIsIn, index) in roomsUserIsIn" :key="index">
+                    <div class="neumorph card-small mb-2">
+
+                        {{roomUserIsIn.data.room_id.name}}
+                        <div class="card-small_controls" >
+
+                            <!-- CTA Zum Chat -->
+                            <router-link :to='"/spa/Lerngruppen/"+roomUserIsIn.data.room_id.id+"/Chat"'>
+                                <div class="card-small_controls_item">
+                                    <span class="material-icons">question_answer</span>
+                                </div>
+                            </router-link>
+
+                            <!-- Optionen Menü -->
+                            <md-menu md-size="small">
+                                <md-button md-menu-trigger class="card-small_dropdown-btn">
+                                    <span class="material-icons">more_vert</span>
+                                </md-button>
+
+                                <md-menu-content class="card-small_dropdown">
+                                    <md-menu-item>
+                                        <div class="card-small_controls_item" @click="leaveRoom(roomUserIsIn.data.room_id.id)">
+                                            <span class="material-icons">logout</span> Verlassen
+                                        </div>
+                                    </md-menu-item>
+                                </md-menu-content>
+                            </md-menu>
+
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -89,27 +118,49 @@
         data() {
             return {
                 rooms:[],
-                title: "Meine Lerngruppen"
+                roomsUserIsIn: [],
             }
         },
         methods: {
             getMyRooms() {
                 this.axios.get('http://127.0.0.1:8000/api/getmyroom')
                     .then(response=>{
-                        this.rooms=response.data
+                        this.rooms=response.data,
+                        console.log(this.rooms);
+                    })
+            },
+            getRoomsUserIsIn() {
+                this.axios.get('http://127.0.0.1:8000/api/room/userIsIn')
+                    .then(response=>{
+                        this.roomsUserIsIn=response.data.data,
+                        console.log(this.roomsUserIsIn);
+                        // console.log("test" ,response.data.data);
                     })
             },
             deleteRoom(id){
-                this.axios.post('http://127.0.0.1:8000/api/room/delete/')
-                // var data = {id=this.id}
-                    .then(response => (
-                        console.log(response)
-                    ))
+                this.axios.post('http://127.0.0.1:8000/api/room/delete/' + id)
+                    .then(response => {
+                        console.log(response);
+                        Vue.$toast.error('Lerngruppe erfolgreich gelöscht.', {});
+                        this.$router.go();
+                    })
+            },
+            leaveRoom(roomid){
+                this.axios.post('http://127.0.0.1:8000/api/room/leave/' + roomid)
+                    .then(response => {
+                        console.log(response);
+                        // Vue.$toast.success('Lerngruppe erfolgreich verlassen.', {});
+                        this.$router.go();
+                    }).catch(err => {
+                        Vue.$toast.info(err.response.data.error, {});
+                    })
+
             },
         },
         mounted(){
             this.getMyRooms()
-        }
+            this.getRoomsUserIsIn()
+        },
     }
 </script>
 
