@@ -65,12 +65,16 @@
             <div v-for="answer in userAnswers.correct" :key="answer.id">
                 {{ answer.answer }}
             </div>
+            <p>Anzahl richtige Anwtoren:</p>
+            {{ userAnswers.correct.length }}
             <br>
             <hr>
             <p>Falsche Antworten</p>
             <div v-for="answer in userAnswers.wrong" :key="answer.id">
                 {{ answer.answer }}
             </div>
+            <p>Anzahl richtige Anwtoren:</p>
+            {{ userAnswers.wrong.length }}
             <br>
             <hr>
             <p>Ergebnis: {{ result }}% der Antworten waren richtig.</p>
