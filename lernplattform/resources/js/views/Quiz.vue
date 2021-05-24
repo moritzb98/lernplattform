@@ -14,8 +14,9 @@
             <div class="background">
                 <span class="material-icons-outlined icon-für-oberen-Bereich">biotech</span>
                 <div class="überschrift-oberer-Bereich" >
-                    {{ category }}
-                    <div class="unterüberschrift-oberer-bereich">Frage {{ currentQuestion }}/{{ questions.length }}</div>
+                    {{ quizName }}
+                    <div v-if="started" class="unterüberschrift-oberer-bereich">Frage {{ currentQuestion }}/{{ questions.length }}</div>
+                    <div v-else class="unterüberschrift-oberer-bereich">Noch nicht begonnen</div>
                 </div>
             </div>
             <div class="fabriges-rechteck">
@@ -48,8 +49,9 @@
                         </p>
                     </div>
                 </div>
-                <div v-if="!answered" @click="skipQuestion()" class="überspringen">überspringen</div>
-                <div v-else @click="nextQuestion()" class="überspringen">Nächste Frage</div>
+                <div v-if="!answered && !noNextQuestion" @click="skipQuestion()" class="überspringen">überspringen</div>
+                <div v-else-if="answered && !noNextQuestion" @click="nextQuestion()" class="überspringen">Nächste Frage</div>
+                <div v-else class="überspringen">Ergebnisse</div>
             </div>
             <br>
         </div>
@@ -64,18 +66,26 @@
     export default {
         data() {
             return {
+                quizName: null,
                 quizId: this.$route.params.quizid,
                 questions: [],
                 category: this.$route.params.category,
                 answered: false,
                 currentQuestion: 1,
                 started: false,
+                noNextQuestion: false,
             }
         },
         mounted(){
             axios.get('/api/quiz/questions/' + this.quizId)
             .then(response=>{
                 this.questions = response.data;
+            });
+
+            axios.get('/api/quiz/id/' + this.quizId)
+            .then(response=>{
+                console.log(response.data);
+                this.quizName = response.data.name;
             });
 
 
@@ -118,7 +128,19 @@
                 }
 
             },
+            showNext(idToShow, idToRemove){
+                document.getElementById('frage'+idToRemove).classList.add('hide');
+                document.getElementById('frage'+idToShow).classList.remove('hide');
+            },
             nextQuestion(){
+                this.answered = false;
+                this.showNext(this.currentQuestion+1, this.currentQuestion);
+                this.currentQuestion++;
+
+                // check if there is next Question
+                if(this.currentQuestion == this.questions.length){
+                    this.noNextQuestion = true;
+                }
             }
         }
     }

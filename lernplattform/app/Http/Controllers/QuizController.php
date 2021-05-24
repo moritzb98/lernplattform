@@ -24,6 +24,10 @@ class QuizController extends Controller
         return $quizzes;
     }
 
+    public function getQuizWithId($quizid){
+        return Quiz::where('id', $quizid)->first();
+    }
+
     public function getQuestion($quizid){
         $questions = Question::where('quiz_id', $quizid)->get();
 
