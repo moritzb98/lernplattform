@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class RoomUsers extends Model
+class RoomsUsers extends Model
 {
     use HasFactory;
 
@@ -15,5 +15,9 @@ class RoomUsers extends Model
 
     public function user(){
         return $this->belongsTo('App\Models\User', 'user_id', 'id');
+    }
+
+    public function room(){
+        return $this->belongsTo('App\Models\Room', 'room_id', 'id');
     }
 }

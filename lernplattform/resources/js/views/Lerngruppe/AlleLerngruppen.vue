@@ -48,7 +48,7 @@
                             </div> -->
                         </div>
                     </div>
-                    <!-- delete gibt 405 zurück --->
+                    <!-- delete gibt 405 zurück -->
                 </div>
             </div>
         </div>
@@ -70,12 +70,14 @@
                         this.rooms=response.data
                     })
             },
-            deleteRoom(id){
-                this.axios.post('http://127.0.0.1:8000/api/room/delete/' + id)
-                    .then(response => (
-                        console.log(response)
-                    ))
-            }
+            joinRoom(roomid){
+                this.axios.post('http://127.0.0.1:8000/api/room/join/' + roomid)
+                    .then(response => {
+                        //this.room.id = response.data.id,
+                        console.log(response);
+                        Vue.$toast.success('Lerngruppe erfolgreich beigetreten.', {});
+                    })
+            },
         },
         mounted(){
             this.getAllRooms()
