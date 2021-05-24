@@ -26,7 +26,7 @@
 
         <!-- Content -->
         <p v-if="!started" @click="startQuiz()">Starte das Quiz</p>
-        <div v-for="question, index in questions" :key="question.id">
+        <div class="fragen-container-forLoop-0height" v-for="question, index in questions" :key="question.id">
             <div class="fragen-container hide" :id='"frage"+question.id' ref="test">
                 <div class="frage">
                     Frage {{index + 1}}:  {{question.question}}<br>
@@ -164,6 +164,10 @@
         display: flex;
         flex-wrap: nowrap;
         position: relative;
+    }
+
+    .fragen-container-forLoop-0height{
+        height: 0;
     }
 
     .antwort-optionen-buchstaben{
