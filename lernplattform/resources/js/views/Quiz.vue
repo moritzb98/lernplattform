@@ -35,7 +35,7 @@
                     Frage {{index + 1}}:  {{question.question}}<br>
                 </div>
                 <div v-for="answer, index in question.answers" :key="answer.id">
-                    <div v-if="!answered" class="antwort-container" @click="sendAnswer(answer, question.answers)">
+                    <div v-if="!answered" class="antwort-container" @click="sendAnswer(answer, question.answers, question)">
                         <p class="antwort-optionen-buchstaben" :class='"answer"+answer.id'>
                             A
                         </p>
@@ -52,28 +52,30 @@
                         </p>
                     </div>
                 </div>
-                <div v-if="!answered && !noNextQuestion" @click="skipQuestion()" class="überspringen">überspringen</div>
+                <div v-if="!answered && !noNextQuestion" @click="skipQuestion(question)" class="überspringen">überspringen</div>
                 <div v-else-if="answered && !noNextQuestion" @click="nextQuestion()" class="überspringen">Nächste Frage</div>
-                <div v-else @click="showSummary()" class="überspringen">Ergebnisse</div>
+                <div v-else @click="showSummary(question)" class="überspringen">Ergebnisse</div>
             </div>
             <br>
         </div>
 
         <!-- Summary -->
         <div v-if="summary">
-            <p>Richtige Antworten:</p>
-            <div v-for="answer in userAnswers.correct" :key="answer.id">
-                {{ answer.answer }}
+            <p>Richtig beantwortete Fragen:</p>
+            <div v-for="question in userAnswers.correct" :key="question.id">
+                {{ question.question }}
             </div>
-            <p>Anzahl richtige Anwtoren:</p>
+            <br>
+            <p>Anzahl richtige Antworten:</p>
             {{ userAnswers.correct.length }}
             <br>
             <hr>
-            <p>Falsche Antworten</p>
-            <div v-for="answer in userAnswers.wrong" :key="answer.id">
-                {{ answer.answer }}
+            <p>Falsch beantwortete Fragen:</p>
+            <div v-for="question in userAnswers.wrong" :key="question.id">
+                {{ question.question }}
             </div>
-            <p>Anzahl richtige Anwtoren:</p>
+            <br>
+            <p>Anzahl falsche Antworten:</p>
             {{ userAnswers.wrong.length }}
             <br>
             <hr>
@@ -125,7 +127,7 @@
                 this.started = true;
                 document.getElementById("frage"+this.currentQuestion).classList.remove('hide');
             },
-            sendAnswer(answer, allAnswers){
+            sendAnswer(answer, allAnswers, question){
                 // set answer status to true -> user cannot answer anymore
                 this.answered = true;
                 // get clicked DOM-Elements
@@ -141,7 +143,7 @@
                     };
 
                     // Push the answer to user correct answers
-                    this.userAnswers.correct.push(answer);
+                    this.userAnswers.correct.push(question);
                 }else{
                     // color red if answer was wrong
                     for(var i=0; i<clickedAnswers.length; i++){
@@ -162,7 +164,7 @@
                     };
 
                     // Push the answer to user wrong answers
-                    this.userAnswers.wrong.push(answer);
+                    this.userAnswers.wrong.push(question);
                 }
 
             },
@@ -180,15 +182,26 @@
                     this.noNextQuestion = true;
                 }
             },
-            showSummary(){
+            skipQuestion(question){
+                this.answered = false;
+                this.showNext(this.currentQuestion+1, this.currentQuestion);
+                this.currentQuestion++;
+                this.userAnswers.wrong.push(question);
+
+                // check if there is next Question
+                if(this.currentQuestion == this.questions.length){
+                    this.noNextQuestion = true;
+                }
+            },
+            showSummary(question){
+                if(!this.answered){
+                    this.userAnswers.wrong.push(question);
+                }
                 this.summary = true;
                 let numberCorrectAnswers = this.userAnswers.correct.length;
                 let numberAllQuestions = this.questions.length;
                 let resultNotRounded = numberCorrectAnswers / numberAllQuestions  * 100;
                 this.result = resultNotRounded.toFixed(2);
-                console.log("Alle: ", numberAllQuestions);
-                console.log("Richtig: ", numberCorrectAnswers);
-                console.log(this.result);
             }
         }
     }
