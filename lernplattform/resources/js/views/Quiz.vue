@@ -25,8 +25,11 @@
         </div>
 
         <!-- Content -->
+        <!-- start quiz -->
         <p v-if="!started" @click="startQuiz()">Starte das Quiz</p>
-        <div class="fragen-container-forLoop-0height" v-for="question, index in questions" :key="question.id">
+
+        <!-- Questions -->
+        <div v-if="!summary" class="fragen-container-forLoop-0height" v-for="question, index in questions" :key="question.id">
             <div class="fragen-container hide" :id='"frage"+question.id' ref="test">
                 <div class="frage">
                     Frage {{index + 1}}:  {{question.question}}<br>
@@ -51,9 +54,26 @@
                 </div>
                 <div v-if="!answered && !noNextQuestion" @click="skipQuestion()" class="überspringen">überspringen</div>
                 <div v-else-if="answered && !noNextQuestion" @click="nextQuestion()" class="überspringen">Nächste Frage</div>
-                <div v-else class="überspringen">Ergebnisse</div>
+                <div v-else @click="showSummary()" class="überspringen">Ergebnisse</div>
             </div>
             <br>
+        </div>
+
+        <!-- Summary -->
+        <div v-if="summary">
+            <p>Richtige Antworten:</p>
+            <div v-for="answer in userAnswers.correct" :key="answer.id">
+                {{ answer.answer }}
+            </div>
+            <br>
+            <hr>
+            <p>Falsche Antworten</p>
+            <div v-for="answer in userAnswers.wrong" :key="answer.id">
+                {{ answer.answer }}
+            </div>
+            <br>
+            <hr>
+            <p>Ergebnis: {{ result }}% der Antworten waren richtig.</p>
         </div>
         <br>
         <br>
@@ -74,6 +94,12 @@
                 currentQuestion: 1,
                 started: false,
                 noNextQuestion: false,
+                userAnswers: {
+                    correct: [],
+                    wrong: [],
+                    result: 0,
+                },
+                summary: false,
             }
         },
         mounted(){
@@ -101,12 +127,17 @@
                 // get clicked DOM-Elements
                 let clickedAnswers = document.getElementsByClassName('answer'+answer.id);
 
+
+
                 // check answer
                 if(answer.is_correct){
                     // color green if answer was right
                     for(var i=0; i<clickedAnswers.length; i++){
                         clickedAnswers[i].classList.add('correct');
                     };
+
+                    // Push the answer to user correct answers
+                    this.userAnswers.correct.push(answer);
                 }else{
                     // color red if answer was wrong
                     for(var i=0; i<clickedAnswers.length; i++){
@@ -125,6 +156,9 @@
                     for(var i=0; i<correctAnswers.length; i++){
                         correctAnswers[i].classList.add('correct');
                     };
+
+                    // Push the answer to user wrong answers
+                    this.userAnswers.wrong.push(answer);
                 }
 
             },
@@ -141,6 +175,16 @@
                 if(this.currentQuestion == this.questions.length){
                     this.noNextQuestion = true;
                 }
+            },
+            showSummary(){
+                this.summary = true;
+                let numberCorrectAnswers = this.userAnswers.correct.length;
+                let numberAllQuestions = this.questions.length;
+                let resultNotRounded = numberCorrectAnswers / numberAllQuestions  * 100;
+                this.result = resultNotRounded.toFixed(2);
+                console.log("Alle: ", numberAllQuestions);
+                console.log("Richtig: ", numberCorrectAnswers);
+                console.log(this.result);
             }
         }
     }
