@@ -63,7 +63,6 @@ class QuizController extends Controller
 
 
 
-
         return response()->json(['´success' => 'Ergebnis erfolgreich gespeichert.'], 200);
 
     }

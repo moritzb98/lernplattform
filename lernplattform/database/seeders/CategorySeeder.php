@@ -116,5 +116,8 @@ class CategorySeeder extends Seeder
             ]);
         }
 
+        echo 'Kategorien erstellt';
+        echo "\n\n";
+
     }
 }

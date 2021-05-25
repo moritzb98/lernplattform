@@ -17,8 +17,13 @@ class CreateBadgesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('challenge');
+            $table->string('text');
+            $table->integer('goal');
+            $table->string('icon')->nullable();
             $table->timestamps();
         });
+
+        Artisan::call('db:seed', array('--class' => 'BadgeSeeder'));
     }
 
     /**
