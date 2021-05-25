@@ -51,17 +51,18 @@ class QuizController extends Controller
             QuizresultsUser::updateOrCreate(
             [
                 'user_id' => Auth::user()->id,
-                'quiz_id' =>    $request['quizid'],
+                'quiz_id' => $request['quizid'],
             ],
             [
-                'user_id' =>     Auth::user()->id,
+                'user_id' => Auth::user()->id,
                 'quiz_id' =>  $request['quizid'],
-                'correctAnswers' =>    $request['correctAnswers'],
-                'passed' =>    $request['passed'],
+                'correctAnswers' => $request['correctAnswers'],
+                'passed' => $request['passed'],
             ]);
+
+            app('App\Http\Controllers\BadgeController')->checkBadges();
+
         }
-
-
 
         return response()->json(['´success' => 'Ergebnis erfolgreich gespeichert.'], 200);
 

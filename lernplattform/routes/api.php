@@ -83,6 +83,9 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('quiz/questions/{quizid}', [QuizController::class, 'getQuestion']);
     Route::get('quiz/id/{quizid}', [QuizController::class, 'getQuizWithId']);
     Route::post('quiz/saveResult', [QuizController::class, 'saveResult']);
+
+    //Badges
+    Route::get('badges', [QuizController::class, 'getBadges']);
 });
 
 // Interests - without Middleware
