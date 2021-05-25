@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Badges;
+use App\Models\BadgesUser;
 use Illuminate\Support\Facades\Hash;
 use Auth;
 
@@ -28,6 +30,17 @@ class AuthController extends Controller
         ]);
 
         $accessToken = $user->createToken('cool_token')->accessToken;
+
+        $badges = Badges::all();
+
+        foreach($badges as $badge){
+            BadgesUser::create([
+                'user_id' => $user['id'],
+                'badge_id' => $badge['id'],
+                'achieved' => false
+            ]);
+        };
+
         return response([
             'user' => $user,
             'access_token' => $accessToken,

@@ -9,6 +9,8 @@ class BadgesUser extends Model
 {
     use HasFactory;
 
+    protected $table = 'badges_user';
+
     protected $fillable = [
         'user_id', 'badge_id', 'achieved'
     ];
