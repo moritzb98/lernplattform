@@ -202,6 +202,21 @@
                 let numberAllQuestions = this.questions.length;
                 let resultNotRounded = numberCorrectAnswers / numberAllQuestions  * 100;
                 this.result = resultNotRounded.toFixed(2);
+
+                let saveResult = {
+                    quizid: this.quizId,
+                    correctAnswers: this.result,
+                    passed: false,
+                }
+
+                if(this.result >= 75) {
+                    saveResult.passed = true;
+                }
+
+                axios.post('/api/quiz/saveResult', saveResult)
+                .then(response=>{
+                    console.log(response.data);
+                });
             }
         }
     }
