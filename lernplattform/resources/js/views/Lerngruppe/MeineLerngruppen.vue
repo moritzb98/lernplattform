@@ -150,7 +150,7 @@
                     .then(response => {
                         console.log(response);
                         // Vue.$toast.success('Lerngruppe erfolgreich verlassen.', {});
-                        this.$router.go();
+                        //this.$router.go();
                     }).catch(err => {
                         Vue.$toast.info(err.response.data.error, {});
                     })
