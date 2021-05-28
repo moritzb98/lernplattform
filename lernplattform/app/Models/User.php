@@ -7,8 +7,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\Searchresult;
 
-class User extends Authenticatable
+class User extends Authenticatable implements Searchable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -51,5 +53,9 @@ class User extends Authenticatable
     public function files(){
         return $this->belongsToMany('App\Models\FileUpload');
     }
+    public function getSearchResult(): SearchResult {
+        $url = '/spa/users/'.$this->name;
 
+        return new SearchResult($this, $this->name, $url);
+    }
 }
