@@ -20,7 +20,7 @@ class Collection extends Model implements Searchable
     }
 
     public function getSearchResult(): SearchResult {
-        $url = '/spa/collections/'.$this->name;
+        $url = '/spa/Collection-detail/'.$this->id;
 
         return new SearchResult($this, $this->name, $url);
     }
