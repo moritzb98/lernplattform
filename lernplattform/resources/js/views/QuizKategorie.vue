@@ -159,6 +159,9 @@
         background-image: radial-gradient(white, white), radial-gradient(circle at top left,white,#ED553B);
         background-origin: border-box;
         background-clip: content-box, border-box;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
     }
 
     .play-now-text{
