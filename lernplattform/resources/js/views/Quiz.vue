@@ -27,8 +27,8 @@
 
         <!-- Content -->
         <!-- start quiz -->
-        <div v-if="!started" class="fragen-container">
-            <button @click="startQuiz()" class="mdc-button mdc-button--raised button--big button--small abstand-weg">
+        <div v-if="!started" class="">
+            <button @click="startQuiz()" class="mdc-button mdc-button--raised button--big button--small abstand-weg button--border">
                 <p class="button-text no-margin">Starte das Quiz</p>
                 <span class="material-icons-outlined">play_circle</span>
             </button>
@@ -73,8 +73,23 @@
         </div>
 
         <!-- Summary -->
-        <div v-if="summary">
-            <p>Richtig beantwortete Fragen:</p>
+        <div class="fragen-container" v-if="summary">
+            <p class="summary-text" v-if="result>=75">
+                Glückwunsch! Du hast das Quiz "{{quizName}}" mit {{ userAnswers.correct.length }} richtigen Antworten beendet.
+                <br>
+                Somit waren {{ result }}% der Antworten richtig.
+            </p>
+            <p class="summary-text" v-if="result<75">
+                Schade! Das hat noch nicht ausgereicht! Du hast das Quiz "{{quizName}}" mit {{ userAnswers.correct.length }} richtigen und {{ userAnswers.wrong.length }} falschen Antworten  beendet.
+                <br>
+                Somit waren {{ result }}% der Antworten richtig.
+            </p>
+
+            <div @click="showSummary(question)" class="">
+                <p class="text-uppercase">Zeige Details</p>
+            </div>
+
+<!--             <p>Richtig beantwortete Fragen:</p>
             <div v-for="question in userAnswers.correct" :key="question.id">
                 {{ question.question }}
             </div>
@@ -89,10 +104,38 @@
             </div>
             <br>
             <p>Anzahl falsche Antworten:</p>
-            {{ userAnswers.wrong.length }}
+            {{ userAnswers.wrong.length }} -->
+
+            <div class="big-icon-container">
+                <span class="material-icons-outlined material-icons-outlined--big">biotech</span>
+            </div>
             <br>
-            <hr>
-            <p>Ergebnis: {{ result }}% der Antworten waren richtig.</p>
+
+            <div class="quiz-detail-container">
+                <div class="flex-container-quiz router-text">
+                    <div>
+                        <div>
+                            {{ quizName }}
+                        </div>
+                        <div>
+                            progess
+                            </div>
+                        </div>
+                        <div>
+                            <span class="material-icons-outlined play-icon">play_circle</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <a href="/spa/quizkategorie" class="button-link button-link--mittig">
+                        <button class="mdc-button mdc-button--raised button--big button--small abstand-weg button--smallest">
+                            <span class="button-text button-text--small">Zurück zur Übersicht</span>
+                        </button>
+                    </a>
+                </div>
+
+        <br>
+
         </div>
         <br>
         <br>
@@ -228,6 +271,9 @@
                 .then(response=>{
                     console.log(response.data);
                 });
+            },
+            showMoreDetails(){
+
             }
         }
     }
@@ -332,5 +378,48 @@
         font-weight: bold;
     }
 
+    .summary-text{
+        text-align: center;
+    }
+
+    .text-uppercase{
+        text-transform: uppercase;
+        text-align: center;
+        color: #3f3f3f;
+    }
+
+    .big-icon-container{
+        text-align: center;
+    }
+
+    .material-icons-outlined--big{
+        color: #ED553B;
+        font-size: 8em;
+    }
+
+    .button--smallest{
+        height: 35px;
+        width: fit-content;
+    }
+
+    .button-container{
+        display: flex;
+        justify-content: center;
+    }
+
+    .button-text--small{
+        font-size: 12px;
+        margin: auto;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .button--border{
+        margin-top: 0px;
+        background-image: radial-gradient(white, white), radial-gradient(circle at top left,white,#ED553B);
+        border: double 2px transparent;
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+    }
 
 </style>

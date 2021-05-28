@@ -1265,5 +1265,30 @@
         color: #f39989;
     }
 
+    /*Play Container für Quiz */
+    .quiz-detail-container{
+        height: 65px;
+        width: 100%;
+        background: linear-gradient(to bottom right,white, #F1F1F1);
+        box-shadow: -5px -5px 13px #fff, 5px 5px 13px #0e0e0e40;
+        border: double 2px transparent;
+        border-radius: 28px;
+        background-image: radial-gradient(white, white), radial-gradient(circle at top left,white,#ED553B);
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+    }
+
+    .flex-container-quiz{
+        display: flex;
+        margin: 10px;
+        margin-left: 30px;
+        margin-right: 30px;
+        justify-content: space-between;
+    }
+
+    .play-icon{
+        font-size: 3em;
+        color: #ED553B;
+    }
 
 </style>

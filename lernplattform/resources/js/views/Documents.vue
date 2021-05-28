@@ -32,7 +32,6 @@
             </div>
         </div>
         <div v-for="myFileUpload in myFileUploads" :key="myFileUpload.id">
-
                 <div class="container-uploads">
                     <div class="cursor" v-if="myFileUpload.data.id === editFileId">
                             <input class="input-feld" type="text" v-model="myFileUpload.data.displayname" autofocus>
@@ -47,7 +46,22 @@
                         <div  class="material-icons-outlined icon--middle"><a class="a-text" download v-bind:href="'/upload/' + myFileUpload.data.name">file_download</a></div>
                     </div>
                 </div>
+        </div>
+        <br>
+        <div v-for="myFileUpload in myFileUploads" :key="myFileUpload.id">
+                <div class="container-uploads">
+                    <div class="cursor" v-if="myFileUpload.data.id === editFileId">
+                            <input class="input-feld" type="text" v-model="myFileUpload.data.displayname" autofocus>
+                        </div>
+                        <router-link :to='"/spa/documents/"+myFileUpload.data.id' class="file-name-upload-link router-text" v-else>
+                        <div class="file-name-upload">{{ myFileUpload.data.displayname }}</div>
+                    </router-link>
+                    <div class="icon-container">
+                        <div class="material-icons-outlined icon--middle">more_vert</div>
 
+
+                    </div>
+                </div>
         </div>
 
         <br><br><br>
