@@ -79,14 +79,13 @@
 
                 axios.post('/api/upload', data, config)
                     .then(function (res) {
-
+                        this.$router.push({ path: '/spa/documents' });
                         Vue.$toast.success('Datei erfolgreich hochgeladen', {});
-
                     })
                     .catch(function (err) {
                         Vue.$toast.error('Beim Hochladen ist etwas schief gegangen :(', {});
                     });
-                    this.$router.push({ path: '/spa/documents' });
+
             }
         }
     }

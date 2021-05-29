@@ -31,7 +31,7 @@
                     </span>
             </div>
         </div>
-        <div v-for="myFileUpload in myFileUploads" :key="myFileUpload.id">
+       <!-- <div v-for="myFileUpload in myFileUploads" :key="myFileUpload.id">
                 <div class="container-uploads">
                     <div class="cursor" v-if="myFileUpload.data.id === editFileId">
                             <input class="input-feld" type="text" v-model="myFileUpload.data.displayname" autofocus>
@@ -46,7 +46,7 @@
                         <div  class="material-icons-outlined icon--middle"><a class="a-text" download v-bind:href="'/upload/' + myFileUpload.data.name">file_download</a></div>
                     </div>
                 </div>
-        </div>
+        </div> -->
         <br>
         <div v-for="(myFileUpload, index) in myFileUploads" :key="myFileUpload.id">
                 <div class="container-uploads">
@@ -58,12 +58,15 @@
                     </router-link>
                     <div class="icon-container">
                         <div @click="showDropdown(index)" class="material-icons-outlined icon--middle">more_vert</div>
-                        <div v-if="myFileUpload.data.showDropdown">
-                            <p>Test</p>
-                        </div>
+
 
                     </div>
                 </div>
+                <transition name="fade">
+                    <div v-if="myFileUpload.data.showDropdown">
+                        <div class="dropdown">Hier kommt das Dropown</div>
+                    </div>
+                </transition>
         </div>
 
         <br><br><br>
@@ -125,7 +128,7 @@ import {MDCTabBar} from '@material/tab-bar';
             },
             showDropdown(index){
                 this.myFileUploads[index].data.showDropdown = !this.myFileUploads[index].data.showDropdown;
-                console.log(this.myFileUploads[index].data.showDropdown);
+                this.$forceUpdate();
             }
         }
     }
@@ -251,6 +254,13 @@ import {MDCTabBar} from '@material/tab-bar';
 @keyframes blink {
 	from { opacity: 1; }
 	to { opacity: 0; }
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 
 </style>
