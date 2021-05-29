@@ -57,5 +57,6 @@ class Karteikartencontroller extends Controller
                 return response()->json(['error' => 'Du hast diese Karteikarte nicht erstellt und darfst sie somit nicht löschen'], 403);
             }
         }
+
 }
 

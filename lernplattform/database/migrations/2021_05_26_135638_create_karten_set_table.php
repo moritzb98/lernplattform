@@ -15,6 +15,10 @@ class CreateKartenSetTable extends Migration
     {
         Schema::create('karten_set', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('set_id');
+            $table->foreign('set_id')->references('id')->on('karteikartenset');
             $table->timestamps();
         });
     }
