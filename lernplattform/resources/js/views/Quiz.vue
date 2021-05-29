@@ -37,7 +37,7 @@
 
         <!-- Questions -->
         <div v-if="!summary" class="fragen-container-forLoop-0height" v-for="question, index in questions" :key="question.id">
-            <div class="fragen-container hide" :id='"frage"+question.id' ref="test">
+            <div class="fragen-container hide" :id='"frage"+question.questionNumber' ref="test">
                 <div class="frage">
                     Frage {{index + 1}}:  {{question.question}}<br>
                 </div>
@@ -192,6 +192,7 @@
         methods:{
             startQuiz(){
                 this.started = true;
+                console.log(this.currentQuestion);
                 document.getElementById("frage"+this.currentQuestion).classList.remove('hide');
             },
             sendAnswer(answer, allAnswers, question){

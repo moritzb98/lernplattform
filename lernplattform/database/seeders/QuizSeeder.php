@@ -34,28 +34,31 @@ class QuizSeeder extends Seeder
         // Create Questions
         $questionsTestquiz = ['Was ergibt 5+5?', 'Was ist 5*2?', 'Was ist 8-5?'];
 
-        foreach($questionsTestquiz as $question){
+        foreach($questionsTestquiz as $key => $question){
             DB::table('questions')->insert( [
                 'quiz_id' => 1,
-                'question' => $question
+                'question' => $question,
+                'questionNumber' => $key + 1
             ]);
         }
 
         $questionsBioQuiz = ['Wo liegt der pH-Wert von Wasser', 'Was ist keine Nukleinbase?', 'Welches ist kein Bestandteil einer tierischen Zelle?', 'Wozu dient ein Chromosom?', 'Was ist das spezielle am Chromosomensatz bei Menschen mit Down-Syndrom?', 'Was versteht man unter dem Begriff “Phänotyp”?', 'Welches Zellkompartiment ist für die Photosynthese verantwortlich?', 'Was beschreibt den Vorgang “Mitose”?', 'Welche ist keine Phase der “Mitose”?', 'Eine Biozönose ist..'];
 
-        foreach($questionsBioQuiz as $question){
+        foreach($questionsBioQuiz as $key => $question){
             DB::table('questions')->insert( [
                 'quiz_id' => 2,
-                'question' => $question
+                'question' => $question,
+                'questionNumber' => $key + 1
             ]);
         }
 
-        $questionsMusikQuiz = ['Welches dieser Instrument ist ein Blasinstrument?', 'Wer trug den Beinamen “Walzerkönig”?', 'Wer von den Beatles spielte die Bassgitarre?', 'Weiter mit den Beatles: Wie hieß ihr letztes Album?', 'Wie nennt man das Textbuch für eine Oper, eine Operette oder ein Ballett?', '1969 ging Woodstock mit seinem Rockfestival in die Geschichte ein. Wer war nicht dabei?', 'Wie heißt das traditionelle Blasinstrument der Aborigines?', 'Wer war der Komponist der “Dreigroschenoper”?', 'Wer ist der Vater der Melodie der deutschen Nationalhymne?', 'Welcher Begriff hat nichts mit Musik zu tun?', 'Wer designte Madonnas spitzbrüstoges Korsett?', ''];
+        $questionsMusikQuiz = ['Welches dieser Instrument ist ein Blasinstrument?', 'Wer trug den Beinamen “Walzerkönig”?', 'Wer von den Beatles spielte die Bassgitarre?', 'Weiter mit den Beatles: Wie hieß ihr letztes Album?', 'Wie nennt man das Textbuch für eine Oper, eine Operette oder ein Ballett?', '1969 ging Woodstock mit seinem Rockfestival in die Geschichte ein. Wer war nicht dabei?', 'Wie heißt das traditionelle Blasinstrument der Aborigines?', 'Wer war der Komponist der “Dreigroschenoper”?', 'Wer ist der Vater der Melodie der deutschen Nationalhymne?', 'Welcher Begriff hat nichts mit Musik zu tun?', 'Wer designte Madonnas spitzbrüstoges Korsett?'];
 
-        foreach($questionsMusikQuiz as $question){
+        foreach($questionsMusikQuiz as $key => $question){
             DB::table('questions')->insert( [
                 'quiz_id' => 3,
-                'question' => $question
+                'question' => $question,
+                'questionNumber' => $key + 1
             ]);
         }
 
