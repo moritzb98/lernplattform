@@ -88,24 +88,25 @@
             <div v-if="!showDetails" @click="showMoreDetails()" class="">
                 <p class="text-uppercase">Zeige Details</p>
             </div>
-            <span v-if="showDetails" @click="showDetails = false" class="material-icons-outlined">expand_less</span>
+            <div class="container-expand">
+                <span v-if="showDetails" @click="showDetails = false" class="material-icons-outlined expand-less">expand_less</span>
+            </div>
+
             <div v-if="showDetails">
-                <p>Richtig beantwortete Fragen:</p>
+                <p class="no-margin-bottom">Richtig beantwortete Fragen:</p>
                 <div v-for="question in userAnswers.correct" :key="question.id">
                     {{ question.question }}
                 </div>
                 <br>
-                <p>Anzahl richtige Antworten:</p>
-                {{ userAnswers.correct.length }}
-                <br>
+                <p>Anzahl richtige Antworten: {{ userAnswers.correct.length }}</p>
                 <hr>
-                <p>Falsch beantwortete Fragen:</p>
+                <p class="no-margin-bottom">Falsch beantwortete Fragen:</p>
                 <div v-for="question in userAnswers.wrong" :key="question.id">
                     {{ question.question }}
                 </div>
                 <br>
-                <p>Anzahl falsche Antworten:</p>
-                {{ userAnswers.wrong.length }}
+                <p>Anzahl falsche Antworten: {{ userAnswers.wrong.length }}</p>
+
             </div>
 
 
@@ -115,7 +116,7 @@
             </div>
             <br>
             <div>
-                <p>Erneut spielen</p>
+                <p class="text-play-again">Probier's nochmal:</p>
                 <div v-if="result<75" class="quiz-detail-container">
                 <div class="flex-container-quiz router-text">
                     <div>
@@ -144,6 +145,8 @@
         <br>
 
         </div>
+        <br>
+        <br>
         <br>
         <br>
         <br>
@@ -428,6 +431,23 @@
         border: double 2px transparent;
         background-origin: border-box;
         background-clip: content-box, border-box;
+    }
+
+    .text-play-again{
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    .expand-less{
+        color: #212121;
+    }
+
+    .container-expand{
+        text-align: center;
+    }
+
+    .no-margin-bottom{
+        margin-bottom: 0px;
     }
 
 </style>
