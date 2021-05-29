@@ -85,33 +85,38 @@
                 Somit waren {{ result }}% der Antworten richtig.
             </p>
 
-            <div @click="showSummary(question)" class="">
+            <div v-if="!showDetails" @click="showMoreDetails()" class="">
                 <p class="text-uppercase">Zeige Details</p>
             </div>
+            <span v-if="showDetails" @click="showDetails = false" class="material-icons-outlined">expand_less</span>
+            <div v-if="showDetails">
+                <p>Richtig beantwortete Fragen:</p>
+                <div v-for="question in userAnswers.correct" :key="question.id">
+                    {{ question.question }}
+                </div>
+                <br>
+                <p>Anzahl richtige Antworten:</p>
+                {{ userAnswers.correct.length }}
+                <br>
+                <hr>
+                <p>Falsch beantwortete Fragen:</p>
+                <div v-for="question in userAnswers.wrong" :key="question.id">
+                    {{ question.question }}
+                </div>
+                <br>
+                <p>Anzahl falsche Antworten:</p>
+                {{ userAnswers.wrong.length }}
+            </div>
 
-<!--             <p>Richtig beantwortete Fragen:</p>
-            <div v-for="question in userAnswers.correct" :key="question.id">
-                {{ question.question }}
-            </div>
-            <br>
-            <p>Anzahl richtige Antworten:</p>
-            {{ userAnswers.correct.length }}
-            <br>
-            <hr>
-            <p>Falsch beantwortete Fragen:</p>
-            <div v-for="question in userAnswers.wrong" :key="question.id">
-                {{ question.question }}
-            </div>
-            <br>
-            <p>Anzahl falsche Antworten:</p>
-            {{ userAnswers.wrong.length }} -->
+
 
             <div class="big-icon-container">
                 <span class="material-icons-outlined material-icons-outlined--big">biotech</span>
             </div>
             <br>
-
-            <div class="quiz-detail-container">
+            <div>
+                <p>Erneut spielen</p>
+                <div v-if="result<75" class="quiz-detail-container">
                 <div class="flex-container-quiz router-text">
                     <div>
                         <div>
@@ -126,6 +131,8 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
                 <div class="button-container">
                     <a href="/spa/quizkategorie" class="button-link button-link--mittig">
                         <button class="mdc-button mdc-button--raised button--big button--small abstand-weg button--smallest">
@@ -162,6 +169,7 @@
                     result: 0,
                 },
                 summary: false,
+                showDetails:false,
             }
         },
         mounted(){
@@ -273,7 +281,7 @@
                 });
             },
             showMoreDetails(){
-
+                this.showDetails = true;
             }
         }
     }

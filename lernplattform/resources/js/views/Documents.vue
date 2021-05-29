@@ -48,7 +48,7 @@
                 </div>
         </div>
         <br>
-        <div v-for="myFileUpload in myFileUploads" :key="myFileUpload.id">
+        <div v-for="(myFileUpload, index) in myFileUploads" :key="myFileUpload.id">
                 <div class="container-uploads">
                     <div class="cursor" v-if="myFileUpload.data.id === editFileId">
                             <input class="input-feld" type="text" v-model="myFileUpload.data.displayname" autofocus>
@@ -57,8 +57,10 @@
                         <div class="file-name-upload">{{ myFileUpload.data.displayname }}</div>
                     </router-link>
                     <div class="icon-container">
-                        <div class="material-icons-outlined icon--middle">more_vert</div>
-
+                        <div @click="showDropdown(index)" class="material-icons-outlined icon--middle">more_vert</div>
+                        <div v-if="myFileUpload.data.showDropdown">
+                            <p>Test</p>
+                        </div>
 
                     </div>
                 </div>
@@ -93,7 +95,12 @@ import {MDCTabBar} from '@material/tab-bar';
             this.axios.get('/api/getMyFiles')
             .then(response=>{
                 this.myFileUploads = response.data.data;
+                for(var i = 0; i < this.myFileUploads.length; i++){
+                    this.myFileUploads[i].data.showDropdown = false;
+                }
+                console.log(this.myFileUploads);
             });
+
 
         },
         methods:{
@@ -116,6 +123,10 @@ import {MDCTabBar} from '@material/tab-bar';
                         }
                     })
             },
+            showDropdown(index){
+                this.myFileUploads[index].data.showDropdown = !this.myFileUploads[index].data.showDropdown;
+                console.log(this.myFileUploads[index].data.showDropdown);
+            }
         }
     }
 
