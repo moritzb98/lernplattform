@@ -31,8 +31,13 @@
                 <div class="chat_container">
 
                     <!-- Obere Optionen -->
-                    <!-- <div class="chat_subcontrols">
-                        <button class="neumorph chat_subcontrols-item">
+                    <div class="chat_subcontrols">
+                        <router-link :to="konferenzLink">
+                            <button class="neumorph chat_subcontrols-item">
+                                <span class="material-icons">video_camera_front</span>
+                            </button>
+                        </router-link>
+                        <!-- <button class="neumorph chat_subcontrols-item">
                             <span class="material-icons">add</span>
                         </button>
                         <button class="neumorph chat_subcontrols-item">
@@ -43,11 +48,8 @@
                         </button>
                         <button class="neumorph chat_subcontrols-item">
                             <span class="material-icons">add</span>
-                        </button>
-                        <button class="neumorph chat_subcontrols-item">
-                            <span class="material-icons">add</span>
-                        </button>
-                    </div> -->
+                        </button> -->
+                    </div>
 
 
                     <!-- Chat Nachrichten -->
@@ -142,6 +144,11 @@
         created() {
             this.getRooms();
         },
+        computed: { 
+            konferenzLink() { 
+                return this.$route.path + '/Konferenz'; 
+            } 
+        }
     }
 </script>
 

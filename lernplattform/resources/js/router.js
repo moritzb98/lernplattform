@@ -173,7 +173,7 @@ export const routes = [
     },
     {
         name: 'VideochatLerngruppe',
-        path: '/spa/Lerngruppen/:id/Konferenz',
+        path: '/spa/Lerngruppen/:id/Chat/Konferenz',
         component: VideochatLerngruppe,
         meta: {
             requiresAuth: true

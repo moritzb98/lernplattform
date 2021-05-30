@@ -460,6 +460,10 @@
         margin-left: auto;
     }
 
+    .header--back * {
+        font-weight: 500;
+    }
+
     .header_title {
         font-size: 18px;
         font-family: 'Syncopate', sans-serif;

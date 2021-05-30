@@ -3,8 +3,11 @@
         <!-- Header [Back] -->
         <div class="header_wrapper">
             <div class="header header--back">
-                <span class="material-icons neumorph header_back" @click="$router.go(-1)">arrow_back</span>
-                <div class="header_title">
+                <div class="neumorph header_back d-flex align-items-center" @click="$router.go(-1)">
+                    <span class="material-icons mr-2" >arrow_back</span>
+                    <span class="mt-1">VERLASSEN</span>
+                </div>
+                <div class="header_title ml-5">
                     {{title}}
                 </div>
             </div>
