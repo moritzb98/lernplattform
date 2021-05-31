@@ -25,6 +25,13 @@
     <div id="app">
         <App></App>
     </div>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js');
+            });
+        }
+    </script>
     <script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
 </body>
 
