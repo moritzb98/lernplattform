@@ -36,9 +36,8 @@
         <!-- Select End -->
         <div class="small-button-container">
             <router-link class="button-small list-items button-link router-text" to="/spa/Lernmaterial">
-                    <span class="material-icons-outlined button-icon-small">close</span>
-                    <div class="list-items-text">Abbrechen</div>
-
+                <span class="material-icons-outlined button-icon-small">close</span>
+                <div class="list-items-text">Abbrechen</div>
             </router-link>
             <div @click="createCollection()" class="list-items button-small">
                 <span class="material-icons-outlined button-icon-small">check</span>

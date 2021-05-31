@@ -13,24 +13,18 @@
         </div>
 
         <!-- Content  -->
-        <!-- <div class="row mb-5">
-            <div class="col-12">
-                <router-link to="/spa/Kartenset/Erstellen">
-                    <button class="btn neumorph w-100">
-                        <span class="btn_text mdc-button__label ">Kartensets finden</span>
-                        <span class="btn_icon material-icons">view_carousel</span>
-                    </button>
-                </router-link>
-            </div>
-        </div> -->
-
-
-        <div class="row mb-3">
-            <div class="col">
-                <router-link to='/spa/Karteikartenset/Erstellen' >
-                    <div class="mdc-card mdc-card--new button-link">
-                        <span class="material-icons-outlined card-icons--new">add</span>
-                        <p class="card-text--small">Kartenset erstellen</p>
+        <div class="container--flex">
+            <router-link to='/spa/Karteikartenset/Erstellen' >
+               <div class="mdc-card mdc-card--new button-link">
+                    <span class="material-icons-outlined card-icons--new">add</span>
+                    <p class="card-text--small"> erstellen</p>
+                </div>
+            </router-link>
+            <div class="mdc-card-container--45">
+                <router-link >
+                    <div class="router-text mdc-card mdc-card--middle mdc-card--100">
+                        <span class="material-icons-outlined card-icons--big">biotech</span>
+                        <p class="card-text--small">Name</p>
                     </div>
                 </router-link>
             </div>
