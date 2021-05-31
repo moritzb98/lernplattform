@@ -17,6 +17,8 @@ class CreateKarteikartensetTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->string('name');
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
         });
     }
