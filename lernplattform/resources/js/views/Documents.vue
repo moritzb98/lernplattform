@@ -48,7 +48,7 @@
                 </div>
         </div> -->
         <br>
-        <div v-for="(myFileUpload, index) in myFileUploads" :key="myFileUpload.id">
+        <div class="container-data" v-for="(myFileUpload, index) in myFileUploads" :key="myFileUpload.id">
                 <div class="container-uploads">
                     <div class="cursor" v-if="myFileUpload.data.id === editFileId">
                             <input class="input-feld" type="text" v-model="myFileUpload.data.displayname" autofocus>
@@ -58,8 +58,6 @@
                     </router-link>
                     <div class="icon-container">
                         <div @click="showDropdown(index)" class="material-icons-outlined icon--middle">more_vert</div>
-
-
                     </div>
                 </div>
                 <transition name="fade">
@@ -299,6 +297,10 @@ import {MDCTabBar} from '@material/tab-bar';
         background-origin: border-box;
         background-clip: content-box, border-box;
         box-shadow: -5px -5px 13px #fff, 5px 5px 13px #0e0e0e40;
+        position: absolute;
+        right: 10px;
+        top: 35px;
+        z-index: 2;
     }
 
     .dropdown-item-container{
@@ -321,6 +323,10 @@ import {MDCTabBar} from '@material/tab-bar';
 
     .icon-dropdown{
         margin-left: 7px;
+    }
+
+    .container-data{
+        position: relative;
     }
 
 </style>
