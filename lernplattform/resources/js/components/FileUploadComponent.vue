@@ -16,14 +16,14 @@
 
             <div class="Pfeil">
                 <div class="Create">
-                 <h2> Datei </h2>
+                 <h2> Medien hochladen</h2>
                 </div>
             </div>
 
         <div class="container">
             <div class="mdc-form-field">
                 <div class="mdc-radio">
-                    <input class="mdc-radio__native-control" type="radio" id="radio-1" name="radios" unchecked>
+                    <input class="mdc-radio__native-control" type="radio" id="radio-1" name="radios" value="checked" v-model="test" unchecked>
                     <div class="mdc-radio__background mdc-radio__background-container">
                         <div class="mdc-radio__outer-circle mdc-radio__outer-circle-modified"></div>
                         <div class="mdc-radio__inner-circle mdc-radio__inner-circle-modified"></div>
@@ -39,9 +39,10 @@
                     <div class="card-body">
                         <form @submit="formSubmit" enctype="multipart/form-data">
                             <input type="file" class="form-control" v-on:change="onChange">
-                            <button class="mdc-button mdc-button--raised button--big">
-                            <span class="button-text"> Datei hochladen </span>
+                            <button v-if="test" class="mdc-button mdc-button--raised button--big">
+                                <span class="button-text"> Datei hochladen </span>
                             </button>
+                            <p class="notCheckedText" v-else>Du kannst die Datei erst hochladen, sobald du der oben genannte Erklärung zustimmst.</p>
                         </form>
                     </div>
                 </div>
@@ -57,7 +58,8 @@
                 name: '',
                 file: '',
                 success: '',
-                title: "Upload"
+                title: "Upload",
+                test: false,
             };
         },
         methods: {
@@ -135,6 +137,12 @@
         box-shadow:
         -5px -5px 13px #fff,
         5px 5px 13px #0e0e0e40;
+    }
+
+    .notCheckedText{
+        font-size: 13px;
+        font-family: Open Sans;
+        margin-top: 20px;
     }
 
 
