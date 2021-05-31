@@ -88,7 +88,8 @@
                 </transition>
         </div>
 
-        <br><br><br>
+        <!-- Nav -->
+        <Nav />
 
     </div>
 

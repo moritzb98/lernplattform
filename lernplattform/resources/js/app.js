@@ -17,6 +17,9 @@ import WebRTC from 'vue-webrtc'
 
 import store from './store'
 
+// Components
+import Nav from './components/Nav.vue';
+
 
 window.Vue = require('vue').default;
 
@@ -43,6 +46,7 @@ Vue.use(VueToast, {
 Vue.use(VueAxios, axios);
 Vue.component('file-upload-component', require('./components/FileUploadComponent.vue').default);
 Vue.component('file-view', require('./views/Documents.vue').default);
+Vue.component('Nav', Nav);
 
 // VueMaterial
 Vue.use(MdMenu)

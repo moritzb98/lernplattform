@@ -11,6 +11,9 @@
                 </router-link>
             </div>
         </div>
+
+        <!-- Nav -->
+        <Nav />
     </div>
 </template>
 

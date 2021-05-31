@@ -145,12 +145,9 @@
         <br>
 
         </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+
+        <!-- Nav -->
+        <Nav />
     </div>
 </template>
 

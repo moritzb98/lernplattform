@@ -15,6 +15,8 @@
         <!-- Content  -->
 
 
+        <!-- Nav -->
+        <Nav />
     </div>
 </template>
 

@@ -263,14 +263,8 @@
             <label for="basic-switch">Öffentlich</label>
 
 
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+            <!-- Nav -->
+        <Nav />
 
 
     </div>

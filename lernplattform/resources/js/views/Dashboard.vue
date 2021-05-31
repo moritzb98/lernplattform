@@ -30,6 +30,9 @@
 
 
         <p class="logout" @click="logout">Logout</p>
+
+        <!-- Nav -->
+        <Nav />
     </div>
 </template>
 

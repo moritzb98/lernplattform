@@ -63,6 +63,8 @@
                 v-on:messagesent="getMessages()" />
         </div>
 
+        <!-- Nav -->
+        <Nav />
     </div>
 </template>
 

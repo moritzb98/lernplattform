@@ -9,6 +9,9 @@
         </a>
     </li>
     </ul>
+
+    <!-- Nav -->
+        <Nav />
 </div>
 </template>
 

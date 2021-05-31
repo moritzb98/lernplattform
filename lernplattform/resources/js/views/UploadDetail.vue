@@ -44,6 +44,8 @@
 
             </div>
 
+        <!-- Nav -->
+        <Nav />
     </div>
 </template>
 

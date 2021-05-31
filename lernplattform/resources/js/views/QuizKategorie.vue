@@ -19,7 +19,7 @@
         </div>
 
         <!-- Content -->
-        <a href="/spa/documents" class="button-link button-link--mittig">
+        <a href="/spa/badges" class="button-link button-link--mittig">
             <button class="mdc-button mdc-button--raised button--big button--small abstand-weg">
                 <span class="button-text">Meine Auszeichnungen</span> <span class="material-icons">military_tech</span>
             </button>
@@ -41,6 +41,9 @@
             </router-link>
             <br>
         </div>
+
+        <!-- Nav -->
+        <Nav />
     </div>
 </template>
 

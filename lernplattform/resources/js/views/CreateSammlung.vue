@@ -36,6 +36,9 @@
                 <div class="list-items-text">Erstellen</div>
             </div>
         </div>
+
+        <!-- Nav -->
+        <Nav />
     </div>
 </template>
 

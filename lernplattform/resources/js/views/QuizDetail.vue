@@ -44,6 +44,9 @@
             </router-link>
             <br>
         </div>
+
+        <!-- Nav -->
+        <Nav />
     </div>
 </template>
 

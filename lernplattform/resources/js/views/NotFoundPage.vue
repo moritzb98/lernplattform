@@ -18,7 +18,8 @@
             <span>Zum Dashboard</span>
         </router-link>
 
-
+        <!-- Nav -->
+        <Nav />
     </div>
 </template>
 
