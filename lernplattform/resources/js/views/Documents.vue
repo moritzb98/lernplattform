@@ -63,8 +63,27 @@
                     </div>
                 </div>
                 <transition name="fade">
-                    <div v-if="myFileUpload.data.showDropdown">
-                        <div class="dropdown">Hier kommt das Dropown</div>
+                    <div class="container-dropdown" v-if="myFileUpload.data.showDropdown">
+                        <div class="dropdown-item-container border-dropdown" v-if="myFileUpload.data.id === editFileId" @click="saveFile(myFileUpload.data)">
+                            <div  class="material-icons-outlined icon--middle icon-dropdown">save</div>
+                            <div class="dropdown-text">Speichern</div>
+                        </div>
+
+                        <div class="dropdown-item-container border-dropdown" v-else @click="editFile(myFileUpload.data.id)">
+                            <div class="material-icons-outlined icon--middle icon-dropdown">edit</div>
+                            <div class="dropdown-text">Bearbeiten</div>
+                        </div>
+
+                        <div class="dropdown-item-container border-dropdown" @click="deleteFile(myFileUpload.data)">
+                            <div class="material-icons-outlined icon--middle icon-dropdown">delete</div>
+                            <div class="dropdown-text">Löschen</div>
+                        </div>
+
+                        <div class="dropdown-item-container">
+                            <div class="material-icons-outlined icon--middle icon-dropdown"><a class="a-text" download v-bind:href="'/upload/' + myFileUpload.data.name">file_download</a></div>
+                            <div class="dropdown-text">Herunterladen</div>
+                        </div>
+
                     </div>
                 </transition>
         </div>
@@ -232,35 +251,73 @@ import {MDCTabBar} from '@material/tab-bar';
      }
 
      .cursor {
-	position: relative;
-}
-.cursor	i {
-	position: absolute;
-	width: 1px;
-	height: 80%;
-	background-color: gray;
-	left: 5px;
-	top: 10%;
-	animation-name: blink;
-	animation-duration: 800ms;
-	animation-iteration-count: infinite;
-	opacity: 1;
-}
+	    position: relative;
+    }
 
-.cursor input:focus + i {
-	display: none;
-}
+    .cursor	i {
+        position: absolute;
+        width: 1px;
+        height: 80%;
+        background-color: gray;
+        left: 5px;
+        top: 10%;
+        animation-name: blink;
+        animation-duration: 800ms;
+        animation-iteration-count: infinite;
+        opacity: 1;
+    }
 
-@keyframes blink {
-	from { opacity: 1; }
-	to { opacity: 0; }
-}
+    .cursor input:focus + i {
+        display: none;
+    }
 
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-}
+    @keyframes blink {
+        from { opacity: 1; }
+        to { opacity: 0; }
+    }
+
+    .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+    }
+    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+    }
+
+    .container-dropdown{
+        background-color: white;
+        border-radius:3px;
+        /*border: solid 2px gray;*/
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+        width: 45%;
+        margin-right: 0px;
+        margin-left: auto;
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+        box-shadow: -5px -5px 13px #fff, 5px 5px 13px #0e0e0e40;
+    }
+
+    .dropdown-item-container{
+        display: flex;
+        flex-wrap: nowrap;
+        margin-bottom: 1px;
+        padding-bottom: 1px;
+        margin-top: 1px;
+        padding-top: 1px;
+    }
+
+    .border-dropdown{
+        /*border-bottom: 2px solid grey;*/
+
+    }
+
+    .dropdown-text{
+        margin-left: 10px;
+    }
+
+    .icon-dropdown{
+        margin-left: 7px;
+    }
 
 </style>
