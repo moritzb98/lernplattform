@@ -19,7 +19,9 @@ import CreateSammlung from './views/CreateSammlung.vue'
 import CollectionDetail from './views/CollectionDetail.vue'
 
 // Karteikarten
-import CreateKarteikarten from './views/Karteikarten/CreateKarteikarten.vue'
+import CreateKarteikartenset from './views/Karteikarten/Create.vue'
+import ListingKarteikartensets from './views/Karteikarten/Listing.vue'
+import DetailKarteikartenset from './views/Karteikarten/Detail.vue'
 
 //Lerngruppe
 import MeineLerngruppen from './views/Lerngruppe/MeineLerngruppen.vue'
@@ -85,14 +87,6 @@ export const routes = [
         name: 'CreateKurs',
         path: '/spa/Kurs-erstellen',
         component: CreateKurs,
-        meta: {
-            requiresAuth: true
-          }
-    },
-    {
-        name: 'CreateKarteikarten',
-        path: '/spa/Karteikarten-erstellen',
-        component: CreateKarteikarten,
         meta: {
             requiresAuth: true
           }
@@ -173,6 +167,32 @@ export const routes = [
           }
     },
 
+    // Karteikartensets 
+    {
+        name: 'CreateKarteikartenset',
+        path: '/spa/Karteikartenset/Erstellen',
+        component: CreateKarteikartenset,
+        meta: {
+            requiresAuth: true
+          }
+    },
+    {
+        name: 'ListingKarteikartensets',
+        path: '/spa/Karteikartensets',
+        component: ListingKarteikartensets,
+        meta: {
+            requiresAuth: true
+          }
+    },
+    {
+        name: 'DetailKarteikartenset',
+        path: '/spa/Karteikartenset/:id',
+        component: DetailKarteikartenset,
+        meta: {
+            requiresAuth: true
+          }
+    },
+    
     {
         name: 'Newsfeed',
         path: '/spa/Newsfeed',
