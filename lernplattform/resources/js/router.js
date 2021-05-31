@@ -44,8 +44,16 @@ import QuizKategorie from './views/QuizKategorie.vue'
 import QuizDetail from './views/QuizDetail.vue'
 import Quiz from './views/Quiz.vue'
 
+// NotFoundPage
+import NotFoundPage from './views/NotFoundPage.vue'
+
 
 export const routes = [
+
+    {
+        path: '*',
+        component: NotFoundPage,
+        name: 'NotFoundPage'    },
 
     {
         name: 'Suche',
@@ -167,7 +175,7 @@ export const routes = [
           }
     },
 
-    // Karteikartensets 
+    // Karteikartensets
     {
         name: 'CreateKarteikartenset',
         path: '/spa/Karteikartenset/Erstellen',
@@ -192,7 +200,7 @@ export const routes = [
             requiresAuth: true
           }
     },
-    
+
     {
         name: 'Newsfeed',
         path: '/spa/Newsfeed',
