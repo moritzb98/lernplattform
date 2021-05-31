@@ -12,7 +12,7 @@ class Collection extends Model implements Searchable
     use HasFactory;
 
     protected $fillable = [
-        'name', 'user_id'
+        'name', 'user_id', 'category_id'
     ];
 
     public function collectionFiles(){

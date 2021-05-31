@@ -15,6 +15,7 @@ class FileUpload extends Model implements Searchable
         'path',
         'user_id',
         'displayname',
+        'category_id',
     ];
 
     public function user(){

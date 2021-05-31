@@ -12,7 +12,7 @@ class Room extends Model implements Searchable
     use HasFactory;
 
     protected $fillable = [
-        'name', 'maxPersons', 'user_id'
+        'name', 'maxPersons', 'user_id', 'category_id'
     ];
 
     public function roomUsers(){
