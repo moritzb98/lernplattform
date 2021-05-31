@@ -13,11 +13,13 @@ import Dashboard from './views/Dashboard.vue'
 import Lernmaterial from './views/Lernmaterial.vue'
 
 import CreateKurs from './views/CreateKurs.vue'
-import CreateKarteikarten from './views/CreateKarteikarten.vue'
 import CreateQuiz from './views/CreateQuiz.vue'
 import CreateSkript from './views/CreateSkript.vue'
 import CreateSammlung from './views/CreateSammlung.vue'
 import CollectionDetail from './views/CollectionDetail.vue'
+
+// Karteikarten
+import CreateKarteikarten from './views/Karteikarten/CreateKarteikarten.vue'
 
 //Lerngruppe
 import MeineLerngruppen from './views/Lerngruppe/MeineLerngruppen.vue'

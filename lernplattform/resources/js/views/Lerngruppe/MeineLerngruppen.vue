@@ -119,6 +119,7 @@
             return {
                 rooms:[],
                 roomsUserIsIn: [],
+                title: "Meine Lerngruppen"
             }
         },
         methods: {
