@@ -15,19 +15,6 @@
         <div id="video-chat-window" class="fixed bg-gray-300 top-0 bottom-0 w-full h-full overflow-y-scroll grid grid-rows-3 grid-cols-2 md:grid-cols-3 gap-2 px-2 pt-2"></div>
         <div id="video-preview" class="fixed bg-gray-600 bottom-0 right-0 w-1/3 lg:w-1/5 mr-5 mb-5 sm:mr-10 sm:mb-10 overflow-hidden rounded-md shadow-xl"></div>
 
-        <!-- Gerendertes HTML Element -->
-        <!-- <div id="video-chat-window" class="fixed bg-gray-300 top-0 bottom-0 w-full h-full overflow-y-scroll grid grid-rows-3 grid-cols-2 md:grid-cols-3 gap-2 px-2 pt-2">
-            <div id="PAcaa8475ec884ebbf7782463f2992f341" class="overflow-hidden rounded-md bg-gray-100 z-10 w-50">
-                <video autoplay="" playsinline="" data-ss1621863899="1"></video>
-            </div>
-            <div id="PA7690d6a7e72b6d04f75811ba7a9e74f1" class="overflow-hidden rounded-md bg-gray-100 z-10">
-                <audio autoplay="" data-ss1621863899="1"></audio>
-                <video autoplay="" playsinline="" data-ss1621863899="1"></video>
-            </div>
-        </div> -->
-
-        <!-- hihihihihi  -->
-
         <!-- Navigation -->
         <div class="nav_wrapper nav_wrapper--videochat" style="z-index: 1910;">
             <div class="nav">
@@ -47,7 +34,7 @@
         data: function () {
             return {
                 // accessToken: '',
-                title: "Biochemie"
+                title: "Konferenz"
             }
         },
         methods : {
@@ -57,9 +44,7 @@
                 e.classList.toggle('neumorph--pressed');
                 e.classList.toggle('active');
 
-
                 // Der Versuch, das Icon durch das durchgestrichene zu ersetzen
-
                 // var htmlString = e.innerHTML;
                 // e.innerHTML = htmlString+"_off";
 
@@ -161,12 +146,26 @@
             publishTrack: ( track, participant ) => {
                 const videoContainer = document.getElementById(participant.sid);
                 videoContainer.appendChild(track.attach())
+            },
+            getMyRooms() {
+                this.axios.get('http://127.0.0.1:8000/api/getmyroom')
+                    .then(response=>{
+                        this.rooms=response.data,
+                        console.log(this.rooms);
+                    })
+            },
+            getRoom() {
+                this.axios.get('http://127.0.0.1:8000/api/getRoom/'+roomid)
+                    .then(response=>{
+                        this.room=response.data,
+                        console.log(this.room);
+                    })
             }
         },
         mounted : function () {
-            console.log('Video chat room loading...')
-
-            this.getAccessToken()
+            console.log('Video chat room loading...'),
+            this.getAccessToken(),
+            this.getRoom()
         }
     }
 </script>
