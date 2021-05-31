@@ -14,7 +14,8 @@ class CollectionController extends Controller
 
         $collection = Collection::create([
             'name' => $request['name'],
-            'user_id' => $userid
+            'user_id' => $userid,
+            'category_id' => $request['category_id']
         ]);
 
         return response()->json(['´success' => 'Sammlung erfolgreich erstellt.'], 200);

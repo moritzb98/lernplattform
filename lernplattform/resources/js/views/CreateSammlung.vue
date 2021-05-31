@@ -25,6 +25,15 @@
         <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
             <input v-model="collection.name" type="text" class="mdc-text-field__input text-field__input--modified " placeholder="" aria-label="Label">
         </label>
+
+        <!-- Select -->
+        <select name="categories" v-model="collection.category_id">
+            <option value="">Bitte wähle eine Kategorie aus</option>
+            <option v-for="categorie in categories" :key="categorie.name" :value="categorie.id">
+                {{categorie.name}}
+            </option>
+        </select>
+        <!-- Select End -->
         <div class="small-button-container">
             <router-link class="button-small list-items button-link router-text" to="/spa/Lernmaterial">
                     <span class="material-icons-outlined button-icon-small">close</span>
@@ -48,19 +57,30 @@
             return {
                 collection:{
                     name:"",
+                    category_id: null,
                 },
-                title: "Erstellen"
+                title: "Erstellen",
+                categories: [],
             }
         },
 
+        mounted() {
+            axios.get('/api/categories')
+                .then(response=>{
+                    this.categories = response.data;
+                });
+        },
         methods: {
             createCollection(){
-                axios.post('/api/collection/create',this.collection)
-                .then(response=>{
-                    console.log(response.data);
-                    Vue.$toast.success('Sammlung erfolgreich erstellt.', {});
-                    this.$router.push({ path: '/spa/Lernmaterial' });
-                });
+                if(this.collection.category_id != null){
+                    axios.post('/api/collection/create',this.collection)
+                    .then(response=>{
+                        Vue.$toast.success('Sammlung erfolgreich erstellt.', {});
+                        this.$router.push({ path: '/spa/Lernmaterial' });
+                    });
+                } else {
+                    Vue.$toast.error('Du musst eine Kategorie auswählen.', {});
+                }
             }
         }
     }
