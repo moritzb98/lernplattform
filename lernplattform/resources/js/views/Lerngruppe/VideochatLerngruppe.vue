@@ -15,7 +15,6 @@
         <div id="video-chat-window" class="fixed bg-gray-300 top-0 bottom-0 w-full h-full overflow-y-scroll grid grid-rows-3 grid-cols-2 md:grid-cols-3 gap-2 px-2 pt-2"></div>
         <div id="video-preview" class="fixed bg-gray-600 bottom-0 right-0 w-1/3 lg:w-1/5 mr-5 mb-5 sm:mr-10 sm:mb-10 overflow-hidden rounded-md shadow-xl"></div>
 
-
         <!-- Gerendertes HTML Element -->
         <!-- <div id="video-chat-window" class="fixed bg-gray-300 top-0 bottom-0 w-full h-full overflow-y-scroll grid grid-rows-3 grid-cols-2 md:grid-cols-3 gap-2 px-2 pt-2">
             <div id="PAcaa8475ec884ebbf7782463f2992f341" class="overflow-hidden rounded-md bg-gray-100 z-10 w-50">
@@ -32,18 +31,14 @@
         <!-- Navigation -->
         <div class="nav_wrapper nav_wrapper--videochat" style="z-index: 1910;">
             <div class="nav">
-                <div id="stopVideo" class="nav_item neumorph" >
-                    <span class="material-icons">videocam</span>
-                </div>
-                <div id="muteAudio" class="nav_item neumorph">
-                    <span class="material-icons">mic</span>
-                </div>
+                <a id="stopVideo" class="nav_item" @click="activeHandler">
+                    <span id="VideoActive" class="material-icons neumorph neumorph--pressed active">videocam</span>
+                </a>
+                <a id="muteAudio" class="nav_item" @click="activeHandler">
+                    <span id="AudioActive" class="material-icons neumorph neumorph--pressed active">mic</span>
+                </a>
             </div>
         </div>
-
-
-
-
     </div>
 </template>
 
@@ -51,11 +46,24 @@
     export default {
         data: function () {
             return {
-                accessToken: '',
+                // accessToken: '',
                 title: "Biochemie"
             }
         },
         methods : {
+            activeHandler(event){
+                var e = event.target;       
+
+                e.classList.toggle('neumorph--pressed');
+                e.classList.toggle('active');
+
+
+                // Der Versuch, das Icon durch das durchgestrichene zu ersetzen
+
+                // var htmlString = e.innerHTML;
+                // e.innerHTML = htmlString+"_off";
+
+            },
              getAccessToken : function () {
                 const _this = this
 
@@ -86,22 +94,41 @@
                 room.participants.forEach(participant => this.addRemoteParticipant(participant));
                 room.on('participantConnected', participant => this.addRemoteParticipant(participant));
 
-                // Stop Video
+                // Toggle Videocamera
                 const stopVideo = document.getElementById('stopVideo');
+                var activeElementVideo = document.getElementById('VideoActive');
 
                 stopVideo.addEventListener("click", () => {
-                    room.localParticipant.videoTracks.forEach(track => {
-                        track.track.disable();
-                    });
+                    if(activeElementVideo.classList.contains("active")) {
+                        room.localParticipant.videoTracks.forEach(track => {
+                            track.track.enable();
+                        });
+                        console.log("Video an")
+                    }else{
+                        room.localParticipant.videoTracks.forEach(track => {
+                            track.track.disable();
+                        });
+                        console.log("Video aus")
+                    }                    
                 });
 
-                // Mute
+                // Toggle Microphone
                 const muteAudio = document.getElementById('muteAudio');
+                var activeElementAudio = document.getElementById('AudioActive');
 
                 muteAudio.addEventListener("click", () => {
-                    room.localParticipant.audioTracks.forEach(track => {
-                        track.track.disable();
-                    });
+                    if(activeElementAudio.classList.contains("active")) {
+                        room.localParticipant.audioTracks.forEach(track => {
+                            track.track.enable();
+                        });
+                        console.log("Audio an")
+                    }else{
+                        room.localParticipant.audioTracks.forEach(track => {
+                            track.track.disable();
+                        });
+                        console.log("Audio aus")
+                    }  
+                    
                 });
             },
             addLocalParticipant: function(participant) {
@@ -156,4 +183,13 @@
     video{
         width: 100%;
     }
+
+    .nav_wrapper--videochat span {
+        color: red;
+    }
+
+    .nav_wrapper--videochat .active {
+        color: black;
+    }
+
 </style>
