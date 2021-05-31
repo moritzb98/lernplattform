@@ -32,10 +32,10 @@
         <!-- Navigation -->
         <div class="nav_wrapper nav_wrapper--videochat" style="z-index: 1910;">
             <div class="nav">
-                <div id="stopVideo" class="nav_item neumorph" @click="stopVideo">
+                <div id="stopVideo" class="nav_item neumorph" >
                     <span class="material-icons">videocam</span>
                 </div>
-                <div id="muteAudio" class="nav_item neumorph" @click="muteAudio">
+                <div id="muteAudio" class="nav_item neumorph">
                     <span class="material-icons">mic</span>
                 </div>
             </div>
@@ -85,6 +85,24 @@
                 // Subscribe to the media published by RemoteParticipants already in the Room.
                 room.participants.forEach(participant => this.addRemoteParticipant(participant));
                 room.on('participantConnected', participant => this.addRemoteParticipant(participant));
+
+                // Stop Video
+                const stopVideo = document.getElementById('stopVideo');
+
+                stopVideo.addEventListener("click", () => {
+                    room.localParticipant.videoTracks.forEach(track => {
+                        track.track.disable();
+                    });
+                });
+
+                // Mute
+                const muteAudio = document.getElementById('muteAudio');
+
+                muteAudio.addEventListener("click", () => {
+                    room.localParticipant.audioTracks.forEach(track => {
+                        track.track.disable();
+                    });
+                });
             },
             addLocalParticipant: function(participant) {
 
@@ -116,32 +134,6 @@
             publishTrack: ( track, participant ) => {
                 const videoContainer = document.getElementById(participant.sid);
                 videoContainer.appendChild(track.attach())
-            },
-            muteAudio: function () {
-                    room.localParticipant.audioTracks.forEach(track => {
-                        track.disable();
-                    });
-
-                // const muteAudio = document.getElementById('muteAudio');
-                
-                // muteAudio.on('click', () => {
-                //     room.localParticipant.audioTracks.forEach(track => {
-                //         track.disable();
-                //     });
-                // });
-            },
-            stopVideo: function () {
-                    room.localParticipant.videoTracks.forEach(track => {
-                        track.disable();
-                    });
-
-                // const stopVideo = document.getElementById('stopVideo');
-
-                // stopVideo.on('click', () => {
-                //     room.localParticipant.videoTracks.forEach(track => {
-                //         track.disable();
-                //     });
-                // });
             }
         },
         mounted : function () {
