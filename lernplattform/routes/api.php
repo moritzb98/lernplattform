@@ -12,6 +12,7 @@ use App\Http\Controllers\InterestController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\API\AccessTokenController;
 use App\Http\Controllers\QuizController;
+use App\Http\Controllers\CategoryController;
 
 
 /*
@@ -86,6 +87,10 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     //Badges
     Route::get('badges', [QuizController::class, 'getBadges']);
+
+    // Category
+    Route::get('categories', [CategoryController::class, 'getAll']);
+    Route::get('categories/{id}', [CategoryController::class, 'getCategory']);
 });
 
 // Interests - without Middleware
