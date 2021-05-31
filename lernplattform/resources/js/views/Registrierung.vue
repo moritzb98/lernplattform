@@ -74,16 +74,9 @@
                 </button>
         </form>
 
-            <div class="text-no-account">Bereits einen Account? <span class="text-bold">Jetzt einloggen</span></div>
+        <div class="text-no-account">Bereits einen Account? <router-link to="/spa/Login"><span class="text-bold">Jetzt einloggen</span></router-link></div>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+
     <br>
     <br>
     </div>
@@ -171,6 +164,7 @@
 
     .text-bold{
         font-weight: bold;
+        color: #212121;
     }
 
 </style>

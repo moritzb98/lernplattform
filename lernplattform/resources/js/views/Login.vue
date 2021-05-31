@@ -24,8 +24,7 @@
                     <span class="button-text">Einloggen</span> <span class="material-icons">chevron_right</span>
                 </button>
             </form>
-            <div class="text-no-account">Kein Account? <a href="/spa/Registrierung" class="text-bold">Jetzt registrieren</a></div>
-
+            <div class="text-no-account">Kein Account? <router-link to="/spa/Registrierung"><span class="text-bold">Jetzt registrieren</span></router-link></div>
     </div>
 
 </template>
