@@ -35,10 +35,10 @@
                 </router-link>
             </div>
         </div>
-        </div>
 
         <!-- Nav -->
         <Nav />
+
     </div>
 </template>
 
