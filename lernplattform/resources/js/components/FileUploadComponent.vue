@@ -83,9 +83,9 @@
                 data.append('file', this.file);
 
                 axios.post('/api/upload', data, config)
-                    .then(function (res) {
-                        this.$router.push({ path: '/spa/documents' });
+                    .then((res) => {
                         Vue.$toast.success('Datei erfolgreich hochgeladen', {});
+                        this.$router.push({ path: '/spa/documents' });
                     })
                     .catch(function (err) {
                         Vue.$toast.error('Beim Hochladen ist etwas schief gegangen :(', {});
