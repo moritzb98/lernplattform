@@ -31,7 +31,7 @@
                 </div>
 
                 <label class="radio-button-label" for="radio-1">
-                <div class="urheber"> Hiermit bestätige ich dass die von mir geteilten Dateien von mir erstellt worden sind. Skillwire haftet nicht für Verstöße gegen das Urheberrecht. </div>
+                <div class="urheber"> Hiermit bestätige ich dass die von mir geteilten Dateien nicht gegen das Urheberrecht verstoßen. Skillwire haftet nicht für Verstöße gegen das Urheberrecht. </div>
                 </label>
             </div>
 

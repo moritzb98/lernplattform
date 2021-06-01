@@ -62,5 +62,9 @@ class Karteikartencontroller extends Controller
             }
         }
 
+        public function getKarten($set_id) {
+            return Karteikarte::where('set_id',$set_id)->get();
+        }
+
 }
 

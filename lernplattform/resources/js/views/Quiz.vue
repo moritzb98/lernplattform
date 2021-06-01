@@ -300,12 +300,7 @@
 
 <style scoped>
 
-    .fragen-container{
-        border-radius: 20px;
-        padding: 20px;
-        background: linear-gradient(to bottom right,white, #F1F1F1);
-        box-shadow: -5px -5px 13px #fff, 5px 5px 13px #0e0e0e40;
-    }
+
 
     .hide{
         display: none;
@@ -387,10 +382,6 @@
         background: #DF6A6A;
     }
 
-    .no-margin{
-        margin-top: 0;
-        margin-bottom: 0;
-    }
 
     .überspringen--fett{
         font-weight: bold;
@@ -430,14 +421,6 @@
         margin: auto;
         margin-left: 20px;
         margin-right: 20px;
-    }
-
-    .button--border{
-        margin-top: 0px;
-        background-image: radial-gradient(white, white), radial-gradient(circle at top left,white,#ED553B);
-        border: double 2px transparent;
-        background-origin: border-box;
-        background-clip: content-box, border-box;
     }
 
     .text-play-again{

@@ -99,6 +99,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('karteikartensets/create', [Karteikartensetcontroller::class, 'create']);
     Route::post('karteikarten/create', [Karteikartencontroller::class, 'create']);
     Route::get('karteikartenset/{karteikartenid}', [Karteikartensetcontroller::class, 'getSet']);
+    Route::get('karteikarten/{setid}', [Karteikartencontroller::class, 'getKarten']);
 });
 
 // Interests - without Middleware

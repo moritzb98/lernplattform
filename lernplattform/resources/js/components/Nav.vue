@@ -43,14 +43,14 @@
                                         </div>
                                     </router-link>
                                 </div>
-                                <!-- <div class="col col-6 col-sm-4 mt-3">
-                                    <router-link to="/spa/Karteikarten-erstellen">
+                                <div class="col col-6 col-sm-4 mt-3">
+                                    <router-link to="/spa/Karteikartenset/Erstellen">
                                         <div class="card neumorph" v-on:click="showNavDropUp">
                                             <img class="card_img" src="" alt="" />
                                             <div class="card_title">Karteikarten</div>
                                         </div>
                                     </router-link>
-                                </div> -->
+                                </div>
                                 <div class="col col-6 col-sm-4 mt-3">
                                     <router-link to="/spa/upload">
                                         <div class="card neumorph" v-on:click="showNavDropUp">

@@ -1200,4 +1200,24 @@
         color: #ED553B;
     }
 
+    .fragen-container{
+        border-radius: 20px;
+        padding: 20px;
+        background: linear-gradient(to bottom right,white, #F1F1F1);
+        box-shadow: -5px -5px 13px #fff, 5px 5px 13px #0e0e0e40;
+    }
+
+    .button--border{
+        margin-top: 0px;
+        background-image: radial-gradient(white, white), radial-gradient(circle at top left,white,#ED553B);
+        border: double 2px transparent;
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+    }
+
+    .no-margin{
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
 </style>
