@@ -15,13 +15,13 @@
         <!-- Content  -->
         <div class="container--flex">
             <router-link to='/spa/Karteikartenset/Erstellen' >
-               <div class="mdc-card mdc-card--new button-link">
+               <div class="mdc-card mdc-card--new button-link card-karteikarten">
                     <span class="material-icons-outlined card-icons--new">add</span>
-                    <p class="card-text--small"> erstellen</p>
+                    <p class="card-text--small"> Karteikartenset erstellen</p>
                 </div>
             </router-link>
             <div class="mdc-card-container--45">
-                <router-link >
+                <router-link to="">
                     <div class="router-text mdc-card mdc-card--middle mdc-card--100">
                         <span class="material-icons-outlined card-icons--big">biotech</span>
                         <p class="card-text--small">Name</p>
@@ -40,9 +40,21 @@
     export default {
         data() {
             return {
+                karteikartenset:[],
                 title: "Karteikartensets"
             }
         },
+        mounted(){
+            axios.get('/api/karteikartensets')
+            .then(response=>{
+                this.karteikartenset = response.data;
+                console.log(response.data);
+            });
+
+        },
+        methods: {
+
+        }
     }
 </script>
 
@@ -57,6 +69,11 @@
         width: 45%;
         color: #212121;
     }
+
+    .card-karteikarten{
+        max-width: 157px;
+    }
+
 
 
 </style>

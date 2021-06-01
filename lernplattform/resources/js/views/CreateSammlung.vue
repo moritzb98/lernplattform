@@ -27,8 +27,10 @@
         </label>
 
         <!-- Select -->
-        <select name="categories" v-model="collection.category_id">
-            <option value="">Bitte wähle eine Kategorie aus</option>
+        <div class="headline-text-field">Kategorie wählen</div>
+        <select class="mdc-button mdc-button--raised button--big dropdown" name="categories" v-model="collection.category_id">
+
+            <option selected="selected" value="">Bitte wähle eine Kategorie aus</option>
             <option v-for="categorie in categories" :key="categorie.name" :value="categorie.id">
                 {{categorie.name}}
             </option>
@@ -145,6 +147,11 @@
         margin-left: 4px;
         position: absolute;
         bottom: 0;
+    }
+
+    .dropdown{
+        margin-top: 0px;
+        height: 45px;
     }
 
 </style>

@@ -14,44 +14,43 @@
 
         <div>
             <div>
-                <p>Welches Themengebiet?</p>
-                <p>Dropdown</p>
+                <!-- Select -->
+                <div class="headline-text-field">Kategorie wählen</div>
+                <select class="mdc-button mdc-button--raised button--big dropdown" name="categories" v-model="karteikartenset.category_id">
+                    <option selected="selected" value="">Bitte wähle eine Kategorie aus </option>
+                    <option v-for="categorie in categories" :key="categorie.name" :value="categorie.id">
+                        {{categorie.name}}
+                    </option>
+                </select>
+                <!-- Select End -->
             </div>
-            <div class="mdc-switch">
-                <div class="mdc-switch__track"></div>
-                <div class="mdc-switch__thumb-underlay">
-                    <div class="mdc-switch__thumb"></div>
-                    <input type="checkbox" id="basic-switch" class="mdc-switch__native-control" role="switch" aria-checked="false">
-                </div>
-            </div>
-            <label for="basic-switch">öffentlich</label>
+            <br>
 
             <div class="headline-text-field">Titel</div>
             <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
-                <input type="text" class="mdc-text-field__input text-field__input--modified " placeholder="" aria-label="Label">
-            </label>
-            <div class="headline-text-field">Tags</div>
-            <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
-                <input type="text" class="mdc-text-field__input text-field__input--modified " placeholder="" aria-label="Label">
+                <input v-model="karteikartenset.name" type="text" class="mdc-text-field__input text-field__input--modified " placeholder="" aria-label="Label">
             </label>
             <hr class="trennungslinie-dick">
 
-            <div class="fragen-container">
-                <h5>1.Karteikarte</h5>
+            <div class="fragen-container" v-for="morekarteikarte in moreKarteikarten" :key="morekarteikarte.index">
+                <h5>{{morekarteikarte.index}}.Karteikarte</h5>
                 <div class="headline-text-field">Vorderseite</div>
                 <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
-                    <input type="text" class="mdc-text-field__input text-field__input--modified " placeholder="" aria-label="Label">
+                    <input v-model="karteikarte.frontside" type="text" class="mdc-text-field__input text-field__input--modified " placeholder="" aria-label="Label">
                 </label>
                 <div class="headline-text-field">Rückseite</div>
                 <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
-                    <input type="text" class="mdc-text-field__input text-field__input--modified " placeholder="" aria-label="Label">
+                    <input v-model="karteikarte.backside" type="text" class="mdc-text-field__input text-field__input--modified " placeholder="" aria-label="Label">
                 </label>
             </div>
-            <button class="mdc-button mdc-button--raised button--big button-dashed-border mdc-card--new">
+
+
+            <button @click="addKarteikarte()" class="mdc-button mdc-button--raised button--big button-dashed-border mdc-card--new">
                 <span class="button-text">Weitere Karteikarte</span> <span class="material-icons">add</span>
             </button>
+
             <hr class="trennungslinie-dick">
-            <button class="mdc-button mdc-button--raised button--big ohne-abstand">
+            <button @click="createSet()" class="mdc-button mdc-button--raised button--big ohne-abstand">
                 <span class="button-text">Karteikartenset erstellen</span> <span class="material-icons">navigate_next</span>
             </button>
             <br>
@@ -76,9 +75,49 @@
     export default {
         data() {
             return {
-                title: "Erstellen"
+                title: "Erstellen",
+                karteikartenset: {
+                    name: "",
+                    category_id: "",
+                },
+                categories:[],
+                karteikarte: {
+                    frontside: "",
+                    backside: "",
+                },
+                karteikarten:[],
+                moreKarteikarten:[{
+                    index: 1,
+                }],
+                count: 2,
             }
         },
+        mounted() {
+            axios.get('/api/categories')
+                .then(response=>{
+                    this.categories = response.data;
+                });
+        },
+        methods:{
+            createSet(){
+                this.karteikarten.push(this.karteikarte);
+                if(this.karteikartenset.category_id != null){
+                    axios.post('/api/karteikartensets/create', {kartenset:this.karteikartenset, karten:this.karteikarten})
+                    .then(response=>{
+                        Vue.$toast.success('Karteikartenset erfolgreich erstellt.', {});
+                        this.$router.push({ path: '/spa/Karteikartensets' });
+                    });
+                } else {
+                    Vue.$toast.error('Du musst eine Kategorie auswählen.', {});
+                }
+            },
+            addKarteikarte(){
+                this.moreKarteikarten.push({
+                    index: this.count
+                });
+                this.count++;
+            }
+        }
     }
 </script>
 
@@ -94,6 +133,7 @@
         padding: 20px;
         background: linear-gradient(to bottom right,white, #F1F1F1);
         box-shadow: -5px -5px 13px #fff, 5px 5px 13px #0e0e0e40;
+        margin-bottom: 20px;
     }
 
     .button-dashed-border{
@@ -103,6 +143,13 @@
 
     .ohne-abstand{
         margin-top: 0px;
+    }
+
+    .dropdown{
+        margin-top: 0px;
+        height: 45px;
+        color: #212121;
+        padding-left: 20px;
     }
 
 </style>
