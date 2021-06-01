@@ -92,6 +92,7 @@
                 <span v-if="showDetails" @click="showDetails = false" class="material-icons-outlined expand-less">expand_less</span>
             </div>
 
+            <transition name="fade">
             <div v-if="showDetails">
                 <p class="no-margin-bottom">Richtig beantwortete Fragen:</p>
                 <div v-for="question in userAnswers.correct" :key="question.id">
@@ -108,30 +109,30 @@
                 <p>Anzahl falsche Antworten: {{ userAnswers.wrong.length }}</p>
 
             </div>
-
+            </transition>
 
 
             <div class="big-icon-container">
                 <span class="material-icons-outlined material-icons-outlined--big">biotech</span>
             </div>
-            <br>
-            <div>
+            <div v-if="result<75">
                 <p class="text-play-again">Probier's nochmal:</p>
-                <div v-if="result<75" class="quiz-detail-container">
-                <div class="flex-container-quiz router-text">
-                    <div>
-                        <div>
-                            {{ quizName }}
-                        </div>
-                        <div>
-                            progess
+                    <div @click="reload()" class="quiz-detail-container">
+                        <div class="flex-container-quiz router-text">
+                            <div>
+                                <div>
+                                    {{ quizName }}
+                                </div>
+                                <div>
+                                    progess
+                                </div>
+                            </div>
+                            <div>
+                                <span class="material-icons-outlined play-icon">play_circle</span>
                             </div>
                         </div>
-                        <div>
-                            <span class="material-icons-outlined play-icon">play_circle</span>
-                        </div>
                     </div>
-                </div>
+
             </div>
 
                 <div class="button-container">
@@ -142,10 +143,15 @@
                     </a>
                 </div>
 
-        <br>
+
 
         </div>
-
+<br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
         <!-- Nav -->
         <Nav />
     </div>
@@ -283,6 +289,9 @@
             },
             showMoreDetails(){
                 this.showDetails = true;
+            },
+            reload(){
+                this.$router.go();
             }
         }
     }
@@ -446,6 +455,17 @@
 
     .no-margin-bottom{
         margin-bottom: 0px;
+    }
+
+    .fade-enter-active {
+    transition: opacity 1.2s;
+    }
+    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+    }
+
+    .fade-leave-active{
+        transition: opacity .2s;
     }
 
 </style>
