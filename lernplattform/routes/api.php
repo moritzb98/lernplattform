@@ -13,6 +13,7 @@ use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\API\AccessTokenController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Karteikartensetcontroller;
 
 
 /*
@@ -92,6 +93,10 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     // Category
     Route::get('categories', [CategoryController::class, 'getAll']);
     Route::get('categories/{id}', [CategoryController::class, 'getCategory']);
+
+    //Karteikartensets
+    Route::get('karteikartensets', [Karteikartensetcontroller::class, 'getSet']);
+    Route::post('karteikartensets/create', [Karteikartensetcontroller::class, 'create']);
 });
 
 // Interests - without Middleware

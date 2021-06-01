@@ -11,6 +11,7 @@ use Spatie\Searchable\Searchresult;
 class Karteikartenset extends Model implements Searchable
 {
     use HasFactory;
+    protected $table = 'karteikartenset';
     protected $fillable = [
         'user_id',
         'name',

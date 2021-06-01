@@ -27,8 +27,10 @@
         </label>
 
         <!-- Select -->
-        <select name="categories" v-model="collection.category_id">
-            <option value="">Bitte wähle eine Kategorie aus</option>
+        <div class="headline-text-field">Kategorie wählen</div>
+        <select class="mdc-button mdc-button--raised button--big dropdown" name="categories" v-model="collection.category_id">
+
+            <option selected="selected" value="">Bitte wähle eine Kategorie aus</option>
             <option v-for="categorie in categories" :key="categorie.name" :value="categorie.id">
                 {{categorie.name}}
             </option>
@@ -36,9 +38,8 @@
         <!-- Select End -->
         <div class="small-button-container">
             <router-link class="button-small list-items button-link router-text" to="/spa/Lernmaterial">
-                    <span class="material-icons-outlined button-icon-small">close</span>
-                    <div class="list-items-text">Abbrechen</div>
-
+                <span class="material-icons-outlined button-icon-small">close</span>
+                <div class="list-items-text">Abbrechen</div>
             </router-link>
             <div @click="createCollection()" class="list-items button-small">
                 <span class="material-icons-outlined button-icon-small">check</span>
@@ -146,6 +147,11 @@
         margin-left: 4px;
         position: absolute;
         bottom: 0;
+    }
+
+    .dropdown{
+        margin-top: 0px;
+        height: 45px;
     }
 
 </style>

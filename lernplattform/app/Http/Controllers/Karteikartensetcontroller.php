@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Karteikartenset;
 use App\Models\KarteSets;
+use Auth;
 
 class Karteikartensetcontroller extends Controller
 {
-    /    public function create(Request $request){
+        public function create(Request $request){
 
         $userid = Auth::user()->id;
         $karteikartenset = Karteikartenset::create([
@@ -56,5 +57,11 @@ class Karteikartensetcontroller extends Controller
             {
                 return response()->json(['error' => 'Du hast diese Karteikartenset nicht erstellt und darfst sie somit nicht löschen'], 403);
             }
+        }
+
+        public function getSet() {
+            $userid = Auth::user()->id;
+            $karteikartenset = Karteikartenset::where('user_id', $userid)->get();
+            return $karteikartenset;
         }
     }
