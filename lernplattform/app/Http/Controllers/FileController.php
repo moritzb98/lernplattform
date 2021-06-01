@@ -40,6 +40,7 @@ class FileController extends Controller
                     $fileUpload->path = '/storage/' . $file_path;
                     $fileUpload->user_id = Auth::user()->id;
                     $fileUpload->displayname = $request->file->getClientOriginalName();
+                    $fileUpload->category_id = 1;
                     $fileUpload->save();
 
                     return response()->json(['success'=>'Datei erfolgreich hochgeladen']);
@@ -47,7 +48,6 @@ class FileController extends Controller
         }
 
         public function update(Request $request){
-            //$file = FileUpload::where('id', $request['id'])->first();
             FileUpload::where('id', $request['id'])->update([
                 'displayname' => $request['displayname'],
             ]);
