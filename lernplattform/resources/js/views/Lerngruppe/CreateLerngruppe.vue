@@ -35,6 +35,14 @@
                 <label>Maximale Personenzahl</label>
                 <input class="neumorph--pressed neumorph--pressed--border input w-100" type="number" v-model="room.roomMaxPersons">
             </div>
+            <!-- Select -->
+            <select name="categories" v-model="room.category_id">
+                <option value="">Bitte wähle eine Kategorie aus</option>
+                <option v-for="categorie in categories" :key="categorie.name" :value="categorie.id">
+                    {{categorie.name}}
+                </option>
+            </select>
+            <!-- Select End -->
         </div>
 
         <div class="row mb-3">
@@ -61,20 +69,29 @@
                 room: {
                     roomName: '',
                     roomMaxPersons: null,
+                    category_id: null,
                 },
-                title: "Erstellen"
-
+                title: "Erstellen",
+                categories: [],
             }
+        },
+        mounted() {
+            axios.get('/api/categories')
+                .then(response=>{
+                    this.categories = response.data;
+                });
         },
         methods: {
             createRoom(room) {
-                this.axios.post('http://127.0.0.1:8000/api/room/create', room)
-                    .then(response => (
-                        Vue.$toast.success('Lerngruppe erfolgreich erstellt', {}),
-                        this.$router.push({ path: '/spa/Lerngruppen/Eigene' })
-                    ))
-                    .catch(err => Vue.$toast.error('Beim Erstellen ist etwas schief gegangen :(', {}))
-                    .finally(() => this.loading = false);
+                if(this.room.category_id != null){
+                    this.axios.post('http://127.0.0.1:8000/api/room/create', room)
+                        .then(response => (
+                            Vue.$toast.success('Lerngruppe erfolgreich erstellt', {}),
+                            this.$router.push({ path: '/spa/Lerngruppen/Eigene' })
+                        ))
+                        .catch(err => Vue.$toast.error('Beim Erstellen ist etwas schief gegangen :(', {}))
+                        .finally(() => this.loading = false);
+                }
             }
         }
     }

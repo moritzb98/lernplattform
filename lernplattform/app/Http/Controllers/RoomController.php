@@ -32,7 +32,8 @@ class RoomController extends Controller
         $room = Room::create([
             'name' => $request['roomName'],
             'maxPersons' => $request['roomMaxPersons'],
-            'user_id' => $userid
+            'user_id' => $userid,
+            'category_id' => $request['category_id'],
         ]);
         app('App\Http\Controllers\ChatController')->createRoom($room['id'], $room['name']);
         return response()->json(['´success' => 'Raum erfolgreich erstellt.'], 200);
@@ -79,19 +80,23 @@ class RoomController extends Controller
         $userid = Auth::user()->id;
         $persons = RoomsUsers::where('room_id', $roomid)->count();
         $maxPersons = Room::where('id', $roomid)->first();
+        $userInRoom = RoomsUsers::where('room_id', $roomid)->where('user_id', $userid)->first();
 
         if($persons < $maxPersons['maxPersons']){
-            RoomsUsers::create([
-                'user_id' => $userid,
-                'room_id' => $roomid
-            ]);
-            return response()->json(['´success' => 'Raum erfolgreich beigetreten.'], 200);
+            if($userInRoom === null) {
+                RoomsUsers::create([
+                    'user_id' => $userid,
+                    'room_id' => $roomid
+                ]);
+                return response()->json(['´success' => 'Raum erfolgreich beigetreten.'], 200);
+            } else {
+                return response()->json(['error' => 'Du bist diesem Raum schon beigetreten.'], 403);
+            }
         }
         else
         {
             return response()->json(['error' => 'Die maximale Anzahl an Personen für diesen Raum ist bereits erreicht, du kannst ihn nicht mehr beitreten.'], 403);
         }
-
     }
 
     public function leaveRoom($roomid){
