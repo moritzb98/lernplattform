@@ -14,7 +14,7 @@
         <div class="background-container">
             <div class="background">
                 <span class="material-icons-outlined icon-für-oberen-Bereich">biotech</span>
-                <div class="überschrift-oberer-Bereich" >Sammlung erstellen</div>
+                <div class="überschrift-oberer-Bereich" >Sammlung</div>
             </div>
 
             <div class="fabriges-rechteck">

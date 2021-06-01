@@ -20,11 +20,11 @@
                     <p class="card-text--small"> Karteikartenset erstellen</p>
                 </div>
             </router-link>
-            <div class="mdc-card-container--45">
-                <router-link to="">
+            <div class="mdc-card-container--45" v-for="karteikartenset in karteikartenset" :key="karteikartenset.id">
+                <router-link :to='"/spa/Karteikartenset/"+ karteikartenset.id'>
                     <div class="router-text mdc-card mdc-card--middle mdc-card--100">
                         <span class="material-icons-outlined card-icons--big">biotech</span>
-                        <p class="card-text--small">Name</p>
+                        <p class="card-text--small">{{karteikartenset.name}}</p>
                     </div>
                 </router-link>
             </div>

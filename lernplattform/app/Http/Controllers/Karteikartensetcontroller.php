@@ -60,9 +60,13 @@ class Karteikartensetcontroller extends Controller
             }
         }
 
-        public function getSet() {
+        public function getSets() {
             $userid = Auth::user()->id;
             $karteikartenset = Karteikartenset::where('user_id', $userid)->get();
             return $karteikartenset;
+        }
+
+        public function getSet($id) {
+            return Karteikartenset::where('id', $id)->first();
         }
     }

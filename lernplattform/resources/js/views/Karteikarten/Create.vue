@@ -3,12 +3,24 @@
         <!-- Header [Search] -->
         <div class="header_wrapper">
             <div class="header header--search">
+                <span class="material-icons neumorph header_back" @click="$router.go(-1)">arrow_back</span>
                 <div class="header_title">
                     {{title}}
                 </div>
                 <router-link to="/spa/Suche">
                     <span class="material-icons neumorph header_search">search</span>
                 </router-link>
+            </div>
+        </div>
+
+        <div class="background-container">
+            <div class="background">
+                <span class="material-icons-outlined icon-für-oberen-Bereich">description</span>
+                <div class="überschrift-oberer-Bereich" >Karteikartenset</div>
+            </div>
+
+            <div class="fabriges-rechteck">
+                <div class="weißes-rechteck"></div>
             </div>
         </div>
 

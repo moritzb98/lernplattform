@@ -1,14 +1,25 @@
 <template>
     <div>
-        <!-- Header [Search] -->
+        <!-- Header [Back] -->
         <div class="header_wrapper">
-            <div class="header header--search">
+            <div class="header header--back">
+                <span class="material-icons neumorph header_back" @click="$router.go(-1)">arrow_back</span>
                 <div class="header_title">
-                    {{title}}
+                    {{ karteikartenset.name }}
                 </div>
-                <router-link to="/spa/Suche">
-                    <span class="material-icons neumorph header_search">search</span>
-                </router-link>
+            </div>
+        </div>
+
+        <div class="background-container">
+            <div class="background">
+                <span class="material-icons-outlined icon-für-oberen-Bereich">biotech</span>
+                <div class="überschrift-oberer-Bereich" >
+                     {{ category.name }}
+                    <div class="unterüberschrift-oberer-bereich">Frage 1/{{ karteikartenset.karteikarten.length }}</div>
+                </div>
+            </div>
+            <div class="fabriges-rechteck">
+                <div class="weißes-rechteck"></div>
             </div>
         </div>
 
@@ -22,8 +33,24 @@
     export default {
         data() {
             return {
-                title: "Karteikartensets"
+                title: "Karteikartenset",
+                karteikartenset:{
+                    name: "",
+                    karteikarten: [],
+                    id: this.$route.params.id,
+
+                },
+                category: {
+                    name: "",
+                },
             }
+        },
+        mounted(){
+            axios.get('/api/karteikartenset/' + this.karteikartenset.id)
+            .then(response=>{
+                this.karteikartenset.name = response.data.name;
+            });
+
         },
     }
 </script>
