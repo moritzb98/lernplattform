@@ -32,8 +32,8 @@
             </label>
             <hr class="trennungslinie-dick">
 
-            <div class="fragen-container" v-for="morekarteikarte in moreKarteikarten" :key="morekarteikarte.index">
-                <h5>{{morekarteikarte.index}}.Karteikarte</h5>
+            <div class="fragen-container" v-for="karteikarte in karteikarten" :key="karteikarte.index">
+                <h5>{{karteikarte.index}}.Karteikarte</h5>
                 <div class="headline-text-field">Vorderseite</div>
                 <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
                     <input v-model="karteikarte.frontside" type="text" class="mdc-text-field__input text-field__input--modified " placeholder="" aria-label="Label">
@@ -43,7 +43,6 @@
                     <input v-model="karteikarte.backside" type="text" class="mdc-text-field__input text-field__input--modified " placeholder="" aria-label="Label">
                 </label>
             </div>
-
 
             <button @click="addKarteikarte()" class="mdc-button mdc-button--raised button--big button-dashed-border mdc-card--new">
                 <span class="button-text">Weitere Karteikarte</span> <span class="material-icons">add</span>
@@ -81,13 +80,10 @@
                     category_id: "",
                 },
                 categories:[],
-                karteikarte: {
-                    frontside: "",
-                    backside: "",
-                },
-                karteikarten:[],
-                moreKarteikarten:[{
+                karteikarten:[{
                     index: 1,
+                    frontside: '',
+                    frontside: ''
                 }],
                 count: 2,
             }
@@ -100,19 +96,25 @@
         },
         methods:{
             createSet(){
-                this.karteikarten.push(this.karteikarte);
-                if(this.karteikartenset.category_id != null){
-                    axios.post('/api/karteikartensets/create', {kartenset:this.karteikartenset, karten:this.karteikarten})
+                if(this.karteikartenset.category_id != "" && this.karteikartenset.name){
+                    // Create Set
+                    axios.post('/api/karteikartensets/create', this.karteikartenset)
                     .then(response=>{
-                        Vue.$toast.success('Karteikartenset erfolgreich erstellt.', {});
-                        this.$router.push({ path: '/spa/Karteikartensets' });
+                        // Create Cards to Set
+                        axios.post('/api/karteikarten/create', {karteikarten: this.karteikarten, setid: response.data})
+                        .then(response=>{
+                            Vue.$toast.success('Karteikartenset erfolgreich erstellt.', {});
+                            this.$router.push({ path: '/spa/Karteikartensets' });
+                        }).catch(err => {
+                            Vue.$toast.error('Beim Erstellen ist etwas schief gegangen :(', {});
+                        });
                     });
                 } else {
-                    Vue.$toast.error('Du musst eine Kategorie auswählen.', {});
+                    Vue.$toast.error('Du musst eine Kategorie auswählen und einen Namen angeben.', {});
                 }
             },
             addKarteikarte(){
-                this.moreKarteikarten.push({
+                this.karteikarten.push({
                     index: this.count
                 });
                 this.count++;

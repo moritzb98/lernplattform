@@ -11,14 +11,15 @@ class Karteikartensetcontroller extends Controller
 {
         public function create(Request $request){
 
-        $userid = Auth::user()->id;
-        $karteikartenset = Karteikartenset::create([
-            'name' => $request['name'],
-            'user_id' => $userid,
+            $userid = Auth::user()->id;
+            $karteikartenset = Karteikartenset::create([
+                'name' => $request['name'],
+                'user_id' => $userid,
+                'category_id' => $request['category_id']
 
-        ]);
+            ]);
 
-        return response()->json(['success'=>'Karteikartenset erfolgreich erstellt'], 200);
+            return $karteikartenset['id'];
         }
 
 

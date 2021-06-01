@@ -4,20 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Karteikarte;
+use Auth;
 
 class Karteikartencontroller extends Controller
 {
     public function create(Request $request){
 
-        $userid = Auth::user()->id;
-        $karteikarte = Karteikarte::create([
-            'frontside' => $request['frontside'],
-            'backside' => $request['backside'],
-            'user_id' => $userid,
-            'set_id' => $set_id,
-        ]);
+            $userid = Auth::user()->id;
 
-        return response()->json(['success'=>'Karteikarte erfolgreich erstellt'], 200);
+            for($i = 0; $i<count($request['karteikarten']); $i++){
+                $karteikarte = Karteikarte::create([
+                    'frontside' => $request['karteikarten'][$i]['frontside'],
+                    'backside' => $request['karteikarten'][$i]['backside'],
+                    'user_id' => $userid,
+                    'set_id' => $request['setid']
+                ]);
+            }
+
+            return response()->json(['success'=>'Karteikarte erfolgreich erstellt'], 200);
         }
 
 

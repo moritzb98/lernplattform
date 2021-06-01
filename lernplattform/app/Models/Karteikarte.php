@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Karteikarte extends Model
 {
     use HasFactory;
+
+    protected $table = 'karteikarte';
+
     protected $fillable = [
         'user_id',
         'frontside',
