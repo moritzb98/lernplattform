@@ -159,11 +159,6 @@
         margin-top: 0px;
     }
 
-    .dropdown{
-        margin-top: 0px;
-        height: 45px;
-        color: #212121;
-        padding-left: 20px;
-    }
+
 
 </style>

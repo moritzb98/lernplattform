@@ -11,7 +11,8 @@
         </div>
 
         <!-- Content  -->
-        <div>
+        <!-- Chips  -->
+ <!--        <div>
             <div class="mdc-chip mdc-chip-filter" role="row">
                 <div class="mdc-chip__ripple"></div>
                     <span class="material-icons-outlined">filter_alt</span>
@@ -30,7 +31,8 @@
                         </span>
                     </span>
             </div>
-        </div>
+        </div> -->
+        <!-- Chips  Ende-->
        <!-- <div v-for="myFileUpload in myFileUploads" :key="myFileUpload.id">
                 <div class="container-uploads">
                     <div class="cursor" v-if="myFileUpload.data.id === editFileId">

@@ -1,5 +1,27 @@
 <template>
     <div>
+        <!-- Header [Search] -->
+        <div class="header_wrapper">
+            <div class="header header--search">
+                <span class="material-icons neumorph header_back" @click="$router.go(-1)">arrow_back</span>
+                <div class="header_title">
+                    Details
+                </div>
+            </div>
+        </div>
+
+        <div class="background-container">
+            <div class="background">
+                <span class="material-icons-outlined icon-für-oberen-Bereich">biotech</span>
+                <div class="überschrift-oberer-Bereich">{{collection.name}}</div>
+            </div>
+
+            <div class="fabriges-rechteck">
+                <div class="weißes-rechteck"></div>
+            </div>
+        </div>
+
+
             <div class="mdc-card mdc-card-lernmaterial">
                 <div class="card-lernmaterial-spacing card-lernmaterial-spacing-zweispaltig">
                     <div class="card-lernmaterial-icon-container card-lernmaterial-icon-container-weiter-rechts">

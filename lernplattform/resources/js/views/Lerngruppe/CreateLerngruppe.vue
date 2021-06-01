@@ -35,16 +35,19 @@
                 <label>Maximale Personenzahl</label>
                 <input class="neumorph--pressed neumorph--pressed--border input w-100" type="number" v-model="room.roomMaxPersons">
             </div>
-            <!-- Select -->
-            <select name="categories" v-model="room.category_id">
-                <option value="">Bitte wähle eine Kategorie aus</option>
+
+        </div>
+        <!-- Select -->
+            <div class="headline-text-field">Kategorie wählen</div>
+            <select class="mdc-button mdc-button--raised button--big dropdown" name="categories" v-model="room.category_id">
+                <option selected="selected" value="">Bitte wähle eine Kategorie aus</option>
                 <option v-for="categorie in categories" :key="categorie.name" :value="categorie.id">
                     {{categorie.name}}
                 </option>
             </select>
-            <!-- Select End -->
-        </div>
 
+            <!-- Select End -->
+            <br><br><br>
         <div class="row mb-3">
             <div class="col-12">
                 <button class="btn neumorph w-100" @click="createRoom(room)">

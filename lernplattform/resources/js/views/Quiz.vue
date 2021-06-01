@@ -49,9 +49,12 @@
                             <span v-if="index===2">C</span>
                             <span v-if="index===3">D</span>
                         </p>
-                        <p class="antwort-optionen" :class='"answer"+answer.id' :id='"answerid"+answer.id'>
+                        <div class="antwort-optionen" :class='"answer"+answer.id' :id='"answerid"+answer.id'>
+                           <p class="antwort-optionen-text">
                             {{answer.answer}}
-                        </p>
+                            </p>
+                        </div>
+
                     </div>
                     <div v-else class="antwort-container">
                         <p class="antwort-optionen-buchstaben" :class='"answer"+answer.id' :id='"answerletter"+answer.id'>
@@ -350,6 +353,14 @@
         top: 50%;
         transform: translate(0, -50%);
         line-height: 25px;
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .antwort-optionen-text{
+        max-width: 80%;
+        text-align: center;
     }
 
     .frage{
