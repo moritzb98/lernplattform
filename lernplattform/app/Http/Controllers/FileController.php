@@ -48,7 +48,6 @@ class FileController extends Controller
         }
 
         public function update(Request $request){
-            //$file = FileUpload::where('id', $request['id'])->first();
             FileUpload::where('id', $request['id'])->update([
                 'displayname' => $request['displayname'],
             ]);
