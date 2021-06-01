@@ -29,11 +29,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 window.axios.defaults.withCredentials = true;
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
 
 Vue.use(VueRouter);
 Vue.use(WebRTC);
@@ -78,23 +73,7 @@ router.beforeEach(async (to, from, next) => {
             }
         }
 
-      /* if (store.state.user !== null) {
-        if(!await getUserData()){
-          next({
-            path: '/spa/dashboard',
-          });
-        }
-    } */
 
-      /* if (typeof to.matched[0].meta.permission !== 'undefined') {
-          if(isUserGranted(to.matched[0].meta.permission)){
-            next();
-          } else {
-            next({
-              path: '/spa/404',
-            });
-          }
-      } */
       next();
 	} else {
 	  next()

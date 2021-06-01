@@ -67,4 +67,16 @@ class QuizController extends Controller
         return response()->json(['´success' => 'Ergebnis erfolgreich gespeichert.'], 200);
 
     }
+
+    public function getResult(Request $request){
+
+        $userid = Auth::user()->id;
+        $result = [];
+
+        for($i = 0; $i<count($request->all()); $i++){
+            array_push($result, QuizresultsUser::where('user_id', $userid)->where('quiz_id', $request[$i]['id'])->first());
+        }
+
+        return $result;
+    }
 }

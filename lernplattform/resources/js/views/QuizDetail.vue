@@ -24,16 +24,16 @@
         </div>
 
         <!-- Content -->
-        <div v-for="quiz in quizzes" :key="quiz.name">
+        <div v-for="(quiz, index) in quizzes" :key="quiz.name">
             <router-link :to='"/spa/quiz/"+category+"/"+quiz.id'>
                 <div class="quiz-detail-container">
                     <div class="flex-container-quiz router-text">
-                        <div>
+                        <div class="progress-container">
                             <div>
                                 {{ quiz.name }}
                             </div>
-                            <div>
-                                progess
+                            <div class="progressbar">
+                                <progress-bar :val="values[index]" size="medium"></progress-bar>
                             </div>
                         </div>
                         <div>
@@ -51,19 +51,36 @@
 </template>
 
 <script>
+import ProgressBar from 'vue-simple-progress'
     export default {
+        components: {
+            ProgressBar
+        },
         data() {
             return {
                 quizzes: [],
                 category: this.$route.params.category,
                 questionId: null,
+                values: [],
             }
         },
         mounted(){
             axios.get('/api/quiz/' + this.category)
             .then(response=>{
                 this.quizzes = response.data;
+
+                axios.post('/api/quiz/id/result/', this.quizzes)
+                .then(response=>{
+                    for(var i = 0; i<response.data.length; i++){
+                        if(response.data[i]){
+                            this.values.push(response.data[i].correctAnswers);
+                        } else {
+                            this.values.push(0);
+                        }
+                    }
+                });
             });
+
         },
         methods:{
 
@@ -73,6 +90,14 @@
 
 <style scoped>
 
+.progress-container {
+    width: 80%;
+}
 
+.progressbar{
+    margin-top: 8px;
+    border-radius: 50px;
+    overflow: hidden;
+}
 
 </style>
