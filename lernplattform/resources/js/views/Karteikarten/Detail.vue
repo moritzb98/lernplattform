@@ -48,7 +48,9 @@
         mounted(){
             axios.get('/api/karteikartenset/' + this.karteikartenset.id)
             .then(response=>{
-                this.karteikartenset.name = response.data.name;
+                this.karteikartenset.name = response.data.data[0].data.name;
+                this.category.name = response.data.data[0].data.category_id.name;
+                console.log(response.data.data[0].data);
             });
 
         },

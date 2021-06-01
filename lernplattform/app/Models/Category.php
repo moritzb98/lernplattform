@@ -16,4 +16,8 @@ class Category extends Model
     public function quizzes(){
         return $this->belongsToMany('App\Models\Quiz');
     }
+
+    public function karteikartensets(){
+        return $this->belongsToMany('App\Models\Karteikartenset');
+    }
 }

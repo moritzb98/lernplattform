@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Karteikartenset;
 use App\Models\KarteSets;
 use Auth;
+use App\Http\Resources\KarteikartensetCollection;
 
 class Karteikartensetcontroller extends Controller
 {
@@ -67,6 +68,6 @@ class Karteikartensetcontroller extends Controller
         }
 
         public function getSet($id) {
-            return Karteikartenset::where('id', $id)->first();
+            return new KarteikartensetCollection(Karteikartenset::where('id', $id)->get());
         }
     }
