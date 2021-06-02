@@ -40,6 +40,7 @@ class FileController extends Controller
                     $fileUpload->path = '/storage/' . $file_path;
                     $fileUpload->user_id = Auth::user()->id;
                     $fileUpload->displayname = $request->file->getClientOriginalName();
+                    $fileUpload->category_id = 1;
                     $fileUpload->save();
 
                     return response()->json(['success'=>'Datei erfolgreich hochgeladen']);

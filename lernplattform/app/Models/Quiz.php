@@ -22,7 +22,8 @@ class Quiz extends Model implements Searchable
     }
 
     public function getSearchResult(): SearchResult {
-        $url = '/spa/quiz/'.$this->name;
+
+        $url = '/spa/quiz/'.$this->category['name'].'/'.$this->id;
 
         return new SearchResult($this, $this->name, $url);
     }
