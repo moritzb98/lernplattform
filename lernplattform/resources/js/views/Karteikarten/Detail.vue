@@ -15,7 +15,7 @@
                 <span class="material-icons-outlined icon-für-oberen-Bereich">biotech</span>
                 <div class="überschrift-oberer-Bereich" >
                      {{ category.name }}
-                    <div class="unterüberschrift-oberer-bereich">Karteikarte {{ count }}/{{ karteikartenset.karteikarten.length }}</div>
+                    <div class="unterüberschrift-oberer-bereich">Karteikarte {{ count +1 }}/{{ karteikartenset.karteikarten.length }}</div>
                 </div>
             </div>
             <div class="fabriges-rechteck">
