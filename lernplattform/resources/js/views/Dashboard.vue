@@ -24,10 +24,6 @@
         <router-link to="/spa/Karteikartensets">
             <span class="material-icons neumorph buttons_dashboard spacing-left">description</span>
         </router-link>
-        <router-link to="/spa/Karteikartensets">
-            <span class="material-icons neumorph buttons_dashboard spacing-left">view_carousel</span>
-        </router-link>
-
 
         <p class="logout" @click="logout">Logout</p>
 

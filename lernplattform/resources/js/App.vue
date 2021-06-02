@@ -1134,6 +1134,7 @@
         display: flex;
         flex-wrap: nowrap;
         position: relative;
+        justify-content: center;
     }
 
     .fabriges-rechteck{
@@ -1156,6 +1157,7 @@
         margin: auto;
         max-width: 80%;
         line-height: 25px;
+        z-index: 5;
     }
 
     .icon-für-oberen-Bereich{
@@ -1164,7 +1166,7 @@
         margin-bottom: -14px;
         margin-left: 4px;
         position: absolute;
-        bottom: 0;
+        opacity: 0.5;
     }
 
     .unterüberschrift-oberer-bereich{

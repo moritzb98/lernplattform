@@ -140,14 +140,6 @@
         margin: auto;
     }
 
-    .icon-für-oberen-Bereich{
-        font-size: 8em;
-        color: #F0A89B;
-        margin-bottom: -14px;
-        margin-left: 4px;
-        position: absolute;
-        bottom: 0;
-    }
 
     .dropdown{
         margin-top: 0px;
