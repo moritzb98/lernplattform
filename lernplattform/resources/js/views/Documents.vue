@@ -51,7 +51,7 @@
         </div> -->
         <br>
         <div class="container-data" v-for="(myFileUpload, index) in myFileUploads" :key="myFileUpload.id">
-                <div class="container-uploads">
+                <div :id="myFileUpload.data.id" class="container-uploads">
                     <div class="cursor" v-if="myFileUpload.data.id === editFileId">
                             <input class="input-feld" type="text" v-model="myFileUpload.data.displayname" autofocus>
                         </div>
@@ -327,6 +327,9 @@ import {MDCTabBar} from '@material/tab-bar';
 
     .container-data{
         position: relative;
+        margin-bottom: 300px;
     }
+
+
 
 </style>

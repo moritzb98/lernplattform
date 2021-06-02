@@ -27,7 +27,7 @@ class FileUpload extends Model implements Searchable
     }
 
     public function getSearchResult(): SearchResult {
-        $url = '/spa/documents/'.$this->id;
+        $url = '/spa/documents#'.$this->id;
 
         return new SearchResult($this, $this->displayname, $url);
     }

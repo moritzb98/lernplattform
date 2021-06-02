@@ -23,7 +23,7 @@
         </div>
         <div class="headline-text-field">Name der Sammlung</div>
         <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
-            <input v-model="collection.name" type="text" class="mdc-text-field__input text-field__input--modified " placeholder="" aria-label="Label">
+            <input maxlength="30" v-model="collection.name" type="text" class="mdc-text-field__input text-field__input--modified " placeholder="" aria-label="Label">
         </label>
 
         <!-- Select -->
