@@ -327,222 +327,222 @@ class QuizSeeder extends Seeder
 
         $answersMusikQuiz = [
             [
-                'question_id' => 14,
+                'question_id' => 13,
                 'answer' => 'Okarina',
                 'is_correct' => true
             ],
             [
-                'question_id' => 14,
+                'question_id' => 13,
                 'answer' => 'Ukele',
                 'is_correct' => false
             ],
             [
-                'question_id' => 14,
+                'question_id' => 13,
                 'answer' => 'Balalaika',
                 'is_correct' => false
             ],
             [
-                'question_id' => 14,
+                'question_id' => 13,
                 'answer' => 'Bandoneon',
                 'is_correct' => false
             ],
             [
-                'question_id' => 15,
+                'question_id' => 14,
                 'answer' => 'Johann Strauß',
                 'is_correct' => true
             ],
             [
-                'question_id' => 15,
+                'question_id' => 14,
                 'answer' => 'Johann Sebastian Bach',
                 'is_correct' => false
             ],
             [
-                'question_id' => 15,
+                'question_id' => 14,
                 'answer' => 'Ludwig van Beethoven',
                 'is_correct' => false
             ],
             [
-                'question_id' => 15,
+                'question_id' => 14,
                 'answer' => 'Wolfgang Amadeus Mozart',
                 'is_correct' => false
             ],
             [
-                'question_id' => 16,
+                'question_id' => 15,
                 'answer' => 'Ringo Starr',
                 'is_correct' => false
             ],
             [
-                'question_id' => 16,
+                'question_id' => 15,
                 'answer' => 'George Harrison',
                 'is_correct' => false
             ],
             [
-                'question_id' => 16,
+                'question_id' => 15,
                 'answer' => 'Paul McCartney',
                 'is_correct' => true
             ],
             [
-                'question_id' => 16,
+                'question_id' => 15,
                 'answer' => 'John Lennon',
                 'is_correct' => false
             ],
             [
-                'question_id' => 17,
+                'question_id' => 16,
                 'answer' => 'Let it Be',
                 'is_correct' => true
             ],
             [
-                'question_id' => 17,
+                'question_id' => 16,
                 'answer' => 'Abbey Road',
                 'is_correct' => false
             ],
             [
-                'question_id' => 17,
+                'question_id' => 16,
                 'answer' => 'The BEATLES',
                 'is_correct' => false
             ],
             [
-                'question_id' => 17,
+                'question_id' => 16,
                 'answer' => 'Yellow Submarine',
                 'is_correct' => false
             ],
             [
-                'question_id' => 18,
+                'question_id' => 17,
                 'answer' => 'Menü',
                 'is_correct' => false
             ],
             [
-                'question_id' => 18,
+                'question_id' => 17,
                 'answer' => 'Partitur',
                 'is_correct' => false
             ],
             [
-                'question_id' => 18,
+                'question_id' => 17,
                 'answer' => 'Broschüre',
                 'is_correct' => false
             ],
             [
-                'question_id' => 18,
+                'question_id' => 17,
                 'answer' => 'Libretto',
                 'is_correct' => true
             ],
             [
-                'question_id' => 19,
+                'question_id' => 18,
                 'answer' => 'Joe Cocker',
                 'is_correct' => false
             ],
             [
-                'question_id' => 19,
+                'question_id' => 18,
                 'answer' => 'Eric Clapton',
                 'is_correct' => true
             ],
             [
-                'question_id' => 19,
+                'question_id' => 18,
                 'answer' => 'Santana',
                 'is_correct' => false
             ],
             [
-                'question_id' => 19,
+                'question_id' => 18,
                 'answer' => 'Jimi Hendrix',
                 'is_correct' => false
             ],
             [
-                'question_id' => 20,
+                'question_id' => 19,
                 'answer' => 'Kantele',
                 'is_correct' => false
             ],
             [
-                'question_id' => 20,
+                'question_id' => 19,
                 'answer' => 'Xeremia',
                 'is_correct' => false
             ],
             [
-                'question_id' => 20,
+                'question_id' => 19,
                 'answer' => 'Didgeridoo',
                 'is_correct' => true
             ],
             [
-                'question_id' => 20,
+                'question_id' => 19,
                 'answer' => 'Arghul',
                 'is_correct' => false
             ],
             [
-                'question_id' => 21,
+                'question_id' => 20,
                 'answer' => 'Erich Kästner',
                 'is_correct' => false
             ],
             [
-                'question_id' => 21,
+                'question_id' => 20,
                 'answer' => 'Kurt Thomas',
                 'is_correct' => false
             ],
             [
-                'question_id' => 21,
+                'question_id' => 20,
                 'answer' => 'Berthold Brecht',
                 'is_correct' => false
             ],
             [
-                'question_id' => 21,
+                'question_id' => 20,
                 'answer' => 'Kurt Weil',
                 'is_correct' => true
             ],
             [
-                'question_id' => 22,
+                'question_id' => 21,
                 'answer' => 'Joseph Haydn',
                 'is_correct' => true
             ],
             [
-                'question_id' => 22,
+                'question_id' => 21,
                 'answer' => 'Franz Liszt',
                 'is_correct' => false
             ],
             [
-                'question_id' => 22,
+                'question_id' => 21,
                 'answer' => 'Johannes Brahms',
                 'is_correct' => false
             ],
             [
-                'question_id' => 22,
+                'question_id' => 21,
                 'answer' => 'Franz Schubert',
                 'is_correct' => false
             ],
             [
-                'question_id' => 23,
+                'question_id' => 22,
                 'answer' => 'Violinschlüssel',
                 'is_correct' => false
             ],
             [
-                'question_id' => 23,
+                'question_id' => 22,
                 'answer' => 'Notenschlüssel',
                 'is_correct' => false
             ],
             [
-                'question_id' => 23,
+                'question_id' => 22,
                 'answer' => 'Bassschlüssel',
                 'is_correct' => false
             ],
             [
-                'question_id' => 23,
+                'question_id' => 22,
                 'answer' => 'Ringschlüssel',
                 'is_correct' => true
             ],
             [
-                'question_id' => 24,
+                'question_id' => 23,
                 'answer' => 'Karl Lagerfeld',
                 'is_correct' => false
             ],
             [
-                'question_id' => 24,
+                'question_id' => 23,
                 'answer' => 'Gianni Versace',
                 'is_correct' => false
             ],
             [
-                'question_id' => 24,
+                'question_id' => 23,
                 'answer' => 'Christian Dior',
                 'is_correct' => false
             ],
             [
-                'question_id' => 24,
+                'question_id' => 23,
                 'answer' => 'Jean-Paul Gaultier',
                 'is_correct' => true
             ],
