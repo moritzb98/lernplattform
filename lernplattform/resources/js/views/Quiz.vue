@@ -122,12 +122,12 @@
                 <p class="text-play-again">Probier's nochmal:</p>
                     <div @click="reload()" class="quiz-detail-container">
                         <div class="flex-container-quiz router-text">
-                            <div>
+                            <div class="progress-container">
                                 <div>
                                     {{ quizName }}
                                 </div>
-                                <div>
-                                    progess
+                                <div class="progressbar">
+                                    <progress-bar :val="result" size="medium"></progress-bar>
                                 </div>
                             </div>
                             <div>
@@ -161,7 +161,11 @@
 </template>
 
 <script>
+import ProgressBar from 'vue-simple-progress'
     export default {
+        components: {
+            ProgressBar
+        },
         data() {
             return {
                 quizName: null,
@@ -460,6 +464,16 @@
 
     .fade-leave-active{
         transition: opacity .2s;
+    }
+
+    .progress-container {
+        width: 80%;
+    }
+
+    .progressbar{
+        margin-top: 8px;
+        border-radius: 50px;
+        overflow: hidden;
     }
 
 </style>

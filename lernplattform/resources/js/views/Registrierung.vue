@@ -25,10 +25,10 @@
                 <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
                     <input v-model="registerData.password" class="mdc-text-field__input text-field__input--modified" type="password" placeholder="" aria-label="Label">
                 </label>
-                <div class="headline-text-field">Passwort wiederholen*</div>
+                <!--<div class="headline-text-field">Passwort wiederholen*</div>
                 <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
                     <input v-model="registerData.passwordConfirm" class="mdc-text-field__input text-field__input--modified" type="password" placeholder="" aria-label="Label">
-                </label>
+                </label>-->
 
                 <div class="headline-text-field">Interessen</div>
                 <div v-for="interest in interests" :class="{chippressed:interest.selected}" @click="$set(interest, 'selected', !interest.selected)" class="mdc-chip mdc-chip-filter" role="row">
@@ -96,7 +96,6 @@
                     name: '',
                     email: '',
                     password: '',
-                    passwordConfirm: '',
                     job:'',
                     age:'',
                 },
@@ -134,7 +133,11 @@
                         Vue.$toast.success('Registrierung erfolgreich', {});
                         this.handleLogin();
                     }).catch(error => {
-                        Vue.$toast.error('Registrierung fehlgeschlagen', {});
+                        if(error.response.status === 422){
+                            Vue.$toast.error('Die angebenen Daten sind falsch, du brauchst eine valide E-Mail und mind. 6 Zeichen beim Passwort.', {});
+                        }else{
+                            Vue.$toast.error('Bei der Registrierung ist etwas schifegegangen', {});
+                        }
                     });
                 });
             },

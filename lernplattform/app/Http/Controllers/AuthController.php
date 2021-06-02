@@ -16,7 +16,7 @@ class AuthController extends Controller
         $validatedData = $request->validate([
             'name' => ['required', 'string', 'max:255', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:3',],
+            'password' => ['required', 'string', 'min:6',],
             'job' => ['nullable','string', 'max:255'],
             'age' => ['nullable', 'integer' , 'between:1,120'],
         ]);
