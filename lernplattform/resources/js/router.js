@@ -29,6 +29,7 @@ import AlleLerngruppen from './views/Lerngruppe/AlleLerngruppen.vue'
 import CreateLerngruppe from './views/Lerngruppe/CreateLerngruppe.vue'
 import EditLerngruppe from './views/Lerngruppe/EditLerngruppe.vue'
 import ChatLerngruppe from './views/Lerngruppe/ChatLerngruppe.vue'
+import VideochatLerngruppe from './views/Lerngruppe/VideochatLerngruppe.vue'
 
 import Newsfeed from './views/Newsfeed.vue'
 import Login from './views/Login.vue'
@@ -170,6 +171,14 @@ export const routes = [
         name: 'ChatLerngruppe',
         path: '/spa/Lerngruppen/:id/Chat',
         component: ChatLerngruppe,
+        meta: {
+            requiresAuth: true
+          }
+    },
+    {
+        name: 'VideochatLerngruppe',
+        path: '/spa/Lerngruppen/:id/Chat/Konferenz',
+        component: VideochatLerngruppe,
         meta: {
             requiresAuth: true
           }
