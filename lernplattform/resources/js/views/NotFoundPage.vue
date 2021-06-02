@@ -7,7 +7,7 @@
                     Nichts gefunden
                 </div>
                 <router-link to="/spa/Suche">
-                    <span class="material-icons header_search">search</span>
+                    <span class="material-icons neumorph header_search">search</span>
                 </router-link>
             </div>
         </div>
