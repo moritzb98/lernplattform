@@ -53,12 +53,6 @@
             </button>
         </div>
 
-
-        <button v-if="lastCard" class="mdc-button mdc-button--raised button--big button--small abstand-weg button--border">
-            <p class="button-text no-margin">Zurück zur Übersicht</p>
-            <span class="material-icons-outlined">chevron_right</span>
-        </button>
-
         <!-- Nav -->
         <Nav />
     </div>
@@ -118,34 +112,27 @@
                 this.$forceUpdate();
             },
             nextCard(index){
-                if(this.karteikartenset.karteikarten.length<index+1){
-                    this.karteikartenset.karteikarten[index].showFront = false;
-                    this.karteikartenset.karteikarten[index].showBack = false;
-                    this.karteikartenset.karteikarten[index+1].showFront = true;
-                    this.count++;
-                    this.firstCard = false;
-                    this.$forceUpdate();
-                }else{
-                    this.count++;
-                    this.firstCard = false;
+                this.karteikartenset.karteikarten[index].showFront = false;
+                this.karteikartenset.karteikarten[index].showBack = false;
+                this.karteikartenset.karteikarten[index+1].showFront = true;
+                this.count++;
+                this.firstCard = false;
+                if(this.karteikartenset.karteikarten.length === index+2){
                     this.lastCard = true;
-                    this.$forceUpdate();
                 }
-
+                this.$forceUpdate();
             },
             cardBack(index){
-                if(this.karteikartenset.karteikarten.length>index-1){
-                    this.karteikartenset.karteikarten[index].showFront = false;
-                    this.karteikartenset.karteikarten[index].showBack = false;
-                    this.karteikartenset.karteikarten[index-1].showFront = true;
-                    this.count--;
-                    this.$forceUpdate();
-                }else{
-                    this.count--;
+                this.karteikartenset.karteikarten[index].showFront = false;
+                this.karteikartenset.karteikarten[index].showBack = false;
+                this.karteikartenset.karteikarten[index-1].showFront = true;
+                this.count--;
+                this.lastCard = false;
+                console.log(index);
+                if(index-1 === 0){
                     this.firstCard = true;
-                    this.lastCard = false;
-                    this.$forceUpdate();
                 }
+                this.$forceUpdate();
             },
         }
     }
