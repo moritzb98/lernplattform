@@ -34,12 +34,13 @@
         data: function () {
             return {
                 // accessToken: '',
-                title: "Konferenz"
+                roomid: this.$route.params.id,
+                title: "",
             }
         },
         methods : {
             activeHandler(event){
-                var e = event.target;       
+                var e = event.target;
 
                 e.classList.toggle('neumorph--pressed');
                 e.classList.toggle('active');
@@ -94,7 +95,7 @@
                             track.track.disable();
                         });
                         console.log("Video aus")
-                    }                    
+                    }
                 });
 
                 // Toggle Microphone
@@ -112,8 +113,8 @@
                             track.track.disable();
                         });
                         console.log("Audio aus")
-                    }  
-                    
+                    }
+
                 });
             },
             addLocalParticipant: function(participant) {
@@ -147,18 +148,12 @@
                 const videoContainer = document.getElementById(participant.sid);
                 videoContainer.appendChild(track.attach())
             },
-            getMyRooms() {
-                this.axios.get('http://127.0.0.1:8000/api/getmyroom')
-                    .then(response=>{
-                        this.rooms=response.data,
-                        console.log(this.rooms);
-                    })
-            },
             getRoom() {
-                this.axios.get('http://127.0.0.1:8000/api/getRoom/'+roomid)
+                this.axios.get('/api/room/get/'+this.roomid)
                     .then(response=>{
                         this.room=response.data,
-                        console.log(this.room);
+                        this.title=response.data.name,
+                        console.log("test",this.room);
                     })
             }
         },
