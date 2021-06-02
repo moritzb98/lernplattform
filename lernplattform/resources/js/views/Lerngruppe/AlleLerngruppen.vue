@@ -79,6 +79,8 @@
                         //this.room.id = response.data.id,
                         console.log(response);
                         Vue.$toast.success('Lerngruppe erfolgreich beigetreten.', {});
+                    }).catch(err => {
+                        Vue.$toast.error('Du bist diesem Raum schon beigetreten.', {});
                     })
             },
         },

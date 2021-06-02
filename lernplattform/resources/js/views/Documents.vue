@@ -55,9 +55,7 @@
                     <div class="cursor" v-if="myFileUpload.data.id === editFileId">
                             <input class="input-feld" type="text" v-model="myFileUpload.data.displayname" autofocus>
                         </div>
-                        <router-link :to='"/spa/documents/"+myFileUpload.data.id' class="file-name-upload-link router-text" v-else>
-                        <div class="file-name-upload">{{ myFileUpload.data.displayname }}</div>
-                    </router-link>
+                        <div v-else class="file-name-upload">{{ myFileUpload.data.displayname }}</div>
                     <div class="icon-container">
                         <div @click="showDropdown(index)" class="material-icons-outlined icon--middle">more_vert</div>
                     </div>
