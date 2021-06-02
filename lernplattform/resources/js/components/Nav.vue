@@ -26,7 +26,7 @@
                 </router-link>
                 <router-link to="/spa/quizkategorie">
                     <div class="nav_item neumorph">
-                        <span class="material-icons neumorph buttons_dashboard">sports_esports</span>
+                        <span class="material-icons">quiz</span>
                     </div>
                 </router-link>
 
