@@ -17,7 +17,7 @@
         <br>
         <h5 class="dashboard-headline">Wissen testen</h5>
         <router-link to="/spa/quizkategorie">
-            <span class="material-icons neumorph buttons_dashboard">sports_esports</span>
+            <span class="material-icons neumorph buttons_dashboard">quiz</span>
         </router-link>
         <router-link to="/spa/Karteikartensets">
             <span class="material-icons neumorph buttons_dashboard spacing-left">description</span>
