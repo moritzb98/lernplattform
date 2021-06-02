@@ -1245,4 +1245,8 @@
         padding-left: 20px;
     }
 
+    select{
+        color: #212121 !important;
+    }
+
 </style>
