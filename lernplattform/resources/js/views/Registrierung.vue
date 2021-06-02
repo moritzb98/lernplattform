@@ -51,24 +51,15 @@
 
                 <div class="mdc-form-field">
                     <div class="mdc-radio">
-                        <input class="mdc-radio__native-control" type="radio" id="radio-1" name="radios" checked>
+                        <input class="mdc-radio__native-control" type="radio" id="radio-1" name="radios">
                         <div class="mdc-radio__background mdc-radio__background-container">
                             <div class="mdc-radio__outer-circle mdc-radio__outer-circle-modified"></div>
                             <div class="mdc-radio__inner-circle mdc-radio__inner-circle-modified"></div>
                         </div>
                     </div>
-                    <label class="radio-button-label" for="radio-1">Datenschutz bla</label>
+                    <label class="radio-button-label" for="radio-1">Ich erkläre mich mit den AGB von Skillwire einverstanden.</label>
                 </div>
-                <div class="mdc-form-field">
-                    <div class="mdc-radio">
-                        <input class="mdc-radio__native-control" type="radio" id="radio-1" name="radios" checked>
-                        <div class="mdc-radio__background mdc-radio__background-container">
-                            <div class="mdc-radio__outer-circle mdc-radio__outer-circle-modified"></div>
-                            <div class="mdc-radio__inner-circle mdc-radio__inner-circle-modified"></div>
-                        </div>
-                    </div>
-                    <label class="radio-button-label" for="radio-1">Datenschutz bla</label>
-                </div>
+
                 <button class="mdc-button mdc-button--raised button--big" type="submit">
                     <span class="button-text">Registrieren</span> <span class="material-icons">chevron_right</span>
                 </button>
