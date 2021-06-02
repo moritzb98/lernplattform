@@ -51,7 +51,7 @@
 
                 <div class="mdc-form-field">
                     <div class="mdc-radio">
-                        <input class="mdc-radio__native-control" type="radio" id="radio-1" name="radios">
+                        <input v-model="checkedAgb" value="checked" class="mdc-radio__native-control" type="radio" id="radio-1" name="radios">
                         <div class="mdc-radio__background mdc-radio__background-container">
                             <div class="mdc-radio__outer-circle mdc-radio__outer-circle-modified"></div>
                             <div class="mdc-radio__inner-circle mdc-radio__inner-circle-modified"></div>
@@ -60,9 +60,10 @@
                     <label class="radio-button-label" for="radio-1">Ich erkläre mich mit den AGB von Skillwire einverstanden.</label>
                 </div>
 
-                <button class="mdc-button mdc-button--raised button--big" type="submit">
+                <button v-if="checkedAgb" class="mdc-button mdc-button--raised button--big" type="submit">
                     <span class="button-text">Registrieren</span> <span class="material-icons">chevron_right</span>
                 </button>
+                <p class="notCheckedText" v-else>Du kannst dich erst registrieren, sobald du den AGB zugestimmt hast.</p>
         </form>
 
         <div class="text-no-account">Bereits einen Account? <router-link to="/spa/Login"><span class="text-bold">Jetzt einloggen</span></router-link></div>
@@ -93,6 +94,7 @@
                 interests:[],
                 interestData:[],
                 title: "Registrierung",
+                checkedAgb: false,
             }
         },
         mounted() {
@@ -159,6 +161,13 @@
     .text-bold{
         font-weight: bold;
         color: #212121;
+    }
+
+    .notCheckedText{
+        font-size: 15px;
+        font-family: Open Sans;
+        margin-top: 20px;
+        font-weight: bold;
     }
 
 </style>
