@@ -49,9 +49,11 @@
                             <span v-if="index===2">C</span>
                             <span v-if="index===3">D</span>
                         </p>
-                        <p class="antwort-optionen" :class='"answer"+answer.id' :id='"answerid"+answer.id'>
-                            {{answer.answer}}
-                        </p>
+                        <div class="antwort-optionen" :class='"answer"+answer.id' :id='"answerid"+answer.id'>
+                            <p>
+                                {{answer.answer}}
+                            </p>
+                        </div>
                     </div>
                     <div v-else class="antwort-container">
                         <p class="antwort-optionen-buchstaben" :class='"answer"+answer.id' :id='"answerletter"+answer.id'>
@@ -60,9 +62,11 @@
                             <span v-if="index===2">C</span>
                             <span v-if="index===3">D</span>
                         </p>
-                        <p class="antwort-optionen" :class='"answer"+answer.id' :id='"answerid"+answer.id'>
-                            {{answer.answer}}
-                        </p>
+                        <div class="antwort-optionen" :class='"answer"+answer.id' :id='"answerid"+answer.id'>
+                            <p>
+                                {{answer.answer}}
+                            </p>
+                        </div>
                     </div>
                 </div>
                 <div v-if="!answered && !noNextQuestion" @click="skipQuestion(question)" class="überspringen">überspringen</div>
@@ -345,7 +349,7 @@ import ProgressBar from 'vue-simple-progress'
     .antwort-optionen{
         margin: auto 0;
         border-radius: 22px;
-        height: 30px;
+        min-height: 30px;
         width: 100%;
         background: linear-gradient(to bottom right,white, #F1F1F1);
         box-shadow: -5px -5px 13px #fff, 5px 5px 13px #0e0e0e40;
@@ -359,6 +363,12 @@ import ProgressBar from 'vue-simple-progress'
         top: 50%;
         transform: translate(0, -50%);
         line-height: 25px;
+        width: 95%;
+        margin-left: auto;
+    }
+
+    .antwort-optionen p {
+        margin: 0 15px 0px 45px;
     }
 
     .frage{
