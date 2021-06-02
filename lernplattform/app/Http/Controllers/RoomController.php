@@ -14,7 +14,7 @@ class RoomController extends Controller
 {
 
     public function getAllRooms() {
-        return Room::all();
+        return [Room::all(), Auth::user()->id];
     }
 
     public function getMyRooms() {

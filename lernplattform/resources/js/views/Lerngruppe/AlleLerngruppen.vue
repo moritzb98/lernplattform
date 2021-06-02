@@ -70,7 +70,12 @@
             getAllRooms() {
                 this.axios.get('http://127.0.0.1:8000/api/rooms')
                     .then(response=>{
-                        this.rooms=response.data
+
+                        for(var i = 0; response.data[0].length; i++){
+                            if(response.data[0][i].user_id != response.data[1]){
+                                this.rooms.push(response.data[0][i]);
+                            }
+                        }
                     })
             },
             joinRoom(roomid){
