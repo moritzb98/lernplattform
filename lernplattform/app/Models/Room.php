@@ -20,7 +20,7 @@ class Room extends Model implements Searchable
     }
 
     public function getSearchResult(): SearchResult {
-        $url = '/spa/rooms/'.$this->name;
+        $url = '/spa/Lerngruppen/Finden';
 
         return new SearchResult($this, $this->name, $url);
     }
