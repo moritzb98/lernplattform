@@ -20,11 +20,17 @@
             <span class="material-icons neumorph buttons_dashboard">quiz</span>
         </router-link>
 <<<<<<< main
+<<<<<<< main
         <router-link to="/spa/Karteikartensets">
             <span class="material-icons neumorph buttons_dashboard spacing-left">description</span>
         </router-link>
 =======
 >>>>>>> fixed bug fileupload
+=======
+        <!-- <router-link to="/spa/Karteikartensets">
+            <span class="material-icons neumorph buttons_dashboard spacing-left">description</span>
+        </router-link> -->
+>>>>>>> no karteikarten
 
         <p class="logout" @click="logout">Logout</p>
 
