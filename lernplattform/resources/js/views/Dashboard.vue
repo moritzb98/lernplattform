@@ -19,6 +19,7 @@
         <router-link to="/spa/quizkategorie">
             <span class="material-icons neumorph buttons_dashboard">quiz</span>
         </router-link>
+<<<<<<< HEAD
 <<<<<<< main
 <<<<<<< main
         <router-link to="/spa/Karteikartensets">
@@ -31,6 +32,11 @@
             <span class="material-icons neumorph buttons_dashboard spacing-left">description</span>
         </router-link> -->
 >>>>>>> no karteikarten
+=======
+        <!-- <router-link to="/spa/Karteikartensets">
+            <span class="material-icons neumorph buttons_dashboard spacing-left">description</span>
+        </router-link> -->
+>>>>>>> production
 
         <p class="logout" @click="logout">Logout</p>
 
