@@ -15,7 +15,7 @@
                 <span class="material-icons-outlined icon-für-oberen-Bereich">biotech</span>
                 <div class="überschrift-oberer-Bereich" >
                      {{ category.name }}
-                    <div class="unterüberschrift-oberer-bereich">Frage 1/{{ karteikartenset.karteikarten.length }}</div>
+                    <div class="unterüberschrift-oberer-bereich">Karteikarte {{ count }}/{{ karteikartenset.karteikarten.length }}</div>
                 </div>
             </div>
             <div class="fabriges-rechteck">
@@ -23,22 +23,39 @@
             </div>
         </div>
 
-        <div v-for="karteikarte in karteikartenset.karteikarten" :key="karteikarte.id" class="fragen-container fragen-container--big">
-            <span class="material-icons-outlined turn-around">autorenew</span>
-            <div class="karteikarte-inhalt">
-                {{karteikarte.frontside}}
+        <div v-for="(karteikarte, index) in karteikartenset.karteikarten" :key="karteikarte.id" class="">
+            <div v-if="karteikarte.showFront" class="fragen-container fragen-container--big front">
+                <span @click="spinCard(index)" class="material-icons-outlined turn-around">autorenew</span>
+                <div class="karteikarte-inhalt">
+                    {{karteikarte.frontside}}
+                </div>
+                <div class="überspringen">
+                    Überspringen
+                </div>
+
             </div>
-            <div class="überspringen">
-                Überspringen
+            <div v-if="karteikarte.showBack" class="fragen-container fragen-container--big back">
+                <span @click="spinCard(index)" class="material-icons-outlined turn-around">autorenew</span>
+                <div class="karteikarte-inhalt">
+                    {{karteikarte.backside}}
+                </div>
+                <div class="überspringen">
+                    Überspringen
+                </div>
             </div>
+            <button v-if="!lastCard && count === index" @click="nextCard(index)" class="mdc-button mdc-button--raised button--big button--small abstand-weg button--border">
+                <p class="button-text no-margin">Nächste Karte</p>
+                <span class="material-icons-outlined">chevron_right</span>
+            </button>
+            <button v-if="!firstCard && count === index" @click="cardBack(index)" class="mdc-button mdc-button--raised button--big button--small abstand-weg button--border">
+                <p class="button-text no-margin">Eine Karte zurück</p>
+                <span class="material-icons-outlined">chevron_right</span>
+            </button>
         </div>
 
-        <button class="mdc-button mdc-button--raised button--big button--small abstand-weg button--border">
-            <p class="button-text no-margin">Karte drehen</p>
-            <span class="material-icons-outlined">autorenew</span>
-        </button>
-        <button class="mdc-button mdc-button--raised button--big button--small abstand-weg button--border">
-            <p class="button-text no-margin">Nächste Karte</p>
+
+        <button v-if="lastCard" class="mdc-button mdc-button--raised button--big button--small abstand-weg button--border">
+            <p class="button-text no-margin">Zurück zur Übersicht</p>
             <span class="material-icons-outlined">chevron_right</span>
         </button>
 
@@ -57,11 +74,14 @@
                     name: "",
                     karteikarten: [],
                     id: this.$route.params.id,
-
                 },
                 category: {
                     name: "",
                 },
+                count: 0,
+                lastCard: false,
+                noCards: false,
+                firstCard: true,
             }
         },
         mounted(){
@@ -69,14 +89,65 @@
             .then(response=>{
                 this.karteikartenset.name = response.data.data[0].data.name;
                 this.category.name = response.data.data[0].data.category_id.name;
-                console.log(response.data.data[0].data);
+
             });
             axios.get('/api/karteikarten/' + this.karteikartenset.id)
             .then(response=>{
                 this.karteikartenset.karteikarten = response.data;
-                console.log(response.data);
+                for(var i=0; i<this.karteikartenset.karteikarten.length; i++){
+                    if(i === 0){
+                        this.karteikartenset.karteikarten[i].showFront = true;
+                    }else{
+                        this.karteikartenset.karteikarten[i].showFront = false;
+                    }
+                    this.karteikartenset.karteikarten[i].showBack = false;
+                }
+                if(this.karteikartenset.karteikarten.length === 1){
+                    this.lastCard = true;
+                }
+                if(this.karteikartenset.karteikarten.length === 0){
+                    this.noCards = true;
+                }
             });
         },
+        methods: {
+            spinCard(index){
+                console.log(index);
+                this.karteikartenset.karteikarten[index].showFront = !this.karteikartenset.karteikarten[index].showFront;
+                this.karteikartenset.karteikarten[index].showBack = !this.karteikartenset.karteikarten[index].showBack;
+                this.$forceUpdate();
+            },
+            nextCard(index){
+                if(this.karteikartenset.karteikarten.length<index+1){
+                    this.karteikartenset.karteikarten[index].showFront = false;
+                    this.karteikartenset.karteikarten[index].showBack = false;
+                    this.karteikartenset.karteikarten[index+1].showFront = true;
+                    this.count++;
+                    this.firstCard = false;
+                    this.$forceUpdate();
+                }else{
+                    this.count++;
+                    this.firstCard = false;
+                    this.lastCard = true;
+                    this.$forceUpdate();
+                }
+
+            },
+            cardBack(index){
+                if(this.karteikartenset.karteikarten.length>index-1){
+                    this.karteikartenset.karteikarten[index].showFront = false;
+                    this.karteikartenset.karteikarten[index].showBack = false;
+                    this.karteikartenset.karteikarten[index-1].showFront = true;
+                    this.count--;
+                    this.$forceUpdate();
+                }else{
+                    this.count--;
+                    this.firstCard = true;
+                    this.lastCard = false;
+                    this.$forceUpdate();
+                }
+            },
+        }
     }
 </script>
 
@@ -84,6 +155,7 @@
     .karteikarte-inhalt{
         text-align: center;
         font-size: 1.5em;
+        margin: 10px;
     }
 
     .fragen-container--big{
@@ -95,6 +167,7 @@
 
     .turn-around{
         text-align: end;
+        width: 100%;
     }
 
     .überspringen{
