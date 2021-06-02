@@ -42,7 +42,7 @@ class QuizSeeder extends Seeder
             ]);
         }
 
-        $questionsBioQuiz = ['Wo liegt der pH-Wert von Wasser', 'Was ist keine Nukleinbase?', 'Welches ist kein Bestandteil einer tierischen Zelle?', 'Wozu dient ein Chromosom?', 'Was ist das spezielle am Chromosomensatz bei Menschen mit Down-Syndrom?', 'Was versteht man unter dem Begriff “Phänotyp”?', 'Welches Zellkompartiment ist für die Photosynthese verantwortlich?', 'Was beschreibt den Vorgang “Mitose”?', 'Welche ist keine Phase der “Mitose”?', 'Eine Biozönose ist..'];
+        $questionsBioQuiz = ['Wo liegt der pH-Wert von Wasser', 'Was ist keine Nukleinbase?', 'Welches ist kein Bestandteil einer tierischen Zelle?', 'Wozu dient ein Chromosom?', 'Was ist das spezielle am Chromosomensatz bei Menschen mit Down-Syndrom?', 'Was versteht man unter dem Begriff “Phänotyp”?', 'Welches Zellkompartiment ist für die Photosynthese verantwortlich?', 'Was beschreibt den Vorgang “Mitose”?', 'Welche ist keine Phase der “Mitose”?'];
 
         foreach($questionsBioQuiz as $key => $question){
             DB::table('questions')->insert( [
@@ -197,27 +197,27 @@ class QuizSeeder extends Seeder
             ],
             [
                 'question_id' => 7,
-                'answer' => 'Zur Stärkung der Haarwurzel',
+                'answer' => 'Stärkung der Haarwurzel',
                 'is_correct' => false
             ],
             [
                 'question_id' => 7,
-                'answer' => 'Zur Speicherung von Erbinformationen',
+                'answer' => 'Speicherung von Erbinformationen',
                 'is_correct' => true
             ],
             [
                 'question_id' => 7,
-                'answer' => ' Als Verbindungsglied zwischen Hirnstamm und Kleinhirn',
+                'answer' => 'Verbindung Hirnstamm und Kleinhirn',
                 'is_correct' => false
             ],
             [
                 'question_id' => 7,
-                'answer' => 'Zur Ermöglichung der Fingerbeweglichkeit',
+                'answer' => 'Zur Fingerbeweglichkeit',
                 'is_correct' => false
             ],
             [
                 'question_id' => 8,
-                'answer' => 'Das X und Y Chromosom ist vertauscht',
+                'answer' => 'X und Y Chromosom ist vertauscht',
                 'is_correct' => false
             ],
             [
@@ -232,7 +232,7 @@ class QuizSeeder extends Seeder
             ],
             [
                 'question_id' => 8,
-                'answer' => 'Das Chromosom 21 ist dreifach vorhanden',
+                'answer' => 'Chromosom 21 ist dreifach vorhanden',
                 'is_correct' => true
             ],
             [
@@ -282,12 +282,12 @@ class QuizSeeder extends Seeder
             ],
             [
                 'question_id' => 11,
-                'answer' => 'Die Zellteilung in Geschlechtszellen',
+                'answer' => 'Zellteilung in Geschlechtszellen',
                 'is_correct' => false
             ],
             [
                 'question_id' => 11,
-                'answer' => 'Die Bildung von Gallensteinen',
+                'answer' => 'Bildung von Gallensteinen',
                 'is_correct' => false
             ],
             [
@@ -314,26 +314,6 @@ class QuizSeeder extends Seeder
                 'question_id' => 12,
                 'answer' => 'Anaphase',
                 'is_correct' => false
-            ],
-            [
-                'question_id' => 13,
-                'answer' => '...ein abgegrenzter Lebensraum',
-                'is_correct' => false
-            ],
-            [
-                'question_id' => 13,
-                'answer' => '...eine Lebensart, die nur Pflanzen isst',
-                'is_correct' => false
-            ],
-            [
-                'question_id' => 13,
-                'answer' => '...eine Lebensart, die nur im Sumpf lebt',
-                'is_correct' => false
-            ],
-            [
-                'question_id' => 13,
-                'answer' => '...eine Gemeinschaft von Organismen verschiedener Arten in einem abgegrenzten Lebensraum',
-                'is_correct' => true
             ],
         ];
 
