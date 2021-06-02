@@ -49,12 +49,9 @@
                             <span v-if="index===2">C</span>
                             <span v-if="index===3">D</span>
                         </p>
-                        <div class="antwort-optionen" :class='"answer"+answer.id' :id='"answerid"+answer.id'>
-                           <p class="antwort-optionen-text">
+                        <p class="antwort-optionen" :class='"answer"+answer.id' :id='"answerid"+answer.id'>
                             {{answer.answer}}
-                            </p>
-                        </div>
-
+                        </p>
                     </div>
                     <div v-else class="antwort-container">
                         <p class="antwort-optionen-buchstaben" :class='"answer"+answer.id' :id='"answerletter"+answer.id'>
@@ -307,7 +304,12 @@ import ProgressBar from 'vue-simple-progress'
 
 <style scoped>
 
-
+    .fragen-container{
+        border-radius: 20px;
+        padding: 20px;
+        background: linear-gradient(to bottom right,white, #F1F1F1);
+        box-shadow: -5px -5px 13px #fff, 5px 5px 13px #0e0e0e40;
+    }
 
     .hide{
         display: none;
@@ -357,14 +359,6 @@ import ProgressBar from 'vue-simple-progress'
         top: 50%;
         transform: translate(0, -50%);
         line-height: 25px;
-        display: flex;
-        justify-content: center;
-
-    }
-
-    .antwort-optionen-text{
-        max-width: 80%;
-        text-align: center;
     }
 
     .frage{
@@ -397,6 +391,10 @@ import ProgressBar from 'vue-simple-progress'
         background: #DF6A6A;
     }
 
+    .no-margin{
+        margin-top: 0;
+        margin-bottom: 0;
+    }
 
     .überspringen--fett{
         font-weight: bold;
@@ -438,6 +436,14 @@ import ProgressBar from 'vue-simple-progress'
         margin-right: 20px;
     }
 
+    .button--border{
+        margin-top: 0px;
+        background-image: radial-gradient(white, white), radial-gradient(circle at top left,white,#ED553B);
+        border: double 2px transparent;
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+    }
+
     .text-play-again{
         text-align: center;
         margin-bottom: 5px;
@@ -475,5 +481,6 @@ import ProgressBar from 'vue-simple-progress'
         border-radius: 50px;
         overflow: hidden;
     }
+
 
 </style>
