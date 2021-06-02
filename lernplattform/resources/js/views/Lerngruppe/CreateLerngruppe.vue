@@ -94,6 +94,8 @@
                         ))
                         .catch(err => Vue.$toast.error('Beim Erstellen ist etwas schief gegangen :(', {}))
                         .finally(() => this.loading = false);
+                }else{
+                    Vue.$toast.error('Keine Kategorie ausgewählt.', {});
                 }
             }
         }
