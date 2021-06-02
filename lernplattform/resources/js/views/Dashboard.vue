@@ -12,8 +12,6 @@
             </div>
         </div>
 
-        <!-- Dieser Kommentar soll einen Bug in GitKraken fixen, lol.  -->
-
         <!-- Content -->
         <h4>Willkommen zurück, {{username}}!</h4>
         <br>
