@@ -1,128 +1,61 @@
 <template>
-    <div>
+    <div class="">
         <!-- Header [Back] -->
         <div class="header_wrapper">
             <div class="header header--back">
                 <span class="material-icons neumorph header_back" @click="$router.go(-1)">arrow_back</span>
                 <div class="header_title">
-                    Quiz Kategorien
+                    Quiz-Übersicht
                 </div>
             </div>
         </div>
          <div class="background-container">
             <div class="background">
-                <div class="überschrift-oberer-Bereich">Los geht’s, prüfe Dein Wissen in einem Quiz! </div>
+                <div class="überschrift-oberer-Bereich"> Deine Auszeichnungen </div>
             </div>
             <div class="fabriges-rechteck">
                 <div class="weißes-rechteck"></div>
             </div>
         </div>
 
-        <!-- Content -->
-        <a href="/spa/Auszeichnungen" class="button-link button-link--mittig">
-            <button class="mdc-button mdc-button--raised button--big button--small abstand-weg">
-                <span class="button-text">Meine Auszeichnungen</span> <span class="material-icons">military_tech</span>
-            </button>
-        </a>
-        <br>
-
-        <div class="router-text" v-for="category in categorieNames" :key="categorieNames.name">
-            <router-link :to='"/spa/quiz/"+category'>
+        <div class="router-text">
+            <router-link to=''>
                 <div class="kategorie-container">
                     <div class="kategorie-icon-container">
                         <span class="material-icons-outlined quiz-kategorie-icon">biotech</span>
                     </div>
                     <div class="quiz-kategorie-container">
-                        <div>{{category}}</div>
-                        <div class="play-now-text">Jetzt spielen</div>
+                        <div>Beginner</div>
+                        <div class="play-now-text">Progress</div>
+                        <div class="anzahl-quiz-text">
+                            Noch 3 Quiz spielen!
+                        </div>
                     </div>
+
                 </div>
             </router-link>
             <br>
         </div>
-
-        <!-- Nav -->
-        <Nav />
     </div>
 </template>
 
 <script>
     export default {
-        data() {
+        data: function () {
             return {
-                categorieNames: [],
             }
         },
-        mounted(){
-            axios.get('/api/categories/quiz')
-            .then(response=>{
-                let quizzes = response.data.data;
-                for(var i=0; i< quizzes.length; i++){
-                    if(!this.categorieNames.includes(quizzes[i].data.category_id.name)){
-                        this.categorieNames.push(quizzes[i].data.category_id.name);
-                    }
-                }
-            });
+        methods : {
 
         },
-        methods:{
+        mounted : {
 
         }
+
     }
 </script>
 
-<style scoped>
-.background-container{
-        width: 100vw;
-        margin-left: -16px;
-    }
-
-    .background{
-        width: 100%;
-        height: 120px;
-        background-color: #F1D2CD;
-        border-radius: 0px 0px 0px 30px;
-        display: flex;
-        flex-wrap: nowrap;
-        position: relative;
-    }
-
-    .fabriges-rechteck{
-        width: 100%;
-        height: 50px;
-        background-color: #F1D2CD;
-    }
-
-    .weißes-rechteck{
-        width: 100%;
-        height: 52px;
-        background-color: #F1F1F1;
-        border-radius: 0px 60px 0px 0px;
-    }
-
-    .überschrift-oberer-Bereich{
-        font-size: 1.5em;
-        color: #ED553B;
-        font-weight: bold;
-        margin: auto;
-        max-width: 80%;
-        line-height: 25px;
-    }
-
-    .abstand-weg{
-        margin-top: 0px;
-    }
-
-    .button--small{
-        height: 40px;
-        width: 75%;
-    }
-
-    .button-link--mittig{
-        display: flex;
-        justify-content: center;
-    }
-
+<style>
     .kategorie-container{
         flex-wrap: nowrap;
         display: flex;
@@ -166,10 +99,10 @@
         flex-direction: column;
     }
 
-    .play-now-text{
+    .anzahl-quiz-text{
+        font-size: 0.7em;
         font-style: italic;
-        color: #474747;
-        font-size: 0.8em;
+        font-weight: lighter;
     }
 
 </style>
