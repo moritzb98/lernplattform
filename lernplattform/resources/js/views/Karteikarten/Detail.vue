@@ -24,32 +24,36 @@
         </div>
 
         <div v-for="(karteikarte, index) in karteikartenset.karteikarten" :key="karteikarte.id" class="">
-            <div v-if="karteikarte.showFront" class="fragen-container fragen-container--big front">
+            <div v-if="karteikarte.showFront" class="fragen-container fragen-container--big front space-after">
                 <span @click="spinCard(index)" class="material-icons-outlined turn-around">autorenew</span>
                 <div class="karteikarte-inhalt">
                     {{karteikarte.frontside}}
                 </div>
-                <div class="überspringen">
+                <div v-if="!lastCard && count === index" @click="nextCard(index)" class="überspringen">
                     Überspringen
                 </div>
+                <div v-else class="überspringen"></div>
 
             </div>
-            <div v-if="karteikarte.showBack" class="fragen-container fragen-container--big back">
+            <div v-if="karteikarte.showBack" class="fragen-container fragen-container--big back space-after">
                 <span @click="spinCard(index)" class="material-icons-outlined turn-around">autorenew</span>
                 <div class="karteikarte-inhalt">
                     {{karteikarte.backside}}
                 </div>
-                <div class="überspringen">
+                <div v-if="!lastCard && count === index" @click="nextCard(index)" class="überspringen">
                     Überspringen
                 </div>
+                <div v-else class="überspringen"></div>
             </div>
-            <button v-if="!lastCard && count === index" @click="nextCard(index)" class="mdc-button mdc-button--raised button--big button--small abstand-weg button--border">
+
+            <button v-if="!lastCard && count === index" @click="nextCard(index)" class="mdc-button mdc-button--raised button--big button--small abstand-weg button--border schmaler space-after">
                 <p class="button-text no-margin">Nächste Karte</p>
                 <span class="material-icons-outlined">chevron_right</span>
             </button>
-            <button v-if="!firstCard && count === index" @click="cardBack(index)" class="mdc-button mdc-button--raised button--big button--small abstand-weg button--border">
+
+            <button v-if="!firstCard && count === index" @click="cardBack(index)" class="mdc-button mdc-button--raised button--big button--small abstand-weg button--border schmaler">
+                <span class="material-icons-outlined">chevron_left</span>
                 <p class="button-text no-margin">Eine Karte zurück</p>
-                <span class="material-icons-outlined">chevron_right</span>
             </button>
         </div>
 
@@ -146,7 +150,7 @@
     }
 
     .fragen-container--big{
-        /*height: 450px;*/
+        height: 350px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -162,6 +166,14 @@
         font-style: italic;
         font-weight: lighter;
         font-size: 0.8em;
+    }
+
+    .schmaler{
+        height: 35px;
+    }
+
+    .space-after{
+        margin-bottom:20px;
     }
 
 

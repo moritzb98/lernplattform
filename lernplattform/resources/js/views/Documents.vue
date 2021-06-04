@@ -79,7 +79,7 @@
 
                         <div class="dropdown-item-container">
                             <div class="material-icons-outlined icon--middle icon-dropdown"><a class="a-text" download v-bind:href="'/upload/' + myFileUpload.data.name">file_download</a></div>
-                            <div class="dropdown-text">Herunterladen</div>
+                            <a class="a-text" download v-bind:href="'/upload/' + myFileUpload.data.name"><div class="dropdown-text">Herunterladen</div></a>
                         </div>
 
                     </div>
@@ -327,7 +327,6 @@ import {MDCTabBar} from '@material/tab-bar';
 
     .container-data{
         position: relative;
-        margin-bottom: 300px;
     }
 
 

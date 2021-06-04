@@ -44,6 +44,7 @@ import SearchUpload from './views/SearchUpload.vue'
 import QuizKategorie from './views/QuizKategorie.vue'
 import QuizDetail from './views/QuizDetail.vue'
 import Quiz from './views/Quiz.vue'
+import Auszeichnungen from './views/Auszeichnungen.vue'
 
 // NotFoundPage
 import NotFoundPage from './views/NotFoundPage.vue'
@@ -305,6 +306,14 @@ export const routes = [
         name: 'QuizDetail',
         path: '/spa/quiz/:category/:quizid',
         component: Quiz,
+        meta: {
+            requiresAuth: true
+          }
+    },
+    {
+        name: 'Auszeichnungen',
+        path: '/spa/Auszeichnungen',
+        component: Auszeichnungen,
         meta: {
             requiresAuth: true
           }
