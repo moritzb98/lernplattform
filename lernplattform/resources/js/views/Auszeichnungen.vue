@@ -25,13 +25,43 @@
                         <span class="material-icons-outlined quiz-kategorie-icon">biotech</span>
                     </div>
                     <div class="quiz-kategorie-container">
-                        <div>Beginner</div>
-                        <div class="play-now-text">Progress</div>
-                        <div class="anzahl-quiz-text">
-                            Noch 3 Quiz spielen!
+                        <div class="quiz-inhalt-container">
+                            <div>Beginner</div>
+                            <div class="progressbar">
+                                <progress-bar :val="50" size="medium"></progress-bar>
+                            </div>
+                            <div class="anzahl-quiz-text">
+                                Noch 3 Quiz spielen!
+                            </div>
                         </div>
                     </div>
+                </div>
+            </router-link>
+            <br>
+        </div>
 
+                <div class="router-text">
+            <router-link to=''>
+                <div class="kategorie-container">
+                    <div class="kategorie-icon-container">
+                        <span class="material-icons-outlined quiz-kategorie-icon">biotech</span>
+                    </div>
+                    <div class="quiz-kategorie-container">
+                       <div class="flex-container-auszeichnung">
+                           <div class="quiz-inhalt-container weniger-breit">
+                            <div>Beginner</div>
+                            <div class="progressbar">
+                                <progress-bar :val="0" size="medium"></progress-bar>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="material-icons-outlined lock">lock</span>
+                        </div>
+                       </div>
+
+
+                    </div>
                 </div>
             </router-link>
             <br>
@@ -40,7 +70,12 @@
 </template>
 
 <script>
+import ProgressBar from 'vue-simple-progress'
+
     export default {
+        components: {
+            ProgressBar
+        },
         data: function () {
             return {
             }
@@ -105,4 +140,28 @@
         font-weight: lighter;
     }
 
+    .quiz-inhalt-container{
+        width: 65%;
+        margin-left: 90px;
+        text-align: left;
+    }
+
+    .progressbar{
+        margin-top: 8px;
+        border-radius: 50px;
+        overflow: hidden;
+    }
+
+    .flex-container-auszeichnung{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .weniger-breit{
+        width: 55%;
+    }
+
+    .lock{
+        margin-right: 20px;
+    }
 </style>
