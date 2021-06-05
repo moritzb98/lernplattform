@@ -9,55 +9,39 @@
                 </div>
             </div>
         </div>
-         <div class="background-container">
+
+        <!-- Content -->
+        <div class="background-container">
             <div class="background">
-                <div class="überschrift-oberer-Bereich"> Deine Auszeichnungen </div>
+                <span class="material-icons-outlined icon-für-oberen-Bereich">military_tech</span>
+                <div class="überschrift-oberer-Bereich" >Auszeichnungen</div>
             </div>
+
             <div class="fabriges-rechteck">
                 <div class="weißes-rechteck"></div>
             </div>
         </div>
 
-        <div class="router-text">
+        <div class="router-text" v-for="badge in badges" :key="badge.data.badge_id.id">
             <router-link to=''>
                 <div class="kategorie-container">
-                    <div class="kategorie-icon-container">
-                        <span class="material-icons-outlined quiz-kategorie-icon">biotech</span>
+                    <div class="kategorie-icon-container" :class="{ notAchievedContainer: !badge.data.achieved }">
+                        <span class="material-icons-outlined quiz-kategorie-icon" :class="{ notAchievedIcon: !badge.data.achieved }">military_tech</span>
                     </div>
-                    <div class="quiz-kategorie-container">
-                        <div class="quiz-inhalt-container">
-                            <div>Beginner</div>
-                            <div class="progressbar">
-                                <progress-bar :val="50" size="medium"></progress-bar>
+                     <div class="quiz-kategorie-container">
+                        <div class="flex-container-auszeichnung">
+                            <div class="quiz-inhalt-container weniger-breit">
+                                <div>{{ badge.data.badge_id.name }}</div>
+                                <div class="progressbar">
+                                    <progress-bar :val="badge.data.progress" size="medium" :bar-color="badge.data.color"></progress-bar>
+                                </div>
+                                <div v-if="badge.data.progress < 100" class="anzahl-quiz-text">
+                                    Noch {{ badge.data.badge_id.goal - passedQuiz }} Quiz spielen!
+                                </div>
                             </div>
-                            <div class="anzahl-quiz-text">
-                                Noch 3 Quiz spielen!
+                            <div v-if="!badge.data.achieved" class="icon-flexbox">
+                                <span class="material-icons-outlined lock">lock</span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </router-link>
-            <br>
-        </div>
-
-                <div class="router-text">
-            <router-link to=''>
-                <div class="kategorie-container">
-                    <div class="kategorie-icon-container">
-                        <span class="material-icons-outlined quiz-kategorie-icon">biotech</span>
-                    </div>
-                    <div class="quiz-kategorie-container">
-                       <div class="flex-container-auszeichnung">
-                           <div class="quiz-inhalt-container weniger-breit">
-                            <div>Beginner</div>
-                            <div class="progressbar">
-                                <progress-bar :val="0" size="medium"></progress-bar>
-                            </div>
-                        </div>
-
-                        <div>
-                            <span class="material-icons-outlined lock">lock</span>
-                        </div>
                        </div>
 
 
@@ -66,6 +50,9 @@
             </router-link>
             <br>
         </div>
+
+        <!-- Nav -->
+        <Nav />
     </div>
 </template>
 
@@ -78,12 +65,45 @@ import ProgressBar from 'vue-simple-progress'
         },
         data: function () {
             return {
+                results: [],
+                badges: [],
+                passedQuiz: 0
             }
         },
         methods : {
 
         },
-        mounted : {
+        mounted(){
+            axios.get('/api/results').then(response => {
+                this.results = response.data;
+                console.log("results", this.results);
+
+                axios.get('/api/userbadges').then(response => {
+                    this.badges = response.data.data;
+                    console.log("badges", response.data.data);
+
+                    for(var i=0; i<this.results.length; i++){
+                        if(this.results[i].passed){
+                            this.passedQuiz++;
+                        }
+                    }
+
+                    for (var i=0; i<this.badges.length; i++){
+                        this.badges[i].data.progress = this.passedQuiz / this.badges[i].data.badge_id.goal * 100;
+
+                        if(this.badges[i].data.progress < 10){
+                            this.badges[i].data.color = 'red';
+                        }else if(this.badges[i].data.progress < 50){
+                            this.badges[i].data.color = 'orange';
+                        }else if(this.badges[i].data.progress < 80){
+                            this.badges[i].data.color = 'yellow';
+                        }else{
+                            this.badges[i].data.color = 'green';
+                        }
+                    }
+                });
+            });
+
 
         }
 
@@ -162,6 +182,21 @@ import ProgressBar from 'vue-simple-progress'
     }
 
     .lock{
-        margin-right: 20px;
+        margin-right: 14px;
+        font-size: 2.2em;
+    }
+
+    .icon-flexbox{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .notAchievedContainer{
+        background: grey;
+    }
+
+    .notAchievedIcon{
+        opacity: 0.3;
     }
 </style>

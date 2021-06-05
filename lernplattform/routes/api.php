@@ -12,6 +12,7 @@ use App\Http\Controllers\InterestController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\API\AccessTokenController;
 use App\Http\Controllers\QuizController;
+use App\Http\Controllers\BadgeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Karteikartensetcontroller;
 use App\Http\Controllers\Karteikartencontroller;
@@ -88,7 +89,9 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('quiz/id/result', [QuizController::class, 'getResult']);
 
     //Badges
-    Route::get('badges', [QuizController::class, 'getBadges']);
+    Route::get('results', [BadgeController::class, 'getResults']);
+    Route::get('userbadges', [BadgeController::class, 'getUserBadges']);
+    Route::get('badges', [BadgeController::class, 'getBadges']);
 
     // Category
     Route::get('categories', [CategoryController::class, 'getAll']);

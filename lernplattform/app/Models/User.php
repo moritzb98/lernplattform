@@ -53,6 +53,11 @@ class User extends Authenticatable implements Searchable
     public function files(){
         return $this->belongsToMany('App\Models\FileUpload');
     }
+
+    public function badges(){
+        return $this->belongsToMany('App\Models\BadgesUser');
+    }
+
     public function getSearchResult(): SearchResult {
         $url = '/spa/users/'.$this->name;
 

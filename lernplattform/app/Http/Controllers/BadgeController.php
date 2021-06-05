@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Models\QuizresultsUser;
 use App\Models\BadgesUser;
+use App\Models\Badges;
+use App\Http\Resources\BadgesCollection;
 
 class BadgeController extends Controller
 {
@@ -87,7 +89,15 @@ class BadgeController extends Controller
           };
     }
 
-    public function getBadges(){
+    public function getResults(){
         return QuizresultsUser::where('user_id', Auth::user()->id)->get();
+    }
+
+    public function getUserBadges(){
+        return new BadgesCollection(BadgesUser::where('user_id', Auth::user()->id)->get());
+    }
+
+    public function getBadges(){
+        return Badges::all();
     }
 }

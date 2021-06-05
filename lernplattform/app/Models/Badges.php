@@ -12,4 +12,9 @@ class Badges extends Model
     protected $fillable = [
         'name', 'challenge'
     ];
+
+    public function badges(){
+        return $this->belongsToMany('App\Models\BadgesUser');
+    }
+
 }
