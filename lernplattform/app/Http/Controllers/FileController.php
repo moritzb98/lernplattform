@@ -9,11 +9,13 @@ use Auth;
 use App\Http\Resources\UserFilesCollection;
 use App\Http\Resources\CollFilesCollection;
 use App\Models\CollectionFiles;
+use App\Http\Resources\FilesCollection;
 
 class FileController extends Controller
 {
         public function index(){
-                return new UserFilesCollection(FileUpload::all());
+            return new UserFilesCollection(FileUpload::all());
+            //return new UserFilesCollection(new FilesCollection(FileUpload::all()));
         }
 
         public function showFile($id){

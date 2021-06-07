@@ -24,4 +24,8 @@ class Category extends Model
     public function collections(){
         return $this->belongsToMany('App\Models\Collection');
     }
+
+    public function rooms(){
+        return $this->belongsToMany('App\Models\Room');
+    }
 }

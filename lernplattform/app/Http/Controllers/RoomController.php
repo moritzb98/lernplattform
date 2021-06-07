@@ -9,20 +9,24 @@ use App\Models\ChatRoom;
 use App\Http\Resources\UserRoomCollection;
 use Auth;
 use App\Http\Controllers\ChatController;
+use App\Http\Resources\RoomCollection;
 
 class RoomController extends Controller
 {
 
     public function getAllRooms() {
         return [Room::all(), Auth::user()->id];
+        //return [new RoomCollection(Room::all()), Auth::user()->id];
     }
 
     public function getMyRooms() {
         return Room::where('user_id', Auth::user()->id)->get();
+        //return new RoomCollection(Room::where('user_id', Auth::user()->id)->get(););
     }
 
     public function getRoom($roomid) {
         return Room::where('id', $roomid)->first();
+        //return new RoomCollection(Room::where('id', $roomid)->first(););
     }
 
 
