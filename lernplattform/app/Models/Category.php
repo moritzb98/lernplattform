@@ -20,4 +20,8 @@ class Category extends Model
     public function karteikartensets(){
         return $this->belongsToMany('App\Models\Karteikartenset');
     }
+
+    public function collections(){
+        return $this->belongsToMany('App\Models\Collection');
+    }
 }

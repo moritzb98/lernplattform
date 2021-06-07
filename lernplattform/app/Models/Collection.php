@@ -19,6 +19,10 @@ class Collection extends Model implements Searchable
         return $this->belongsToMany('App\Models\CollectionFiles');
     }
 
+    public function category(){
+        return $this->belongsTo('App\Models\Category', 'category_id', 'id');
+    }
+
     public function getSearchResult(): SearchResult {
         $url = '/spa/Collection-detail/'.$this->id;
 

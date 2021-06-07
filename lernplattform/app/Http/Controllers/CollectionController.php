@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Models\Collection;
 use App\Models\CollectionFiles;
+use App\Http\Resources\CollectionCollection;
 
 class CollectionController extends Controller
 {
@@ -37,11 +38,11 @@ class CollectionController extends Controller
 
     public function showMyCollections(){
         $userid = Auth::user()->id;
-        return Collection::where('user_id', $userid)->get();
+        return new CollectionCollection(Collection::where('user_id', $userid)->get());
     }
 
     public function showCollectionDetails($id){
-        return Collection::where('id', $id)->first();
+        return new CollectionCollection(Collection::where('id', $id)->first());
     }
 
 }
