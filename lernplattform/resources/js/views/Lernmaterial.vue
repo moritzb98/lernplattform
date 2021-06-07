@@ -26,11 +26,11 @@
                     <p class="card-text--small">Sammlung erstellen</p>
                 </div>
             </router-link>
-            <div class="mdc-card-container--45" v-for="collection in collections" :key="collection.id">
-                <router-link :to='"/spa/Collection-detail/"+collection.id'>
-                    <div class="router-text mdc-card mdc-card--middle mdc-card--100">
-                        <span class="material-icons-outlined card-icons--big">biotech</span>
-                        <p class="card-text--small">{{collection.name}}</p>
+            <div class="mdc-card-container--45" v-for="collection in collections" :key="collection.data.id">
+                <router-link :to='"/spa/Collection-detail/"+collection.data.id'>
+                    <div :style="{ backgroundImage: 'radial-gradient(white, white), radial-gradient(circle at top left,white, '+ collection.data.category_id.color  + ')' }" class="router-text mdc-card mdc-card--middle mdc-card--100">
+                        <span :style="{ color: collection.data.category_id.color }" class="material-icons-outlined card-icons--big">biotech</span>
+                        <p class="card-text--small">{{collection.data.name}}</p>
                     </div>
                 </router-link>
             </div>
@@ -54,7 +54,7 @@
         mounted(){
             axios.get('/api/collection/show')
             .then(response=>{
-                this.collections = response.data;
+                this.collections = response.data.data;
                 console.log(response.data);
             });
 

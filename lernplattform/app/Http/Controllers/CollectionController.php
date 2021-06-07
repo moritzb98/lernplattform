@@ -42,7 +42,7 @@ class CollectionController extends Controller
     }
 
     public function showCollectionDetails($id){
-        return new CollectionCollection(Collection::where('id', $id)->first());
+        return new CollectionCollection(Collection::where('id', $id)->get());
     }
 
 }

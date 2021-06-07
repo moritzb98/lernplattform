@@ -11,29 +11,29 @@
         </div>
 
         <div class="background-container">
-            <div class="background">
-                <span class="material-icons-outlined icon-für-oberen-Bereich">biotech</span>
-                <div class="überschrift-oberer-Bereich">{{collection.name}}</div>
+            <div :style="{ backgroundColor: collection.colorBackground }"  class="background">
+                <span :style="{ color: collection.colorIcon }" class="material-icons-outlined icon-für-oberen-Bereich">biotech</span>
+                <div :style="{ color: collection.data.category_id.color }" class="überschrift-oberer-Bereich">{{collection.data.name}}</div>
             </div>
 
-            <div class="fabriges-rechteck">
+            <div :style="{ backgroundColor: collection.colorBackground }"  class="fabriges-rechteck">
                 <div class="weißes-rechteck"></div>
             </div>
         </div>
 
 
-            <div class="mdc-card mdc-card-lernmaterial">
+            <div :style="{ backgroundImage: 'radial-gradient(white, white), radial-gradient(circle at top left,white, '+ collection.data.category_id.color  + ')' }" class="mdc-card mdc-card-lernmaterial">
                 <div class="card-lernmaterial-spacing card-lernmaterial-spacing-zweispaltig">
-                    <div class="card-lernmaterial-icon-container card-lernmaterial-icon-container-weiter-rechts">
+                    <div :style="{ backgroundColor: collection.data.category_id.color }" class="card-lernmaterial-icon-container card-lernmaterial-icon-container-weiter-rechts">
                         <span class="material-icons material-icons-lernmaterial">school</span>
                     </div>
                     <div class="card-lernmaterial-middle-column-container card-lernmaterial-middle-column-container-zweispaltig">
                         <div class="mdc-chip-container">
-                            <div class="mdc-chip mdc-chip--red mdc-chip-lernmaterial" role="row">
-                                <span class="mdc-chip__text">Thema</span>
+                            <div :style="{ backgroundColor: collection.data.category_id.color }" class="mdc-chip mdc-chip--red mdc-chip-lernmaterial" role="row">
+                                <span class="mdc-chip__text"> {{collection.data.category_id.name}}</span>
                             </div>
                         </div>
-                        <div class="card-lernmaterial-headline card-lernmaterial-headline-collection-detail">{{collection.name}}</div>
+                        <div class="card-lernmaterial-headline card-lernmaterial-headline-collection-detail">{{collection.data.name}}</div>
                     </div>
                 </div>
                 <div class="strich-container">
@@ -76,7 +76,8 @@
                 data: {
                     file_id: null,
                     collection_id: null,
-                }
+                },
+
             }
         },
         mounted(){
@@ -84,18 +85,17 @@
             this.data.collection_id = this.collection.id;
             axios.get('/api/collection/show/'+this.$route.params.id)
             .then(response=>{
-                this.collection = response.data;
-                console.log(response.data)
+                this.collection = response.data.data[0];
+                this.collection.colorBackground = this.hexToRgbA(response.data.data[0].data.category_id.color, 0.4);
+                this.collection.colorIcon = this.hexToRgbA(response.data.data[0].data.category_id.color, 0.5);
             });
             axios.post('/api/files/showInCollection', this.collection)
             .then(response=>{
                 this.filesToCollection = response.data.data;
-                console.log(response.data)
             });
             axios.get('/api/getMyFiles')
             .then(response=>{
                 this.allFiles = response.data.data;
-                console.log(response.data)
             });
         },
         methods: {
@@ -113,7 +113,19 @@
                     this.filesToCollection = response.data.data;
                     console.log(response.data)
                 });
-            }
+            },
+            hexToRgbA(hex, opacity){
+                var c;
+                if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+                    c= hex.substring(1).split('');
+                    if(c.length== 3){
+                        c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+                    }
+                    c= '0x'+c.join('');
+                    return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+','+opacity+')';
+                }
+                throw new Error('Bad Hex');
+            },
         }
     }
 </script>

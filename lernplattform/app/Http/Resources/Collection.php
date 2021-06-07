@@ -18,7 +18,8 @@ class Collection extends JsonResource
             'data' => [
                 "name" => $this->name,
                 "user_id" => $this->user,
-                "category_id" => $this->category
+                "category_id" => $this->category,
+                "id" => $this->id,
             ],
         ];
     }
