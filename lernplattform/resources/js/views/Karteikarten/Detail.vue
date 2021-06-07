@@ -89,12 +89,14 @@
         mounted(){
             axios.get('/api/karteikartenset/' + this.karteikartenset.id)
             .then(response=>{
+                console.log(response.data.data[0]);
                 this.karteikartenset.name = response.data.data[0].data.name;
                 this.category.name = response.data.data[0].data.category_id.name;
                 this.category.color = response.data.data[0].data.category_id.color;
                 this.category.colorBackground = this.hexToRgbA(this.category.color,0.4);
                 this.category.colorIcon = this.hexToRgbA(this.category.color,0.5);
                 this.category.colorText = this.hexToRgbA(this.category.color,0.7);
+                console.log("dsds");
 });
             axios.get('/api/karteikarten/' + this.karteikartenset.id)
             .then(response=>{
@@ -129,7 +131,6 @@
                 throw new Error('Bad Hex');
             },
             spinCard(index){
-                console.log(index);
                 this.karteikartenset.karteikarten[index].showFront = !this.karteikartenset.karteikarten[index].showFront;
                 this.karteikartenset.karteikarten[index].showBack = !this.karteikartenset.karteikarten[index].showBack;
                 this.$forceUpdate();

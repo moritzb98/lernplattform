@@ -18,7 +18,8 @@ class Karteikartenset extends JsonResource
             'data' => [
                 "category_id" => $this->category,
                 "name" => $this->name,
-                'user_id' => $this->user_id
+                'user_id' => $this->user_id,
+                "id" => $this->id,
             ],
         ];
     }
