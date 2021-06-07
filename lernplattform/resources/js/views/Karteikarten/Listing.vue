@@ -20,16 +20,16 @@
                     <p class="card-text--small"> Karteikartenset erstellen</p>
                 </div>
             </router-link>
-            <div class="mdc-card-container--45" v-for="karteikartenset in karteikartenset" :key="karteikartenset.id">
-                <router-link :to='"/spa/Karteikartenset/"+ karteikartenset.id'>
-                    <div class="router-text mdc-card mdc-card--middle mdc-card--100">
-                        <span class="material-icons-outlined card-icons--big">biotech</span>
-                        <p class="card-text--small">{{karteikartenset.name}}</p>
+            <div class="mdc-card-container--45" v-for="karteikartenset in karteikartenset" :key="karteikartenset.data.id">
+                <router-link :to='"/spa/Karteikartenset/"+ karteikartenset.data.id'>
+                    <div :style="{ backgroundImage: 'radial-gradient(white, white), radial-gradient(circle at top left,white, '+ karteikartenset.data.category_id.color  + ')' }"  class="router-text mdc-card mdc-card--middle mdc-card--100">
+                        <span :style="{ color: karteikartenset.data.category_id.color }" class="material-icons-outlined card-icons--big">biotech</span>
+                        <p class="card-text--small">{{karteikartenset.data.name}}</p>
                     </div>
                 </router-link>
             </div>
         </div>
-
+        <br><br><br><br><br>
         <!-- Nav -->
         <Nav />
 
@@ -47,7 +47,7 @@
         mounted(){
             axios.get('/api/karteikartensets')
             .then(response=>{
-                this.karteikartenset = response.data;
+                this.karteikartenset = response.data.data;
                 console.log(response.data);
             });
 

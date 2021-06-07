@@ -63,7 +63,7 @@ class Karteikartensetcontroller extends Controller
 
         public function getSets() {
             $userid = Auth::user()->id;
-            $karteikartenset = Karteikartenset::where('user_id', $userid)->get();
+            $karteikartenset = new KarteikartensetCollection(Karteikartenset::where('user_id', $userid)->get());
             return $karteikartenset;
         }
 
