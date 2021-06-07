@@ -58,6 +58,10 @@ class User extends Authenticatable implements Searchable
         return $this->belongsToMany('App\Models\BadgesUser');
     }
 
+    public function collections(){
+        return $this->belongsToMany('App\Models\Collection');
+    }
+
     public function getSearchResult(): SearchResult {
         $url = '/spa/users/'.$this->name;
 

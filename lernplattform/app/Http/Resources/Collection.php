@@ -2,9 +2,9 @@
 
 namespace App\Http\Resources;
 
-use Illuminate\Http\Resources\Json\ResourceCollection;
+use Illuminate\Http\Resources\Json\JsonResource;
 
-class Collection extends ResourceCollection
+class Collection extends JsonResource
 {
     /**
      * Transform the resource collection into an array.
@@ -17,7 +17,7 @@ class Collection extends ResourceCollection
         return [
             'data' => [
                 "name" => $this->name,
-                "user_id" => $this->user_id,
+                "user_id" => $this->user,
                 "category_id" => $this->category
             ],
         ];
