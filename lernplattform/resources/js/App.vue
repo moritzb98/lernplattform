@@ -1173,6 +1173,7 @@
         max-width: 80%;
         line-height: 25px;
         z-index: 5;
+        text-align: center;
     }
 
     .icon-für-oberen-Bereich{

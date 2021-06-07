@@ -11,14 +11,14 @@
         </div>
 
         <div class="background-container">
-            <div class="background">
-                <span class="material-icons-outlined icon-für-oberen-Bereich">biotech</span>
-                <div class="überschrift-oberer-Bereich" >
+            <div :style="{ backgroundColor: category.colorBackground }" class="background">
+                <span :style="{ color: category.colorIcon }" class="material-icons-outlined icon-für-oberen-Bereich">biotech</span>
+                <div :style="{ color: category.color }" class="überschrift-oberer-Bereich" >
                      {{ category.name }}
-                    <div class="unterüberschrift-oberer-bereich">Karteikarte {{ count +1 }}/{{ karteikartenset.karteikarten.length }}</div>
+                    <div :style="{ color: category.colorText }" class="unterüberschrift-oberer-bereich">Karteikarte {{ count +1 }}/{{ karteikartenset.karteikarten.length }}</div>
                 </div>
             </div>
-            <div class="fabriges-rechteck">
+            <div :style="{ backgroundColor: category.colorBackground }" class="fabriges-rechteck">
                 <div class="weißes-rechteck"></div>
             </div>
         </div>
@@ -46,12 +46,12 @@
                 <div v-else class="überspringen"></div>
             </div>
 
-            <button v-if="!lastCard && count === index" @click="nextCard(index)" class="mdc-button mdc-button--raised button--big button--small abstand-weg button--border schmaler space-after">
+            <button :style="{ backgroundImage: 'radial-gradient(white, white), radial-gradient(circle at top left,white, '+ category.color + ')' }" v-if="!lastCard && count === index" @click="nextCard(index)" class="mdc-button mdc-button--raised button--big button--small abstand-weg button--border schmaler space-after">
                 <p class="button-text no-margin">Nächste Karte</p>
                 <span class="material-icons-outlined">chevron_right</span>
             </button>
 
-            <button v-if="!firstCard && count === index" @click="cardBack(index)" class="mdc-button mdc-button--raised button--big button--small abstand-weg button--border schmaler">
+            <button :style="{ backgroundImage: 'radial-gradient(white, white), radial-gradient(circle at top left,white, '+ category.color + ')' }" v-if="!firstCard && count === index" @click="cardBack(index)" class="mdc-button mdc-button--raised button--big button--small abstand-weg button--border schmaler">
                 <span class="material-icons-outlined">chevron_left</span>
                 <p class="button-text no-margin">Eine Karte zurück</p>
             </button>
@@ -75,6 +75,10 @@
                 },
                 category: {
                     name: "",
+                    color: "",
+                    colorBackground: "",
+                    colorIcon: "",
+                    colorText: "",
                 },
                 count: 0,
                 lastCard: false,
@@ -87,8 +91,11 @@
             .then(response=>{
                 this.karteikartenset.name = response.data.data[0].data.name;
                 this.category.name = response.data.data[0].data.category_id.name;
-
-            });
+                this.category.color = response.data.data[0].data.category_id.color;
+                this.category.colorBackground = this.hexToRgbA(this.category.color,0.4);
+                this.category.colorIcon = this.hexToRgbA(this.category.color,0.5);
+                this.category.colorText = this.hexToRgbA(this.category.color,0.7);
+});
             axios.get('/api/karteikarten/' + this.karteikartenset.id)
             .then(response=>{
                 this.karteikartenset.karteikarten = response.data;
@@ -109,6 +116,18 @@
             });
         },
         methods: {
+            hexToRgbA(hex, opacity){
+                var c;
+                if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+                    c= hex.substring(1).split('');
+                    if(c.length== 3){
+                        c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+                    }
+                    c= '0x'+c.join('');
+                    return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+','+opacity+')';
+                }
+                throw new Error('Bad Hex');
+            },
             spinCard(index){
                 console.log(index);
                 this.karteikartenset.karteikarten[index].showFront = !this.karteikartenset.karteikarten[index].showFront;
