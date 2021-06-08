@@ -22,7 +22,7 @@ class CreateCategoriesTable extends Migration
             $table->timestamps();
         });
 
-        Artisan::call('db:seed', array('--class' => 'CategorySeeder'));
+        //Artisan::call('db:seed', array('--class' => 'CategorySeeder'));
     }
 
     /**

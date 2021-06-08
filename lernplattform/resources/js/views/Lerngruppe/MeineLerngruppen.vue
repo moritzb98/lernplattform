@@ -127,14 +127,14 @@
         },
         methods: {
             getMyRooms() {
-                this.axios.get('http://127.0.0.1:8000/api/getmyroom')
+                this.axios.get('/api/getmyroom')
                     .then(response=>{
                         this.rooms=response.data,
                         console.log(this.rooms);
                     })
             },
             getRoomsUserIsIn() {
-                this.axios.get('http://127.0.0.1:8000/api/room/userIsIn')
+                this.axios.get('/api/room/userIsIn')
                     .then(response=>{
                         this.roomsUserIsIn=response.data.data,
                         console.log(this.roomsUserIsIn);
@@ -142,7 +142,7 @@
                     })
             },
             deleteRoom(id){
-                this.axios.post('http://127.0.0.1:8000/api/room/delete/' + id)
+                this.axios.post('/api/room/delete/' + id)
                     .then(response => {
                         console.log(response);
                         Vue.$toast.error('Lerngruppe erfolgreich gelöscht.', {});
@@ -150,7 +150,7 @@
                     })
             },
             leaveRoom(roomid){
-                this.axios.post('http://127.0.0.1:8000/api/room/leave/' + roomid)
+                this.axios.post('/api/room/leave/' + roomid)
                     .then(response => {
                         console.log(response);
                         Vue.$toast.success('Lerngruppe erfolgreich verlassen.', {});

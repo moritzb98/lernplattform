@@ -22,7 +22,7 @@ class CreateAnswersTable extends Migration
             $table->timestamps();
         });
 
-        Artisan::call('db:seed', array('--class' => 'QuizSeeder'));
+        //Artisan::call('db:seed', array('--class' => 'QuizSeeder'));
     }
 
     /**

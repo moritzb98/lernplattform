@@ -68,7 +68,7 @@
         },
         methods: {
             getAllRooms() {
-                this.axios.get('http://127.0.0.1:8000/api/rooms')
+                this.axios.get('/api/rooms')
                     .then(response=>{
 
                         for(var i = 0; response.data[0].length; i++){
@@ -79,7 +79,7 @@
                     })
             },
             joinRoom(roomid){
-                this.axios.post('http://127.0.0.1:8000/api/room/join/' + roomid)
+                this.axios.post('/api/room/join/' + roomid)
                     .then(response => {
                         //this.room.id = response.data.id,
                         console.log(response);
