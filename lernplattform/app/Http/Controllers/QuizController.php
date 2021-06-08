@@ -79,4 +79,40 @@ class QuizController extends Controller
 
         return $result;
     }
+
+    public function createQuiz(Request $request){
+
+        $quiz = Quiz::create([
+            'category_id' => $request['category_id'],
+            'name' => $request['name']
+        ]);
+
+        $questions = [];
+
+        foreach($request['questions'] as $key => $question){
+            $newQuestion = Question::create( [
+                'quiz_id' => $quiz['id'],
+                'question' => $question,
+                'questionNumber' => $key+1
+            ]);
+            array_push($questions, $newQuestion);
+        };
+
+        $questionkey = 0;
+        $counter = 0;
+
+        foreach($request['answers'] as $answer){
+            Answer::create([
+                'question_id' => $questions[$questionkey]['id'],
+                'answer' => $answer['answer'],
+                'is_correct' => $answer['is_correct']
+            ]);
+            $counter++;
+            if ($counter % 4 == 0) {
+                $questionkey++;
+             }
+        }
+
+        return response()->json(['´success' => 'Quiz erfolgreich erstellt.'], 200);
+    }
 }
