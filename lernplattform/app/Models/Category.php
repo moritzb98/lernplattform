@@ -28,4 +28,8 @@ class Category extends Model
     public function rooms(){
         return $this->belongsToMany('App\Models\Room');
     }
+
+    public function files(){
+        return $this->belongsToMany('App\Models\FileUpload');
+    }
 }

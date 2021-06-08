@@ -23,7 +23,7 @@ class CreateBadgesTable extends Migration
             $table->timestamps();
         });
 
-        Artisan::call('db:seed', array('--class' => 'BadgeSeeder'));
+        //Artisan::call('db:seed', array('--class' => 'BadgeSeeder'));
     }
 
     /**

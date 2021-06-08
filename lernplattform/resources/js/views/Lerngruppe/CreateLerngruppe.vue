@@ -87,7 +87,7 @@
         methods: {
             createRoom(room) {
                 if(this.room.category_id != null){
-                    this.axios.post('http://127.0.0.1:8000/api/room/create', room)
+                    this.axios.post('/api/room/create', room)
                         .then(response => (
                             Vue.$toast.success('Lerngruppe erfolgreich erstellt', {}),
                             this.$router.push({ path: '/spa/Lerngruppen/Eigene' })
