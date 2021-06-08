@@ -115,4 +115,18 @@ class QuizController extends Controller
 
         return response()->json(['´success' => 'Quiz erfolgreich erstellt.'], 200);
     }
+
+    public function deleteQuiz($quizid){
+
+        $questions = Question::where('quiz_id', $quizid)->get();
+
+        foreach($questions as $question){
+            Answer::where('question_id', $question['id'])->delete();
+            Question::where('id', $question['id'])->delete();
+        };
+
+        Quiz::where('id', $quizid)->delete();
+
+        return response()->json(['´success' => 'Quiz erfolgreich gelöscht.'], 200);
+    }
 }
