@@ -138,6 +138,7 @@
 </script>
 
 <style scoped>
+
     .card-lernmaterial-headline-collection-detail{
         margin-top: 10px;
         font-size: 1.5em;
