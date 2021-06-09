@@ -5,8 +5,20 @@
             <div class="header header--back">
                 <span class="material-icons neumorph header_back" @click="$router.go(-1)">arrow_back</span>
                 <div class="header_title">
+                    Lernmaterial
+                </div>
+            </div>
+        </div>
+
+        <div class="background-container">
+            <div class="background">
+                <span class="material-icons-outlined icon-für-oberen-Bereich">biotech</span>
+                <div class="überschrift-oberer-Bereich" >
                     {{title}}
                 </div>
+            </div>
+            <div class="fabriges-rechteck">
+                <div class="weißes-rechteck"></div>
             </div>
         </div>
 
@@ -49,7 +61,6 @@
                     </div>
                 </div>
         </div> -->
-        <br>
         <div class="container-data" v-for="(myFileUpload, index) in myFileUploads" :key="myFileUpload.id">
                 <div :id="myFileUpload.data.id" class="container-uploads">
                     <div class="cursor" v-if="myFileUpload.data.id === editFileId">
@@ -107,6 +118,10 @@ import {MDCTabBar} from '@material/tab-bar';
                 myFileUploads: [],
                 title: "Meine Uploads",
                 editFileId: null,
+                color: "",
+                colorBackground: "",
+                colorIcon: "",
+                colorText: "",
             }
         },
         mounted(){
@@ -149,7 +164,19 @@ import {MDCTabBar} from '@material/tab-bar';
             showDropdown(index){
                 this.myFileUploads[index].data.showDropdown = !this.myFileUploads[index].data.showDropdown;
                 this.$forceUpdate();
-            }
+            },
+            hexToRgbA(hex, opacity){
+                var c;
+                if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+                    c= hex.substring(1).split('');
+                    if(c.length== 3){
+                        c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+                    }
+                    c= '0x'+c.join('');
+                    return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+','+opacity+')';
+                }
+                throw new Error('Bad Hex');
+            },
         }
     }
 
@@ -202,7 +229,7 @@ import {MDCTabBar} from '@material/tab-bar';
     }
 
     .container-uploads{
-        margin-top: 10px;
+        margin-top: 0px;
         display: flex;
         justify-content: space-between;
         align-items: center;
