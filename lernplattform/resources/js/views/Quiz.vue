@@ -11,16 +11,16 @@
         </div>
 
         <div class="background-container">
-            <div class="background">
-                <span class="material-icons-outlined icon-für-oberen-Bereich">biotech</span>
-                <div class="überschrift-oberer-Bereich" >
+            <div :style="{ backgroundColor: colorBackground }" class="background">
+                <span :style="{ color: colorIcon }" class="material-icons-outlined icon-für-oberen-Bereich">biotech</span>
+                <div :style="{ color: color }" class="überschrift-oberer-Bereich" >
                     {{ quizName }}
-                    <div v-if="started && !summary" class="unterüberschrift-oberer-bereich">Frage {{ currentQuestion }}/{{ questions.length }}</div>
-                    <div v-else-if="summary" class="unterüberschrift-oberer-bereich">Zusammenfassung</div>
-                    <div v-else class="unterüberschrift-oberer-bereich">Noch nicht begonnen</div>
+                    <div :style="{ color: color }" v-if="started && !summary" class="unterüberschrift-oberer-bereich">Frage {{ currentQuestion }}/{{ questions.length }}</div>
+                    <div :style="{ color: color }" v-else-if="summary" class="unterüberschrift-oberer-bereich">Zusammenfassung</div>
+                    <div :style="{ color: colorText }" v-else class="unterüberschrift-oberer-bereich">Noch nicht begonnen</div>
                 </div>
             </div>
-            <div class="fabriges-rechteck">
+            <div :style="{ backgroundColor: colorBackground }" class="fabriges-rechteck">
                 <div class="weißes-rechteck"></div>
             </div>
         </div>
@@ -28,7 +28,7 @@
         <!-- Content -->
         <!-- start quiz -->
         <div v-if="!started" class="">
-            <button @click="startQuiz()" class="mdc-button mdc-button--raised button--big button--small abstand-weg button--border">
+            <button :style="{ backgroundImage: 'radial-gradient(white, white), radial-gradient(circle at top left,white, '+ color  + ')' }" @click="startQuiz()" class="mdc-button mdc-button--raised button--big button--small abstand-weg button--border">
                 <p class="button-text no-margin">Starte das Quiz</p>
                 <span class="material-icons-outlined">play_circle</span>
             </button>
@@ -43,13 +43,13 @@
                 </div>
                 <div v-for="answer, index in question.answers" :key="answer.id">
                     <div v-if="!answered" class="antwort-container" @click="sendAnswer(answer, question.answers, question)">
-                        <p class="antwort-optionen-buchstaben" :class='"answer"+answer.id' :id='"answerletter"+answer.id'>
+                        <p  class="antwort-optionen-buchstaben" :class='"answer"+answer.id' :id='"answerletter"+answer.id'>
                             <span v-if="index===0">A</span>
                             <span v-if="index===1">B</span>
                             <span v-if="index===2">C</span>
                             <span v-if="index===3">D</span>
                         </p>
-                        <div class="antwort-optionen" :class='"answer"+answer.id' :id='"answerid"+answer.id'>
+                        <div :style="{ backgroundImage: 'radial-gradient(white, white), radial-gradient(circle at top left,white, '+ color  + ')' }" class="antwort-optionen" :class='"answer"+answer.id' :id='"answerid"+answer.id'>
                             <p>
                                 {{answer.answer}}
                             </p>
@@ -117,22 +117,22 @@
 
 
             <div class="big-icon-container">
-                <span class="material-icons-outlined material-icons-outlined--big">biotech</span>
+                <span :style="{ color: color }" class="material-icons-outlined material-icons-outlined--big">biotech</span>
             </div>
             <div v-if="result<75">
                 <p class="text-play-again">Probier's nochmal:</p>
-                    <div @click="reload()" class="quiz-detail-container">
+                    <div @click="reload()" :style="{ backgroundImage: 'radial-gradient(white, white), radial-gradient(circle at top left,white, '+ color  + ')' }" class="quiz-detail-container">
                         <div class="flex-container-quiz router-text">
                             <div class="progress-container">
                                 <div>
                                     {{ quizName }}
                                 </div>
                                 <div class="progressbar">
-                                    <progress-bar :val="result" size="medium"></progress-bar>
+                                    <progress-bar :bar-color="color" :val="result" size="medium"></progress-bar>
                                 </div>
                             </div>
                             <div>
-                                <span class="material-icons-outlined play-icon">play_circle</span>
+                                <span :style="{ color: color }" class="material-icons-outlined play-icon">play_circle</span>
                             </div>
                         </div>
                     </div>
