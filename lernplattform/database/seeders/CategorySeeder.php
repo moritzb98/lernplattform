@@ -18,7 +18,7 @@ class CategorySeeder extends Seeder
             [
                 'name' => 'Biologie',
                 'color' => '#479D59',
-                'icon' => 'keins vorhanden'
+                'icon' => 'biotech'
             ],
             [
                 'name' => 'Chemie',
@@ -28,7 +28,7 @@ class CategorySeeder extends Seeder
             [
                 'name' => 'Deutsch',
                 'color' => '#BF7A67',
-                'icon' => 'keins vorhanden'
+                'icon' => 'local_library'
             ],
             [
                 'name' => 'Englisch',
@@ -38,7 +38,7 @@ class CategorySeeder extends Seeder
             [
                 'name' => 'Erdkunde',
                 'color' => '#2593A6',
-                'icon' => 'keins vorhanden'
+                'icon' => 'public'
             ],
             [
                 'name' => 'Französisch',
@@ -48,22 +48,22 @@ class CategorySeeder extends Seeder
             [
                 'name' => 'Geschichte',
                 'color' => '#E67448',
-                'icon' => 'keins vorhanden'
+                'icon' => 'history_edu'
             ],
             [
                 'name' => 'Gesundheit',
                 'color' => '#6FB7FF',
-                'icon' => 'keins vorhanden'
+                'icon' => 'health_and_safety'
             ],
             [
                 'name' => 'Informatik',
                 'color' => '#3D5282',
-                'icon' => 'keins vorhanden'
+                'icon' => 'integration_instructions'
             ],
             [
                 'name' => 'Kunst',
                 'color' => '#A0513D',
-                'icon' => 'keins vorhanden'
+                'icon' => 'brush'
             ],
             [
                 'name' => 'Latein',
@@ -73,62 +73,62 @@ class CategorySeeder extends Seeder
             [
                 'name' => 'Mathematik',
                 'color' => '#E05858',
-                'icon' => 'keins vorhanden'
+                'icon' => 'calculate'
             ],
             [
                 'name' => 'Medien und Kommunikation',
                 'color' => '#8DA887',
-                'icon' => 'keins vorhanden'
+                'icon' => 'web'
             ],
             [
                 'name' => 'Medizin',
                 'color' => '#E8DCCA',
-                'icon' => 'keins vorhanden'
+                'icon' => 'medical_services'
             ],
             [
                 'name' => 'Musik',
                 'color' => '#BD45B4',
-                'icon' => 'keins vorhanden'
+                'icon' => 'music_note'
             ],
             [
                 'name' => 'Pyhsik',
                 'color' => '#B0DAF5',
-                'icon' => 'keins vorhanden'
+                'icon' => 'fa-atom'
             ],
             [
                 'name' => 'Sport',
                 'color' => '#505050',
-                'icon' => 'keins vorhanden'
+                'icon' => 'directions_run'
             ],
             [
                 'name' => 'Unternehmertum',
                 'color' => '#0D6277',
-                'icon' => 'keins vorhanden'
+                'icon' => 'fa-rocket'
             ],
             [
                 'name' => 'Weitere Sprachen',
                 'color' => '#F5930E',
-                'icon' => 'keins vorhanden'
+                'icon' => 'translate'
             ],
             [
                 'name' => 'Wirtschaft',
                 'color' => '#61A397',
-                'icon' => 'keins vorhanden'
+                'icon' => 'trending_up'
             ],
             [
                 'name' => 'Ernährung',
                 'color' => '#48BA00',
-                'icon' => 'keins vorhanden'
+                'icon' => 'restaurant'
             ],
             [
                 'name' => 'Gestaltung',
                 'color' => '#374B54',
-                'icon' => 'keins vorhanden'
+                'icon' => 'design_services'
             ],
             [
                 'name' => 'Sonstiges',
                 'color' => '#8E86BC',
-                'icon' => 'keins vorhanden'
+                'icon' => 'all_inclusive'
             ],
         ];
 

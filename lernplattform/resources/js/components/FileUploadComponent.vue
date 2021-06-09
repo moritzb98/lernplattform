@@ -10,15 +10,21 @@
             </div>
         </div>
 
+        <div class="background-container">
+            <div class="background">
+                <span class="material-icons-outlined icon-für-oberen-Bereich">biotech</span>
+                <div class="überschrift-oberer-Bereich" >
+                    Medien hochladen
+                </div>
+            </div>
+            <div class="fabriges-rechteck">
+                <div class="weißes-rechteck"></div>
+            </div>
+        </div>
+
         <!-- Content  -->
         <div class="row justify-content-center">
             <div class="col-md-8">
-
-            <div class="Pfeil">
-                <div class="Create">
-                 <h2> Medien hochladen</h2>
-                </div>
-            </div>
 
         <div class="container">
             <div class="mdc-form-field">
