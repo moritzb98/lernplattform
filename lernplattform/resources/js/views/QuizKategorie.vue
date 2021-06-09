@@ -26,14 +26,14 @@
         </a>
         <br>
 
-        <div class="router-text" v-for="quizOb in quiz" :key="quizOb.data.id">
-            <router-link :to='"/spa/quiz/"+quizOb.data.category_id.name'>
+        <div class="router-text" v-for="quizOb in quiz" :key="quizOb.id">
+            <router-link :to='"/spa/quiz/"+quizOb.name'>
                 <div class="kategorie-container">
                     <div class="kategorie-icon-container">
-                        <span :style="{ color: quizOb.data.category_id.color }" class="material-icons-outlined quiz-kategorie-icon">biotech</span>
+                        <span :style="{ color: quizOb.color }" class="material-icons-outlined quiz-kategorie-icon">biotech</span>
                     </div>
-                    <div :style="{ backgroundImage: 'radial-gradient(white, white), radial-gradient(circle at top left,white, '+ quizOb.data.category_id.color  + ')' }" class="quiz-kategorie-container">
-                        <div>{{quizOb.data.category_id.name}}</div>
+                    <div :style="{ backgroundImage: 'radial-gradient(white, white), radial-gradient(circle at top left,white, '+ quizOb.color  + ')' }" class="quiz-kategorie-container">
+                        <div>{{quizOb.name}}</div>
                         <div class="play-now-text">Jetzt spielen</div>
                     </div>
                 </div>
@@ -56,7 +56,22 @@
         mounted(){
             axios.get('/api/categories/quiz')
             .then(response=>{
-                this.quiz = response.data.data;
+                //this.quiz = response.data.data;
+                let quizzes = response.data.data;
+                for(var i = 0; i < quizzes.length; i++){
+                    var checkQuiz = {
+                        name: quizzes[i].data.category_id.name,
+                        color: quizzes[i].data.category_id.color,
+                        id: quizzes[i].data.id,
+                        icon: quizzes[i].data.category_id.icon,
+                    }
+                    if(this.quiz.some(quiz => quiz.name === checkQuiz.name)){
+                        console.log("Kategorie schon vorhanden!")
+                    }else{
+                        this.quiz.push({name: checkQuiz.name, color: checkQuiz.color, id: checkQuiz.id, icon: checkQuiz.icon});
+                    }
+                }
+                console.log(this.quiz);
             });
 
         },

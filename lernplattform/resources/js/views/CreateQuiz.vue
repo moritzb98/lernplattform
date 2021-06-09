@@ -165,8 +165,14 @@
                     if(correctAnswers != 1){
                         send = false;
                         Vue.$toast.error('Es kann immer nur eine einzige Antwort richtig sein', {});
+                        break;
                     }
                     correctAnswers = 0;
+                }
+
+                if(this.quiz.questions.length<3){
+                    send = false;
+                    Vue.$toast.error('Du musst mindestens 3 Fragen erstellen', {});
                 }
 
                 if(send){
@@ -233,5 +239,9 @@
 
 .answer-id-text{
     margin: 0;
+}
+
+.fragen-container{
+    margin-bottom: 15px;
 }
 </style>
