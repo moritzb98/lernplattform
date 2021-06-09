@@ -96,8 +96,7 @@ class QuizController extends Controller
                 'questionNumber' => $key+1
             ]); */
 
-            foreach($request['questions']['answers'] as $answer){
-                dd($answer);
+            foreach($question['answers'] as $answer){
                 Answer::create([
                     'question_id' => $newQuestion['id'],
                     'answer' => $answer['answer'],
