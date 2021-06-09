@@ -87,18 +87,26 @@ class QuizController extends Controller
             'name' => $request['name']
         ]);
 
-        $questions = [];
+        //$questions = [];
 
         foreach($request['questions'] as $key => $question){
             $newQuestion = Question::create( [
                 'quiz_id' => $quiz['id'],
-                'question' => $question,
+                'question' => $question['question'],
                 'questionNumber' => $key+1
             ]);
-            array_push($questions, $newQuestion);
+
+            foreach($request['questions']['answers'] as $answer){
+                Answer::create([
+                    'question_id' => $newQuestion['id'],
+                    'answer' => $answer['answer'],
+                    'is_correct' => $answer['is_correct']
+                ]);
+            }
+            //array_push($questions, $newQuestion);
         };
 
-        $questionkey = 0;
+        /* $questionkey = 0;
         $counter = 0;
 
         foreach($request['answers'] as $answer){
@@ -111,7 +119,7 @@ class QuizController extends Controller
             if ($counter % 4 == 0) {
                 $questionkey++;
              }
-        }
+        } */
 
         return response()->json(['´success' => 'Quiz erfolgreich erstellt.'], 200);
     }

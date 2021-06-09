@@ -20,6 +20,9 @@ import store from './store'
 // Components
 import Nav from './components/Nav.vue';
 
+// Switch
+import ToggleButton from 'vue-js-toggle-button'
+
 
 window.Vue = require('vue').default;
 
@@ -48,6 +51,9 @@ Vue.component('Nav', Nav);
 Vue.use(MdMenu)
 Vue.use(MdButton)
 Vue.use(MdList)
+
+// Switch
+Vue.use(ToggleButton)
 
 // VueMoment
 const moment = require('moment')
