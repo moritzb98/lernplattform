@@ -25,7 +25,6 @@
         </div>
 
         <div>
-            <form>
                 <div>
                     <!-- Select -->
                     <div class="headline-text-field">Kategorie wählen</div>
@@ -65,14 +64,13 @@
                 </div>
 
                 <button @click="addQuestion()" class="mdc-button mdc-button--raised button--big button-dashed-border mdc-card--new">
-                    <span class="button-text">Weitere Karteikarte</span> <span class="material-icons">add</span>
+                    <span class="button-text">Weitere Frage</span> <span class="material-icons">add</span>
                 </button>
 
                 <hr class="trennungslinie-dick">
-                <button type="submit" @click="createQuiz()" class="mdc-button mdc-button--raised button--big ohne-abstand">
-                    <span class="button-text">Karteikartenset erstellen</span> <span class="material-icons">navigate_next</span>
+                <button @click="createQuiz()" class="mdc-button mdc-button--raised button--big ohne-abstand">
+                    <span class="button-text">Quiz erstellen</span> <span class="material-icons">navigate_next</span>
                 </button>
-            </form>
             <br>
             <br>
             <br>

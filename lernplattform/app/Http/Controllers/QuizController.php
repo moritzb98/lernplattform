@@ -82,21 +82,22 @@ class QuizController extends Controller
 
     public function createQuiz(Request $request){
 
-        $quiz = Quiz::create([
+        /* $quiz = Quiz::create([
             'category_id' => $request['category_id'],
             'name' => $request['name']
-        ]);
+        ]); */
 
         //$questions = [];
 
         foreach($request['questions'] as $key => $question){
-            $newQuestion = Question::create( [
+            /* $newQuestion = Question::create( [
                 'quiz_id' => $quiz['id'],
                 'question' => $question['question'],
                 'questionNumber' => $key+1
-            ]);
+            ]); */
 
             foreach($request['questions']['answers'] as $answer){
+                dd($answer);
                 Answer::create([
                     'question_id' => $newQuestion['id'],
                     'answer' => $answer['answer'],
