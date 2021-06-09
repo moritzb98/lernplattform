@@ -24,13 +24,13 @@
         </div>
 
         <!-- Content -->
-        <div v-for="(quiz, index) in quizzes" :key="quiz.name">
-            <router-link :to='"/spa/quiz/"+category+"/"+quiz.id'>
+        <div v-for="(quiz, index) in quizzes" :key="quiz.data.name">
+            <router-link :to='"/spa/quiz/"+category+"/"+quiz.data.id'>
                 <div class="quiz-detail-container">
                     <div class="flex-container-quiz router-text">
                         <div class="progress-container">
                             <div>
-                                {{ quiz.name }}
+                                {{ quiz.data.name }}
                             </div>
                             <div class="progressbar">
                                 <progress-bar :val="values[index]" size="medium"></progress-bar>
@@ -67,7 +67,7 @@ import ProgressBar from 'vue-simple-progress'
         mounted(){
             axios.get('/api/quiz/' + this.category)
             .then(response=>{
-                this.quizzes = response.data;
+                this.quizzes = response.data.data;
 
                 axios.post('/api/quiz/id/result/', this.quizzes)
                 .then(response=>{
@@ -79,6 +79,7 @@ import ProgressBar from 'vue-simple-progress'
                         }
                     }
                 });
+                console.log(this.quizzes);
             });
 
         },

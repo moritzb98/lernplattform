@@ -26,14 +26,14 @@
         </a>
         <br>
 
-        <div class="router-text" v-for="category in categorieNames" :key="categorieNames.name">
-            <router-link :to='"/spa/quiz/"+category'>
+        <div class="router-text" v-for="quizOb in quiz" :key="quizOb.data.id">
+            <router-link :to='"/spa/quiz/"+quizOb.data.category_id.name'>
                 <div class="kategorie-container">
                     <div class="kategorie-icon-container">
-                        <span class="material-icons-outlined quiz-kategorie-icon">biotech</span>
+                        <span :style="{ color: quizOb.data.category_id.color }" class="material-icons-outlined quiz-kategorie-icon">biotech</span>
                     </div>
-                    <div class="quiz-kategorie-container">
-                        <div>{{category}}</div>
+                    <div :style="{ backgroundImage: 'radial-gradient(white, white), radial-gradient(circle at top left,white, '+ quizOb.data.category_id.color  + ')' }" class="quiz-kategorie-container">
+                        <div>{{quizOb.data.category_id.name}}</div>
                         <div class="play-now-text">Jetzt spielen</div>
                     </div>
                 </div>
@@ -50,18 +50,13 @@
     export default {
         data() {
             return {
-                categorieNames: [],
+                quiz: [],
             }
         },
         mounted(){
             axios.get('/api/categories/quiz')
             .then(response=>{
-                let quizzes = response.data.data;
-                for(var i=0; i< quizzes.length; i++){
-                    if(!this.categorieNames.includes(quizzes[i].data.category_id.name)){
-                        this.categorieNames.push(quizzes[i].data.category_id.name);
-                    }
-                }
+                this.quiz = response.data.data;
             });
 
         },

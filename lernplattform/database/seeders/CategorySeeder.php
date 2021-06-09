@@ -23,7 +23,7 @@ class CategorySeeder extends Seeder
             [
                 'name' => 'Chemie',
                 'color' => '#008FCC',
-                'icon' => 'keins vorhanden'
+                'icon' => 'science'
             ],
             [
                 'name' => 'Deutsch',
