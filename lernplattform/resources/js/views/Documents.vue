@@ -21,48 +21,8 @@
                 <div class="weißes-rechteck"></div>
             </div>
         </div>
-
-        <!-- Content  -->
-        <!-- Chips  -->
- <!--        <div>
-            <div class="mdc-chip mdc-chip-filter" role="row">
-                <div class="mdc-chip__ripple"></div>
-                    <span class="material-icons-outlined">filter_alt</span>
-                    <span role="gridcell">
-                        <span role="button" tabindex="0" class="mdc-chip__primary-action">
-                            <span class="mdc-chip__text">Alles</span>
-                        </span>
-                    </span>
-            </div>
-            <div class="mdc-chip mdc-chip-filter" role="row">
-                <div class="mdc-chip__ripple"></div>
-                    <span class="material-icons-outlined">sort</span>
-                    <span role="gridcell">
-                        <span role="button" tabindex="0" class="mdc-chip__primary-action">
-                            <span class="mdc-chip__text">Sortieren</span>
-                        </span>
-                    </span>
-            </div>
-        </div> -->
-        <!-- Chips  Ende-->
-       <!-- <div v-for="myFileUpload in myFileUploads" :key="myFileUpload.id">
-                <div class="container-uploads">
-                    <div class="cursor" v-if="myFileUpload.data.id === editFileId">
-                            <input class="input-feld" type="text" v-model="myFileUpload.data.displayname" autofocus>
-                        </div>
-                        <router-link :to='"/spa/documents/"+myFileUpload.data.id' class="file-name-upload-link router-text" v-else>
-                        <div class="file-name-upload">{{ myFileUpload.data.displayname }}</div>
-                    </router-link>
-                    <div class="icon-container">
-                        <div v-if="myFileUpload.data.id === editFileId" @click="saveFile(myFileUpload.data)" class="material-icons-outlined icon--middle">save</div>
-                        <div v-else @click="editFile(myFileUpload.data.id)" class="material-icons-outlined icon--middle">edit</div>
-                        <div @click="deleteFile(myFileUpload.data)" class="material-icons-outlined icon--middle">delete</div>
-                        <div  class="material-icons-outlined icon--middle"><a class="a-text" download v-bind:href="'/upload/' + myFileUpload.data.name">file_download</a></div>
-                    </div>
-                </div>
-        </div> -->
         <div class="container-data" v-for="(myFileUpload, index) in myFileUploads" :key="myFileUpload.id">
-                <div :id="myFileUpload.data.id" class="container-uploads">
+                <div :style="{ backgroundImage: 'radial-gradient(white, white), radial-gradient(circle at top left,white, '+ myFileUpload.data.color  + ')' }" :id="myFileUpload.data.id" class="container-uploads">
                     <div class="cursor" v-if="myFileUpload.data.id === editFileId">
                             <input class="input-feld" type="text" v-model="myFileUpload.data.displayname" autofocus>
                         </div>
@@ -118,10 +78,8 @@ import {MDCTabBar} from '@material/tab-bar';
                 myFileUploads: [],
                 title: "Meine Uploads",
                 editFileId: null,
-                color: "",
-                colorBackground: "",
-                colorIcon: "",
-                colorText: "",
+
+
             }
         },
         mounted(){
@@ -135,8 +93,9 @@ import {MDCTabBar} from '@material/tab-bar';
                 this.myFileUploads = response.data.data;
                 for(var i = 0; i < this.myFileUploads.length; i++){
                     this.myFileUploads[i].data.showDropdown = false;
+                    this.myFileUploads[i].data.color = response.data.data[i].data.category_id.color;
                 }
-                console.log(this.myFileUploads);
+
             });
 
 
@@ -164,18 +123,6 @@ import {MDCTabBar} from '@material/tab-bar';
             showDropdown(index){
                 this.myFileUploads[index].data.showDropdown = !this.myFileUploads[index].data.showDropdown;
                 this.$forceUpdate();
-            },
-            hexToRgbA(hex, opacity){
-                var c;
-                if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
-                    c= hex.substring(1).split('');
-                    if(c.length== 3){
-                        c= [c[0], c[0], c[1], c[1], c[2], c[2]];
-                    }
-                    c= '0x'+c.join('');
-                    return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+','+opacity+')';
-                }
-                throw new Error('Bad Hex');
             },
         }
     }
@@ -229,7 +176,7 @@ import {MDCTabBar} from '@material/tab-bar';
     }
 
     .container-uploads{
-        margin-top: 0px;
+        margin-bottom: 10px;
         display: flex;
         justify-content: space-between;
         align-items: center;

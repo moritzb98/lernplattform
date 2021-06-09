@@ -33,7 +33,7 @@ class CategorySeeder extends Seeder
             [
                 'name' => 'Englisch',
                 'color' => '#FFCE5C',
-                'icon' => 'keins vorhanden'
+                'icon' => 'language'
             ],
             [
                 'name' => 'Erdkunde',
@@ -43,7 +43,7 @@ class CategorySeeder extends Seeder
             [
                 'name' => 'Französisch',
                 'color' => '#464FBC',
-                'icon' => 'keins vorhanden'
+                'icon' => 'language'
             ],
             [
                 'name' => 'Geschichte',
@@ -68,7 +68,7 @@ class CategorySeeder extends Seeder
             [
                 'name' => 'Latein',
                 'color' => '#F08080',
-                'icon' => 'keins vorhanden'
+                'icon' => 'language'
             ],
             [
                 'name' => 'Mathematik',
@@ -91,9 +91,9 @@ class CategorySeeder extends Seeder
                 'icon' => 'music_note'
             ],
             [
-                'name' => 'Pyhsik',
+                'name' => 'Physik',
                 'color' => '#B0DAF5',
-                'icon' => 'fa-atom'
+                'icon' => 'flash_on'
             ],
             [
                 'name' => 'Sport',
@@ -103,7 +103,7 @@ class CategorySeeder extends Seeder
             [
                 'name' => 'Unternehmertum',
                 'color' => '#0D6277',
-                'icon' => 'fa-rocket'
+                'icon' => 'apartment'
             ],
             [
                 'name' => 'Weitere Sprachen',
