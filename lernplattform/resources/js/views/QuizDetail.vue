@@ -75,7 +75,6 @@ import ProgressBar from 'vue-simple-progress'
                 this.colorBackground = this.hexToRgbA(response.data.data[0].data.category_id.color,0.4);
                 this.colorIcon = this.hexToRgbA(response.data.data[0].data.category_id.color,0.5);
                 this.colorText = this.hexToRgbA(response.data.data[0].data.category_id.color,0.7);
-
             });
 
             axios.get('/api/quiz/' + this.category)

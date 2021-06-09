@@ -99,7 +99,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     // Category
     Route::get('categories', [CategoryController::class, 'getAll']);
     Route::get('categories/{id}', [CategoryController::class, 'getCategory']);
-    Route::get('categories/{name}', [CategoryController::class, 'getCategoryWithName']);
+    Route::get('categories/name/{name}', [CategoryController::class, 'getCategoryWithName']);
 
     //Karteikartensets
     Route::get('karteikartensets', [Karteikartensetcontroller::class, 'getSets']);

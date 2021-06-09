@@ -201,10 +201,13 @@ import ProgressBar from 'vue-simple-progress'
                 console.log(response.data);
                 this.quizName = response.data.name;
             });
-            axios.get('/api/categories/' + this.category)
+
+            axios.get('/api/categories/name/' + this.category)
             .then(response=>{
-                console.log("test",response);
-                console.log(this.category);
+                this.color = response.data.color;
+                this.colorBackground = this.hexToRgbA(response.data.color, 0.4);
+                this.colorIcon = this.hexToRgbA(response.data.color, 0.5);
+                this.colorText = this.hexToRgbA(response.data.color, 0.7);
             });
         },
         methods:{
