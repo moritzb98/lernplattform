@@ -19,9 +19,16 @@ class QuizController extends Controller
         return $quizzes;
     }
 
-    public function getQuiz($category){
+    public function getQuizCollection($category){
         $categoryObject = Category::where('name', $category)->first();
         $quizzes = new QuizCollection(Quiz::where('category_id', $categoryObject['id'])->get());
+
+        return $quizzes;
+    }
+
+    public function getQuiz($category){
+        $categoryObject = Category::where('name', $category)->first();
+        $quizzes = Quiz::where('category_id', $categoryObject['id'])->get();
 
         return $quizzes;
     }

@@ -62,14 +62,21 @@ import ProgressBar from 'vue-simple-progress'
                 category: this.$route.params.category,
                 questionId: null,
                 values: [],
+                quizzesForResult: [],
             }
         },
         mounted(){
-            axios.get('/api/quiz/' + this.category)
+            axios.get('/api/quiz/collection/' + this.category)
             .then(response=>{
                 this.quizzes = response.data.data;
 
-                axios.post('/api/quiz/id/result/', this.quizzes)
+            });
+
+            axios.get('/api/quiz/' + this.category)
+            .then(response=>{
+                this.quizzesForResult = response.data;
+
+                axios.post('/api/quiz/id/result/', this.quizzesForResult)
                 .then(response=>{
                     for(var i = 0; i<response.data.length; i++){
                         if(response.data[i]){
@@ -79,7 +86,7 @@ import ProgressBar from 'vue-simple-progress'
                         }
                     }
                 });
-                console.log(this.quizzes);
+
             });
 
         },

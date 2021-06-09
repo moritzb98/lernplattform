@@ -82,6 +82,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     //Quiz
     Route::get('categories/quiz', [QuizController::class, 'getAllCategoriesQuizzesAreIn']);
+    Route::get('quiz/collection/{category}', [QuizController::class, 'getQuizCollection']);
     Route::get('quiz/{category}', [QuizController::class, 'getQuiz']);
     Route::get('quiz/questions/{quizid}', [QuizController::class, 'getQuestion']);
     Route::get('quiz/id/{quizid}', [QuizController::class, 'getQuizWithId']);
