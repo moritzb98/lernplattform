@@ -103,7 +103,7 @@
             // Get all files
             axios.get('/api/getMyFiles')
             .then(response=>{
-                // only push files where not added to allFiles Array
+                // only push files if not added to allFiles Array
                 for(var i=0; i<response.data.data.length; i++){
                     console.log("ss");
                     if(this.filesToCollection.some(file => file.data.file_id.id === response.data.data[i].data.id)){
