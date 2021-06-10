@@ -21,7 +21,12 @@
                 <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
                     <input v-model="registerData.name" class="mdc-text-field__input text-field__input--modified" type="text" placeholder="" aria-label="Label">
                 </label>
-                <div class="headline-text-field">Passwort*</div>
+                <div class="headline-text-field">Passwort* <span @click="showInfo = !showInfo" class="material-icons-outlined info">info</span></div>
+                <transition name="fade">
+                    <div v-if="showInfo" class="info-container">
+                        <span  class="headline-text-field info-text">Das Passwort muss mindestens 8 Zeichen, ein Großbuchstaben, eine Zahl und ein Sodnerzeichen besitzen.</span>
+                    </div>
+                </transition>
                 <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
                     <input v-model="registerData.password" class="mdc-text-field__input text-field__input--modified" type="password" placeholder="" aria-label="Label">
                 </label>
@@ -90,6 +95,7 @@ import Multiselect from 'vue-multiselect'
                 title: "Registrierung",
                 checkedAgb: false,
                 interestsArray: [],
+                showInfo: false,
             }
         },
         mounted() {
@@ -162,10 +168,25 @@ import Multiselect from 'vue-multiselect'
         font-weight: bold;
     }
 
+    .info{
+        font-size: 1.1em;
+        color: #212121;
+    }
 
+    .info-text{
+        font-size: 0.9em;
+    }
+
+    .info-container{
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: inset 6px 6px 10px 0 rgb(0 0 0 / 20%), inset -6px -6px 10px 0 white, 12px 12px 24px 0 rgb(0 0 0 / 20%), -12px -12px 24px 0 rgb(255 255 255 / 50%);
+        margin-bottom: 10px;
+    }
 
 </style>
 
+<!-- Styles für das Mehrfach-Dropdown -->
 <style>
     .multiselect__tags{
         border-radius: 28px;
