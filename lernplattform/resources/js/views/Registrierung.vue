@@ -31,14 +31,7 @@
                 </label>-->
 
                 <div class="headline-text-field">Interessen</div>
-                <div v-for="interest in interests" :class="{chippressed:interest.selected}" @click="$set(interest, 'selected', !interest.selected)" class="mdc-chip mdc-chip-filter" role="row">
-                    <div class="mdc-chip__ripple"></div>
-                    <span role="gridcell">
-                        <span role="button" tabindex="0" class="mdc-chip__primary-action">
-                            <span class="mdc-chip__text">{{interest.name}}</span>
-                        </span>
-                    </span>
-                </div>
+                <multiselect v-model="interestData" :options="interestsArray" :multiple="true"></multiselect>
 
 
                 <div class="headline-text-field">Aktuelle Tätigkeit</div>
@@ -76,7 +69,9 @@
 </template>
 
 <script>
+import Multiselect from 'vue-multiselect'
     export default {
+        components: { Multiselect },
         data() {
             return {
                 secrets:[],
@@ -91,18 +86,17 @@
                     job:'',
                     age:'',
                 },
-                interests:[],
                 interestData:[],
                 title: "Registrierung",
                 checkedAgb: false,
+                interestsArray: [],
             }
         },
         mounted() {
             // Get all Interests
             axios.get('/api/interests/getall').then(response => {
                 for(var i=0; i<response.data.length; i++){
-                    console.log(response.data[i].name);
-                    this.interests.push({name: response.data[i].name, selected: false});
+                    this.interestsArray.push(response.data[i].name);
                 }
             });
         },
@@ -117,12 +111,9 @@
                 });
             },
             handleRegister() {
-                this.pushInterests();
-                console.log(this.interestData);
                 if(!this.checkedAgb){
                     Vue.$toast.error('Du musst erst den AGBs zsutimmen.', {});
                 }else{
-                    this.pushInterests();
                     axios.get('/sanctum/csrf-cookie').then(response => {
                         axios.post('/registernormal', this.registerData).then(response => {
                             console.log(response);
@@ -140,13 +131,6 @@
                     });
                 }
             },
-            pushInterests() {
-                for(var i = 0; i < this.interests.length; i++){
-                    if(this.interests[i].selected){
-                        this.interestData.push(this.interests[i].name);
-                    }
-                };
-            },
             registerInterests() {
                 axios.post('/api/interests/send', this.interestData).then(response => {
                     console.log(response);
@@ -155,6 +139,8 @@
         }
     }
 </script>
+
+<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 
 <style scoped>
 
@@ -176,4 +162,14 @@
         font-weight: bold;
     }
 
+
+
+</style>
+
+<style>
+    .multiselect__tags{
+        border-radius: 28px;
+        box-shadow: inset 6px 6px 10px 0 rgb(0 0 0 / 20%), inset -6px -6px 10px 0 white, 12px 12px 24px 0 rgb(0 0 0 / 20%), -12px -12px 24px 0 rgb(255 255 255 / 50%);
+        overflow: hidden;
+    }
 </style>
