@@ -94,6 +94,10 @@
         min-height: 100vh;
     }
 
+    .content_wrapper {
+        margin-top: -25px;
+    }
+
 
     /* Utilities  */
 
