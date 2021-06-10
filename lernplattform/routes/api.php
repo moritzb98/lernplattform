@@ -28,6 +28,10 @@ use App\Http\Controllers\Karteikartencontroller;
 |
 */
 
+if (App::environment('production')) {
+    URL::forceScheme('https');
+}
+
 Route::middleware('auth:sanctum')->get('/authuser', function (Request $request) {
     return $request->user();
 });
