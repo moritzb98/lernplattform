@@ -133,25 +133,6 @@
         },
         methods: {
             createQuiz(){
-                /* this.quiz.category_id = 1;
-                this.quiz.name = "Test";
-                this.quiz.questions.push('Was ist cool?');
-                this.quiz.questions.push('Was ist blöd?');
-                this.quiz.answers.push({answer: 'Ich', is_correct: false});
-                this.quiz.answers.push({answer: 'Du', is_correct: false});
-                this.quiz.answers.push({answer: 'Moritz', is_correct: true});
-                this.quiz.answers.push({answer: 'Keiner', is_correct: false});
-                this.quiz.answers.push({answer: 'Er', is_correct: false});
-                this.quiz.answers.push({answer: 'Sie', is_correct: false});
-                this.quiz.answers.push({answer: 'Norman', is_correct: true});
-                this.quiz.answers.push({answer: 'Alle', is_correct: false}); */
-
-                /* axios.post('/api/quiz/create',this.quiz)
-                .then(response=>{
-                    console.log(response.data);
-                    Vue.$toast.success('Quiz erfolgreich erstellt.', {});
-                    this.$router.push({ path: '/spa/quizkategorie' });
-                }); */
 
                 var send = true;
                 for(var i = 0; i<this.quiz.questions.length; i++){
