@@ -86,6 +86,7 @@
         mounted(){
             this.collection.id = this.$route.params.id;
             this.data.collection_id = this.collection.id;
+
             axios.get('/api/collection/show/'+this.$route.params.id)
             .then(response=>{
                 this.collection = response.data.data[0];
@@ -93,13 +94,24 @@
                 this.collection.colorIcon = this.hexToRgbA(response.data.data[0].data.category_id.color, 0.5);
                 this.collection.icon = response.data.data[0].data.category_id.icon;
             });
+
             axios.post('/api/files/showInCollection', this.collection)
             .then(response=>{
                 this.filesToCollection = response.data.data;
             });
+
+            // Get all files
             axios.get('/api/getMyFiles')
             .then(response=>{
-                this.allFiles = response.data.data;
+                // only push files where not added to allFiles Array
+                for(var i=0; i<response.data.data.length; i++){
+                    console.log("ss");
+                    if(this.filesToCollection.some(file => file.data.file_id.id === response.data.data[i].data.id)){
+                        console.log("Schon zugeordnet");
+                    }else{
+                        this.allFiles.push(response.data.data[i]);
+                    };
+                }
             });
         },
         methods: {
