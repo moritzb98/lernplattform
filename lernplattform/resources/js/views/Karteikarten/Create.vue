@@ -24,56 +24,56 @@
             </div>
         </div>
 
-        <div>
+
+        <div class="content_wrapper">
             <div>
-                <!-- Select -->
-                <div class="headline-text-field">Kategorie wählen</div>
-                <select class="mdc-button mdc-button--raised button--big dropdown" name="categories" v-model="karteikartenset.category_id">
-                    <option selected="selected" value="">Bitte wähle eine Kategorie aus </option>
-                    <option v-for="categorie in categories" :key="categorie.name" :value="categorie.id">
-                        {{categorie.name}}
-                    </option>
-                </select>
-                <!-- Select End -->
-            </div>
-            <br>
+                <div>
+                    <!-- Select -->
+                    <div class="headline-text-field">Kategorie wählen</div>
+                    <select class="mdc-button mdc-button--raised button--big dropdown" name="categories" v-model="karteikartenset.category_id">
+                        <option selected="selected" value="">Bitte wähle eine Kategorie aus </option>
+                        <option v-for="categorie in categories" :key="categorie.name" :value="categorie.id">
+                            {{categorie.name}}
+                        </option>
+                    </select>
+                    <!-- Select End -->
+                </div>
+                <br>
 
-            <div class="headline-text-field">Titel</div>
-            <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
-                <input v-model="karteikartenset.name" type="text" class="mdc-text-field__input text-field__input--modified " placeholder="" aria-label="Label">
-            </label>
-            <hr class="trennungslinie-dick">
-
-            <div class="fragen-container" v-for="karteikarte in karteikarten" :key="karteikarte.index">
-                <h5>{{karteikarte.index}}.Karteikarte</h5>
-                <div class="headline-text-field">Vorderseite</div>
+                <div class="headline-text-field">Titel</div>
                 <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
-                    <input v-model="karteikarte.frontside" type="text" class="mdc-text-field__input text-field__input--modified " placeholder="" aria-label="Label">
+                    <input v-model="karteikartenset.name" type="text" class="mdc-text-field__input text-field__input--modified " placeholder="" aria-label="Label">
                 </label>
-                <div class="headline-text-field">Rückseite</div>
-                <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
-                    <input v-model="karteikarte.backside" type="text" class="mdc-text-field__input text-field__input--modified " placeholder="" aria-label="Label">
-                </label>
+                <hr class="trennungslinie-dick">
+
+                <div class="fragen-container" v-for="karteikarte in karteikarten" :key="karteikarte.index">
+                    <h5>{{karteikarte.index}}.Karteikarte</h5>
+                    <div class="headline-text-field">Vorderseite</div>
+                    <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
+                        <input v-model="karteikarte.frontside" type="text" class="mdc-text-field__input text-field__input--modified " placeholder="" aria-label="Label">
+                    </label>
+                    <div class="headline-text-field">Rückseite</div>
+                    <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
+                        <input v-model="karteikarte.backside" type="text" class="mdc-text-field__input text-field__input--modified " placeholder="" aria-label="Label">
+                    </label>
+                </div>
+
+                <button @click="addKarteikarte()" class="mdc-button mdc-button--raised button--big button-dashed-border mdc-card--new">
+                    <span class="button-text">Weitere Karteikarte</span> <span class="material-icons">add</span>
+                </button>
+
+                <hr class="trennungslinie-dick">
+                <button @click="createSet()" class="mdc-button mdc-button--raised button--big ohne-abstand">
+                    <span class="button-text">Karteikartenset erstellen</span> <span class="material-icons">navigate_next</span>
+                </button>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
             </div>
-
-            <button @click="addKarteikarte()" class="mdc-button mdc-button--raised button--big button-dashed-border mdc-card--new">
-                <span class="button-text">Weitere Karteikarte</span> <span class="material-icons">add</span>
-            </button>
-
-            <hr class="trennungslinie-dick">
-            <button @click="createSet()" class="mdc-button mdc-button--raised button--big ohne-abstand">
-                <span class="button-text">Karteikartenset erstellen</span> <span class="material-icons">navigate_next</span>
-            </button>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-
-
-
         </div>
 
         <!-- Nav -->

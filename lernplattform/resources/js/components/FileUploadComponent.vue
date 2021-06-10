@@ -23,33 +23,36 @@
         </div>
 
         <!-- Content  -->
-        <div class="row justify-content-center">
-            <div class="col-md-8">
 
-        <div class="container">
-            <div class="mdc-form-field">
-                <div class="mdc-radio">
-                    <input class="mdc-radio__native-control" type="radio" id="radio-1" name="radios" value="checked" v-model="test" unchecked>
-                    <div class="mdc-radio__background mdc-radio__background-container">
-                        <div class="mdc-radio__outer-circle mdc-radio__outer-circle-modified"></div>
-                        <div class="mdc-radio__inner-circle mdc-radio__inner-circle-modified"></div>
+        <div class="content_wrapper">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+
+            <div class="container">
+                <div class="mdc-form-field">
+                    <div class="mdc-radio">
+                        <input class="mdc-radio__native-control" type="radio" id="radio-1" name="radios" value="checked" v-model="test" unchecked>
+                        <div class="mdc-radio__background mdc-radio__background-container">
+                            <div class="mdc-radio__outer-circle mdc-radio__outer-circle-modified"></div>
+                            <div class="mdc-radio__inner-circle mdc-radio__inner-circle-modified"></div>
+                    </div>
+                    </div>
+
+                    <label class="radio-button-label" for="radio-1">
+                    <div class="urheber"> Hiermit bestätige ich dass die von mir geteilten Dateien nicht gegen das Urheberrecht verstoßen. Skillwire haftet nicht für Verstöße gegen das Urheberrecht. </div>
+                    </label>
                 </div>
-                </div>
-
-                <label class="radio-button-label" for="radio-1">
-                <div class="urheber"> Hiermit bestätige ich dass die von mir geteilten Dateien nicht gegen das Urheberrecht verstoßen. Skillwire haftet nicht für Verstöße gegen das Urheberrecht. </div>
-                </label>
-            </div>
 
 
-                    <div class="card-body">
-                        <form @submit="formSubmit" enctype="multipart/form-data">
-                            <input type="file" class="form-control" v-on:change="onChange">
-                            <button v-if="test" class="mdc-button mdc-button--raised button--big">
-                                <span class="button-text"> Datei hochladen </span>
-                            </button>
-                            <p class="notCheckedText" v-else>Du kannst die Datei erst hochladen, sobald du der oben genannte Erklärung zustimmst.</p>
-                        </form>
+                        <div class="card-body">
+                            <form @submit="formSubmit" enctype="multipart/form-data">
+                                <input type="file" class="form-control" v-on:change="onChange">
+                                <button v-if="test" class="mdc-button mdc-button--raised button--big">
+                                    <span class="button-text"> Datei hochladen </span>
+                                </button>
+                                <p class="notCheckedText" v-else>Du kannst die Datei erst hochladen, sobald du der oben genannte Erklärung zustimmst.</p>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
