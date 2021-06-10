@@ -40,6 +40,7 @@
                     </span>
                 </div>
 
+
                 <div class="headline-text-field">Aktuelle Tätigkeit</div>
                 <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
                     <input v-model="registerData.job" class="mdc-text-field__input text-field__input--modified" type="text" placeholder="" aria-label="Label">
@@ -60,10 +61,9 @@
                     <label class="radio-button-label" for="radio-1">Ich erkläre mich mit den AGB von Skillwire einverstanden.</label>
                 </div>
 
-                <button v-if="checkedAgb" class="mdc-button mdc-button--raised button--big" type="submit">
+                <button class="mdc-button mdc-button--raised button--big" type="submit">
                     <span class="button-text">Registrieren</span> <span class="material-icons">chevron_right</span>
                 </button>
-                <p class="notCheckedText" v-else>Du kannst dich erst registrieren, sobald du den AGB zugestimmt hast.</p>
         </form>
 
         <div class="text-no-account">Bereits einen Account? <router-link to="/spa/Login"><span class="text-bold">Jetzt einloggen</span></router-link></div>
@@ -118,21 +118,27 @@
             },
             handleRegister() {
                 this.pushInterests();
-                axios.get('/sanctum/csrf-cookie').then(response => {
-                    axios.post('/registernormal', this.registerData).then(response => {
-                        console.log(response);
-                        this.formData.email=this.registerData.email;
-                        this.formData.password=this.registerData.password;
-                        Vue.$toast.success('Registrierung erfolgreich', {});
-                        this.handleLogin();
-                    }).catch(error => {
-                        if(error.response.status === 422){
-                            Vue.$toast.error('Die angebenen Daten sind falsch, du brauchst eine valide E-Mail und ein Passwort mit mind. 8 Zeichen, einem Sonderzeichen, einer Zahl und einem Großbuchstaben.', {});
-                        }else{
-                            Vue.$toast.error('Bei der Registrierung ist etwas schifegegangen', {});
-                        }
+                console.log(this.interestData);
+                if(!this.checkedAgb){
+                    Vue.$toast.error('Du musst erst den AGBs zsutimmen.', {});
+                }else{
+                    this.pushInterests();
+                    axios.get('/sanctum/csrf-cookie').then(response => {
+                        axios.post('/registernormal', this.registerData).then(response => {
+                            console.log(response);
+                            this.formData.email=this.registerData.email;
+                            this.formData.password=this.registerData.password;
+                            Vue.$toast.success('Registrierung erfolgreich', {});
+                            this.handleLogin();
+                        }).catch(error => {
+                            if(error.response.status === 422){
+                                Vue.$toast.error('Die angebenen Daten sind falsch, du brauchst eine valide E-Mail und ein Passwort mit mind. 8 Zeichen, einem Sonderzeichen, einer Zahl und einem Großbuchstaben.', {});
+                            }else{
+                                Vue.$toast.error('Bei der Registrierung ist etwas schifegegangen', {});
+                            }
+                        });
                     });
-                });
+                }
             },
             pushInterests() {
                 for(var i = 0; i < this.interests.length; i++){
