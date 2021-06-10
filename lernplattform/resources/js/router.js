@@ -102,14 +102,6 @@ export const routes = [
           }
     },
     {
-        name: 'CreateQuiz',
-        path: '/spa/Quiz-erstellen',
-        component: CreateQuiz,
-        meta: {
-            requiresAuth: true
-          }
-    },
-    {
         name: 'CreateSkript',
         path: '/spa/Skript-erstellen',
         component: CreateSkript,
@@ -314,6 +306,14 @@ export const routes = [
         name: 'Auszeichnungen',
         path: '/spa/Auszeichnungen',
         component: Auszeichnungen,
+        meta: {
+            requiresAuth: true
+          }
+    },
+    {
+        name: 'CreateQuiz',
+        path: '/spa/Quiz-erstellen',
+        component: CreateQuiz,
         meta: {
             requiresAuth: true
           }
