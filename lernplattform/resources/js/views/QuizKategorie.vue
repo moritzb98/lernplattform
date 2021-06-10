@@ -19,12 +19,26 @@
         </div>
 
         <!-- Content -->
-        <a href="/spa/Auszeichnungen" class="button-link button-link--mittig">
+
+        <router-link to="/spa/Quiz-erstellen">
+            <button class="btn neumorph btn--dashed w-100 mb-3">
+                <span class="btn_text mdc-button__label ">Quiz erstellen</span>
+                <span class="btn_icon material-icons">add</span>
+            </button>
+        </router-link>
+
+        <router-link to="/spa/Auszeichnungen">
+            <button class="btn neumorph w-100 mb-3">
+                <span class="btn_text mdc-button__label ">Meine Auszeichnungen</span>
+                <span class="btn_icon material-icons">military_tech</span>
+            </button>
+        </router-link>
+
+        <!-- <a href="/spa/Auszeichnungen" class="button-link button-link--mittig">
             <button class="mdc-button mdc-button--raised button--big button--small abstand-weg">
                 <span class="button-text">Meine Auszeichnungen</span> <span class="material-icons">military_tech</span>
             </button>
-        </a>
-        <br>
+        </a> -->
 
         <div class="router-text" v-for="quizOb in quiz" :key="quizOb.id">
             <router-link :to='"/spa/quiz/"+quizOb.name'>
