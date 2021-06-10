@@ -16,6 +16,10 @@ use App\Http\Controllers\SearchFileController;
 |
 */
 
+if (App::environment('production')) {
+    URL::forceScheme('https');
+}
+
 Route::get('{any}', function () {
     return view('app');
 })->where('any', '.*');
