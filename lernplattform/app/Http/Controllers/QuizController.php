@@ -19,6 +19,13 @@ class QuizController extends Controller
         return $quizzes;
     }
 
+    public function getQuizCollection($category){
+        $categoryObject = Category::where('name', $category)->first();
+        $quizzes = new QuizCollection(Quiz::where('category_id', $categoryObject['id'])->get());
+
+        return $quizzes;
+    }
+
     public function getQuiz($category){
         $categoryObject = Category::where('name', $category)->first();
         $quizzes = Quiz::where('category_id', $categoryObject['id'])->get();
@@ -78,5 +85,46 @@ class QuizController extends Controller
         }
 
         return $result;
+    }
+
+    public function createQuiz(Request $request){
+
+        $quiz = Quiz::create([
+            'category_id' => $request['category_id'],
+            'name' => $request['name']
+        ]);
+
+        foreach($request['questions'] as $key => $question){
+            $newQuestion = Question::create( [
+                'quiz_id' => $quiz['id'],
+                'question' => $question['question'],
+                'questionNumber' => $key+1
+            ]);
+
+            foreach($question['answers'] as $answer){
+                Answer::create([
+                    'question_id' => $newQuestion['id'],
+                    'answer' => $answer['answer'],
+                    'is_correct' => $answer['is_correct']
+                ]);
+            }
+        };
+
+
+        return response()->json(['´success' => 'Quiz erfolgreich erstellt.'], 200);
+    }
+
+    public function deleteQuiz($quizid){
+
+        $questions = Question::where('quiz_id', $quizid)->get();
+
+        foreach($questions as $question){
+            Answer::where('question_id', $question['id'])->delete();
+            Question::where('id', $question['id'])->delete();
+        };
+
+        Quiz::where('id', $quizid)->delete();
+
+        return response()->json(['´success' => 'Quiz erfolgreich gelöscht.'], 200);
     }
 }

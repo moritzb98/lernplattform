@@ -56,7 +56,7 @@ class FileController extends Controller
         }
 
         public function showUserFiles(){
-            return new UserFilesCollection(FileUpload::where('user_id', Auth::user()->id)->get());
+            return new FilesCollection(FileUpload::where('user_id', Auth::user()->id)->get());
         }
 
         public function showFilesInCollection(Request $request){
@@ -66,7 +66,6 @@ class FileController extends Controller
 
         public function showCollectionsToFile(Request $request){
             $files =  new CollFilesCollection(CollectionFiles::where('file_id', $request['file_id'])->get());
-            dd($files);
             return $files;
         }
 

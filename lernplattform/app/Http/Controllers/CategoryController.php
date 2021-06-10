@@ -14,4 +14,8 @@ class CategoryController extends Controller
     public function getCategory($id){
         return Category::where('id', $id)->first();
     }
+
+    public function getCategoryWithName($name){
+        return Category::where('name', $name)->first();
+    }
 }

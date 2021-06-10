@@ -19,21 +19,35 @@
         </div>
 
         <!-- Content -->
-        <a href="/spa/Auszeichnungen" class="button-link button-link--mittig">
+
+        <router-link to="/spa/Quiz-erstellen">
+            <button class="btn neumorph btn--dashed w-100 mb-3">
+                <span class="btn_text mdc-button__label ">Quiz erstellen</span>
+                <span class="btn_icon material-icons">add</span>
+            </button>
+        </router-link>
+
+        <router-link to="/spa/Auszeichnungen">
+            <button class="btn neumorph w-100 mb-3">
+                <span class="btn_text mdc-button__label ">Meine Auszeichnungen</span>
+                <span class="btn_icon material-icons">military_tech</span>
+            </button>
+        </router-link>
+
+        <!-- <a href="/spa/Auszeichnungen" class="button-link button-link--mittig">
             <button class="mdc-button mdc-button--raised button--big button--small abstand-weg">
                 <span class="button-text">Meine Auszeichnungen</span> <span class="material-icons">military_tech</span>
             </button>
-        </a>
-        <br>
+        </a> -->
 
-        <div class="router-text" v-for="category in categorieNames" :key="categorieNames.name">
-            <router-link :to='"/spa/quiz/"+category'>
+        <div class="router-text" v-for="quizOb in quiz" :key="quizOb.id">
+            <router-link :to='"/spa/quiz/"+quizOb.name'>
                 <div class="kategorie-container">
                     <div class="kategorie-icon-container">
-                        <span class="material-icons-outlined quiz-kategorie-icon">biotech</span>
+                        <span :style="{ color: quizOb.color }" class="material-icons-outlined quiz-kategorie-icon">{{quizOb.icon}}</span>
                     </div>
-                    <div class="quiz-kategorie-container">
-                        <div>{{category}}</div>
+                    <div :style="{ backgroundImage: 'radial-gradient(white, white), radial-gradient(circle at top left,white, '+ quizOb.color  + ')' }" class="quiz-kategorie-container">
+                        <div>{{quizOb.name}}</div>
                         <div class="play-now-text">Jetzt spielen</div>
                     </div>
                 </div>
@@ -50,18 +64,28 @@
     export default {
         data() {
             return {
-                categorieNames: [],
+                quiz: [],
             }
         },
         mounted(){
             axios.get('/api/categories/quiz')
             .then(response=>{
+                //this.quiz = response.data.data;
                 let quizzes = response.data.data;
-                for(var i=0; i< quizzes.length; i++){
-                    if(!this.categorieNames.includes(quizzes[i].data.category_id.name)){
-                        this.categorieNames.push(quizzes[i].data.category_id.name);
+                for(var i = 0; i < quizzes.length; i++){
+                    var checkQuiz = {
+                        name: quizzes[i].data.category_id.name,
+                        color: quizzes[i].data.category_id.color,
+                        id: quizzes[i].data.id,
+                        icon: quizzes[i].data.category_id.icon,
+                    }
+                    if(this.quiz.some(quiz => quiz.name === checkQuiz.name)){
+                        console.log("Kategorie schon vorhanden!")
+                    }else{
+                        this.quiz.push({name: checkQuiz.name, color: checkQuiz.color, id: checkQuiz.id, icon: checkQuiz.icon});
                     }
                 }
+                console.log(this.quiz);
             });
 
         },

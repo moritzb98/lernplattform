@@ -9,11 +9,10 @@
                 </div>
             </div>
         </div>
-
         <div class="background-container">
             <div :style="{ backgroundColor: collection.colorBackground }"  class="background">
-                <span :style="{ color: collection.colorIcon }" class="material-icons-outlined icon-für-oberen-Bereich">biotech</span>
-                <div :style="{ color: collection.category_id.color }" class="überschrift-oberer-Bereich">{{collection.name}}</div>
+                <span :style="{ color: collection.colorIcon }" class="material-icons-outlined icon-für-oberen-Bereich">{{collection.icon}}</span>
+                <div :style="{ color: collection.data.category_id.color }" class="überschrift-oberer-Bereich">{{collection.data.name}}</div>
             </div>
 
             <div :style="{ backgroundColor: collection.colorBackground }"  class="fabriges-rechteck">
@@ -22,18 +21,18 @@
         </div>
 
 
-            <div :style="{ backgroundImage: 'radial-gradient(white, white), radial-gradient(circle at top left,white, '+ collection.category_id.color  + ')' }" class="mdc-card mdc-card-lernmaterial">
+            <div :style="{ backgroundImage: 'radial-gradient(white, white), radial-gradient(circle at top left,white, '+ collection.data.category_id.color  + ')' }" class="mdc-card mdc-card-lernmaterial">
                 <div class="card-lernmaterial-spacing card-lernmaterial-spacing-zweispaltig">
-                    <div :style="{ backgroundColor: collection.category_id.color }" class="card-lernmaterial-icon-container card-lernmaterial-icon-container-weiter-rechts">
-                        <span class="material-icons material-icons-lernmaterial">school</span>
+                    <div :style="{ backgroundColor: collection.data.category_id.color }" class="card-lernmaterial-icon-container card-lernmaterial-icon-container-weiter-rechts">
+                        <span class="material-icons material-icons-lernmaterial">{{collection.icon}}</span>
                     </div>
                     <div class="card-lernmaterial-middle-column-container card-lernmaterial-middle-column-container-zweispaltig">
                         <div class="mdc-chip-container">
-                            <div :style="{ backgroundColor: collection.category_id.color }" class="mdc-chip mdc-chip--red mdc-chip-lernmaterial" role="row">
-                                <span class="mdc-chip__text"> {{collection.category_id.name}}</span>
+                            <div :style="{ backgroundColor: collection.data.category_id.color }" class="mdc-chip mdc-chip--red mdc-chip-lernmaterial" role="row">
+                                <span class="mdc-chip__text"> {{collection.data.category_id.name}}</span>
                             </div>
                         </div>
-                        <div class="card-lernmaterial-headline card-lernmaterial-headline-collection-detail">{{collection.name}}</div>
+                        <div class="card-lernmaterial-headline card-lernmaterial-headline-collection-detail">{{collection.data.name}}</div>
                     </div>
                 </div>
                 <div class="strich-container">
@@ -71,11 +70,8 @@
         data() {
             return {
                 collection:{
-                    colorBackground: '',
-                    colorIcon: '',
-                    name: '',
-                    category_id:{
-                        color: '',
+                    data: {
+                        category_id: "",
                     }
                 },
                 filesToCollection:[],
@@ -90,19 +86,32 @@
         mounted(){
             this.collection.id = this.$route.params.id;
             this.data.collection_id = this.collection.id;
+
             axios.get('/api/collection/show/'+this.$route.params.id)
             .then(response=>{
-                this.collection = response.data.data[0].data;
+                this.collection = response.data.data[0];
                 this.collection.colorBackground = this.hexToRgbA(response.data.data[0].data.category_id.color, 0.4);
                 this.collection.colorIcon = this.hexToRgbA(response.data.data[0].data.category_id.color, 0.5);
+                this.collection.icon = response.data.data[0].data.category_id.icon;
             });
+
             axios.post('/api/files/showInCollection', this.collection)
             .then(response=>{
                 this.filesToCollection = response.data.data;
             });
+
+            // Get all files
             axios.get('/api/getMyFiles')
             .then(response=>{
-                this.allFiles = response.data.data;
+                // only push files if not added to allFiles Array
+                for(var i=0; i<response.data.data.length; i++){
+                    console.log("ss");
+                    if(this.filesToCollection.some(file => file.data.file_id.id === response.data.data[i].data.id)){
+                        console.log("Schon zugeordnet");
+                    }else{
+                        this.allFiles.push(response.data.data[i]);
+                    };
+                }
             });
         },
         methods: {
@@ -111,14 +120,15 @@
                 axios.post('/api/collection/addFile', this.data)
                 .then(response=>{
                     Vue.$toast.success('Datei erfolgreich zugeordnet', {});
-                    this.getData();
+                    //this.getData();
+                    this.$router.go();
                 });
             },
             getData(){
                 axios.post('/api/files/showInCollection', this.collection)
                 .then(response=>{
                     this.filesToCollection = response.data.data;
-                    console.log(response.data)
+                    //this.$router.go();
                 });
             },
             hexToRgbA(hex, opacity){

@@ -18,6 +18,7 @@ class Quiz extends JsonResource
             'data' => [
                 "category_id" => $this->category,
                 "name" => $this->name,
+                "id" => $this->id,
             ],
         ];
     }

@@ -3,7 +3,6 @@
         <!-- Header [Back] -->
         <div class="header_wrapper">
             <div class="header header--back">
-                <span class="material-icons neumorph header_back" @click="$router.go(-1)">arrow_back</span>
                 <div class="header_title">
                     {{title}}
                 </div>
@@ -21,7 +20,12 @@
                 <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
                     <input v-model="registerData.name" class="mdc-text-field__input text-field__input--modified" type="text" placeholder="" aria-label="Label">
                 </label>
-                <div class="headline-text-field">Passwort*</div>
+                <div class="headline-text-field">Passwort* <span @click="showInfo = !showInfo" class="material-icons-outlined info">info</span></div>
+                <transition name="fade">
+                    <div v-if="showInfo" class="info-container">
+                        <span  class="headline-text-field info-text">Das Passwort muss mindestens 8 Zeichen, ein Großbuchstaben, eine Zahl und ein Sodnerzeichen besitzen.</span>
+                    </div>
+                </transition>
                 <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
                     <input v-model="registerData.password" class="mdc-text-field__input text-field__input--modified" type="password" placeholder="" aria-label="Label">
                 </label>
@@ -31,14 +35,8 @@
                 </label>-->
 
                 <div class="headline-text-field">Interessen</div>
-                <div v-for="interest in interests" :class="{chippressed:interest.selected}" @click="$set(interest, 'selected', !interest.selected)" class="mdc-chip mdc-chip-filter" role="row">
-                    <div class="mdc-chip__ripple"></div>
-                    <span role="gridcell">
-                        <span role="button" tabindex="0" class="mdc-chip__primary-action">
-                            <span class="mdc-chip__text">{{interest.name}}</span>
-                        </span>
-                    </span>
-                </div>
+                <multiselect v-model="interestData" :options="interestsArray" :multiple="true"></multiselect>
+
 
                 <div class="headline-text-field">Aktuelle Tätigkeit</div>
                 <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
@@ -60,10 +58,9 @@
                     <label class="radio-button-label" for="radio-1">Ich erkläre mich mit den AGB von Skillwire einverstanden.</label>
                 </div>
 
-                <button v-if="checkedAgb" class="mdc-button mdc-button--raised button--big" type="submit">
+                <button class="mdc-button mdc-button--raised button--big" type="submit">
                     <span class="button-text">Registrieren</span> <span class="material-icons">chevron_right</span>
                 </button>
-                <p class="notCheckedText" v-else>Du kannst dich erst registrieren, sobald du den AGB zugestimmt hast.</p>
         </form>
 
         <div class="text-no-account">Bereits einen Account? <router-link to="/spa/Login"><span class="text-bold">Jetzt einloggen</span></router-link></div>
@@ -76,7 +73,9 @@
 </template>
 
 <script>
+import Multiselect from 'vue-multiselect'
     export default {
+        components: { Multiselect },
         data() {
             return {
                 secrets:[],
@@ -91,18 +90,18 @@
                     job:'',
                     age:'',
                 },
-                interests:[],
                 interestData:[],
                 title: "Registrierung",
                 checkedAgb: false,
+                interestsArray: [],
+                showInfo: false,
             }
         },
         mounted() {
             // Get all Interests
             axios.get('/api/interests/getall').then(response => {
                 for(var i=0; i<response.data.length; i++){
-                    console.log(response.data[i].name);
-                    this.interests.push({name: response.data[i].name, selected: false});
+                    this.interestsArray.push(response.data[i].name);
                 }
             });
         },
@@ -117,29 +116,25 @@
                 });
             },
             handleRegister() {
-                this.pushInterests();
-                axios.get('/sanctum/csrf-cookie').then(response => {
-                    axios.post('/registernormal', this.registerData).then(response => {
-                        console.log(response);
-                        this.formData.email=this.registerData.email;
-                        this.formData.password=this.registerData.password;
-                        Vue.$toast.success('Registrierung erfolgreich', {});
-                        this.handleLogin();
-                    }).catch(error => {
-                        if(error.response.status === 422){
-                            Vue.$toast.error('Die angebenen Daten sind falsch, du brauchst eine valide E-Mail und mind. 6 Zeichen beim Passwort.', {});
-                        }else{
-                            Vue.$toast.error('Bei der Registrierung ist etwas schifegegangen', {});
-                        }
+                if(!this.checkedAgb){
+                    Vue.$toast.error('Du musst erst den AGBs zsutimmen.', {});
+                }else{
+                    axios.get('/sanctum/csrf-cookie').then(response => {
+                        axios.post('/registernormal', this.registerData).then(response => {
+                            console.log(response);
+                            this.formData.email=this.registerData.email;
+                            this.formData.password=this.registerData.password;
+                            Vue.$toast.success('Registrierung erfolgreich', {});
+                            this.handleLogin();
+                        }).catch(error => {
+                            if(error.response.status === 422){
+                                Vue.$toast.error('Die angebenen Daten sind falsch, du brauchst eine valide E-Mail und ein Passwort mit mind. 8 Zeichen, einem Sonderzeichen, einer Zahl und einem Großbuchstaben.', {});
+                            }else{
+                                Vue.$toast.error('Bei der Registrierung ist etwas schifegegangen', {});
+                            }
+                        });
                     });
-                });
-            },
-            pushInterests() {
-                for(var i = 0; i < this.interests.length; i++){
-                    if(this.interests[i].selected){
-                        this.interestData.push(this.interests[i].name);
-                    }
-                };
+                }
             },
             registerInterests() {
                 axios.post('/api/interests/send', this.interestData).then(response => {
@@ -149,6 +144,8 @@
         }
     }
 </script>
+
+<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 
 <style scoped>
 
@@ -170,4 +167,33 @@
         font-weight: bold;
     }
 
+    .info{
+        font-size: 1.1em;
+        color: #212121;
+    }
+
+    .info-text{
+        font-size: 0.9em;
+    }
+
+    .info-container{
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: inset 6px 6px 10px 0 rgb(0 0 0 / 20%), inset -6px -6px 10px 0 white, 12px 12px 24px 0 rgb(0 0 0 / 20%), -12px -12px 24px 0 rgb(255 255 255 / 50%);
+        margin-bottom: 10px;
+    }
+
+</style>
+
+<!-- Styles für das Mehrfach-Dropdown -->
+<style>
+    .multiselect__tags{
+        border-radius: 28px;
+        box-shadow: inset 6px 6px 10px 0 rgb(0 0 0 / 20%), inset -6px -6px 10px 0 white, 12px 12px 24px 0 rgb(0 0 0 / 20%), -12px -12px 24px 0 rgb(255 255 255 / 50%);
+        overflow: hidden;
+    }
+
+    .multiselect--active{
+        border-radius: 28px;
+    }
 </style>

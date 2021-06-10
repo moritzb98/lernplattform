@@ -10,6 +10,8 @@ npm run watch
 
 open folder in terminal
 
+php artisan db:seed
+
 npm install / npm install node-sass@4.14.1
 
 npm run watch

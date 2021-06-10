@@ -28,6 +28,10 @@ use App\Http\Controllers\Karteikartencontroller;
 |
 */
 
+if (App::environment('production')) {
+    URL::forceScheme('https');
+}
+
 Route::middleware('auth:sanctum')->get('/authuser', function (Request $request) {
     return $request->user();
 });
@@ -82,11 +86,14 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     //Quiz
     Route::get('categories/quiz', [QuizController::class, 'getAllCategoriesQuizzesAreIn']);
+    Route::get('quiz/collection/{category}', [QuizController::class, 'getQuizCollection']);
     Route::get('quiz/{category}', [QuizController::class, 'getQuiz']);
     Route::get('quiz/questions/{quizid}', [QuizController::class, 'getQuestion']);
     Route::get('quiz/id/{quizid}', [QuizController::class, 'getQuizWithId']);
     Route::post('quiz/saveResult', [QuizController::class, 'saveResult']);
     Route::post('quiz/id/result', [QuizController::class, 'getResult']);
+    Route::post('quiz/create', [QuizController::class, 'createQuiz']);
+    Route::get('quiz/delete/{quizid}', [QuizController::class, 'deleteQuiz']);
 
     //Badges
     Route::get('results', [BadgeController::class, 'getResults']);
@@ -96,6 +103,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     // Category
     Route::get('categories', [CategoryController::class, 'getAll']);
     Route::get('categories/{id}', [CategoryController::class, 'getCategory']);
+    Route::get('categories/name/{name}', [CategoryController::class, 'getCategoryWithName']);
 
     //Karteikartensets
     Route::get('karteikartensets', [Karteikartensetcontroller::class, 'getSets']);
