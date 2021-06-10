@@ -45,6 +45,7 @@ import QuizKategorie from './views/QuizKategorie.vue'
 import QuizDetail from './views/QuizDetail.vue'
 import Quiz from './views/Quiz.vue'
 import Auszeichnungen from './views/Auszeichnungen.vue'
+import MeineQuizzes from './views/MeineQuizzes.vue'
 
 // NotFoundPage
 import NotFoundPage from './views/NotFoundPage.vue'
@@ -318,7 +319,13 @@ export const routes = [
             requiresAuth: true
           }
     },
-
-
+    {
+        name: 'MeineQuizzes',
+        path: '/spa/Meine-Quiz',
+        component: MeineQuizzes,
+        meta: {
+            requiresAuth: true
+          }
+    },
 
 ];
