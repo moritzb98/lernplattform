@@ -12,7 +12,7 @@
 
         <div class="background-container">
             <div :style="{ backgroundColor: colorBackground }" class="background">
-                <span :style="{ color: colorIcon }" class="material-icons-outlined icon-für-oberen-Bereich">biotech</span>
+                <span :style="{ color: colorIcon }" class="material-icons-outlined icon-für-oberen-Bereich">{{quizzes[0].data.category_id.icon}}</span>
                 <div :style="{ color: color }" class="überschrift-oberer-Bereich" >
                     {{ category }}
                     <div :style="{ color: colorText }" class="unterüberschrift-oberer-bereich">Quiz Übersicht</div>
@@ -93,7 +93,7 @@ import ProgressBar from 'vue-simple-progress'
                         }
                     }
                 });
-
+                console.log(this.quizzes);
             });
 
         },

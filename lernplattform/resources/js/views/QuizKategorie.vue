@@ -30,7 +30,7 @@
             <router-link :to='"/spa/quiz/"+quizOb.name'>
                 <div class="kategorie-container">
                     <div class="kategorie-icon-container">
-                        <span :style="{ color: quizOb.color }" class="material-icons-outlined quiz-kategorie-icon">biotech</span>
+                        <span :style="{ color: quizOb.color }" class="material-icons-outlined quiz-kategorie-icon">{{quizOb.icon}}</span>
                     </div>
                     <div :style="{ backgroundImage: 'radial-gradient(white, white), radial-gradient(circle at top left,white, '+ quizOb.color  + ')' }" class="quiz-kategorie-container">
                         <div>{{quizOb.name}}</div>
