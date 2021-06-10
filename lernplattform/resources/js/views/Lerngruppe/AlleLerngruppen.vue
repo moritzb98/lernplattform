@@ -31,7 +31,7 @@
         <!-- <div class="row justify-content-center mb-3" style="margin-top: -30px;"> -->
 
         <div class="row justify-content-center mb-3">
-            <div class="col-11">
+            <div class="col-12">
                 <div v-for="(room, index) in rooms" :key="index">
                     <div class="neumorph card-small mb-2">
                         {{room.name}}
@@ -48,7 +48,6 @@
                             </div> -->
                         </div>
                     </div>
-                    <!-- delete gibt 405 zurück -->
                 </div>
             </div>
         </div>

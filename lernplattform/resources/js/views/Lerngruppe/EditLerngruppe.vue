@@ -25,7 +25,7 @@
         <div class="content_wrapper">
             <div class="row">
                 <div class="col-12">
-                    <div class="headline-text-field">Name der Lerngruppe</div>
+                    <div class="headline-text-field">Neuer Name der Lerngruppe</div>
                     <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
                         <input maxlength="30" v-model="room.roomName" type="text" class="mdc-text-field__input text-field__input--modified " placeholder="" aria-label="Label">
                     </label>
@@ -33,7 +33,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <div class="headline-text-field">Maximale Personenzahl</div>
+                    <div class="headline-text-field">Neue maximale Personenzahl</div>
                     <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
                         <input v-model="room.roomMaxPersons" type="number" class="mdc-text-field__input text-field__input--modified " placeholder="" aria-label="Label">
                     </label>
