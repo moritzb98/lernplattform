@@ -172,4 +172,8 @@ import Multiselect from 'vue-multiselect'
         box-shadow: inset 6px 6px 10px 0 rgb(0 0 0 / 20%), inset -6px -6px 10px 0 white, 12px 12px 24px 0 rgb(0 0 0 / 20%), -12px -12px 24px 0 rgb(255 255 255 / 50%);
         overflow: hidden;
     }
+
+    .multiselect--active{
+        border-radius: 28px;
+    }
 </style>
