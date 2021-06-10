@@ -95,6 +95,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('quiz/create', [QuizController::class, 'createQuiz']);
     Route::get('quiz/delete/{quizid}', [QuizController::class, 'deleteQuiz']);
 
+    Route::get('quiz/getmyquizzes', [QuizController::class, 'getMyQuizzes']);
+
     //Badges
     Route::get('results', [BadgeController::class, 'getResults']);
     Route::get('userbadges', [BadgeController::class, 'getUserBadges']);

@@ -585,6 +585,10 @@
         margin: 0;
     }
 
+    .card-small--border {
+        border: 1px solid red;
+    }
+
 
 
 
