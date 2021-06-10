@@ -9,8 +9,6 @@
                 </div>
             </div>
         </div>
-        <!-- Icon Test
-        <span class="material-icons-outlined">{{collection.icon}}</span>-->
         <div class="background-container">
             <div :style="{ backgroundColor: collection.colorBackground }"  class="background">
                 <span :style="{ color: collection.colorIcon }" class="material-icons-outlined icon-für-oberen-Bereich">{{collection.icon}}</span>
@@ -71,7 +69,11 @@
     export default {
         data() {
             return {
-                collection:{},
+                collection:{
+                    data: {
+                        category_id: "",
+                    }
+                },
                 filesToCollection:[],
                 allFiles:[],
                 data: {
@@ -106,14 +108,15 @@
                 axios.post('/api/collection/addFile', this.data)
                 .then(response=>{
                     Vue.$toast.success('Datei erfolgreich zugeordnet', {});
-                    this.getData();
+                    //this.getData();
+                    this.$router.go();
                 });
             },
             getData(){
                 axios.post('/api/files/showInCollection', this.collection)
                 .then(response=>{
                     this.filesToCollection = response.data.data;
-                    console.log(response.data)
+                    //this.$router.go();
                 });
             },
             hexToRgbA(hex, opacity){

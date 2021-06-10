@@ -12,7 +12,7 @@
 
         <div class="background-container">
             <div :style="{ backgroundColor: colorBackground }" class="background">
-                <span :style="{ color: colorIcon }" class="material-icons-outlined icon-für-oberen-Bereich">{{quizzes[0].data.category_id.icon}}</span>
+                <span :style="{ color: colorIcon }" class="material-icons-outlined icon-für-oberen-Bereich">{{icon}}</span>
                 <div :style="{ color: color }" class="überschrift-oberer-Bereich" >
                     {{ category }}
                     <div :style="{ color: colorText }" class="unterüberschrift-oberer-bereich">Quiz Übersicht</div>
@@ -67,6 +67,7 @@ import ProgressBar from 'vue-simple-progress'
                 colorIcon: "",
                 colorText: "",
                 color: "",
+                icon: "",
             }
         },
         mounted(){
@@ -77,6 +78,7 @@ import ProgressBar from 'vue-simple-progress'
                 this.colorBackground = this.hexToRgbA(response.data.data[0].data.category_id.color,0.4);
                 this.colorIcon = this.hexToRgbA(response.data.data[0].data.category_id.color,0.5);
                 this.colorText = this.hexToRgbA(response.data.data[0].data.category_id.color,0.7);
+                this.icon = response.data.data[0].data.category_id.icon;
             });
 
             axios.get('/api/quiz/' + this.category)
