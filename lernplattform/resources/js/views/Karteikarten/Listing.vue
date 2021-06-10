@@ -20,10 +20,10 @@
                     <p class="card-text--small"> Karteikartenset erstellen</p>
                 </div>
             </router-link>
-            <div class="mdc-card-container--45" v-for="karteikartenset in karteikartenset" :key="karteikartenset.data.id">
+            <div class="mdc-card-container--45" v-for="karteikartenset in karteikartensets" :key="karteikartenset.data.id">
                 <router-link :to='"/spa/Karteikartenset/"+ karteikartenset.data.id'>
                     <div :style="{ backgroundImage: 'radial-gradient(white, white), radial-gradient(circle at top left,white, '+ karteikartenset.data.category_id.color  + ')' }"  class="router-text mdc-card mdc-card--middle mdc-card--100">
-                        <span :style="{ color: karteikartenset.data.category_id.color }" class="material-icons-outlined card-icons--big">biotech</span>
+                        <span :style="{ color: karteikartenset.data.category_id.color }" class="material-icons-outlined card-icons--big">{{karteikartenset.data.category_id.icon}}</span>
                         <p class="card-text--small">{{karteikartenset.data.name}}</p>
                     </div>
                 </router-link>
@@ -40,15 +40,15 @@
     export default {
         data() {
             return {
-                karteikartenset:[],
+                karteikartensets:[],
                 title: "Karteikartensets"
             }
         },
         mounted(){
             axios.get('/api/karteikartensets')
             .then(response=>{
-                this.karteikartenset = response.data.data;
-                console.log(response.data);
+                this.karteikartensets = response.data.data;
+                console.log(response.data.data);
             });
 
         },

@@ -13,7 +13,7 @@
         <span class="material-icons-outlined">{{collection.icon}}</span>-->
         <div class="background-container">
             <div :style="{ backgroundColor: collection.colorBackground }"  class="background">
-                <span :style="{ color: collection.colorIcon }" class="material-icons-outlined icon-für-oberen-Bereich">biotech</span>
+                <span :style="{ color: collection.colorIcon }" class="material-icons-outlined icon-für-oberen-Bereich">{{collection.icon}}</span>
                 <div :style="{ color: collection.data.category_id.color }" class="überschrift-oberer-Bereich">{{collection.data.name}}</div>
             </div>
 
@@ -26,7 +26,7 @@
             <div :style="{ backgroundImage: 'radial-gradient(white, white), radial-gradient(circle at top left,white, '+ collection.data.category_id.color  + ')' }" class="mdc-card mdc-card-lernmaterial">
                 <div class="card-lernmaterial-spacing card-lernmaterial-spacing-zweispaltig">
                     <div :style="{ backgroundColor: collection.data.category_id.color }" class="card-lernmaterial-icon-container card-lernmaterial-icon-container-weiter-rechts">
-                        <span class="material-icons material-icons-lernmaterial">school</span>
+                        <span class="material-icons material-icons-lernmaterial">{{collection.icon}}</span>
                     </div>
                     <div class="card-lernmaterial-middle-column-container card-lernmaterial-middle-column-container-zweispaltig">
                         <div class="mdc-chip-container">

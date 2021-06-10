@@ -18,6 +18,7 @@
     <link rel="manifest" href="/manifest.json" />
 
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="https://kit.fontawesome.com/56ce4f4c8d.js" crossorigin="anonymous"></script>
 
 </head>
 

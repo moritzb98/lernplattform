@@ -12,7 +12,7 @@
 
         <div class="background-container">
             <div :style="{ backgroundColor: category.colorBackground }" class="background">
-                <span :style="{ color: category.colorIcon }" class="material-icons-outlined icon-für-oberen-Bereich">biotech</span>
+                <span :style="{ color: category.colorIcon }" class="material-icons-outlined icon-für-oberen-Bereich">{{category.icon}}</span>
                 <div :style="{ color: category.color }" class="überschrift-oberer-Bereich" >
                      {{ category.name }}
                     <div :style="{ color: category.colorText }" class="unterüberschrift-oberer-bereich">Karteikarte {{ count +1 }}/{{ karteikartenset.karteikarten.length }}</div>
@@ -79,6 +79,7 @@
                     colorBackground: "",
                     colorIcon: "",
                     colorText: "",
+                    icon: "",
                 },
                 count: 0,
                 lastCard: false,
@@ -96,7 +97,7 @@
                 this.category.colorBackground = this.hexToRgbA(this.category.color,0.4);
                 this.category.colorIcon = this.hexToRgbA(this.category.color,0.5);
                 this.category.colorText = this.hexToRgbA(this.category.color,0.7);
-                console.log("dsds");
+                this.category.icon = response.data.data[0].data.category_id.icon;
 });
             axios.get('/api/karteikarten/' + this.karteikartenset.id)
             .then(response=>{
