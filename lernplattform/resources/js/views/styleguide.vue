@@ -263,6 +263,48 @@
             <label for="basic-switch">Öffentlich</label>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="mdc-card-container--45" v-for="collection in collections" :key="collection.data.id">
+                <router-link :to='"/spa/Collection-detail/"+collection.data.id'>
+                    <div :style="{ backgroundImage: 'radial-gradient(white, white), radial-gradient(circle at top left,white, '+ collection.data.category_id.color  + ')' }" class="router-text mdc-card mdc-card--middle mdc-card--100">
+                        <span :style="{ color: collection.data.category_id.color }" class="material-icons-outlined card-icons--big">{{collection.data.category_id.icon}}</span>
+                        <p class="card-text--small">{{collection.data.name}}</p>
+                    </div>
+                </router-link>
+            </div>
+
+
+
+            <div class="router-text" v-for="quizOb in quiz" :key="quizOb.id">
+                <router-link :to='"/spa/quiz/"+quizOb.name'>
+                    <div class="kategorie-container">
+                        <div class="kategorie-icon-container">
+                            <span :style="{ color: quizOb.color }" class="material-icons-outlined quiz-kategorie-icon">{{quizOb.icon}}</span>
+                        </div>
+                        <div :style="{ backgroundImage: 'radial-gradient(white, white), radial-gradient(circle at top left,white, '+ quizOb.color  + ')' }" class="quiz-kategorie-container">
+                            <div>{{quizOb.name}}</div>
+                            <div class="play-now-text">Jetzt spielen</div>
+                        </div>
+                    </div>
+                </router-link>
+                <br>
+            </div>
+
+
+
+
+
             <!-- Nav -->
         <Nav />
 
