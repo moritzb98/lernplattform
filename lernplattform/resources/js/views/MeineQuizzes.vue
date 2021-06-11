@@ -26,15 +26,15 @@
     export default {
         data() {
             return {
-                title: "Meine Quiz"
+                title: "Meine Quiz",
+                quizzes: [],
             }
         },
         methods: {
             getmyQuizzes() {
-                this.axios.get('/api/getmyquizzes')
+                axios.get('/api/myquiz')
                     .then(response=>{
-                        this.quizzes=response.data,
-                        console.log(this.quizzes);
+                        console.log(response.data);
                     })
             },
         },
