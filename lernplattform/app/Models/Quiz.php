@@ -14,7 +14,7 @@ class Quiz extends Model implements Searchable
     protected $table = 'quiz';
 
     protected $fillable = [
-        'category_id', 'name',
+        'category_id', 'name', 'user_id'
     ];
 
     public function category(){

@@ -91,7 +91,8 @@ class QuizController extends Controller
 
         $quiz = Quiz::create([
             'category_id' => $request['category_id'],
-            'name' => $request['name']
+            'name' => $request['name'],
+            'user_id' => Auth::user()->id,
         ]);
 
         foreach($request['questions'] as $key => $question){
@@ -126,5 +127,9 @@ class QuizController extends Controller
         Quiz::where('id', $quizid)->delete();
 
         return response()->json(['´success' => 'Quiz erfolgreich gelöscht.'], 200);
+    }
+
+    public function getMyQuiz(){
+        return Question::where('user', Auth::user()->id)->get();
     }
 }
