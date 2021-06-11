@@ -140,9 +140,13 @@
                 for(var i = 0; i<this.quiz.questions.length; i++){
                     var correctAnswers = 0;
                     for(var a = 0; a<this.quiz.questions[i].answers.length; a++){
-                        console.log(this.quiz.questions[i].answers[a].is_correct);
+                        console.log(this.quiz.questions[i].answers[a].answer);
                         if(this.quiz.questions[i].answers[a].is_correct){
                             correctAnswers++;
+                        }
+                        if(this.quiz.questions[i].answers[a].answer === ""){
+                            Vue.$toast.error('Du musst alle Antworten ausfüllen.', {});
+                            send = false;
                         }
                     }
                     if(correctAnswers != 1){
@@ -152,6 +156,8 @@
                     }
                     correctAnswers = 0;
                 }
+
+
 
                 if(this.quiz.questions.length<3){
                     send = false;
