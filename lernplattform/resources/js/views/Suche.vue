@@ -45,9 +45,10 @@
                      </div>
 
                     Sammlungen
+                    <!-- Kriege keine Kategorie zurück :(  -->
                      <div v-for="result in resultsCollectionsCategory.slice(0,10)" :key="result.id">
                        <a :href="result.url">
-                            <div class="neumorph card-small card-small--border mb-2">
+                            <div class="neumorph card-small card-small--border mb-2" :style="{ borderColor: result.searchable.category_id.color }">
                                 <div v-text="result.title"></div>
                                 <small class="ml-2" v-text="result.type"></small>
                             </div>
@@ -64,8 +65,8 @@
                         </a>
                      </div>
 
-                    Medien
-                     <div v-for="result in resultsMediaCategory.slice(0,10)" :key="result.id">
+                    Karteikartensets
+                     <div v-for="result in resultsKarteikartensetCategory.slice(0,10)" :key="result.id">
                        <a :href="result.url">
                             <div class="neumorph card-small card-small--border mb-2">
                                 <div v-text="result.title"></div>
@@ -74,8 +75,8 @@
                         </a>
                      </div>
 
-                    Karteikartensets (zeigt alles an aktuell)
-                     <div v-for="result in resultsKarteikartensetCategory.slice(0,10)" :key="result.id">
+                    Medien  (zeigt alles an aktuell)
+                     <div v-for="result in resultsMediaCategory.slice(0,10)" :key="result.id">
                        <a :href="result.url">
                             <div class="neumorph card-small card-small--border mb-2">
                                 <div v-text="result.title"></div>
