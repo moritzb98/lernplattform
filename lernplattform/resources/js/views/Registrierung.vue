@@ -111,7 +111,7 @@ import Multiselect from 'vue-multiselect'
                     axios.post('/login', this.formData).then(response => {
                         console.log(response);
                         this.registerInterests();
-                        this.$router.push({ path: '/spa/Dashboard' });
+                        this.$router.push({ path: '/spa/product-tour/1' });
                     });
                 });
             },

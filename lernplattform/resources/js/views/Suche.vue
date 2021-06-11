@@ -23,19 +23,13 @@
         <div v-if="results.length > 0 && query" style="padding-bottom: 120px;">
 
             <!-- Quiz Ergebnis -->
-
-
-
-
             <div v-if="resultsQuizCategory.length > 0">
                 <div class="row mt-3">
                     <div class="col">
                         <div class=" search-grp-divider w-100 d-flex mt-2 ">
                             <p>Quiz</p> <span></span>
                         </div>
-
                         <div v-for="result in resultsQuizCategory.slice(0,10)" :key="result.id">
-
                             <router-link :to="result.url">
                                 <div class="kategorie-container search-overwrite mb-2">
                                     <div class="kategorie-icon-container">
@@ -46,7 +40,6 @@
                                     </div>
                                 </div>
                             </router-link>
-
                         </div>
                     </div>
                 </div>
@@ -59,9 +52,7 @@
                         <div class=" search-grp-divider w-100 d-flex mt-2 ">
                             <p>User</p> <span></span>
                         </div>
-
                         <div v-for="result in resultsUserCategory.slice(0,10)" :key="result.id">
-
                             <router-link :to="result.url">
                                 <div class="kategorie-container search-overwrite mb-2">
                                     <div class="kategorie-icon-container">
@@ -72,7 +63,6 @@
                                     </div>
                                 </div>
                             </router-link>
-
                         </div>
                     </div>
                 </div>
@@ -85,9 +75,7 @@
                         <div class=" search-grp-divider w-100 d-flex mt-2 ">
                             <p>Sammlungen</p> <span></span>
                         </div>
-
                         <div v-for="result in resultsCollectionsCategory.slice(0,10)" :key="result.id">
-
                             <router-link :to="result.url">
                                 <div class="kategorie-container search-overwrite mb-2">
                                     <div class="kategorie-icon-container">
@@ -98,7 +86,6 @@
                                     </div>
                                 </div>
                             </router-link>
-
                         </div>
                     </div>
                 </div>
@@ -111,9 +98,7 @@
                         <div class=" search-grp-divider w-100 d-flex mt-2 ">
                             <p>Lerngruppen</p> <span></span>
                         </div>
-
                         <div v-for="result in resultsRoomCategory.slice(0,10)" :key="result.id">
-
                             <router-link :to="result.url">
                                 <div class="kategorie-container search-overwrite mb-2">
                                     <div class="kategorie-icon-container">
@@ -136,7 +121,6 @@
                         <div class=" search-grp-divider w-100 d-flex mt-2 ">
                             <p>Karteikartensets</p> <span></span>
                         </div>
-
                         <div v-for="result in resultsKarteikartensetCategory.slice(0,10)" :key="result.id">
                         <a :href="result.url">
                                 <div class="neumorph card-small card-small--border mb-2">
