@@ -173,7 +173,6 @@
 
         <div v-else>
             <!-- Nothing found -->
-            Kategorien einblenden...
         </div>
 
 
