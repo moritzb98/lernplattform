@@ -58,6 +58,10 @@ import FourthPageProductTour from './views/ProductTour/FourthPage.vue'
 import FifthPageProductTour from './views/ProductTour/FifthPage.vue'
 
 
+import Impressum from './views/Impressum.vue'
+import Datenschutz from './views/Datenschutz.vue'
+
+
 
 export const routes = [
 
@@ -373,6 +377,23 @@ export const routes = [
         name: 'FifthPageProductTour',
         path: '/spa/Product-Tour/5',
         component: FifthPageProductTour,
+        meta: {
+            requiresAuth: true
+          }
+    },
+
+    {
+        name: 'Impressum',
+        path: '/spa/Impressum',
+        component: Impressum,
+        meta: {
+            requiresAuth: true
+          }
+    },
+    {
+        name: 'Datenschutz',
+        path: '/spa/Datenschutz',
+        component: Datenschutz,
         meta: {
             requiresAuth: true
           }
