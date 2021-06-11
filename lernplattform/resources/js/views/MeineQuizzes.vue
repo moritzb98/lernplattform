@@ -18,42 +18,37 @@
         </div> -->
 
         <div v-for="(quiz, index) in quizzes" :key="index">
-                <div class="neumorph card-small mb-2">
-                    {{quiz.data.name}}
-                    <div class="card-small_controls" >
-
-                        <!-- CTA Zum Chat -->
-                        <!-- <router-link :to='"/spa/quiz/"+category+"/"+quiz.data.id'> -->
-                            <div class="card-small_controls_item">
-                                <span class="material-icons">play</span>
-                            </div>
-                        <!-- </router-link> -->
-
-
-                        <!-- Optionen Menü -->
-                        <md-menu md-size="small">
-                            <md-button md-menu-trigger class="card-small_dropdown-btn">
-                                <span class="material-icons">more_vert</span>
-                            </md-button>
-
-                            <md-menu-content class="card-small_dropdown">
-                                <md-menu-item>
-                                    <!-- <router-link :to='"/spa/Lerngruppen/"+room.id+"/Bearbeiten"'> -->
-                                        <div class="card-small_controls_item">
-                                            <span class="material-icons">edit</span> Bearbeiten
-                                        </div>
-                                    <!-- </router-link> -->
-                                </md-menu-item>
-                                <md-menu-item>
-                                    <div class="card-small_controls_item" @click="deleteQuiz(quiz.data.id)">
-                                        <span class="material-icons">delete</span> Löschen
-                                    </div>
-                                </md-menu-item>
-                            </md-menu-content>
-                        </md-menu>
-
-                    </div>
+            <div class="kategorie-container search-overwrite mb-2">
+                <div class="kategorie-icon-container">
+                    <span :style="{ color: quiz.data.category_id.color }" class="material-icons-outlined quiz-kategorie-icon">{{quiz.data.category_id.icon}}</span>
                 </div>
+                <div :style="{ backgroundImage: 'radial-gradient(white, white), radial-gradient(circle at top left,white, '+ quiz.data.category_id.color  + ')' }" class="quiz-kategorie-container">
+                    <div v-text="quiz.data.name"></div>
+
+                    <!-- Optionen Menü -->
+                    <md-menu md-size="small">
+                        <md-button md-menu-trigger class="card-small_dropdown-btn">
+                            <span class="material-icons">more_vert</span>
+                        </md-button>
+
+                        <md-menu-content class="card-small_dropdown">
+                            <!-- <md-menu-item>
+                                <router-link :to='"/spa/Lerngruppen/"+room.id+"/Bearbeiten"'>
+                                    <div class="card-small_controls_item">
+                                        <span class="material-icons">edit</span> Bearbeiten
+                                    </div>
+                                </router-link>
+                            </md-menu-item> -->
+                            <md-menu-item>
+                                <div class="card-small_controls_item" @click="deleteQuiz(quiz.data.id)">
+                                    <span class="material-icons">delete</span> Löschen
+                                </div>
+                            </md-menu-item>
+                        </md-menu-content>
+                    </md-menu>
+                </div>
+            </div>
+
         </div>
 
         <!-- Nav -->
@@ -102,6 +97,13 @@
         display: block;
         width: 45%;
         color: #212121;
+    }
+
+    .md-menu {
+        position: absolute;
+        right: 0;
+        top: 2px;
+        width: 70px;
     }
 
 
