@@ -10,7 +10,7 @@
             </div>
         </div>
 
-        <!-- Content  -->
+
         <div class="background-container">
             <div class="background">
                 <span class="material-icons-outlined icon-für-oberen-Bereich">biotech</span>
@@ -21,6 +21,7 @@
                 <div class="weißes-rechteck"></div>
             </div>
         </div>
+<<<<<<< HEAD
         <div class="headline-text-field">Name der Sammlung</div>
         <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
             <input maxlength="30" v-model="collection.name" type="text" class="mdc-text-field__input text-field__input--modified " placeholder="" aria-label="Label">
@@ -43,6 +44,35 @@
             <div @click="createCollection()" class="list-items button-small">
                 <span class="material-icons-outlined button-icon-small">check</span>
                 <div class="list-items-text">Erstellen</div>
+=======
+
+        <!-- Content  -->
+        <div class="content_wrapper">
+            <div class="headline-text-field">Name der Sammlung</div>
+            <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
+                <input maxlength="30" v-model="collection.name" type="text" class="mdc-text-field__input text-field__input--modified " placeholder="" aria-label="Label">
+            </label>
+
+            <!-- Select -->
+            <div class="headline-text-field">Kategorie wählen</div>
+            <select class="mdc-button mdc-button--raised button--big dropdown" name="categories" v-model="collection.category_id">
+
+                <option selected="selected" value="">Bitte wähle eine Kategorie aus</option>
+                <option v-for="categorie in categories" :key="categorie.name" :value="categorie.id">
+                    {{categorie.name}}
+                </option>
+            </select>
+            <!-- Select End -->
+            <div class="small-button-container">
+                <router-link class="button-small list-items button-link router-text" to="/spa/Lernmaterial">
+                    <span class="material-icons-outlined button-icon-small">close</span>
+                    <div class="list-items-text">Abbrechen</div>
+                </router-link>
+                <div @click="createCollection()" class="list-items button-small">
+                    <span class="material-icons-outlined button-icon-small">check</span>
+                    <div class="list-items-text">Erstellen</div>
+                </div>
+>>>>>>> main
             </div>
         </div>
 

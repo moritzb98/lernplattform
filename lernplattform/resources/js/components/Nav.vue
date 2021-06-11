@@ -67,14 +67,14 @@
                                         </div>
                                     </router-link>
                                 </div> -->
-                                <!-- <div class="col col-6 col-sm-4 mt-3">
+                                <div class="col col-6 col-sm-4 mt-3">
                                     <router-link to="/spa/Quiz-erstellen">
                                         <div class="card neumorph" v-on:click="showNavDropUp">
                                             <img class="card_img" src="" alt="" />
                                             <div class="card_title">Quiz</div>
                                         </div>
                                     </router-link>
-                                </div> -->
+                                </div>
                                 <div class="col col-6 col-sm-4 mt-3">
                                     <router-link to="/spa/Lerngruppen/Erstellen">
                                         <div class="card neumorph" v-on:click="showNavDropUp">

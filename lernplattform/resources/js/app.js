@@ -32,7 +32,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 window.axios.defaults.withCredentials = true;
 
-
 Vue.use(VueRouter);
 Vue.use(WebRTC);
 Vue.use(VueToast, {
@@ -42,7 +41,7 @@ Vue.use(VueToast, {
   })
 
 Vue.use(VueAxios, axios);
-//Vue.axios.defaults.baseURL = 'http://p587052.webspaceconfig.de/lernplattform/public/';
+//Vue.axios.defaults.baseURL = 'https://secret-cove-11178.herokuapp.com/';
 Vue.component('file-upload-component', require('./components/FileUploadComponent.vue').default);
 Vue.component('file-view', require('./views/Documents.vue').default);
 Vue.component('Nav', Nav);

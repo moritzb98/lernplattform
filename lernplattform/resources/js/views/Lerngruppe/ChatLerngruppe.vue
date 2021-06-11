@@ -11,19 +11,16 @@
         </div>
 
         <!-- Content  -->
-        <div class="row">
-            <div class="col">
-                <!-- Kategorie Banner  -->
-                <div class="banner-grp-chat">
-                    <div class="banner-grp-chat_body">
-                        <div class="banner-grp-chat_body-title">
-                            <h2>{{currentRoom.name}}</h2>
-                        </div>
-                    </div>
-                    <div class="banner-grp-chat_overlay"></div>
-                </div>
+         <div class="background-container">
+            <div class="background">
+                <div class="überschrift-oberer-Bereich">
+                    <h2>{{currentRoom.name}}</h2></div>
+            </div>
+            <div class="fabriges-rechteck">
+                <div class="weißes-rechteck"></div>
             </div>
         </div>
+
         <div class="row">
             <div class="col">
 
@@ -146,10 +143,10 @@
         created() {
             this.getRooms();
         },
-        computed: { 
-            konferenzLink() { 
-                return this.$route.path + '/Konferenz'; 
-            } 
+        computed: {
+            konferenzLink() {
+                return this.$route.path + '/Konferenz';
+            }
         }
     }
 </script>
@@ -165,7 +162,7 @@
         padding: 15px 10px 40px 10px;
         justify-content: center;
         align-items: center;
-        margin-top: -60px;
+        margin-top: -40px;
     }
 
     .chat {

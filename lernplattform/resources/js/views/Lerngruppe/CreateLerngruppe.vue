@@ -10,53 +10,57 @@
             </div>
         </div>
 
+
+        <div class="background-container">
+            <div class="background">
+                <span class="material-icons-outlined icon-für-oberen-Bereich">people</span>
+                <div class="überschrift-oberer-Bereich" >Lerngruppe</div>
+            </div>
+
+            <div class="fabriges-rechteck">
+                <div class="weißes-rechteck"></div>
+            </div>
+        </div>
+
         <!-- Content -->
-        <div class="row mb-5">
-            <div class="col">
-                <div class="banner neumorph">
-                    <div class="banner_body">
-                        <div class="banner_body-img">
-                            <span class="material-icons">people</span>
-                        </div>
-                        <div class="banner_body-title">
-                            <h2>Gruppe</h2>
-                        </div>
-                    </div>
+        <div class="content_wrapper">
+            <div class="row">
+                <div class="col-12">
+                    <div class="headline-text-field">Name der Lerngruppe</div>
+                    <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
+                        <input maxlength="30" v-model="room.roomName" type="text" class="mdc-text-field__input text-field__input--modified " placeholder="" aria-label="Label">
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="headline-text-field">Maximale Personenzahl</div>
+                    <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
+                        <input v-model="room.roomMaxPersons" type="number" class="mdc-text-field__input text-field__input--modified " placeholder="" aria-label="Label">
+                    </label>
+                </div>
+            </div>
+
+            <!-- Select -->
+                <div class="headline-text-field">Kategorie wählen</div>
+                <select class="mdc-button mdc-button--raised button--big dropdown" name="categories" v-model="room.category_id">
+                    <option selected="selected" value="">Bitte wähle eine Kategorie aus</option>
+                    <option v-for="categorie in categories" :key="categorie.name" :value="categorie.id">
+                        {{categorie.name}}
+                    </option>
+                </select>
+
+                <!-- Select End -->
+                <br><br><br>
+            <div class="row mb-3">
+                <div class="col-12">
+                    <button class="btn neumorph w-100" @click="createRoom(room)">
+                        <span class="btn_text mdc-button__label ">Lerngruppe erstellen</span>
+                        <span class="btn_icon material-icons">people</span>
+                    </button>
                 </div>
             </div>
         </div>
-
-        <div class="row mb-3">
-            <div class="col-12 mb-4">
-                <label>Name</label>
-                <input class="neumorph--pressed neumorph--pressed--border input w-100" type="text" v-model="room.roomName">
-            </div>
-            <div class="col-12 mb-2">
-                <label>Maximale Personenzahl</label>
-                <input class="neumorph--pressed neumorph--pressed--border input w-100" type="number" v-model="room.roomMaxPersons">
-            </div>
-
-        </div>
-        <!-- Select -->
-            <div class="headline-text-field">Kategorie wählen</div>
-            <select class="mdc-button mdc-button--raised button--big dropdown" name="categories" v-model="room.category_id">
-                <option selected="selected" value="">Bitte wähle eine Kategorie aus</option>
-                <option v-for="categorie in categories" :key="categorie.name" :value="categorie.id">
-                    {{categorie.name}}
-                </option>
-            </select>
-
-            <!-- Select End -->
-            <br><br><br>
-        <div class="row mb-3">
-            <div class="col-12">
-                <button class="btn neumorph w-100" @click="createRoom(room)">
-                    <span class="btn_text mdc-button__label ">Lerngruppe erstellen</span>
-                    <span class="btn_icon material-icons">people</span>
-                </button>
-            </div>
-        </div>
-
         <!-- Nav -->
         <Nav />
     </div>

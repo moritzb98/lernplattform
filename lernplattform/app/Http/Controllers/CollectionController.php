@@ -23,6 +23,7 @@ class CollectionController extends Controller
     }
 
     public function addFile(Request $request){
+
         $collectionFiles = CollectionFiles::updateOrCreate(
             [
                 'file_id' => $request['file_id']['id'],

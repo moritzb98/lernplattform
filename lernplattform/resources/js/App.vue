@@ -29,6 +29,7 @@
 
 <style>
 
+
 /*
     ██████   █████  ███████ ██  ██████
     ██   ██ ██   ██ ██      ██ ██
@@ -91,6 +92,10 @@
     .l_page-content {
         padding-top: 70px;
         min-height: 100vh;
+    }
+
+    .content_wrapper {
+        margin-top: -25px;
     }
 
 
@@ -580,6 +585,10 @@
         margin: 0;
     }
 
+    .card-small--border {
+        border: 1px solid red;
+    }
+
 
 
 
@@ -599,6 +608,9 @@
     min-width: 0px;
 }
 
+.v-toast {
+    margin-bottom: 100px;
+}
 
 
 
