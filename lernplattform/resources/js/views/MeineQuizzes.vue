@@ -11,10 +11,49 @@
         </div>
 
         <!-- Content  -->
-        <div v-for="(quiz, index) in quizzes" :key="index">
+        <!-- <div v-for="(quiz, index) in quizzes" :key="index">
             <div class="neumorph card-small mb-2">
-                {{quiz}}
+                {{quiz.name}}
             </div>
+        </div> -->
+
+        <div v-for="(quiz, index) in quizzes" :key="index">
+                <div class="neumorph card-small mb-2">
+                    {{quiz.data.name}}
+                    <div class="card-small_controls" >
+
+                        <!-- CTA Zum Chat -->
+                        <!-- <router-link :to='"/spa/quiz/"+category+"/"+quiz.data.id'> -->
+                            <div class="card-small_controls_item">
+                                <span class="material-icons">play</span>
+                            </div>
+                        <!-- </router-link> -->
+
+
+                        <!-- Optionen Menü -->
+                        <md-menu md-size="small">
+                            <md-button md-menu-trigger class="card-small_dropdown-btn">
+                                <span class="material-icons">more_vert</span>
+                            </md-button>
+
+                            <md-menu-content class="card-small_dropdown">
+                                <md-menu-item>
+                                    <!-- <router-link :to='"/spa/Lerngruppen/"+room.id+"/Bearbeiten"'> -->
+                                        <div class="card-small_controls_item">
+                                            <span class="material-icons">edit</span> Bearbeiten
+                                        </div>
+                                    <!-- </router-link> -->
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <div class="card-small_controls_item" @click="deleteQuiz(quiz.data.id)">
+                                        <span class="material-icons">delete</span> Löschen
+                                    </div>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
+
+                    </div>
+                </div>
         </div>
 
         <!-- Nav -->
@@ -34,7 +73,16 @@
             getmyQuizzes() {
                 axios.get('/api/myquiz')
                     .then(response=>{
+                        this.quizzes=response.data.data
                         console.log(response.data);
+                    })
+            },
+            deleteQuiz(quizid){
+                this.axios.post('/api/quiz/delete/' + quizid)
+                    .then(response => {
+                        console.log(response);
+                        Vue.$toast.error('Quiz erfolgreich gelöscht.', {});
+                        this.$router.go();
                     })
             },
         },
