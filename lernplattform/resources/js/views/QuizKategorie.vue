@@ -20,6 +20,13 @@
 
         <!-- Content -->
         <div class="content_wrapper">
+            <router-link to="/spa/Meine-Quiz">
+                <button class="btn neumorph w-100 mb-3">
+                    <span class="btn_text mdc-button__label ">Meine Quiz</span>
+                    <span class="btn_icon material-icons">chevron_right</span>
+                </button>
+            </router-link>
+
             <router-link to="/spa/Quiz-erstellen">
                 <button class="btn neumorph btn--dashed w-100 mb-3">
                     <span class="btn_text mdc-button__label ">Quiz erstellen</span>

@@ -19,6 +19,10 @@ class QuizController extends Controller
         return $quizzes;
     }
 
+    public function getMyQuizzes() {
+        return Quiz::where('user_id', Auth::user()->id)->get();
+    }
+
     public function getQuizCollection($category){
         $categoryObject = Category::where('name', $category)->first();
         $quizzes = new QuizCollection(Quiz::where('category_id', $categoryObject['id'])->get());

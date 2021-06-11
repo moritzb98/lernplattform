@@ -47,6 +47,28 @@ class AuthController extends Controller
         ]);
     }
 
+    public function update(Request $request) {
+
+        $userid = Auth::user()->id;
+
+        if($user['user_id'] == $userid){
+            User::where('id', $request['id'])->update([
+                'name' => $request['name'],
+                'password' => $request['password'],
+                'email' => $request['email'],
+                'age' => $request['age'],
+                'job' => $request['job'],
+
+            ]);
+            return response()->json(['´success' => 'Profil erfolgreich bearbeitet.'], 200);
+        }
+        else
+        {
+            return response()->json(['error' => 'Das ist nicht dein Profil, das kannst du nicht bearbeiten.'], 403);
+        }
+
+    }
+
     public function logout(){
         Auth::logout();
         return response()->json(['message' => 'Logged Out'], 200);
