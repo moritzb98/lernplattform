@@ -23,6 +23,16 @@
         </div>
 
         <!-- Content  -->
+                <!-- Select -->
+        <div class="headline-text-field">Kategorie wählen</div>
+        <select class="mdc-button mdc-button--raised button--big dropdown" name="categories" v-model="collection.category_id">
+            <option selected="selected" value="">Bitte wähle eine Kategorie aus</option>
+            <option v-for="categorie in categories" :key="categorie.name" :value="categorie.id">
+                {{categorie.name}}
+            </option>
+        </select>
+        <!-- Select End -->
+        <br><br>
         <div class="row justify-content-center">
             <div class="col-md-8">
 
@@ -69,7 +79,18 @@
                 success: '',
                 title: "Upload",
                 test: false,
+                collection:{
+                    name:"",
+                    category_id: null,
+                },
+                categories: [],
             };
+        },
+        mounted() {
+            axios.get('/api/categories')
+                .then(response=>{
+                    this.categories = response.data;
+                });
         },
         methods: {
             onChange(e) {
@@ -97,6 +118,17 @@
                         Vue.$toast.error('Beim Hochladen ist etwas schief gegangen :(', {});
                     });
 
+            },
+            createCollection(){
+                if(this.collection.category_id != null){
+                    axios.post('/api/collection/create',this.collection)
+                    .then(response=>{
+                        Vue.$toast.success('Sammlung erfolgreich erstellt.', {});
+                        this.$router.push({ path: '/spa/Lernmaterial' });
+                    });
+                } else {
+                    Vue.$toast.error('Du musst eine Kategorie auswählen.', {});
+                }
             }
         }
     }
