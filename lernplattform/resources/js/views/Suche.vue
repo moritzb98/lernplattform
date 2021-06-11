@@ -24,68 +24,70 @@
             <div class="col">
 
                 <div v-if="results.length > 0 && query">
-                    <div v-for="result in results.slice(0,10)" :key="result.id">
-                        <!-- <a :href="result.url">
+                    Quiz
+                     <div v-for="result in resultsQuizCategory.slice(0,10)" :key="result.id">
+                       <a :href="result.url">
+                            <div class="neumorph card-small card-small--border mb-2" :style="{ borderColor: result.searchable.category.color }">
+                                <div v-text="result.title"></div>
+                                <small class="ml-2" v-text="result.type"></small>
+                            </div>
+                        </a>
+                     </div>
+
+                    User
+                     <div v-for="result in resultsUserCategory.slice(0,10)" :key="result.id">
+                       <a :href="result.url">
                             <div class="neumorph card-small card-small--border mb-2">
                                 <div v-text="result.title"></div>
+                                <small class="ml-2" v-text="result.type"></small>
                             </div>
-                        </a> -->
+                        </a>
+                     </div>
 
-                        <div v-if="result.searchable.category != 0">
-                            <div class="mdc-card mdc-card-lernmaterial mb-2" :style="{ color: result.searchable.category.color }">
-                                <div class="card-lernmaterial-spacing">
-                                    <div class="card-lernmaterial-icon-container">
-                                        <span class="material-icons material-icons-lernmaterial">school</span>
-                                    </div>
-                                    <div class="card-lernmaterial-middle-column-container">
-                                        <div class="mdc-chip-container">
-                                            <div class="mdc-chip mdc-chip--red mdc-chip-lernmaterial" role="row">
-                                                <span class="mdc-chip__text" v-text="result.type"></span>
-                                            </div>
-                                        </div>
-                                        <div class="card-lernmaterial-headline" v-text="result.title"></div>
-                                    </div>
-                                    <div>
-                                        <div class="card-lernmaterial-date-icon-container">
-                                                <span class="material-icons-outlined">visibility</span>
-                                                <span class="material-icons-outlined">file_download</span>
-                                                <span class="material-icons-outlined">send</span>
-                                        </div>
-                                    </div>
-                                </div>
+                    Sammlungen
+                     <div v-for="result in resultsCollectionsCategory.slice(0,10)" :key="result.id">
+                       <a :href="result.url">
+                            <div class="neumorph card-small card-small--border mb-2">
+                                <div v-text="result.title"></div>
+                                <small class="ml-2" v-text="result.type"></small>
                             </div>
-                        </div>
-                        <div v-else>
-                            <div class="mdc-card mdc-card-lernmaterial mb-2" >
-                                <div class="card-lernmaterial-spacing">
-                                    <div class="card-lernmaterial-icon-container">
-                                        <span class="material-icons material-icons-lernmaterial">school</span>
-                                    </div>
-                                    <div class="card-lernmaterial-middle-column-container">
-                                        <div class="mdc-chip-container">
-                                            <div class="mdc-chip mdc-chip--red mdc-chip-lernmaterial" role="row">
-                                                <span class="mdc-chip__text" v-text="result.type"></span>
-                                            </div>
-                                        </div>
-                                        <div class="card-lernmaterial-headline" v-text="result.title"></div>
-                                    </div>
-                                    <div>
-                                        <div class="card-lernmaterial-date-icon-container">
-                                                <span class="material-icons-outlined">visibility</span>
-                                                <span class="material-icons-outlined">file_download</span>
-                                                <span class="material-icons-outlined">send</span>
-                                        </div>
-                                    </div>
-                                </div>
+                        </a>
+                     </div>
+
+                    Lerngruppen
+                     <div v-for="result in resultsRoomCategory.slice(0,10)" :key="result.id">
+                       <a :href="result.url">
+                            <div class="neumorph card-small card-small--border mb-2">
+                                <div v-text="result.title"></div>
+                                <small class="ml-2" v-text="result.type"></small>
                             </div>
-                        </div>
+                        </a>
+                     </div>
 
+                    Medien
+                     <div v-for="result in resultsMediaCategory.slice(0,10)" :key="result.id">
+                       <a :href="result.url">
+                            <div class="neumorph card-small card-small--border mb-2">
+                                <div v-text="result.title"></div>
+                                <small class="ml-2" v-text="result.type"></small>
+                            </div>
+                        </a>
+                     </div>
 
-                    </div>
+                    Karteikartensets (zeigt alles an aktuell)
+                     <div v-for="result in resultsKarteikartensetCategory.slice(0,10)" :key="result.id">
+                       <a :href="result.url">
+                            <div class="neumorph card-small card-small--border mb-2">
+                                <div v-text="result.title"></div>
+                                <small class="ml-2" v-text="result.type"></small>
+                            </div>
+                        </a>
+                     </div>
                 </div>
 
                 <div v-else>
                     <!-- Nothing found -->
+                    Kategorien einblenden...
                 </div>
             </div>
         </div>
@@ -108,10 +110,41 @@
                 title: "Suche"
             };
         },
-
         watch: {
             query(after, before){
                 this.searchUploads();
+            }
+        },
+        computed: {
+            resultsQuizCategory: function () {
+                return this.results.filter((result) => {
+                    return result.type.match("quiz")
+                });
+            },
+            resultsUserCategory: function () {
+                return this.results.filter((result) => {
+                    return result.type.match("users")
+                });
+            },
+            resultsRoomCategory: function () {
+                return this.results.filter((result) => {
+                    return result.type.match("rooms")
+                });
+            },
+            resultsKarteikartensetCategory: function () {
+                return this.results.filter((result) => {
+                    return result.type.match("karteikartenset")
+                });
+            },
+            resultsCollectionsCategory: function () {
+                return this.results.filter((result) => {
+                    return result.type.match("collections")
+                });
+            },
+            resultsMediaCategory: function () {
+                return this.results.filter((result) => {
+                    return result.type.match("")
+                });
             }
         },
         methods:{
