@@ -23,7 +23,6 @@
         </div>
 
         <!-- Content  -->
-<<<<<<< HEAD
                 <!-- Select -->
         <div class="headline-text-field">Kategorie wählen</div>
         <select class="mdc-button mdc-button--raised button--big dropdown" name="categories" v-model="collection.category_id">
@@ -34,8 +33,7 @@
         </select>
         <!-- Select End -->
         <br><br>
-        <div class="row justify-content-center">
-            <div class="col-md-8">
+
 
         <div class="container">
             <div class="mdc-form-field">
@@ -46,8 +44,6 @@
                         <div class="mdc-radio__inner-circle mdc-radio__inner-circle-modified"></div>
                 </div>
                 </div>
-=======
->>>>>>> main
 
         <div class="content_wrapper">
             <div class="row justify-content-center">
