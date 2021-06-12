@@ -73,10 +73,10 @@
                     })
             },
             deleteQuiz(quizid){
-                this.axios.post('/api/quiz/delete/' + quizid)
+                this.axios.get('/api/quiz/delete/' + quizid)
                     .then(response => {
                         console.log(response);
-                        Vue.$toast.error('Quiz erfolgreich gelöscht.', {});
+                        Vue.$toast.success('Quiz erfolgreich gelöscht.', {});
                         this.$router.go();
                     })
             },

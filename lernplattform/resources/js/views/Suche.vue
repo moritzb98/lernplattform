@@ -15,7 +15,7 @@
             <input
                 class="mdc-text-field__input text-field__input--modified"
                 type="text"
-                placeholder="Suche nach einer Datei"
+                placeholder="Durchsuche alles"
                 v-model="query">
         </label>
 
