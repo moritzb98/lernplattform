@@ -21,6 +21,8 @@
                 <div class="weißes-rechteck"></div>
             </div>
         </div>
+
+        <h5 v-if="noUploads" style="text-align: center; margin: 20px;" class="dashboard-headline">Keine Uploads</h5>
         <div class="container-data" v-for="(myFileUpload, index) in myFileUploads" :key="myFileUpload.id">
                 <div :style="{ backgroundImage: 'radial-gradient(white, white), radial-gradient(circle at top left,white, '+ myFileUpload.data.color  + ')' }" :id="myFileUpload.data.id" class="container-uploads">
                     <div class="cursor" v-if="myFileUpload.data.id === editFileId">
@@ -78,7 +80,7 @@ import {MDCTabBar} from '@material/tab-bar';
                 myFileUploads: [],
                 title: "Meine Uploads",
                 editFileId: null,
-
+                noUploads: true,
 
             }
         },
@@ -95,7 +97,9 @@ import {MDCTabBar} from '@material/tab-bar';
                     this.myFileUploads[i].data.showDropdown = false;
                     this.myFileUploads[i].data.color = response.data.data[i].data.category_id.color;
                 }
-
+                if(this.myFileUploads.length > 0){
+                    this.noUploads = false;
+                }
             });
 
 

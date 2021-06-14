@@ -17,6 +17,8 @@
             </div>
         </div> -->
 
+        <h5 v-if="noQuizzes" style="text-align: center; margin: 20px;" class="dashboard-headline">Keine Quiz erstellt</h5>
+
         <div v-for="(quiz, index) in quizzes" :key="index">
             <div class="kategorie-container search-overwrite mb-2">
                 <div class="kategorie-icon-container">
@@ -62,6 +64,7 @@
             return {
                 title: "Meine Quiz",
                 quizzes: [],
+                noQuizzes: true,
             }
         },
         methods: {
@@ -70,6 +73,9 @@
                     .then(response=>{
                         this.quizzes=response.data.data
                         console.log(response.data);
+                        if(this.quizzes.length > 0){
+                            this.noQuizzes = false;
+                        }
                     })
             },
             deleteQuiz(quizid){

@@ -33,7 +33,8 @@
                         <span class="btn_icon material-icons">add</span>
                     </button>
                 </router-link>
-                <div v-for="(room, index) in rooms" :key="index">
+                <h5 class="dashboard-headline">Meine Lerngruppen</h5>
+                <div v-if="!noMyRooms" v-for="(room, index) in rooms" :key="index">
                         <div class="neumorph card-small mb-2">
                             {{room.data.name}}
                             <div class="card-small_controls" >
@@ -75,8 +76,10 @@
                             </div>
                         </div>
                 </div>
-
-                <div v-for="(roomUserIsIn, index) in roomsUserIsIn" :key="index">
+                <div v-if="noMyRooms">Noch keinen Raum erstellt.</div>
+                <hr>
+                <h5 class="dashboard-headline">Beigetretene Lerngruppen</h5>
+                <div v-if="!noOtherRooms" v-for="(roomUserIsIn, index) in roomsUserIsIn" :key="index">
                     <div class="neumorph card-small mb-2">
 
                         {{roomUserIsIn.data.room_id.name}}
@@ -107,7 +110,7 @@
                         </div>
                     </div>
                 </div>
-
+                <div v-if="noOtherRooms">Noch keinen Raum beigetreten.</div>
             </div>
         </div>
 
@@ -122,16 +125,19 @@
             return {
                 rooms:[],
                 roomsUserIsIn: [],
-                title: "Meine Lerngruppen"
+                title: "Meine Lerngruppen",
+                noMyRooms: true,
+                noOtherRooms: true,
             }
         },
         methods: {
             getMyRooms() {
                 this.axios.get('/api/getmyroom')
                     .then(response=>{
-                        this.rooms=response.data.data,
-
-                        console.log(response.data);
+                        this.rooms=response.data.data;
+                        if(this.rooms.length > 0){
+                            this.noMyRooms = false;
+                        }
                     })
             },
             getRoomsUserIsIn() {
@@ -140,13 +146,16 @@
                         this.roomsUserIsIn=response.data.data,
                         console.log(this.roomsUserIsIn);
                         // console.log("test" ,response.data.data);
+                        if(this.roomsUserIsIn.length > 0){
+                            this.noOtherRooms = false;
+                        }
                     })
             },
             deleteRoom(id){
                 this.axios.post('/api/room/delete/' + id)
                     .then(response => {
                         console.log(response);
-                        Vue.$toast.error('Lerngruppe erfolgreich gelöscht.', {});
+                        Vue.$toast.success('Lerngruppe erfolgreich gelöscht.', {});
                         this.$router.go();
                     })
             },
