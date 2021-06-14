@@ -13,6 +13,7 @@
         <!-- Content  -->
          <div class="background-container">
             <div class="background">
+                <span class="material-icons-outlined icon-für-oberen-Bereich">biotech</span>
                 <div class="überschrift-oberer-Bereich">
                     <h2>{{currentRoom.name}}</h2></div>
             </div>
@@ -85,8 +86,19 @@
                 currentRoom: [],
                 messages: [],
                 urlId: this.$route.params.id,
-                title: "Lerngruppe"
+                title: "Lerngruppe",
+                colorBackground: "",
+                colorIcon: "",
+                color: "",
+                icon: "",
             }
+        },
+        mounted(){
+            axios.get('/api/room/get/'+this.urlId)
+            .then(response => {
+                console.log(response.data);
+            }
+            )
         },
         watch: {
             currentRoom(){
@@ -110,10 +122,12 @@
                     this.chatRooms = response.data;
                     console.log(response.data);
                     for (var i = 0; i < response.data.length; i++) {
-                       if (response.data[i].id == this.urlId) {
+                       if (response.data[i].room_id == this.urlId) {
                             this.setRoom( response.data[i] );
                        }
+
                     }
+                    console.log(this.currentRoom);
                 })
                 .catch( error => {
                     console.log( error );
