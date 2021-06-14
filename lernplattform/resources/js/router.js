@@ -394,9 +394,6 @@ export const routes = [
         name: 'Datenschutz',
         path: '/spa/Datenschutz',
         component: Datenschutz,
-        meta: {
-            requiresAuth: true
-          }
     },
 
 

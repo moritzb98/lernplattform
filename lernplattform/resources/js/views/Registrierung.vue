@@ -58,7 +58,7 @@
                             <div class="mdc-radio__inner-circle mdc-radio__inner-circle-modified"></div>
                         </div>
                     </div>
-                    <label class="radio-button-label" for="radio-1">Ich erkläre mich mit dem Datenschutz und den AGB von Skillwire einverstanden.</label>
+                    <label class="radio-button-label" for="radio-1">Ich erkläre mich mit dem Datenschutz und den <router-link class="linkText" to="/spa/Datenschutz">AGB</router-link> von Skillwire einverstanden.</label>
                 </div>
 
                 <button class="mdc-button mdc-button--raised button--big" type="submit">
@@ -186,6 +186,8 @@ import Multiselect from 'vue-multiselect'
         box-shadow: inset 6px 6px 10px 0 rgb(0 0 0 / 20%), inset -6px -6px 10px 0 white, 12px 12px 24px 0 rgb(0 0 0 / 20%), -12px -12px 24px 0 rgb(255 255 255 / 50%);
         margin-bottom: 10px;
     }
+
+
 
 </style>
 

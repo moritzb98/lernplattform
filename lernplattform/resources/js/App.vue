@@ -1262,4 +1262,9 @@
         color: #212121 !important;
     }
 
+    .linkText{
+        color: black !important;
+        font-weight: bold;
+    }
+
 </style>
