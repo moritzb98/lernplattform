@@ -38,10 +38,13 @@
                 <multiselect v-model="interestData" :options="interestsArray" :multiple="true"></multiselect>
 
 
-                <div class="headline-text-field">Aktuelle Tätigkeit</div>
-                <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
-                    <input v-model="registerData.job" class="mdc-text-field__input text-field__input--modified" type="text" placeholder="" aria-label="Label">
-                </label>
+                <div class="headline-text-field">Tätigkeit wählen</div>
+                <select class="mdc-button mdc-button--raised button--big dropdown" name="categories" v-model="registerData.job">
+                    <option selected="selected" value="">Bitte wähle eine Tätigkeit aus</option>
+                    <option v-for="job in jobs" :key="job" :value="job">
+                        {{job}}
+                    </option>
+                </select>
                 <div class="headline-text-field">Alter</div>
                 <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
                     <input v-model="registerData.age" class="mdc-text-field__input text-field__input--modified" type="text" placeholder="" aria-label="Label">
@@ -95,6 +98,7 @@ import Multiselect from 'vue-multiselect'
                 checkedAgb: false,
                 interestsArray: [],
                 showInfo: false,
+                jobs: ["Schüler", "Student", "Lehrender", "Hobbyist", "Stöbernder", "Arbeitnehmer", "Sonstiges"],
             }
         },
         mounted() {
