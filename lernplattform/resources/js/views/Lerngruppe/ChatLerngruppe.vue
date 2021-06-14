@@ -12,12 +12,12 @@
 
         <!-- Content  -->
          <div class="background-container">
-            <div class="background">
-                <span class="material-icons-outlined icon-für-oberen-Bereich">biotech</span>
-                <div class="überschrift-oberer-Bereich">
+            <div :style="{ backgroundColor: colorBackground }" class="background">
+                <span :style="{ color: colorIcon }" class="material-icons-outlined icon-für-oberen-Bereich">{{icon}}</span>
+                <div :style="{ color: color }" class="überschrift-oberer-Bereich">
                     <h2>{{currentRoom.name}}</h2></div>
             </div>
-            <div class="fabriges-rechteck">
+            <div :style="{ backgroundColor: colorBackground }" class="fabriges-rechteck">
                 <div class="weißes-rechteck"></div>
             </div>
         </div>
@@ -96,7 +96,10 @@
         mounted(){
             axios.get('/api/room/get/'+this.urlId)
             .then(response => {
-                console.log(response.data);
+                this.icon = response.data.data[0].data.category_id.icon;
+                this.color = response.data.data[0].data.category_id.color;
+                this.colorBackground = this.hexToRgbA(response.data.data[0].data.category_id.color,0.4);
+                this.colorIcon = this.hexToRgbA(response.data.data[0].data.category_id.color,0.5);
             }
             )
         },
@@ -106,6 +109,18 @@
             }
         },
         methods: {
+            hexToRgbA(hex, opacity){
+                var c;
+                if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+                    c= hex.substring(1).split('');
+                    if(c.length== 3){
+                        c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+                    }
+                    c= '0x'+c.join('');
+                    return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+','+opacity+')';
+                }
+                throw new Error('Bad Hex');
+            },
             connect() {
                 if( this.currentRoom.id ){
                     let vm = this;
