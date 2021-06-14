@@ -2,7 +2,7 @@
     <div>
         <!-- Header [Back] -->
         <div class="header_wrapper">
-            <div class="header header--back">
+            <div class="header">
                 <div class="header_title">
                     {{title}}
                 </div>
