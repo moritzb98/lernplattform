@@ -38,7 +38,7 @@
                 <multiselect v-model="interestData" :options="interestsArray" :multiple="true"></multiselect>
 
 
-                <div class="headline-text-field">Tätigkeit wählen</div>
+                <div class="headline-text-field">Deine Tätigkeit</div>
                 <select class="mdc-button mdc-button--raised button--big dropdown" name="categories" v-model="registerData.job">
                     <option selected="selected" value="">Bitte wähle eine Tätigkeit aus</option>
                     <option v-for="job in jobs" :key="job" :value="job">
