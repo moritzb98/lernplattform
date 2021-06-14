@@ -26,7 +26,7 @@ class RoomController extends Controller
 
     public function getRoom($roomid) {
         //return Room::where('id', $roomid)->first();
-        return new RoomCollection(Room::where('id', $roomid)->first());
+        return new RoomCollection(Room::where('id', $roomid)->get());
     }
 
 

@@ -69,7 +69,6 @@
             getAllRooms() {
                 this.axios.get('/api/rooms')
                     .then(response=>{
-
                         for(var i = 0; response.data[0].length; i++){
                             if(response.data[0][i].user_id != response.data[1]){
                                 this.rooms.push(response.data[0][i]);

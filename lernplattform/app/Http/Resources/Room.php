@@ -20,7 +20,6 @@ class Room extends JsonResource
                 "maxPersons" => $this->maxPersons,
                 "user_id" => $this->user_id,
                 "category_id" => $this->category
-
             ],
         ];
     }
