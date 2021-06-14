@@ -13,7 +13,7 @@
 
         <div class="background-container">
             <div class="background">
-                <span class="material-icons-outlined icon-für-oberen-Bereich">biotech</span>
+                <span class="material-icons-outlined icon-für-oberen-Bereich">source</span>
                 <div class="überschrift-oberer-Bereich" >Sammlung</div>
             </div>
 

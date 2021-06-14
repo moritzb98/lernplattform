@@ -35,11 +35,11 @@
                 </router-link>
                 <div v-for="(room, index) in rooms" :key="index">
                         <div class="neumorph card-small mb-2">
-                            {{room.name}}
+                            {{room.data.name}}
                             <div class="card-small_controls" >
 
                                 <!-- CTA Zum Chat -->
-                                <router-link :to='"/spa/Lerngruppen/"+room.id+"/Chat"'>
+                                <router-link :to='"/spa/Lerngruppen/"+room.data.id+"/Chat"'>
                                     <div class="card-small_controls_item">
                                         <span class="material-icons">question_answer</span>
                                     </div>
@@ -53,7 +53,7 @@
 
                                     <md-menu-content class="card-small_dropdown">
                                         <md-menu-item>
-                                            <div class="card-small_controls_item" @click="leaveRoom(room.id)">
+                                            <div class="card-small_controls_item" @click="leaveRoom(room.data.id)">
                                                 <span class="material-icons">logout</span> Verlassen
                                             </div>
                                         </md-menu-item>
@@ -65,7 +65,7 @@
                                             </router-link>
                                         </md-menu-item>
                                         <md-menu-item>
-                                            <div class="card-small_controls_item" @click="deleteRoom(room.id)">
+                                            <div class="card-small_controls_item" @click="deleteRoom(room.data.id)">
                                                 <span class="material-icons">delete</span> Löschen
                                             </div>
                                         </md-menu-item>
@@ -129,8 +129,9 @@
             getMyRooms() {
                 this.axios.get('/api/getmyroom')
                     .then(response=>{
-                        this.rooms=response.data,
-                        console.log(this.rooms);
+                        this.rooms=response.data.data,
+
+                        console.log(response.data);
                     })
             },
             getRoomsUserIsIn() {

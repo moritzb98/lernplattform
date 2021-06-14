@@ -20,8 +20,8 @@ class RoomController extends Controller
     }
 
     public function getMyRooms() {
-        return Room::where('user_id', Auth::user()->id)->get();
-        //return new RoomCollection(Room::where('user_id', Auth::user()->id)->get(););
+        //return Room::where('user_id', Auth::user()->id)->get();
+        return new RoomCollection(Room::where('user_id', Auth::user()->id)->get());
     }
 
     public function getRoom($roomid) {
