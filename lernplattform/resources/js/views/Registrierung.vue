@@ -2,7 +2,7 @@
     <div>
         <!-- Header [Back] -->
         <div class="header_wrapper">
-            <div class="header header--back">
+            <div class="header">
                 <div class="header_title">
                     {{title}}
                 </div>
@@ -38,10 +38,13 @@
                 <multiselect v-model="interestData" :options="interestsArray" :multiple="true"></multiselect>
 
 
-                <div class="headline-text-field">Aktuelle Tätigkeit</div>
-                <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
-                    <input v-model="registerData.job" class="mdc-text-field__input text-field__input--modified" type="text" placeholder="" aria-label="Label">
-                </label>
+                <div class="headline-text-field">Deine Tätigkeit</div>
+                <select class="mdc-button mdc-button--raised button--big dropdown" name="categories" v-model="registerData.job">
+                    <option selected="selected" value="">Bitte wähle eine Tätigkeit aus</option>
+                    <option v-for="job in jobs" :key="job" :value="job">
+                        {{job}}
+                    </option>
+                </select>
                 <div class="headline-text-field">Alter</div>
                 <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
                     <input v-model="registerData.age" class="mdc-text-field__input text-field__input--modified" type="text" placeholder="" aria-label="Label">
@@ -55,7 +58,7 @@
                             <div class="mdc-radio__inner-circle mdc-radio__inner-circle-modified"></div>
                         </div>
                     </div>
-                    <label class="radio-button-label" for="radio-1">Ich erkläre mich mit den AGB von Skillwire einverstanden.</label>
+                    <label class="radio-button-label" for="radio-1">Ich erkläre mich mit dem Datenschutz und den <router-link class="linkText" to="/spa/Datenschutz">AGB</router-link> von Skillwire einverstanden.</label>
                 </div>
 
                 <button class="mdc-button mdc-button--raised button--big" type="submit">
@@ -95,6 +98,7 @@ import Multiselect from 'vue-multiselect'
                 checkedAgb: false,
                 interestsArray: [],
                 showInfo: false,
+                jobs: ["Schüler", "Student", "Lehrender", "Hobbyist", "Stöbernder", "Arbeitnehmer", "Sonstiges"],
             }
         },
         mounted() {
@@ -111,7 +115,7 @@ import Multiselect from 'vue-multiselect'
                     axios.post('/login', this.formData).then(response => {
                         console.log(response);
                         this.registerInterests();
-                        this.$router.push({ path: '/spa/Dashboard' });
+                        this.$router.push({ path: '/spa/product-tour/1' });
                     });
                 });
             },
@@ -182,6 +186,8 @@ import Multiselect from 'vue-multiselect'
         box-shadow: inset 6px 6px 10px 0 rgb(0 0 0 / 20%), inset -6px -6px 10px 0 white, 12px 12px 24px 0 rgb(0 0 0 / 20%), -12px -12px 24px 0 rgb(255 255 255 / 50%);
         margin-bottom: 10px;
     }
+
+
 
 </style>
 

@@ -19,8 +19,8 @@ class Room extends JsonResource
                 "name" => $this->name,
                 "maxPersons" => $this->maxPersons,
                 "user_id" => $this->user_id,
-                "category_id" => $this->category
-
+                "category_id" => $this->category,
+                "id" => $this->id
             ],
         ];
     }

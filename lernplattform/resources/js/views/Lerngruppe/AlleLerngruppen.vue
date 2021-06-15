@@ -30,8 +30,10 @@
         <!-- Mit darunter austauschen, wenn Kategoriebanner eingefügt -->
         <!-- <div class="row justify-content-center mb-3" style="margin-top: -30px;"> -->
 
+        <h5 v-if="noRooms" style="text-align: center; margin: 20px;" class="dashboard-headline">Keine Lerngruppen</h5>
+
         <div class="row justify-content-center mb-3">
-            <div class="col-11">
+            <div class="col-12">
                 <div v-for="(room, index) in rooms" :key="index">
                     <div class="neumorph card-small mb-2">
                         {{room.name}}
@@ -48,7 +50,6 @@
                             </div> -->
                         </div>
                     </div>
-                    <!-- delete gibt 405 zurück -->
                 </div>
             </div>
         </div>
@@ -63,19 +64,23 @@
         data() {
             return {
                 rooms:[],
-                title: "Lerngruppe finden"
+                title: "Lerngruppe finden",
+                noRooms: true,
             }
         },
         methods: {
             getAllRooms() {
                 this.axios.get('/api/rooms')
                     .then(response=>{
-
                         for(var i = 0; response.data[0].length; i++){
                             if(response.data[0][i].user_id != response.data[1]){
                                 this.rooms.push(response.data[0][i]);
                             }
+                            if(this.rooms.length > 0){
+                                this.noRooms = false;
+                            }
                         }
+
                     })
             },
             joinRoom(roomid){

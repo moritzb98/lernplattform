@@ -25,6 +25,19 @@
 
         <p class="logout" @click="logout">Logout</p>
 
+        <div class="row">
+            <div class="col-12 justify-content-center text-center mb-2">
+                <router-link class="linkText" to="/spa/Impressum">
+                    Impressum
+                </router-link>
+            </div>
+            <div class="col-12 justify-content-center text-center mb-4">
+                <router-link class="linkText" to="/spa/Datenschutz">
+                    Datenschutz
+                </router-link>
+            </div>
+        </div>
+
         <!-- Nav -->
         <Nav />
     </div>

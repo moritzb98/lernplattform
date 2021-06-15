@@ -63,7 +63,8 @@ class User extends Authenticatable implements Searchable
     }
 
     public function getSearchResult(): SearchResult {
-        $url = '/spa/users/'.$this->name;
+        //$url = '/spa/users/'.$this->name;
+        $url = "#";
 
         return new SearchResult($this, $this->name, $url);
     }

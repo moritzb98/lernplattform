@@ -10,10 +10,10 @@
             </div>
         </div>
 
-        <!-- Content  -->
+
         <div class="background-container">
             <div class="background">
-                <span class="material-icons-outlined icon-für-oberen-Bereich">biotech</span>
+                <span class="material-icons-outlined icon-für-oberen-Bereich">source</span>
                 <div class="überschrift-oberer-Bereich" >Sammlung</div>
             </div>
 
@@ -29,7 +29,6 @@
         <!-- Select -->
         <div class="headline-text-field">Kategorie wählen</div>
         <select class="mdc-button mdc-button--raised button--big dropdown" name="categories" v-model="collection.category_id">
-
             <option selected="selected" value="">Bitte wähle eine Kategorie aus</option>
             <option v-for="categorie in categories" :key="categorie.name" :value="categorie.id">
                 {{categorie.name}}

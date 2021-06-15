@@ -19,41 +19,51 @@
         </div>
 
         <!-- Content -->
-
-        <router-link to="/spa/Quiz-erstellen">
-            <button class="btn neumorph btn--dashed w-100 mb-3">
-                <span class="btn_text mdc-button__label ">Quiz erstellen</span>
-                <span class="btn_icon material-icons">add</span>
-            </button>
-        </router-link>
-
-        <router-link to="/spa/Auszeichnungen">
-            <button class="btn neumorph w-100 mb-3">
-                <span class="btn_text mdc-button__label ">Meine Auszeichnungen</span>
-                <span class="btn_icon material-icons">military_tech</span>
-            </button>
-        </router-link>
-
-        <!-- <a href="/spa/Auszeichnungen" class="button-link button-link--mittig">
-            <button class="mdc-button mdc-button--raised button--big button--small abstand-weg">
-                <span class="button-text">Meine Auszeichnungen</span> <span class="material-icons">military_tech</span>
-            </button>
-        </a> -->
-
-        <div class="router-text" v-for="quizOb in quiz" :key="quizOb.id">
-            <router-link :to='"/spa/quiz/"+quizOb.name'>
-                <div class="kategorie-container">
-                    <div class="kategorie-icon-container">
-                        <span :style="{ color: quizOb.color }" class="material-icons-outlined quiz-kategorie-icon">{{quizOb.icon}}</span>
-                    </div>
-                    <div :style="{ backgroundImage: 'radial-gradient(white, white), radial-gradient(circle at top left,white, '+ quizOb.color  + ')' }" class="quiz-kategorie-container">
-                        <div>{{quizOb.name}}</div>
-                        <div class="play-now-text">Jetzt spielen</div>
-                    </div>
-                </div>
+        <div class="content_wrapper">
+            <router-link to="/spa/Meine-Quiz">
+                <button class="btn neumorph w-100 mb-3">
+                    <span class="btn_text mdc-button__label ">Meine Quiz</span>
+                    <span class="btn_icon material-icons">chevron_right</span>
+                </button>
             </router-link>
-            <br>
+
+            <router-link to="/spa/Quiz-erstellen">
+                <button class="btn neumorph btn--dashed w-100 mb-3">
+                    <span class="btn_text mdc-button__label ">Quiz erstellen</span>
+                    <span class="btn_icon material-icons">add</span>
+                </button>
+            </router-link>
+
+            <router-link to="/spa/Auszeichnungen">
+                <button class="btn neumorph w-100 mb-3">
+                    <span class="btn_text mdc-button__label ">Meine Auszeichnungen</span>
+                    <span class="btn_icon material-icons">military_tech</span>
+                </button>
+            </router-link>
+
+            <!-- <a href="/spa/Auszeichnungen" class="button-link button-link--mittig">
+                <button class="mdc-button mdc-button--raised button--big button--small abstand-weg">
+                    <span class="button-text">Meine Auszeichnungen</span> <span class="material-icons">military_tech</span>
+                </button>
+            </a> -->
+
+            <div class="router-text" v-for="quizOb in quiz" :key="quizOb.id">
+                <router-link :to='"/spa/quiz/"+quizOb.name'>
+                    <div class="kategorie-container">
+                        <div class="kategorie-icon-container">
+                            <span :style="{ color: quizOb.color }" class="material-icons-outlined quiz-kategorie-icon">{{quizOb.icon}}</span>
+                        </div>
+                        <div :style="{ backgroundImage: 'radial-gradient(white, white), radial-gradient(circle at top left,white, '+ quizOb.color  + ')' }" class="quiz-kategorie-container">
+                            <div>{{quizOb.name}}</div>
+                            <div class="play-now-text">Jetzt spielen</div>
+                        </div>
+                    </div>
+                </router-link>
+                <br>
+            </div>
         </div>
+
+        <br><br><br><br><br>
 
         <!-- Nav -->
         <Nav />

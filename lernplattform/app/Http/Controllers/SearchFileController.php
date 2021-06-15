@@ -22,7 +22,6 @@ class SearchFileController extends Controller
             ->registerModel(Collection::class, ['name'])->registerModel(User::class, ['name'])
             ->search($request->input('query'));
 
-
             return response()->json($results);
         }
     }

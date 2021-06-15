@@ -45,9 +45,22 @@ import QuizKategorie from './views/QuizKategorie.vue'
 import QuizDetail from './views/QuizDetail.vue'
 import Quiz from './views/Quiz.vue'
 import Auszeichnungen from './views/Auszeichnungen.vue'
+import MeineQuizzes from './views/MeineQuizzes.vue'
 
 // NotFoundPage
 import NotFoundPage from './views/NotFoundPage.vue'
+
+//Product Tour
+import FirstPageProductTour from './views/ProductTour/FirstPage.vue'
+import SecondPageProductTour from './views/ProductTour/SecondPage.vue'
+import ThirdPageProductTour from './views/ProductTour/ThirdPage.vue'
+import FourthPageProductTour from './views/ProductTour/FourthPage.vue'
+import FifthPageProductTour from './views/ProductTour/FifthPage.vue'
+
+
+import Impressum from './views/Impressum.vue'
+import Datenschutz from './views/Datenschutz.vue'
+
 
 
 export const routes = [
@@ -318,7 +331,70 @@ export const routes = [
             requiresAuth: true
           }
     },
+    {
+        name: 'MeineQuizzes',
+        path: '/spa/Meine-Quiz',
+        component: MeineQuizzes,
+        meta: {
+            requiresAuth: true
+          }
+    },
 
+    // Product Tour
+    {
+        name: 'FirstPageProductTour',
+        path: '/spa/Product-Tour/1',
+        component: FirstPageProductTour,
+        meta: {
+            requiresAuth: true
+          }
+    },
+    {
+        name: 'SecondPageProductTour',
+        path: '/spa/Product-Tour/2',
+        component: SecondPageProductTour,
+        meta: {
+            requiresAuth: true
+          }
+    },
+    {
+        name: 'ThirdPageProductTour',
+        path: '/spa/Product-Tour/3',
+        component: ThirdPageProductTour,
+        meta: {
+            requiresAuth: true
+          }
+    },
+    {
+        name: 'FourthPageProductTour',
+        path: '/spa/Product-Tour/4',
+        component: FourthPageProductTour,
+        meta: {
+            requiresAuth: true
+          }
+    },
+    {
+        name: 'FifthPageProductTour',
+        path: '/spa/Product-Tour/5',
+        component: FifthPageProductTour,
+        meta: {
+            requiresAuth: true
+          }
+    },
+
+    {
+        name: 'Impressum',
+        path: '/spa/Impressum',
+        component: Impressum,
+        meta: {
+            requiresAuth: true
+          }
+    },
+    {
+        name: 'Datenschutz',
+        path: '/spa/Datenschutz',
+        component: Datenschutz,
+    },
 
 
 ];

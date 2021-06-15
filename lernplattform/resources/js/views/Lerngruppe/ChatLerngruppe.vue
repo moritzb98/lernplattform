@@ -11,19 +11,17 @@
         </div>
 
         <!-- Content  -->
-        <div class="row">
-            <div class="col">
-                <!-- Kategorie Banner  -->
-                <div class="banner-grp-chat">
-                    <div class="banner-grp-chat_body">
-                        <div class="banner-grp-chat_body-title">
-                            <h2>{{currentRoom.name}}</h2>
-                        </div>
-                    </div>
-                    <div class="banner-grp-chat_overlay"></div>
-                </div>
+         <div class="background-container">
+            <div :style="{ backgroundColor: colorBackground }" class="background">
+                <span :style="{ color: colorIcon }" class="material-icons-outlined icon-für-oberen-Bereich">{{icon}}</span>
+                <div :style="{ color: color }" class="überschrift-oberer-Bereich">
+                    <h2>{{currentRoom.name}}</h2></div>
+            </div>
+            <div :style="{ backgroundColor: colorBackground }" class="fabriges-rechteck">
+                <div class="weißes-rechteck"></div>
             </div>
         </div>
+
         <div class="row">
             <div class="col">
 
@@ -88,8 +86,22 @@
                 currentRoom: [],
                 messages: [],
                 urlId: this.$route.params.id,
-                title: "Lerngruppe"
+                title: "Lerngruppe",
+                colorBackground: "",
+                colorIcon: "",
+                color: "",
+                icon: "",
             }
+        },
+        mounted(){
+            axios.get('/api/room/get/'+this.urlId)
+            .then(response => {
+                this.icon = response.data.data[0].data.category_id.icon;
+                this.color = response.data.data[0].data.category_id.color;
+                this.colorBackground = this.hexToRgbA(response.data.data[0].data.category_id.color,0.4);
+                this.colorIcon = this.hexToRgbA(response.data.data[0].data.category_id.color,0.5);
+            }
+            )
         },
         watch: {
             currentRoom(){
@@ -97,6 +109,18 @@
             }
         },
         methods: {
+            hexToRgbA(hex, opacity){
+                var c;
+                if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+                    c= hex.substring(1).split('');
+                    if(c.length== 3){
+                        c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+                    }
+                    c= '0x'+c.join('');
+                    return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+','+opacity+')';
+                }
+                throw new Error('Bad Hex');
+            },
             connect() {
                 if( this.currentRoom.id ){
                     let vm = this;
@@ -113,10 +137,12 @@
                     this.chatRooms = response.data;
                     console.log(response.data);
                     for (var i = 0; i < response.data.length; i++) {
-                       if (response.data[i].id == this.urlId) {
+                       if (response.data[i].room_id == this.urlId) {
                             this.setRoom( response.data[i] );
                        }
+
                     }
+                    console.log(this.currentRoom);
                 })
                 .catch( error => {
                     console.log( error );
@@ -146,10 +172,10 @@
         created() {
             this.getRooms();
         },
-        computed: { 
-            konferenzLink() { 
-                return this.$route.path + '/Konferenz'; 
-            } 
+        computed: {
+            konferenzLink() {
+                return this.$route.path + '/Konferenz';
+            }
         }
     }
 </script>
@@ -165,7 +191,7 @@
         padding: 15px 10px 40px 10px;
         justify-content: center;
         align-items: center;
-        margin-top: -60px;
+        margin-top: -40px;
     }
 
     .chat {

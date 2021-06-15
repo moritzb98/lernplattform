@@ -33,13 +33,14 @@
                         <span class="btn_icon material-icons">add</span>
                     </button>
                 </router-link>
-                <div v-for="(room, index) in rooms" :key="index">
+                <h5 class="dashboard-headline">Meine Lerngruppen</h5>
+                <div v-if="!noMyRooms" v-for="(room, index) in rooms" :key="index">
                         <div class="neumorph card-small mb-2">
-                            {{room.name}}
+                            {{room.data.name}}
                             <div class="card-small_controls" >
 
                                 <!-- CTA Zum Chat -->
-                                <router-link :to='"/spa/Lerngruppen/"+room.id+"/Chat"'>
+                                <router-link :to='"/spa/Lerngruppen/"+room.data.id+"/Chat"'>
                                     <div class="card-small_controls_item">
                                         <span class="material-icons">question_answer</span>
                                     </div>
@@ -53,7 +54,7 @@
 
                                     <md-menu-content class="card-small_dropdown">
                                         <md-menu-item>
-                                            <div class="card-small_controls_item" @click="leaveRoom(room.id)">
+                                            <div class="card-small_controls_item" @click="leaveRoom(room.data.id)">
                                                 <span class="material-icons">logout</span> Verlassen
                                             </div>
                                         </md-menu-item>
@@ -65,7 +66,7 @@
                                             </router-link>
                                         </md-menu-item>
                                         <md-menu-item>
-                                            <div class="card-small_controls_item" @click="deleteRoom(room.id)">
+                                            <div class="card-small_controls_item" @click="deleteRoom(room.data.id)">
                                                 <span class="material-icons">delete</span> Löschen
                                             </div>
                                         </md-menu-item>
@@ -75,8 +76,10 @@
                             </div>
                         </div>
                 </div>
-
-                <div v-for="(roomUserIsIn, index) in roomsUserIsIn" :key="index">
+                <div v-if="noMyRooms">Noch keinen Raum erstellt.</div>
+                <hr>
+                <h5 class="dashboard-headline">Beigetretene Lerngruppen</h5>
+                <div v-if="!noOtherRooms" v-for="(roomUserIsIn, index) in roomsUserIsIn" :key="index">
                     <div class="neumorph card-small mb-2">
 
                         {{roomUserIsIn.data.room_id.name}}
@@ -107,7 +110,7 @@
                         </div>
                     </div>
                 </div>
-
+                <div v-if="noOtherRooms">Noch keinen Raum beigetreten.</div>
             </div>
         </div>
 
@@ -122,15 +125,19 @@
             return {
                 rooms:[],
                 roomsUserIsIn: [],
-                title: "Meine Lerngruppen"
+                title: "Meine Lerngruppen",
+                noMyRooms: true,
+                noOtherRooms: true,
             }
         },
         methods: {
             getMyRooms() {
                 this.axios.get('/api/getmyroom')
                     .then(response=>{
-                        this.rooms=response.data,
-                        console.log(this.rooms);
+                        this.rooms=response.data.data;
+                        if(this.rooms.length > 0){
+                            this.noMyRooms = false;
+                        }
                     })
             },
             getRoomsUserIsIn() {
@@ -139,13 +146,16 @@
                         this.roomsUserIsIn=response.data.data,
                         console.log(this.roomsUserIsIn);
                         // console.log("test" ,response.data.data);
+                        if(this.roomsUserIsIn.length > 0){
+                            this.noOtherRooms = false;
+                        }
                     })
             },
             deleteRoom(id){
                 this.axios.post('/api/room/delete/' + id)
                     .then(response => {
                         console.log(response);
-                        Vue.$toast.error('Lerngruppe erfolgreich gelöscht.', {});
+                        Vue.$toast.success('Lerngruppe erfolgreich gelöscht.', {});
                         this.$router.go();
                     })
             },

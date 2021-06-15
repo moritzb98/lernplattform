@@ -94,6 +94,10 @@
         min-height: 100vh;
     }
 
+    .content_wrapper {
+        margin-top: -25px;
+    }
+
 
     /* Utilities  */
 
@@ -579,6 +583,10 @@
     .card-small_controls_item .material-icons {
         font-size: 22px;
         margin: 0;
+    }
+
+    .card-small--border {
+        border: 1px solid red;
     }
 
 
@@ -1252,6 +1260,11 @@
 
     select{
         color: #212121 !important;
+    }
+
+    .linkText{
+        color: black !important;
+        font-weight: bold;
     }
 
 </style>
