@@ -19,7 +19,7 @@
                 <div class="überschrift-oberer-Bereich text-weiß" >Karteikartenset</div>
             </div>
 
-            <div class="fabriges-rechteck blau">
+            <div class="fabriges-rechteck bunt">
                 <div class="weißes-rechteck"></div>
             </div>
         </div>
@@ -137,22 +137,7 @@
 
 <style scoped>
 
-    .bunt{
-        background: linear-gradient(to right, #E05858, #E87B50, #FCB85C, #EDC363, #8DA887, #6BA38B, #2593A6, #128FC4, #0D6277, #3D5282);
-    }
 
-    .blau{
-        background: linear-gradient(to right, #E05858, #E87B50, #FCB85C, #EDC363, #8DA887, #6BA38B, #2593A6, #128FC4, #0D6277, #3D5282);
-    }
-
-    .text-weiß{
-        color: white;
-    }
-
-    .icon-weiß{
-        color:white;
-        opacity: 0.3;
-    }
 
     .trennungslinie-dick{
         border: 2px solid #DEDEDE;

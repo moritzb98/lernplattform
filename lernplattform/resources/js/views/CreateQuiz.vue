@@ -14,12 +14,12 @@
         </div>
 
         <div class="background-container">
-            <div class="background">
-                <span class="material-icons-outlined icon-für-oberen-Bereich">description</span>
-                <div class="überschrift-oberer-Bereich" >Quiz erstellen</div>
+            <div class="background bunt">
+                <span class="material-icons-outlined icon-für-oberen-Bereich icon-weiß">description</span>
+                <div class="überschrift-oberer-Bereich text-weiß" >Quiz erstellen</div>
             </div>
 
-            <div class="fabriges-rechteck">
+            <div class="fabriges-rechteck text-weiß">
                 <div class="weißes-rechteck"></div>
             </div>
         </div>

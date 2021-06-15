@@ -55,7 +55,7 @@
                                     <router-link to="/spa/upload">
                                         <div class="card neumorph" v-on:click="showNavDropUp">
                                             <span class="material-icons-outlined card_img">perm_media</span>
-                                            <div class="card_title">Medien hochladen</div>
+                                            <div class="card_title">Medien</div>
                                         </div>
                                     </router-link>
                                 </div>
