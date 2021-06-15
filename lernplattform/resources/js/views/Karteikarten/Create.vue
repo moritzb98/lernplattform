@@ -14,12 +14,12 @@
         </div>
 
         <div class="background-container">
-            <div class="background">
-                <span class="material-icons-outlined icon-für-oberen-Bereich">description</span>
-                <div class="überschrift-oberer-Bereich" >Karteikartenset</div>
+            <div class="background bunt">
+                <span class="material-icons-outlined icon-für-oberen-Bereich icon-weiß">description</span>
+                <div class="überschrift-oberer-Bereich text-weiß" >Karteikartenset</div>
             </div>
 
-            <div class="fabriges-rechteck">
+            <div class="fabriges-rechteck blau">
                 <div class="weißes-rechteck"></div>
             </div>
         </div>
@@ -136,6 +136,24 @@
 </script>
 
 <style scoped>
+
+    .bunt{
+        background: linear-gradient(to right, #E05858, #E87B50, #FCB85C, #EDC363, #8DA887, #6BA38B, #2593A6, #128FC4, #0D6277, #3D5282);
+    }
+
+    .blau{
+        background: linear-gradient(to right, #E05858, #E87B50, #FCB85C, #EDC363, #8DA887, #6BA38B, #2593A6, #128FC4, #0D6277, #3D5282);
+    }
+
+    .text-weiß{
+        color: white;
+    }
+
+    .icon-weiß{
+        color:white;
+        opacity: 0.3;
+    }
+
     .trennungslinie-dick{
         border: 2px solid #DEDEDE;
         margin-right: -15px;
