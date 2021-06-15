@@ -29,6 +29,14 @@
 
 <style>
 
+.dropdown option {
+    background-color: white !important;
+}
+
+.dropdown option:visited {
+    background-color: #eee;
+}
+
 
 /*
     ██████   █████  ███████ ██  ██████
