@@ -85,7 +85,7 @@ import ProgressBar from 'vue-simple-progress'
             .then(response=>{
                 this.quizzesForResult = response.data;
 
-                axios.post('/api/quiz/id/result/', this.quizzesForResult)
+                axios.post('https://secret-cove-11178.herokuapp.com/api/quiz/id/result/', this.quizzesForResult)
                 .then(response=>{
                     for(var i = 0; i<response.data.length; i++){
                         if(response.data[i]){
