@@ -45,8 +45,9 @@
                 </div>
             </div>
 
+            <!-- AUSGEBLENDET, KEIN MEHRWERT AKTUELL, DA KEINE DETAILSEITE FÜR USER  -->
             <!-- User Ergebnis  -->
-            <div v-if="resultsUserCategory.length > 0">
+            <!-- <div v-if="resultsUserCategory.length > 0">
                 <div class="row mt-3">
                     <div class="col">
                         <div class=" search-grp-divider w-100 d-flex mt-2 ">
@@ -66,7 +67,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Sammlungen Ergebnis  -->
             <div v-if="resultsCollectionsCategory.length > 0">
@@ -227,6 +228,10 @@
 </script>
 
 <style>
+
+    .quiz-kategorie-container {
+        color: black;
+    }
 
     .search-overwrite {
 

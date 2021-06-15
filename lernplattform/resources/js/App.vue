@@ -37,6 +37,10 @@
     background-color: #eee;
 }
 
+.dropdown * {
+    background-color: white !important;
+}
+
 
 /*
     ██████   █████  ███████ ██  ██████
