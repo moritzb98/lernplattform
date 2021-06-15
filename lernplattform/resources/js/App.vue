@@ -548,7 +548,8 @@
 
     .card_img {
         width: 100%;
-        margin-bottom: 10px;
+        font-size: 3.5em;
+        margin: auto;
     }
 
     .card_title {

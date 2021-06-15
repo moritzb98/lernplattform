@@ -11,7 +11,7 @@
 </div>
 <div class="background-container">
    <div class="background">
-      <span class="material-icons-outlined icon-für-oberen-Bereich">biotech</span>
+      <span class="material-icons-outlined icon-für-oberen-Bereich">perm_media</span>
       <div class="überschrift-oberer-Bereich" >
          Medien hochladen
       </div>
