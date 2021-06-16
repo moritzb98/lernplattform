@@ -38,7 +38,7 @@
                                 <div class="col col-6 col-sm-4 mt-3">
                                     <router-link to="/spa/Sammlung-erstellen">
                                         <div class="card neumorph" v-on:click="showNavDropUp">
-                                            <img class="card_img" src="" alt="" />
+                                            <span class="material-icons-outlined card_img">source</span>
                                             <div class="card_title">Sammlung</div>
                                         </div>
                                     </router-link>
@@ -46,7 +46,7 @@
                                 <div class="col col-6 col-sm-4 mt-3">
                                     <router-link to="/spa/Karteikartenset/Erstellen">
                                         <div class="card neumorph" v-on:click="showNavDropUp">
-                                            <img class="card_img" src="" alt="" />
+                                            <span class="material-icons-outlined card_img">description</span>
                                             <div class="card_title">Karteikarten</div>
                                         </div>
                                     </router-link>
@@ -54,8 +54,8 @@
                                 <div class="col col-6 col-sm-4 mt-3">
                                     <router-link to="/spa/upload">
                                         <div class="card neumorph" v-on:click="showNavDropUp">
-                                            <img class="card_img" src="" alt="" />
-                                            <div class="card_title">Medien hochladen</div>
+                                            <span class="material-icons-outlined card_img">perm_media</span>
+                                            <div class="card_title">Medien</div>
                                         </div>
                                     </router-link>
                                 </div>
@@ -70,7 +70,7 @@
                                 <div class="col col-6 col-sm-4 mt-3">
                                     <router-link to="/spa/Quiz-erstellen">
                                         <div class="card neumorph" v-on:click="showNavDropUp">
-                                            <img class="card_img" src="" alt="" />
+                                            <span class="material-icons-outlined card_img">quiz</span>
                                             <div class="card_title">Quiz</div>
                                         </div>
                                     </router-link>
@@ -78,7 +78,7 @@
                                 <div class="col col-6 col-sm-4 mt-3">
                                     <router-link to="/spa/Lerngruppen/Erstellen">
                                         <div class="card neumorph" v-on:click="showNavDropUp">
-                                            <img class="card_img" src="" alt="" />
+                                            <span class="material-icons-outlined card_img">people</span>
                                             <div class="card_title">Lerngruppe</div>
                                         </div>
                                     </router-link>

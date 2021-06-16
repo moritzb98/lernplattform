@@ -110,7 +110,7 @@
                         </div>
                     </div>
                 </div>
-                <div v-if="noOtherRooms">Noch keinen Raum beigetreten.</div>
+                <div v-if="noOtherRooms">Noch keinem Raum beigetreten.</div>
             </div>
         </div>
 

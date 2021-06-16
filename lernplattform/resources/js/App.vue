@@ -548,7 +548,8 @@
 
     .card_img {
         width: 100%;
-        margin-bottom: 10px;
+        font-size: 3.5em;
+        margin: auto;
     }
 
     .card_title {
@@ -1277,6 +1278,20 @@
     .linkText{
         color: black !important;
         font-weight: bold;
+    }
+
+/*Oberer Bereich bunt*/
+    .bunt{
+        background: linear-gradient(to right, #E05858, #E87B50, #FCB85C, #EDC363, #8DA887, #6BA38B, #2593A6, #128FC4, #0D6277, #3D5282);
+    }
+
+    .text-weiß{
+        color: white !important;
+    }
+
+    .icon-weiß{
+        color:white;
+        opacity: 0.3;
     }
 
 </style>
