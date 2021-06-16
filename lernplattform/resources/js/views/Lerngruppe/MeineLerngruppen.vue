@@ -13,7 +13,7 @@
         </div>
 
         <!-- Content  -->
-        <div class="row mb-5">
+        <div class="row mb-3">
             <div class="col-12">
                 <router-link to="/spa/Lerngruppen/Finden">
                     <button class="btn neumorph w-100">
@@ -28,7 +28,7 @@
         <div class="row mb-3">
             <div class="col">
                 <router-link to="/spa/Lerngruppen/Erstellen">
-                    <button class="btn neumorph btn--dashed w-100 mb-3">
+                    <button class="btn neumorph btn--dashed w-100 mb-4">
                         <span class="btn_text mdc-button__label ">Lerngruppe erstellen</span>
                         <span class="btn_icon material-icons">add</span>
                     </button>

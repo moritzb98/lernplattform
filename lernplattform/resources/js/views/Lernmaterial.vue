@@ -13,9 +13,16 @@
         </div>
 
         <!-- Content  -->
-        <a href="/spa/documents" class="button-link">
-            <button class="mdc-button mdc-button--raised button--big">
+        <router-link to="/spa/documents">
+            <button class="mdc-button mdc-button--raised button--big mt-3">
                 <span class="button-text">Meine Uploads</span> <span class="material-icons">chevron_right</span>
+            </button>
+        </router-link>
+
+        <!-- Router Link geht nicht, wtf. -->
+        <a href="/spa/Karteikartensets">
+            <button class="mdc-button mdc-button--raised button--big mt-3">
+                <span class="button-text">Meine Karteikartensets</span> <span class="material-icons">chevron_right</span>
             </button>
         </a>
 
