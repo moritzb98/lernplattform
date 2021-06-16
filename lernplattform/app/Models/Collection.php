@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\Searchable\Searchable;
-use Spatie\Searchable\Searchresult;
+use Spatie\Searchable\SearchResult;
 use Illuminate\Database\Eloquent\Model;
 
 class Collection extends Model implements Searchable

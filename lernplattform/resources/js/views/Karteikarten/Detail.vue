@@ -90,7 +90,6 @@
         mounted(){
             axios.get('/api/karteikartenset/' + this.karteikartenset.id)
             .then(response=>{
-                console.log(response.data.data[0]);
                 this.karteikartenset.name = response.data.data[0].data.name;
                 this.category.name = response.data.data[0].data.category_id.name;
                 this.category.color = response.data.data[0].data.category_id.color;
