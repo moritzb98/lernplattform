@@ -59,7 +59,7 @@
                                             </div>
                                         </md-menu-item>
                                         <md-menu-item>
-                                            <router-link :to='"/spa/Lerngruppen/"+room.id+"/Bearbeiten"'>
+                                            <router-link :to='"/spa/Lerngruppen/"+room.data.id+"/Bearbeiten"'>
                                                 <div class="card-small_controls_item">
                                                     <span class="material-icons">edit</span> Bearbeiten
                                                 </div>

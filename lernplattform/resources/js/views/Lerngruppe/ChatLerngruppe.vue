@@ -141,6 +141,7 @@
                             this.setRoom( response.data[i] );
                        }
 
+
                     }
                     console.log(this.currentRoom);
                 })
