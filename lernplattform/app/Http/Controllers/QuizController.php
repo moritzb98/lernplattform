@@ -54,22 +54,39 @@ class QuizController extends Controller
 
         $currentResult = QuizresultsUser::where('user_id', Auth::user()->id)->where('quiz_id', $request['quizid'])->first();
 
-        if($currentResult['correctAnswers'] < $request['correctAnswers']){
+        if($currentResult !== null){
+            if($currentResult['correctAnswers'] < $request['correctAnswers']){
+                QuizresultsUser::updateOrCreate(
+                [
+                    'user_id' => Auth::user()->id,
+                    'quiz_id' => $request['quizid'],
+                ],
+                [
+                    'user_id' => Auth::user()->id,
+                    'quiz_id' =>  $request['quizid'],
+                    'correctAnswers' => (int)$request['correctAnswers'],
+                    'passed' => $request['passed'],
+                ]);
+
+                app('App\Http\Controllers\BadgeController')->checkBadges();
+
+            }
+        } else{
             QuizresultsUser::updateOrCreate(
-            [
-                'user_id' => Auth::user()->id,
-                'quiz_id' => $request['quizid'],
-            ],
-            [
-                'user_id' => Auth::user()->id,
-                'quiz_id' =>  $request['quizid'],
-                'correctAnswers' => $request['correctAnswers'],
-                'passed' => $request['passed'],
-            ]);
+                [
+                    'user_id' => Auth::user()->id,
+                    'quiz_id' => $request['quizid'],
+                ],
+                [
+                    'user_id' => Auth::user()->id,
+                    'quiz_id' =>  $request['quizid'],
+                    'correctAnswers' => (int)$request['correctAnswers'],
+                    'passed' => $request['passed'],
+                ]);
 
-            app('App\Http\Controllers\BadgeController')->checkBadges();
-
+                app('App\Http\Controllers\BadgeController')->checkBadges();
         }
+
 
         return response()->json(['´success' => 'Ergebnis erfolgreich gespeichert.'], 200);
 
