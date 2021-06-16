@@ -23,29 +23,29 @@
             </div>
         </div>
 
-        <div v-for="(karteikarte, index) in karteikartenset.karteikarten" :key="karteikarte.id" class="">
-            <div v-if="karteikarte.showFront" class="fragen-container fragen-container--big front space-after">
-                <span @click="spinCard(index)" class="material-icons-outlined turn-around">autorenew</span>
-                <div class="karteikarte-inhalt">
-                    {{karteikarte.frontside}}
+        <div v-for="(karteikarte, index) in karteikartenset.karteikarten" :key="karteikarte.id" class="card-container">
+            <div class="card" :class="{flipped: karteikarte.showBack, visible: karteikarte.showFront || karteikarte.showBack}">
+                <div v-if="karteikarte.showFront" class="fragen-container fragen-container--big front space-after">
+                    <span @click="spinCard(index)" class="material-icons-outlined turn-around">autorenew</span>
+                    <div class="karteikarte-inhalt">
+                        {{karteikarte.frontside}}
+                    </div>
+                    <div v-if="!lastCard && count === index" @click="nextCard(index)" class="überspringen">
+                        Überspringen
+                    </div>
+                    <div v-else class="überspringen"></div>
                 </div>
-                <div v-if="!lastCard && count === index" @click="nextCard(index)" class="überspringen">
-                    Überspringen
+                <div v-if="karteikarte.showBack" class="fragen-container fragen-container--big back space-after">
+                    <span @click="spinCard(index)" class="material-icons-outlined turn-around">autorenew</span>
+                    <div class="karteikarte-inhalt">
+                        {{karteikarte.backside}}
+                    </div>
+                    <div v-if="!lastCard && count === index" @click="nextCard(index)" class="überspringen">
+                        Überspringen
+                    </div>
+                    <div v-else class="überspringen"></div>
                 </div>
-                <div v-else class="überspringen"></div>
-
             </div>
-            <div v-if="karteikarte.showBack" class="fragen-container fragen-container--big back space-after">
-                <span @click="spinCard(index)" class="material-icons-outlined turn-around">autorenew</span>
-                <div class="karteikarte-inhalt">
-                    {{karteikarte.backside}}
-                </div>
-                <div v-if="!lastCard && count === index" @click="nextCard(index)" class="überspringen">
-                    Überspringen
-                </div>
-                <div v-else class="überspringen"></div>
-            </div>
-
             <button :style="{ backgroundImage: 'radial-gradient(white, white), radial-gradient(circle at top left,white, '+ category.color + ')' }" v-if="!lastCard && count === index" @click="nextCard(index)" class="mdc-button mdc-button--raised button--big button--small abstand-weg button--border schmaler space-after">
                 <p class="button-text no-margin">Nächste Karte</p>
                 <span class="material-icons-outlined">chevron_right</span>
@@ -56,7 +56,7 @@
                 <p class="button-text no-margin">Eine Karte zurück</p>
             </button>
         </div>
-
+        <br><br><br><br><br><br><br>
         <!-- Nav -->
         <Nav />
     </div>
@@ -169,11 +169,43 @@
         margin: 10px;
     }
 
+    .card{
+        transition: transform 1s;
+        transform-style: preserve-3d;
+        cursor: pointer;
+        position: relative;
+        background: none;
+        display: none;
+    }
+
+    .card-container{
+        margin-top: -30px;
+    }
+
+    .visible{
+        display: block;
+    }
+
+    .card.flipped {
+        transform: rotateY(360deg);
+    }
+
     .fragen-container--big{
         height: 350px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+    }
+
+    .card__face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        line-height: 260px;
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        font-size: 40px;
     }
 
     .turn-around{
