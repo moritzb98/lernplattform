@@ -13,30 +13,57 @@
         </div>
 
         <!-- Content -->
-        <h4>Willkommen zurück, {{username}}!</h4>
-        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3>Willkommen zurück, {{username}}!</h3>
+                </div>
+            </div>
+            <hr>
+            <div class="row mt-4">
+                <div class="col-12">
+                <h4>Dein Profil</h4>
+                </div>
+                <div class="col-6 mt-3">
+                    <small>Alter</small>
+                    <h5>{{age}}</h5>
+                </div>
+                <hr>
+                <div class="col-6 mt-3">
+                    <small>Tätigkeit</small>
+                    <h5>{{job}}</h5>
+                </div>
+                <hr>
+                <div class="col-12 mt-2">
+                    <small>E-Mail Adresse</small>
+                    <h5>{{email}}</h5>
+                </div>
+            </div>
+            <hr>
+            <div class="row mt-5" >
+                <div class="col-12 justify-content-center text-center mb-2">
+                    <router-link class="linkText" to="/spa/Impressum">
+                        Impressum
+                    </router-link>
+                </div>
+                <div class="col-12 justify-content-center text-center mb-4">
+                    <router-link class="linkText" to="/spa/Datenschutz">
+                        Datenschutz
+                    </router-link>
+                </div>
+            </div>
+        </div>
+
+        <!-- <br>
         <h5 class="dashboard-headline">Wissen testen</h5>
         <router-link to="/spa/quizkategorie">
             <span class="material-icons neumorph buttons_dashboard">quiz</span>
         </router-link>
         <router-link to="/spa/Karteikartensets">
             <span class="material-icons neumorph buttons_dashboard spacing-left">description</span>
-        </router-link>
+        </router-link> -->
 
         <p class="logout" @click="logout">Logout</p>
-
-        <div class="row">
-            <div class="col-12 justify-content-center text-center mb-2">
-                <router-link class="linkText" to="/spa/Impressum">
-                    Impressum
-                </router-link>
-            </div>
-            <div class="col-12 justify-content-center text-center mb-4">
-                <router-link class="linkText" to="/spa/Datenschutz">
-                    Datenschutz
-                </router-link>
-            </div>
-        </div>
 
         <!-- Nav -->
         <Nav />
@@ -47,13 +74,20 @@
     export default {
         data() {
             return {
-                title: "Dashboard",
+                title: "Dein Profil",
                 username: "",
+                age: "",
+                email: "",
+                job: "",
             }
         },
         mounted(){
             axios.get('/api/authuser').then(response => {
                     this.username = response.data.name;
+                    this.job = response.data.job;
+                    this.email = response.data.email;
+                    this.age = response.data.age;
+                    console.log(response)
                 });
         },
         methods:{

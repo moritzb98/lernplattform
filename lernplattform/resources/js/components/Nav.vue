@@ -6,7 +6,7 @@
             <div class="nav">
                 <router-link to="/spa/Dashboard">
                     <div class="nav_item neumorph">
-                        <span class="material-icons">dashboard</span>
+                        <span class="material-icons">person</span>
                     </div>
                 </router-link>
                 <router-link to="/spa/Lernmaterial">
@@ -35,7 +35,12 @@
                     <div class="nav_drop-up neumorph">
                         <div class="container">
                             <div class="row">
-                                <div class="col col-6 col-sm-4 mt-3">
+                                <div class="col mt-1">
+                                    <h5>Erstelle...</h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col col-6 col-sm-4 mt-2">
                                     <router-link to="/spa/Sammlung-erstellen">
                                         <div class="card neumorph" v-on:click="showNavDropUp">
                                             <span class="material-icons-outlined card_img">source</span>
