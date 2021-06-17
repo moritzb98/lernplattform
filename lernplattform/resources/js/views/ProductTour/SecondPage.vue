@@ -36,10 +36,10 @@
 
             <div class="producttour-card_wrapper">
                 <div style="background-color: white;
-        min-height: 100px;">
+        min-height: 100px; height: 115px;">
                     <h3>Deine Lernmaterialien</h3>
                     <p>Hier sind deine Uploads, Karteikartensets und du kannst Sammlungen für Themen anlegen.</p>
-                    <span style="position: absolute; left: 91px; bottom: -15px; width: 30px; height: 30px; background-color: white; transform: rotate(45deg);"></span>
+                    <span style="position: absolute; left: 25%; bottom: -15px; width: 30px; height: 30px; background-color: white; transform: rotate(45deg);"></span>
                 </div>
             </div>
             <div class="nav">
@@ -89,16 +89,10 @@
         max-width: 450px;
         width: 90%;
         background-color: white;
-        top: -160px;
+        top: -180px !important;
         padding: 25px 15px;
         margin: 0 5%;
-
-        /* display: flex;
-        justify-content: center;
-        position: absolute;
-        display: relative;
-        width: 100%;
-        /* bottom: 110px; */
+        height: 165px;
     }
     .producttour-card {
         width: 90%;
@@ -106,11 +100,12 @@
         margin: 0 auto;
         background-color: white;
         padding: 20px;
+        height: 165px;
     }
     .progress-indicator_wrapper {
         width: 90%;
         position: absolute;
-        bottom: 285px;
+        bottom: 300px !important;
     }
     .progress-indicator {
         width: 80%;

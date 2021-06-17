@@ -132,7 +132,7 @@ import Multiselect from 'vue-multiselect'
                             this.handleLogin();
                         }).catch(error => {
                             if(error.response.status === 422){
-                                Vue.$toast.error('Die angebenen Daten sind falsch, du brauchst eine valide E-Mail und ein Passwort mit mind. 8 Zeichen, einem Sonderzeichen, einer Zahl und einem Großbuchstaben.', {});
+                                Vue.$toast.error('Die angebenen Daten sind falsch, du brauchst eine valide E-Mail und ein Passwort mit mind. 8 Zeichen, einer Zahl, einem Klein- und Großbuchstaben.', {});
                             }else{
                                 Vue.$toast.error('Bei der Registrierung ist etwas schiefgegangen', {});
                             }
