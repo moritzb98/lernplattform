@@ -39,7 +39,7 @@
         min-height: 100px; height: 115px;">
                     <h3>Deine Lernmaterialien</h3>
                     <p>Hier sind deine Uploads, Karteikartensets und du kannst Sammlungen für Themen anlegen.</p>
-                    <span style="position: absolute; left: 91px; bottom: -15px; width: 30px; height: 30px; background-color: white; transform: rotate(45deg);"></span>
+                    <span style="position: absolute; left: 25%; bottom: -15px; width: 30px; height: 30px; background-color: white; transform: rotate(45deg);"></span>
                 </div>
             </div>
             <div class="nav">

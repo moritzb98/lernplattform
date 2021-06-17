@@ -40,7 +40,7 @@
         min-height: 100px;">
                     <h3>Erstellen</h3>
                     <p>Hier kannst du Dateien hochladen und Sammlungen, Lerngruppen, Quiz und Karteikartensets erstellen.</p>
-                    <span style="position: absolute; left: 153px; bottom: -15px; width: 30px; height: 30px; background-color: white; transform: rotate(45deg);"></span>
+                    <span style="position: absolute; left: 48%; bottom: -15px; width: 30px; height: 30px; background-color: white; transform: rotate(45deg);"></span>
 
                 </div>
             </div>

@@ -43,7 +43,7 @@
         min-height: 100px;">
                     <h3>Quiz</h3>
                     <p>Hier kannst du dein Wissen in einem Quiz testen. Deine Erfahrung wird mit einem Badge belohnt!</p>
-                    <span style="position: absolute; left: 289px; bottom: -15px; width: 30px; height: 30px; background-color: white; transform: rotate(45deg);"></span>
+                    <span style="position: absolute; right: 21px; bottom: -15px; width: 30px; height: 30px; background-color: white; transform: rotate(45deg);"></span>
 
                 </div>
             </div>
