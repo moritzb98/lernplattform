@@ -111,16 +111,10 @@
         max-width: 450px;
         width: 90%;
         background-color: white;
-        top: -160px;
+        top: -180px !important;
         padding: 25px 15px;
         margin: 0 5%;
-
-        /* display: flex;
-        justify-content: center;
-        position: absolute;
-        display: relative;
-        width: 100%;
-        /* bottom: 110px; */
+        height: 165px;
     }
     .producttour-card {
         width: 90%;
@@ -132,7 +126,7 @@
     .progress-indicator_wrapper {
         width: 90%;
         position: absolute;
-        bottom: 285px;
+        bottom: 300px !important;
     }
     .progress-indicator {
         width: 80%;

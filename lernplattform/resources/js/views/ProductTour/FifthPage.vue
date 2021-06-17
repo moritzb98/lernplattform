@@ -43,7 +43,7 @@
         min-height: 100px;">
                     <h3>Quiz</h3>
                     <p>Hier kannst du dein Wissen in einem Quiz testen. Deine Erfahrung wird mit einem Badge belohnt!</p>
-                    <span style="position: absolute; left: 229px; bottom: -15px; width: 30px; height: 30px; background-color: white; transform: rotate(45deg);"></span>
+                    <span style="position: absolute; left: 289px; bottom: -15px; width: 30px; height: 30px; background-color: white; transform: rotate(45deg);"></span>
 
                 </div>
             </div>
@@ -87,22 +87,29 @@
     .arrow-btn span {
         font-size: 40px;
     }
-    .producttour-card {
-        /* width: 100%; */
-        /* min-height: 200px; */
-        background-color: white;
-        /* box-shadow: 0px 5px 12px #999; */
-        padding: 20px;
+
+    .producttour-card_wrapper {
         position: absolute;
-        display: relative;
-        bottom: 100px;
-        z-index: 10000;
-        margin-right: 15px;
+        display: flex;
+        max-width: 450px;
+        width: 90%;
+        background-color: white;
+        top: -180px !important;
+        padding: 25px 15px;
+        margin: 0 5%;
+        height: 165px;
+    }
+    .producttour-card {
+        width: 90%;
+        max-width: 450px;
+        margin: 0 auto;
+        background-color: white;
+        padding: 20px;
     }
     .progress-indicator_wrapper {
         width: 90%;
         position: absolute;
-        bottom: 285px;
+        bottom: 300px !important;
     }
     .progress-indicator {
         width: 80%;
