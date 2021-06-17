@@ -102,7 +102,7 @@
         },
         methods: {
             updateRoom(){
-                this.axios.post('/api/room/update/', this.room)
+                this.axios.post('/api/room/update', this.room)
                     .then(response => {
                         console.log(response);
                         Vue.$toast.success('Lerngruppe erfolgreich bearbeitet.', {});

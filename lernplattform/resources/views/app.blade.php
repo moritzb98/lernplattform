@@ -8,7 +8,7 @@
 
     <title>Skillwire</title>
 
-    <link href="{{ mix('/css/app.css', true) }}" type="text/css" rel="stylesheet" />
+    <link href="{{ mix('/css/app.css') }}" type="text/css" rel="stylesheet" />
     <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
@@ -34,7 +34,7 @@
             });
         }
     </script>
-    <script src="{{ mix('js/app.js', true) }}" type="module"></script>
+    <script src="{{ mix('js/app.js') }}" type="module"></script>
 </body>
 
 </html>
