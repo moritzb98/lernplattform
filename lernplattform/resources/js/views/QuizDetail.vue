@@ -5,7 +5,7 @@
             <div class="header header--back">
                 <span class="material-icons neumorph header_back" @click="$router.go(-1)">arrow_back</span>
                 <div class="header_title">
-                    Quizdetail
+                    Quiz
                 </div>
             </div>
         </div>
