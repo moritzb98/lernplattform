@@ -189,7 +189,7 @@
         position: relative;
         width: 100%;
         height: 70vh;
-        padding: 15px 10px 40px 10px;
+        padding: 15px 10px 140px 10px;
         justify-content: center;
         align-items: center;
         margin-top: -40px;
