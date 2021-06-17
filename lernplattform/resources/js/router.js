@@ -9,7 +9,7 @@ import container from './views/Chat/container.vue';
 //
 // Page Views Nav
 //
-import Dashboard from './views/Dashboard.vue'
+import Profil from './views/Profil.vue'
 import Lernmaterial from './views/Lernmaterial.vue'
 
 import CreateKurs from './views/CreateKurs.vue'
@@ -78,7 +78,6 @@ export const routes = [
             requiresAuth: true
           }
     },
-    // Geändert in Drop-Up Nav?
     {
         name: 'Login',
         path: '/spa/Login',
@@ -90,9 +89,9 @@ export const routes = [
         component: Registrierung
     },
     {
-        name: 'Dashboard',
-        path: '/spa/Dashboard',
-        component: Dashboard,
+        name: 'Profil',
+        path: '/spa/Profil',
+        component: Profil,
         meta: {
             requiresAuth: true
           }
