@@ -44,7 +44,9 @@
                             <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
                                 <input required v-model="quiz.name" type="text" class="mdc-text-field__input text-field__input--modified " placeholder="" aria-label="Label">
                             </label>
+                            <small>Dein Quiz muss mindestens 3 Fragen haben.</small>
                             <hr class="trennungslinie-dick">
+
 
                             <div class="fragen-container" v-for="question in quiz.questions" :key="question.index">
                                 <h5>{{question.index}}.Frage</h5>
