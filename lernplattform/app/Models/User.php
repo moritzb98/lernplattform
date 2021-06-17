@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Searchable\Searchable;
-use Spatie\Searchable\Searchresult;
+use Spatie\Searchable\SearchResult;
 
 class User extends Authenticatable implements Searchable
 {

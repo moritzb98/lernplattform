@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Searchable\Searchable;
-use Spatie\Searchable\Searchresult;
+use Spatie\Searchable\SearchResult;
 
 class Room extends Model implements Searchable
 {

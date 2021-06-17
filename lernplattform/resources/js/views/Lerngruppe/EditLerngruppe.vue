@@ -12,14 +12,15 @@
 
 
         <div class="background-container">
-            <div class="background">
-                <span class="material-icons-outlined icon-für-oberen-Bereich">people</span>
-                <div class="überschrift-oberer-Bereich">Bearbeiten</div>
+            <div :style="{ backgroundColor: colorBackground }"  class="background">
+                <span :style="{ color: colorIcon }" class="material-icons-outlined icon-für-oberen-Bereich">{{icon}}</span>
+                <div :style="{ color: color }" class="überschrift-oberer-Bereich">Bearbeiten</div>
             </div>
-            <div class="fabriges-rechteck">
+
+            <div :style="{ backgroundColor: colorBackground }"  class="fabriges-rechteck">
                 <div class="weißes-rechteck"></div>
             </div>
-        </div>
+        </div>>
 
         <!-- Content -->
         <div class="content_wrapper">
@@ -73,21 +74,29 @@
         data() {
             return {
                 room: {
-                    //notwendig?
                     id: '',
                     roomName: '',
                     roomMaxPersons: null,
                 },
+                color: '',
+                colorBackground: '',
+                colorIcon: '',
+                icon: '',
                 title: "Lerngruppe"
             }
         },
         mounted() {
             this.room.id = this.$route.params.id;
 
-            this.axios.post('/api/room/get/' + this.room.id)
+            this.axios.get('/api/room/get/' + this.room.id)
             .then(response => (
-                this.room.roomName = response.data.name,
-                this.room.roomMaxPersons = response.data.maxPersons
+                this.room.roomName = response.data.data[0].data.name,
+                this.room.roomMaxPersons = response.data.data[0].data.maxPersons,
+                this.color = response.data.data[0].data.category_id.color,
+                this.colorBackground = this.hexToRgbA(response.data.data[0].data.category_id.color, 0.4),
+                this.colorIcon = this.hexToRgbA(response.data.data[0].data.category_id.color, 0.5),
+                this.icon = response.data.data[0].data.category_id.icon,
+                console.log(response.data.data[0].data)
             ))
 
         },
@@ -99,6 +108,18 @@
                         Vue.$toast.success('Lerngruppe erfolgreich bearbeitet.', {});
                         this.$router.push({ path: '/spa/Lerngruppen/Eigene' });
                     });
+            },
+            hexToRgbA(hex, opacity){
+                var c;
+                if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+                    c= hex.substring(1).split('');
+                    if(c.length== 3){
+                        c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+                    }
+                    c= '0x'+c.join('');
+                    return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+','+opacity+')';
+                }
+                throw new Error('Bad Hex');
             },
         }
     }

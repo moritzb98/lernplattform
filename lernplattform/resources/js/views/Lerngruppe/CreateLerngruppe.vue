@@ -12,12 +12,12 @@
 
 
         <div class="background-container">
-            <div class="background">
-                <span class="material-icons-outlined icon-für-oberen-Bereich">people</span>
-                <div class="überschrift-oberer-Bereich" >Lerngruppe</div>
+            <div class="background bunt">
+                <span class="material-icons-outlined icon-für-oberen-Bereich icon-weiß">people</span>
+                <div class="überschrift-oberer-Bereich text-weiß">Lerngruppe</div>
             </div>
 
-            <div class="fabriges-rechteck">
+            <div class="fabriges-rechteck bunt">
                 <div class="weißes-rechteck"></div>
             </div>
         </div>

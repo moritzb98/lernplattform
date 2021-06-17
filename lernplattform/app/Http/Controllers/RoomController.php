@@ -45,7 +45,6 @@ class RoomController extends Controller
 
     public function update(Request $request) {
         $userid = Auth::user()->id;
-
         $room = Room::where('id', $request['id'])->first();
 
         if($room['user_id'] == $userid){
@@ -53,6 +52,9 @@ class RoomController extends Controller
                 'name' => $request['roomName'],
                 'maxPersons' => $request['roomMaxPersons'],
                 'user_id' => $userid
+            ]);
+            ChatRoom::where('room_id', $request['id'])->update([
+                'name' => $request['roomName'],
             ]);
             return response()->json(['´success' => 'Raum erfolgreich bearbeitet.'], 200);
         }
