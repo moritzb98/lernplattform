@@ -47,7 +47,7 @@
                 </select>
                 <div class="headline-text-field">Alter</div>
                 <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
-                    <input v-model="registerData.age" class="mdc-text-field__input text-field__input--modified" type="text" placeholder="" aria-label="Label">
+                    <input v-model="registerData.age" class="mdc-text-field__input text-field__input--modified" type="number" min="0" max="150" placeholder="" aria-label="Label">
                 </label>
 
                 <div class="mdc-form-field">
