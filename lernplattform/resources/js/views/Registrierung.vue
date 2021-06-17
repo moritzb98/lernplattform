@@ -58,7 +58,7 @@
                             <div class="mdc-radio__inner-circle mdc-radio__inner-circle-modified"></div>
                         </div>
                     </div>
-                    <label class="radio-button-label" for="radio-1">Ich erkläre mich mit dem Datenschutz und den <router-link class="linkText" to="/spa/Datenschutz">AGB</router-link> von Skillwire einverstanden.</label>
+                    <label class="radio-button-label" for="radio-1">Ich erkläre mich mit dem <router-link class="linkText" to="/spa/Datenschutz">Datenschutz</router-link> von Skillwire einverstanden.</label>
                 </div>
 
                 <button class="mdc-button mdc-button--raised button--big" type="submit">

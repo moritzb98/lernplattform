@@ -5,7 +5,7 @@
                 <div class="col">
                     <!-- <h2>Willkommen</h2><h4>- zu deiner persönlichen Produkttour!</h4> -->
                     <h1>Produkttour</h1>
-                    Du kannst sie auch<router-link to="/spa/dashboard"> überspringen</router-link>.
+                    Du kannst sie auch<router-link to="/spa/Profil"> überspringen</router-link>.
                 </div>
             </div>
         </div>

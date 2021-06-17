@@ -6,7 +6,7 @@
                     <h2>Willkommen bei Skillwire!</h2>
                     <h4>Ich führe dich nun durch unser Produkt.</h4>
                     <!-- <h1>Produkttour</h1> -->
-                    Du kannst auch<router-link to="/spa/dashboard"> überspringen</router-link>.
+                    Du kannst auch<router-link to="/spa/Profil"> überspringen</router-link>.
                 </div>
             </div>
             <hr>

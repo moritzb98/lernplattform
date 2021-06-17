@@ -45,7 +45,7 @@
                 axios.get('/sanctum/csrf-cookie').then(response => {
                     axios.post('/login', this.formData).then(response => {
                         console.log(response);
-                        this.$router.push({ path: '/spa/Dashboard' })
+                        this.$router.push({ path: '/spa/Profil' })
                     }).catch(err => {
                         Vue.$toast.error('Die eingegebenen Daten stimmen nicht.', {});
                     });

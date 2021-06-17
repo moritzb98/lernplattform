@@ -4,7 +4,7 @@
         <!-- Active Klasse Navigationspunkt filled <-> outline  -->
         <div class="nav_wrapper">
             <div class="nav">
-                <router-link to="/spa/Dashboard">
+                <router-link to="/spa/Profil">
                     <div class="nav_item neumorph">
                         <span class="material-icons">person</span>
                     </div>

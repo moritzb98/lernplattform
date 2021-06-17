@@ -5,7 +5,7 @@
                 <div class="col">
                     <!-- <h2>Willkommen</h2><h4>- zu deiner persönlichen Produkttour!</h4> -->
                     <h1>Produkttour</h1>
-                    Du kannst sie auch<router-link to="/spa/dashboard"> überspringen</router-link>.
+                    Du kannst sie auch<router-link to="/spa/Profil"> überspringen</router-link>.
                 </div>
             </div>
         </div>
@@ -17,7 +17,7 @@
             <p style="display: inline; position: absolute; transform: translate(5px, 10px);">zurück</p>
         </div>
 
-        <router-link to="/spa/dashboard">
+        <router-link to="/spa/Profil">
             <div class="arrow-btn" style="right: 10px;">
                 <p style="display: inline; position: absolute; left: -88px; top: 10px;">Fertig!</p>
                 <span class="material-icons arrow-btn" style="right: 10px;">arrow_forward</span>
