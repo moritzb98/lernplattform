@@ -309,7 +309,7 @@
 
     .nav_drop-up_wrapper {
         position: absolute;
-        bottom: -440px;
+        bottom: -500px;
         left: 0;
         width: 100%;
         display: flex;
