@@ -40,7 +40,7 @@
         min-height: 100px;">
                     <h3>Lerngruppen</h3>
                     <p>Hier findest du Gruppen zu Themen aller Art.</p>
-                    <span style="position: absolute; left: 222px; bottom: -15px; width: 30px; height: 30px; background-color: white; transform: rotate(45deg);"></span>
+                    <span style="position: absolute; right: 25%; bottom: -15px; width: 30px; height: 30px; background-color: white; transform: rotate(45deg);"></span>
 
                 </div>
             </div>
