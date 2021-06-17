@@ -16,10 +16,10 @@
         <div class="background-container">
             <div class="background bunt">
                 <span class="material-icons-outlined icon-für-oberen-Bereich icon-weiß">description</span>
-                <div class="überschrift-oberer-Bereich text-weiß" >Quiz erstellen</div>
+                <div class="überschrift-oberer-Bereich text-weiß">Quiz erstellen</div>
             </div>
 
-            <div class="fabriges-rechteck text-weiß">
+            <div class="fabriges-rechteck text-weiß bunt">
                 <div class="weißes-rechteck"></div>
             </div>
         </div>
@@ -44,7 +44,9 @@
                             <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
                                 <input required v-model="quiz.name" type="text" class="mdc-text-field__input text-field__input--modified " placeholder="" aria-label="Label">
                             </label>
+                            <small>Dein Quiz muss mindestens 3 Fragen haben.</small>
                             <hr class="trennungslinie-dick">
+
 
                             <div class="fragen-container" v-for="question in quiz.questions" :key="question.index">
                                 <h5>{{question.index}}.Frage</h5>

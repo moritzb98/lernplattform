@@ -12,12 +12,12 @@
 
         <!-- Content -->
         <div class="background-container">
-            <div class="background">
-                <span class="material-icons-outlined icon-für-oberen-Bereich">military_tech</span>
-                <div class="überschrift-oberer-Bereich" >Auszeichnungen</div>
+            <div class="background bunt">
+                <span class="material-icons-outlined icon-für-oberen-Bereich icon-weiß">military_tech</span>
+                <div class="überschrift-oberer-Bereich text-weiß" >Auszeichnungen</div>
             </div>
 
-            <div class="fabriges-rechteck">
+            <div class="fabriges-rechteck bunt">
                 <div class="weißes-rechteck"></div>
             </div>
         </div>

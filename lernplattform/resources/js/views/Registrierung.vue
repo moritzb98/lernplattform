@@ -47,7 +47,7 @@
                 </select>
                 <div class="headline-text-field">Alter</div>
                 <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">
-                    <input v-model="registerData.age" class="mdc-text-field__input text-field__input--modified" type="text" placeholder="" aria-label="Label">
+                    <input v-model="registerData.age" class="mdc-text-field__input text-field__input--modified" type="number" min="0" max="150" placeholder="" aria-label="Label">
                 </label>
 
                 <div class="mdc-form-field">
@@ -58,7 +58,7 @@
                             <div class="mdc-radio__inner-circle mdc-radio__inner-circle-modified"></div>
                         </div>
                     </div>
-                    <label class="radio-button-label" for="radio-1">Ich erkläre mich mit dem Datenschutz und den <router-link class="linkText" to="/spa/Datenschutz">AGB</router-link> von Skillwire einverstanden.</label>
+                    <label class="radio-button-label" for="radio-1">Ich erkläre mich mit dem <router-link class="linkText" to="/spa/Datenschutz">Datenschutz</router-link> von Skillwire einverstanden.</label>
                 </div>
 
                 <button class="mdc-button mdc-button--raised button--big" type="submit">

@@ -3,8 +3,8 @@
     "short_name": "Skillwire",
     "icons": [
         {
-              "src": "/recipe-book.png",
-              "sizes": "192x192",
+              "src": "/skillwire-icon.png",
+              "sizes": "512x512",
               "type": "image/png"
             }
     ],
@@ -13,7 +13,7 @@
     "display": "standalone",
     "background_color": "#fff",
     "theme_color": "#000",
-    "description": "Deine App zum lernen",
+    "description": "Connect. Share. Learn.",
     "dir": "ltr",
     "lang": "en-US"
 }
