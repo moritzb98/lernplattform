@@ -23,7 +23,7 @@
                 <div class="headline-text-field">Passwort* <span @click="showInfo = !showInfo" class="material-icons-outlined info">info</span></div>
                 <transition name="fade">
                     <div v-if="showInfo" class="info-container">
-                        <span  class="headline-text-field info-text">Das Passwort muss mindestens 8 Zeichen, ein Großbuchstaben, eine Zahl und ein Sodnerzeichen besitzen.</span>
+                        <span  class="headline-text-field info-text">Das Passwort muss mindestens 8 Zeichen, ein Großbuchstaben und eine Zahl besitzen.</span>
                     </div>
                 </transition>
                 <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label text-field--modified">

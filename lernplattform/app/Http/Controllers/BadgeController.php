@@ -17,76 +17,68 @@ class BadgeController extends Controller
         $results = QuizresultsUser::where('user_id', Auth::user()->id)->where('passed', true)->get();
         $numberOfPassedQuiz = count($results);
 
-        switch ($numberOfPassedQuiz) {
-            case ($numberOfPassedQuiz >= 85):
-                // Experte
-                BadgesUser::updateOrCreate(
-                    [
-                        'user_id' => Auth::user()->id,
-                        'badge_id' => 5,
-                    ],
-                    [
-                        'user_id' => Auth::user()->id,
-                        'badge_id' => 5,
-                        'achieved' => true,
-                    ]);
-                break;
-            case ($numberOfPassedQuiz < 85 && $numberOfPassedQuiz >= 50):
-                // Kenner
-                BadgesUser::updateOrCreate(
-                    [
-                        'user_id' => Auth::user()->id,
-                        'badge_id' => 4,
-                    ],
-                    [
-                        'user_id' => Auth::user()->id,
-                        'badge_id' => 4,
-                        'achieved' => true,
-                    ]);
-                break;
-            case ($numberOfPassedQuiz < 50 && $numberOfPassedQuiz >= 25):
-                // Fortgeschritten
-                BadgesUser::updateOrCreate(
-                    [
-                        'user_id' => Auth::user()->id,
-                        'badge_id' => 3,
-                    ],
-                    [
-                        'user_id' => Auth::user()->id,
-                        'badge_id' => 3,
-                        'achieved' => true,
-                    ]);
-                break;
-            case ($numberOfPassedQuiz < 25 && $numberOfPassedQuiz >= 15):
-                // Beginner
-                BadgesUser::updateOrCreate(
-                    [
-                        'user_id' => Auth::user()->id,
-                        'badge_id' => 2,
-                    ],
-                    [
-                        'user_id' => Auth::user()->id,
-                        'badge_id' => 2,
-                        'achieved' => true,
-                    ]);
-                break;
-            case ($numberOfPassedQuiz < 15 && $numberOfPassedQuiz >= 5):
-                // Amateur
-                BadgesUser::updateOrCreate(
-                    [
-                        'user_id' => Auth::user()->id,
-                        'badge_id' => 1,
-                    ],
-                    [
-                        'user_id' => Auth::user()->id,
-                        'badge_id' => 1,
-                        'achieved' => true,
-                    ]);
-                break;
-            default:
-                // Kein Badge
-                break;
-          };
+        if($numberOfPassedQuiz >= 85){
+            // Experte
+            BadgesUser::updateOrCreate(
+                [
+                    'user_id' => Auth::user()->id,
+                    'badge_id' => 5,
+                ],
+                [
+                    'user_id' => Auth::user()->id,
+                    'badge_id' => 5,
+                    'achieved' => true,
+                ]);
+        }else if($numberOfPassedQuiz < 85 && $numberOfPassedQuiz >= 50){
+            // Kenner
+            BadgesUser::updateOrCreate(
+                [
+                    'user_id' => Auth::user()->id,
+                    'badge_id' => 4,
+                ],
+                [
+                    'user_id' => Auth::user()->id,
+                    'badge_id' => 4,
+                    'achieved' => true,
+                ]);
+        }else if($numberOfPassedQuiz < 50 && $numberOfPassedQuiz >= 25){
+            // Fortgeschritten
+            BadgesUser::updateOrCreate(
+                [
+                    'user_id' => Auth::user()->id,
+                    'badge_id' => 3,
+                ],
+                [
+                    'user_id' => Auth::user()->id,
+                    'badge_id' => 3,
+                    'achieved' => true,
+                ]);
+        }else if($numberOfPassedQuiz < 25 && $numberOfPassedQuiz >= 15){
+            // Beginner
+            BadgesUser::updateOrCreate(
+                [
+                    'user_id' => Auth::user()->id,
+                    'badge_id' => 2,
+                ],
+                [
+                    'user_id' => Auth::user()->id,
+                    'badge_id' => 2,
+                    'achieved' => true,
+                ]);
+        }else if($numberOfPassedQuiz < 15 && $numberOfPassedQuiz >= 5){
+            // Amateur
+            BadgesUser::updateOrCreate(
+                [
+                    'user_id' => Auth::user()->id,
+                    'badge_id' => 1,
+                ],
+                [
+                    'user_id' => Auth::user()->id,
+                    'badge_id' => 1,
+                    'achieved' => true,
+                ]);
+        }
+
     }
 
     public function getResults(){
