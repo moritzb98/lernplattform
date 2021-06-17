@@ -14,8 +14,8 @@
 
         <!-- Content  -->
         <p>Die angegebene Seite gibt es leider nicht.</p>
-        <router-link to="/spa/Dashboard">
-            <span>Zum Dashboard</span>
+        <router-link to="/spa/Profil">
+            <span>Zum Profil</span>
         </router-link>
 
         <!-- Nav -->

@@ -4,7 +4,7 @@
         <!-- Active Klasse Navigationspunkt filled <-> outline  -->
         <div class="nav_wrapper">
             <div class="nav">
-                <router-link to="/spa/Dashboard">
+                <router-link to="/spa/Profil">
                     <div class="nav_item neumorph">
                         <span class="material-icons">person</span>
                     </div>
@@ -43,7 +43,7 @@
                                 <div class="col col-6 col-sm-4 mt-2">
                                     <router-link to="/spa/Sammlung-erstellen">
                                         <div class="card neumorph" v-on:click="showNavDropUp">
-                                            <span class="material-icons-outlined card_img">source</span>
+                                            <span class="material-icons card_img">source</span>
                                             <div class="card_title">Sammlung</div>
                                         </div>
                                     </router-link>
@@ -51,7 +51,7 @@
                                 <div class="col col-6 col-sm-4 mt-3">
                                     <router-link to="/spa/Karteikartenset/Erstellen">
                                         <div class="card neumorph" v-on:click="showNavDropUp">
-                                            <span class="material-icons-outlined card_img">description</span>
+                                            <span class="material-icons card_img">description</span>
                                             <div class="card_title">Karteikarten</div>
                                         </div>
                                     </router-link>
@@ -59,7 +59,7 @@
                                 <div class="col col-6 col-sm-4 mt-3">
                                     <router-link to="/spa/upload">
                                         <div class="card neumorph" v-on:click="showNavDropUp">
-                                            <span class="material-icons-outlined card_img">perm_media</span>
+                                            <span class="material-icons card_img">perm_media</span>
                                             <div class="card_title">Medien</div>
                                         </div>
                                     </router-link>
@@ -75,7 +75,7 @@
                                 <div class="col col-6 col-sm-4 mt-3">
                                     <router-link to="/spa/Quiz-erstellen">
                                         <div class="card neumorph" v-on:click="showNavDropUp">
-                                            <span class="material-icons-outlined card_img">quiz</span>
+                                            <span class="material-icons card_img">quiz</span>
                                             <div class="card_title">Quiz</div>
                                         </div>
                                     </router-link>
@@ -83,7 +83,7 @@
                                 <div class="col col-6 col-sm-4 mt-3">
                                     <router-link to="/spa/Lerngruppen/Erstellen">
                                         <div class="card neumorph" v-on:click="showNavDropUp">
-                                            <span class="material-icons-outlined card_img">people</span>
+                                            <span class="material-icons card_img">people</span>
                                             <div class="card_title">Lerngruppe</div>
                                         </div>
                                     </router-link>

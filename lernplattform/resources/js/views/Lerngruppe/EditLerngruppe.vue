@@ -20,7 +20,7 @@
             <div :style="{ backgroundColor: colorBackground }"  class="fabriges-rechteck">
                 <div class="weißes-rechteck"></div>
             </div>
-        </div>>
+        </div>
 
         <!-- Content -->
         <div class="content_wrapper">

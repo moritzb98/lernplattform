@@ -11,13 +11,13 @@
         </div>
 
         <div class="background-container">
-            <div class="background">
-                <span class="material-icons-outlined icon-für-oberen-Bereich">biotech</span>
-                <div class="überschrift-oberer-Bereich" >
+            <div class="background bunt">
+                <span class="material-icons-outlined icon-für-oberen-Bereich icon-weiß">biotech</span>
+                <div class="überschrift-oberer-Bereich text-weiß" >
                     {{title}}
                 </div>
             </div>
-            <div class="fabriges-rechteck">
+            <div class="fabriges-rechteck bunt">
                 <div class="weißes-rechteck"></div>
             </div>
         </div>
