@@ -5,7 +5,11 @@
                 <div class="col">
                     <!-- <h2>Willkommen</h2><h4>- zu deiner persönlichen Produkttour!</h4> -->
                     <h1>Produkttour</h1>
+<<<<<<< Updated upstream
                     Du kannst sie auch<router-link to="/spa/Profil"> überspringen</router-link>.
+=======
+                    Du kannst sie auch<router-link to="/spa/dashboard"> überspringen</router-link>.
+>>>>>>> Stashed changes
                 </div>
             </div>
         </div>
@@ -17,7 +21,11 @@
             <p style="display: inline; position: absolute; transform: translate(5px, 10px);">zurück</p>
         </div>
 
+<<<<<<< Updated upstream
         <router-link to="/spa/Profil">
+=======
+        <router-link to="/spa/dashboard">
+>>>>>>> Stashed changes
             <div class="arrow-btn" style="right: 10px;">
                 <p style="display: inline; position: absolute; left: -88px; top: 10px;">Fertig!</p>
                 <span class="material-icons arrow-btn" style="right: 10px;">arrow_forward</span>
@@ -43,7 +51,11 @@
         min-height: 100px;">
                     <h3>Quiz</h3>
                     <p>Hier kannst du dein Wissen in einem Quiz testen. Deine Erfahrung wird mit einem Badge belohnt!</p>
+<<<<<<< Updated upstream
                     <span style="position: absolute; right: 21px; bottom: -15px; width: 30px; height: 30px; background-color: white; transform: rotate(45deg);"></span>
+=======
+                    <span style="position: absolute; left: 229px; bottom: -15px; width: 30px; height: 30px; background-color: white; transform: rotate(45deg);"></span>
+>>>>>>> Stashed changes
 
                 </div>
             </div>
@@ -87,6 +99,7 @@
     .arrow-btn span {
         font-size: 40px;
     }
+<<<<<<< Updated upstream
 
     .producttour-card_wrapper {
         position: absolute;
@@ -105,11 +118,28 @@
         margin: 0 auto;
         background-color: white;
         padding: 20px;
+=======
+    .producttour-card {
+        /* width: 100%; */
+        /* min-height: 200px; */
+        background-color: white;
+        /* box-shadow: 0px 5px 12px #999; */
+        padding: 20px;
+        position: absolute;
+        display: relative;
+        bottom: 100px;
+        z-index: 10000;
+        margin-right: 15px;
+>>>>>>> Stashed changes
     }
     .progress-indicator_wrapper {
         width: 90%;
         position: absolute;
+<<<<<<< Updated upstream
         bottom: 300px !important;
+=======
+        bottom: 285px;
+>>>>>>> Stashed changes
     }
     .progress-indicator {
         width: 80%;

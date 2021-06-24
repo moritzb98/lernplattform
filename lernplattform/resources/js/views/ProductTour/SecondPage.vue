@@ -5,7 +5,11 @@
                 <div class="col">
                     <!-- <h2>Willkommen</h2><h4>- zu deiner persönlichen Produkttour!</h4> -->
                     <h1>Produkttour</h1>
+<<<<<<< Updated upstream
                     Du kannst sie auch<router-link to="/spa/Profil"> überspringen</router-link>.
+=======
+                    Du kannst sie auch<router-link to="/spa/dashboard"> überspringen</router-link>.
+>>>>>>> Stashed changes
                 </div>
             </div>
         </div>
@@ -36,10 +40,17 @@
 
             <div class="producttour-card_wrapper">
                 <div style="background-color: white;
+<<<<<<< Updated upstream
         min-height: 100px; height: 115px;">
                     <h3>Deine Lernmaterialien</h3>
                     <p>Hier sind deine Uploads, Karteikartensets und du kannst Sammlungen für Themen anlegen.</p>
                     <span style="position: absolute; left: 25%; bottom: -15px; width: 30px; height: 30px; background-color: white; transform: rotate(45deg);"></span>
+=======
+        min-height: 100px;">
+                    <h3>Deine Lernmaterialien</h3>
+                    <p>Hier sind deine Uploads, Karteikartensets und du kannst Sammlungen für Themen anlegen.</p>
+                    <span style="position: absolute; left: 91px; bottom: -15px; width: 30px; height: 30px; background-color: white; transform: rotate(45deg);"></span>
+>>>>>>> Stashed changes
                 </div>
             </div>
             <div class="nav">
@@ -89,10 +100,23 @@
         max-width: 450px;
         width: 90%;
         background-color: white;
+<<<<<<< Updated upstream
         top: -180px !important;
         padding: 25px 15px;
         margin: 0 5%;
         height: 165px;
+=======
+        top: -160px;
+        padding: 25px 15px;
+        margin: 0 5%;
+
+        /* display: flex;
+        justify-content: center;
+        position: absolute;
+        display: relative;
+        width: 100%;
+        /* bottom: 110px; */
+>>>>>>> Stashed changes
     }
     .producttour-card {
         width: 90%;
@@ -100,12 +124,19 @@
         margin: 0 auto;
         background-color: white;
         padding: 20px;
+<<<<<<< Updated upstream
         height: 165px;
+=======
+>>>>>>> Stashed changes
     }
     .progress-indicator_wrapper {
         width: 90%;
         position: absolute;
+<<<<<<< Updated upstream
         bottom: 300px !important;
+=======
+        bottom: 285px;
+>>>>>>> Stashed changes
     }
     .progress-indicator {
         width: 80%;

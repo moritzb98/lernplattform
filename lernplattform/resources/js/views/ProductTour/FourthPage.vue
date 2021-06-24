@@ -5,7 +5,11 @@
                 <div class="col">
                     <!-- <h2>Willkommen</h2><h4>- zu deiner persönlichen Produkttour!</h4> -->
                     <h1>Produkttour</h1>
+<<<<<<< Updated upstream
                     Du kannst sie auch<router-link to="/spa/Profil"> überspringen</router-link>.
+=======
+                    Du kannst sie auch<router-link to="/spa/dashboard"> überspringen</router-link>.
+>>>>>>> Stashed changes
                 </div>
             </div>
         </div>
@@ -40,7 +44,11 @@
         min-height: 100px;">
                     <h3>Lerngruppen</h3>
                     <p>Hier findest du Gruppen zu Themen aller Art.</p>
+<<<<<<< Updated upstream
                     <span style="position: absolute; right: 25%; bottom: -15px; width: 30px; height: 30px; background-color: white; transform: rotate(45deg);"></span>
+=======
+                    <span style="position: absolute; left: 229px; bottom: -15px; width: 30px; height: 30px; background-color: white; transform: rotate(45deg);"></span>
+>>>>>>> Stashed changes
 
                 </div>
             </div>
@@ -77,7 +85,10 @@
 </template>
 
 <style>
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     .arrow-btn {
         position: fixed;
         top: 47%;
@@ -85,6 +96,7 @@
     .arrow-btn span {
         font-size: 40px;
     }
+<<<<<<< Updated upstream
 
     .producttour-card_wrapper {
         position: absolute;
@@ -103,11 +115,28 @@
         margin: 0 auto;
         background-color: white;
         padding: 20px;
+=======
+    .producttour-card {
+        /* width: 100%; */
+        /* min-height: 200px; */
+        background-color: white;
+        /* box-shadow: 0px 5px 12px #999; */
+        padding: 20px;
+        position: absolute;
+        display: relative;
+        bottom: 100px;
+        z-index: 10000;
+        margin-right: 15px;
+>>>>>>> Stashed changes
     }
     .progress-indicator_wrapper {
         width: 90%;
         position: absolute;
+<<<<<<< Updated upstream
         bottom: 300px !important;
+=======
+        bottom: 285px;
+>>>>>>> Stashed changes
     }
     .progress-indicator {
         width: 80%;

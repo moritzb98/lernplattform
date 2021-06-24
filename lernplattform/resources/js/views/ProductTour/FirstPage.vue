@@ -6,7 +6,11 @@
                     <h2>Willkommen bei Skillwire!</h2>
                     <h4>Ich führe dich nun durch unser Produkt.</h4>
                     <!-- <h1>Produkttour</h1> -->
+<<<<<<< Updated upstream
                     Du kannst auch<router-link to="/spa/Profil"> überspringen</router-link>.
+=======
+                    Du kannst auch<router-link to="/spa/dashboard"> überspringen</router-link>.
+>>>>>>> Stashed changes
                 </div>
             </div>
             <hr>
@@ -111,10 +115,23 @@
         max-width: 450px;
         width: 90%;
         background-color: white;
+<<<<<<< Updated upstream
         top: -180px !important;
         padding: 25px 15px;
         margin: 0 5%;
         height: 165px;
+=======
+        top: -160px;
+        padding: 25px 15px;
+        margin: 0 5%;
+
+        /* display: flex;
+        justify-content: center;
+        position: absolute;
+        display: relative;
+        width: 100%;
+        /* bottom: 110px; */
+>>>>>>> Stashed changes
     }
     .producttour-card {
         width: 90%;
@@ -126,7 +143,11 @@
     .progress-indicator_wrapper {
         width: 90%;
         position: absolute;
+<<<<<<< Updated upstream
         bottom: 300px !important;
+=======
+        bottom: 285px;
+>>>>>>> Stashed changes
     }
     .progress-indicator {
         width: 80%;
