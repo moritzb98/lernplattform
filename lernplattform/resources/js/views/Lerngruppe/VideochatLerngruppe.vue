@@ -38,7 +38,7 @@
                 title: "",
             }
         },
-        methods : {
+       /*  methods : {
             activeHandler(event){
                 var e = event.target;
 
@@ -161,7 +161,7 @@
             console.log('Video chat room loading...'),
             this.getAccessToken(),
             this.getRoom()
-        }
+        } */
     }
 </script>
 
